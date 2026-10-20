@@ -1,0 +1,18 @@
+{
+  "name": "Expedição Tabuada: O Grande Atlas",
+  "short_name": "Expedição Tabuada",
+  "description": "Um mundo de histórias para aprender multiplicação",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#081a31",
+  "theme_color": "#102948",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
