@@ -19,6 +19,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Validar JavaScript do jogo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html = Path('index.html').read_text(encoding='utf-8')
+          assert '<script>' in html and '</script>' in html
+          script = html.split('<script>', 1)[1].split('</script>', 1)[0]
+          Path('/tmp/expedicao-tabuada.js').write_text(script, encoding='utf-8')
+          PY
+          node --check /tmp/expedicao-tabuada.js
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
         with:
