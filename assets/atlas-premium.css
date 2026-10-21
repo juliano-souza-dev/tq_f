@@ -1,0 +1,331 @@
+/* ==========================================================================
+   EXPEDIÇÃO TABUADA · ATLAS PREMIUM / JOURNEY V2
+   Uma mesma linguagem de jogo em retrato e no desktop.
+   A arte é protagonista; conteúdo pedagógico e progresso permanecem intactos.
+   ========================================================================== */
+:root{
+  --atlas-ink:#1b204b;
+  --atlas-night:#1e285a;
+  --atlas-gold:#ffdb85;
+  --atlas-paper:#fff0c7;
+  --atlas-peach:#ffca97;
+}
+/* Palco e tipografia */
+body{
+  background:
+    radial-gradient(circle at 50% 2%,#4354a1c9 0%,transparent 33%),
+    radial-gradient(circle at 0 57%,#543b82b8 0%,transparent 49%),
+    linear-gradient(180deg,#1d255b 0,#18244c 38%,#162044 100%);
+}
+.app{max-width:1300px}
+.layout{grid-template-columns:260px minmax(0,1fr);gap:26px}
+.main{min-width:0}
+.main>.hero,.main>.atlas-banner,.main>.journey-section-head,.main>.journey-worldmap{
+  width:100%;max-width:780px;margin-left:auto;margin-right:auto;
+}
+.main>.hero{
+  border:3px solid #f3d696;
+  box-shadow:0 9px 0 #665188,0 26px 52px #080d3080,inset 0 0 0 3px #fff5cd47;
+}
+.hero.hero-illustrated h1{max-width:17ch;line-height:1.08;letter-spacing:-.04em}
+.hero.hero-illustrated p{max-width:40ch}
+.hero.hero-illustrated .hero-buttons{max-width:460px}
+.hero.hero-illustrated .hero-sparkle{font-size:22px;opacity:.7;pointer-events:none}
+.atlas-banner{
+  border:2px solid #fadca5a1;
+  border-radius:19px;
+  background:linear-gradient(120deg,#65509b,#344e88);
+  box-shadow:0 7px 0 #1c2756,0 15px 35px #080e314f;
+}
+.atlas-stars>span{border-color:#bda6e167;border-radius:10px}
+.atlas-stars>span:has(+span){background:#292f64}
+/* Desktop também deve parecer passaporte de exploradora e não painel de métricas */
+.aside .profile-panel{
+  padding:20px;
+  border:3px solid #d8b8f7a1;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 72% 16%,#ffffff44,transparent 25%),
+    linear-gradient(155deg,#6f50a6,#364f91 54%,#233b71 100%);
+  box-shadow:0 9px 0 #111b47,0 19px 36px #060d2a85;
+}
+.profile-panel::after{opacity:.65;top:-9px;right:8px}
+.profile-panel .profile-top .overline{color:#fff2c6;font-size:.74rem}
+.profile-panel .profile-avatar{
+  width:58px;height:58px;border:3px solid #fff5db;
+  border-radius:18px;position:relative;z-index:1;
+  box-shadow:0 4px 0 #865e86;
+}
+.profile-panel .tq-side-pet{
+  width:165px;height:175px;margin:-14px auto -5px;position:relative;z-index:1;
+  filter:drop-shadow(0 15px 10px #171a5d9e);
+}
+.profile-panel .tq-equipped{
+  color:#fff1bc;font-size:.77rem;position:relative;z-index:2;margin-bottom:12px;
+}
+.profile-panel .profile-name{font-size:1.76rem;color:#fff9e8}
+.profile-panel .profile-sub{color:#f1e7ff}
+.profile-panel .separator{background:#ecdef13b}
+.profile-panel .statline{font-size:.8rem;gap:8px}
+.profile-panel .statline b{white-space:nowrap;color:#ffedc1}
+.profile-panel .treasure>div{
+  border:1px solid #ffdfae69;background:#202d62b8;border-radius:15px;
+}
+.profile-panel .treasure>div b{color:#fff4c7}
+.aside .settings{
+  border-radius:24px;border:1px solid #afaee183;
+  background:linear-gradient(#2b3970,#24325c);
+  box-shadow:0 7px 0 #121b44;
+}
+.aside .tq-sidebar-actions .btn{font-size:.85rem}
+/* Navegação de exploração */
+.journey-section-head{align-items:center;margin-top:31px}
+.journey-section-head .eyebrow{
+  color:#ffe19b;letter-spacing:.11em;font-weight:900
+}
+.journey-section-head h2{
+  font-size:clamp(1.65rem,3vw,2.25rem);
+  color:#fff2cf;letter-spacing:-.025em;line-height:1.06
+}
+.journey-section-head p{color:#d7def5;font-size:.88rem;line-height:1.45}
+.journey-section-head>.chip{flex-shrink:0;color:#ffeed1;background:#37375e;border-color:#fbe4aa66}
+.worldmap.journey-worldmap{
+  overflow:visible;
+  background:
+    radial-gradient(ellipse at 46% -2%,#5969ab91,transparent 40%),
+    radial-gradient(circle at 0% 60%,#3b4e8c5c,transparent 50%),
+    linear-gradient(180deg,#293965,#1e2a55 64%,#273760);
+  border:2px solid #a5a4e292;border-radius:32px;
+  padding:23px 21px 27px;
+  box-shadow:0 10px 0 #121e43,0 24px 48px #080e3180,inset 0 2px #ffffff36;
+}
+.worldmap.journey-worldmap::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.36;border-radius:inherit;
+  background-image:radial-gradient(#f3e9da 1.1px,transparent 1.1px);
+  background-size:27px 27px;
+}
+.journey-map-heading{
+  position:relative;z-index:1;display:flex;align-items:center;gap:13px;
+  border-radius:22px;padding:16px 15px;margin:1px 0 22px;
+  background:linear-gradient(110deg,#fae4b2,#f1cba8);
+  color:#4b3a64;border:2px solid #fff6d3;
+  box-shadow:0 6px 0 #131e4d,0 12px 28px #080d3175;
+}
+.journey-map-emblem{
+  width:51px;height:51px;flex-shrink:0;display:grid;place-items:center;
+  background:linear-gradient(150deg,#f4bc55,#e88e65);border:3px solid #fff9db;
+  border-radius:16px;color:#fff8dd;text-shadow:0 2px #a65b5c;
+  font-size:2.1rem;box-shadow:0 4px 0 #c88773;
+}
+.journey-map-heading>div{flex:1;min-width:0}
+.journey-map-heading strong{
+  display:block;font-size:clamp(.98rem,2.5vw,1.25rem);font-weight:950;line-height:1.16;
+}
+.journey-map-heading small{display:block;color:#726184;font-size:.76rem;margin-top:4px}
+.journey-map-total{
+  font-weight:950;font-size:1.07rem;white-space:nowrap;padding:8px;
+  border-radius:13px;background:#fff6d7;color:#584473;
+}
+/* A trilha não é um grid. Cada destino é uma cena completa. */
+.region-grid.journey-route{
+  display:flex;flex-direction:column;align-items:center;
+  gap:26px;position:relative;padding:2px 7px 9px 44px;
+}
+.region-grid.journey-route::before{
+  content:"";position:absolute;z-index:0;
+  top:20px;bottom:16px;left:21px;width:5px;
+  border:0;border-radius:999px;
+  background:repeating-linear-gradient(180deg,#f6d99b 0 13px,transparent 13px 26px);
+  filter:drop-shadow(0 0 7px #ffda9b88);
+}
+.journey-stop{
+  position:relative;width:100%;max-width:640px;z-index:1;
+}
+.journey-stop:nth-child(even){transform:translateX(10px)}
+.journey-stop:nth-child(odd){transform:translateX(-2px)}
+.journey-stop::before{
+  content:"✦";position:absolute;z-index:2;top:calc(50% - 17px);left:-38px;
+  width:33px;height:33px;border-radius:50%;display:grid;place-items:center;
+  border:3px solid #fff1b6;box-shadow:0 0 0 5px #252f62,0 0 15px #ffe29e9c;
+  background:linear-gradient(135deg,#ae8ace,#704a9d);color:#fff5db;
+  font-size:.94rem;
+}
+.journey-stop.current::before{content:"★";background:linear-gradient(#fff0a5,#f6a35d);color:#8b4c72;animation:journeyBeacon 2.6s ease-in-out infinite}
+.journey-stop.complete::before{content:"✓";background:linear-gradient(#b4f1b3,#6ebd9b);color:#24545c}
+.region-card.journey-card{
+  /* Important: override old card CSS, including mobile !important styles. */
+  display:block;position:relative;width:100%;max-width:100%;
+  height:clamp(238px,25vw,302px);min-height:0!important;
+  margin:0;padding:0!important;text-align:left;
+  overflow:hidden!important;box-sizing:border-box;
+  border-radius:27px!important;
+  border:4px solid #f4dbae!important;
+  background:#4a6894!important;color:#fff!important;
+  box-shadow:0 8px 0 #151f4d,0 15px 26px #040a2480!important;
+  isolation:isolate;filter:none;opacity:1;
+  outline:0!important;cursor:pointer;transform:none!important;
+  transition:box-shadow .2s,border-color .2s,filter .2s;
+}
+.region-card.journey-card.current{
+  border-color:#fff19f!important;
+  box-shadow:0 0 0 3px #efba62,0 9px 0 #89518a,0 18px 33px #0b0a3999!important;
+}
+.region-card.journey-card.complete{
+  border-color:#b9eab0!important;box-shadow:0 8px 0 #326962,0 17px 28px #060c2b99!important;
+}
+.region-card.journey-card.locked{
+  cursor:not-allowed;filter:none!important;opacity:1!important;
+  border-color:#a9a8d2!important;background:#394776!important;
+}
+.region-card.journey-card.locked::after{display:none!important}
+.region-card.journey-card::before{display:none!important}
+.journey-art{position:absolute;inset:0;display:block;z-index:0}
+.region-card.journey-card .journey-art .tq-scene,
+.region-card.journey-card .journey-art .game-artwork{
+  display:block;width:100%;height:100%;max-width:none;max-height:none;
+  object-fit:cover;object-position:center 39%;filter:none;
+  transform:none;transition:transform .45s ease;
+}
+.region-card.journey-card:hover:not(:disabled) .journey-art>*{transform:scale(1.035)}
+.region-card.journey-card.locked .journey-art>*{
+  filter:saturate(.68) brightness(.88)!important;
+  opacity:1!important;
+}
+.journey-mist{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,#0a144c5c 0%,transparent 24%,#0d183e10 34%,#0d163d80 61%,#0e1533f5 100%);
+}
+.locked .journey-mist{
+  background:linear-gradient(180deg,#18244b70 0%,#28356344 31%,#2627498c 66%,#161b3be9 100%);
+}
+.complete .journey-mist{
+  background:linear-gradient(180deg,#092a2977 0%,transparent 30%,#0a2f3d5e 65%,#101e3ae9 100%);
+}
+.journey-topline{
+  position:absolute;top:13px;left:13px;right:13px;z-index:2;
+  display:flex;gap:6px;align-items:center;justify-content:space-between;
+}
+.journey-chapter,.journey-state{
+  color:#fff8e5;line-height:1.1;
+  border-radius:999px;padding:8px 12px;font-size:.7rem;font-weight:950;
+  letter-spacing:.07em;box-shadow:0 3px 12px #050a2966;
+  backdrop-filter:blur(8px);
+}
+.journey-chapter{background:#253568c9;border:1px solid #ffffff93}
+.journey-state{background:#61468cc9;border:1px solid #e6c6fcad}
+.current .journey-state{background:#ffdd90;color:#583c69;border-color:#fff9cb}
+.complete .journey-state{background:#ceefc0;color:#275b55;border-color:#f3ffde}
+.journey-bottom{
+  position:absolute;left:19px;right:19px;bottom:15px;z-index:2;
+  display:flex;flex-direction:column;align-items:start;gap:4px;
+}
+.journey-detail{
+  color:#ffe7a6;font-size:.71rem;font-weight:950;letter-spacing:.13em;
+  text-shadow:0 1px 3px #050d2e;
+}
+.journey-name{
+  color:#fff7dd;font-size:clamp(1.36rem,3.2vw,2.1rem);
+  line-height:1.02;letter-spacing:-.02em;font-weight:1000;
+  text-shadow:0 3px 4px #0c113a,0 0 14px #05071f8c;
+}
+.journey-description{
+  color:#e8eaf7;font-size:clamp(.78rem,1.5vw,.94rem);
+  line-height:1.3;max-width:42ch;text-shadow:0 2px 5px #04091c;
+}
+.journey-footer{
+  display:flex;width:100%;gap:10px;align-items:center;
+  justify-content:space-between;margin-top:4px;
+}
+.journey-status{font-size:.73rem;color:#f8e4bc;font-weight:850}
+.journey-action{
+  display:grid;place-items:center;height:37px;min-width:37px;
+  border-radius:14px;border:2px solid #fff3ce;
+  background:linear-gradient(145deg,#ffe19e,#ffa871);
+  box-shadow:0 3px 0 #a66b65;color:#673b5b;
+  font-size:1.35rem;font-weight:1000;line-height:1;
+}
+.locked .journey-action{background:#7d7dac;color:#fff5da;border-color:#b6b8d8}
+.complete .journey-action{background:#aeefc1;color:#27695c;border-color:#e3ffeb}
+.journey-dots{display:flex;gap:5px;margin-top:2px;align-self:start}
+.journey-dots>span{width:21px;height:6px;background:#f7f5e365;border:1px solid #fef5d3a3;border-radius:999px}
+.journey-dots>span.lit{background:#ffe091;border-color:#fffac9;box-shadow:0 0 7px #ffe9a8}
+.region-card.journey-card:focus-visible{outline:4px solid #ffffff!important;outline-offset:4px!important}
+.journey-end{
+  position:relative;margin:15px auto 0;width:max-content;max-width:100%;
+  font-weight:900;letter-spacing:.05em;color:#fae1a9;font-size:1rem;
+  text-align:center;padding:9px 17px;border-radius:999px;
+  border:1px solid #f8d69a71;background:#4239708c;
+}
+.journey-end span{margin:0 8px}
+.journey-worldmap .path-note{
+  text-align:center;max-width:440px;margin:19px auto 0;
+  line-height:1.5;color:#d9ddf2;font-size:.81rem;
+}
+.journey-worldmap .path-note .dot{display:none}
+@keyframes journeyBeacon{
+  0%,100%{box-shadow:0 0 0 5px #252f62,0 0 12px #fce1a69c}
+  50%{box-shadow:0 0 0 5px #252f62,0 0 24px 7px #f9d3799c}
+}
+/* Mapa estreito: todos os destinos tornam-se cartões cênicos altos */
+@media(max-width:900px){
+  .app{max-width:720px}
+  .main>.hero,.main>.atlas-banner,.main>.journey-section-head,.main>.journey-worldmap{max-width:none}
+  .hero.hero-illustrated{min-height:clamp(340px,47svh,430px)}
+  .journey-section-head{gap:7px;margin:23px 0 15px}
+  .journey-section-head h2{font-size:clamp(1.45rem,6.4vw,2rem)}
+  .journey-section-head p{font-size:.8rem}
+  .journey-section-head>.chip{font-size:.68rem;padding:7px 8px}
+  .worldmap.journey-worldmap{
+    padding:15px 13px 20px!important;
+    border:2px solid #9996d4a1;border-radius:26px;
+  }
+  .journey-map-heading{padding:10px 9px;margin-bottom:19px;gap:9px;border-radius:18px}
+  .journey-map-emblem{width:43px;height:43px;font-size:1.7rem;border-radius:12px}
+  .journey-map-heading strong{font-size:.92rem}
+  .journey-map-heading small{font-size:.7rem}
+  .journey-map-total{font-size:.85rem;padding:6px}
+  .region-grid.journey-route{
+    display:flex!important;
+    padding:0 2px 9px 31px!important;
+    gap:24px!important;align-items:center;
+  }
+  .region-grid.journey-route::before{left:10px!important;top:30px!important;bottom:30px}
+  .journey-stop:nth-child(even),.journey-stop:nth-child(odd){transform:none}
+  .journey-stop:nth-child(even){transform:translateX(2px)}
+  .journey-stop::before{
+    left:-33px;top:calc(50% - 15px);width:29px;height:29px;font-size:.78rem;
+    box-shadow:0 0 0 3px #26355d,0 0 10px #ffe29e8c;
+  }
+  .region-card.journey-card{
+    height:clamp(228px,53vw,298px);
+    min-height:228px!important;border-radius:24px!important;
+    border-width:3px!important;
+  }
+  .journey-topline{top:11px;left:10px;right:10px}
+  .journey-chapter,.journey-state{
+    padding:7px 9px;font-size:.64rem;letter-spacing:.04em;
+  }
+  .journey-bottom{left:15px;right:15px;bottom:12px;gap:3px}
+  .journey-name{font-size:clamp(1.3rem,5.8vw,1.84rem)}
+  .journey-description{font-size:.78rem;max-width:37ch;line-height:1.3}
+  .journey-detail{font-size:.67rem}
+  .journey-status{font-size:.7rem}
+  .journey-action{width:35px;height:35px}
+  .journey-dots>span{width:17px}
+  .journey-worldmap .path-note{margin-top:16px;font-size:.76rem}
+}
+@media(max-width:390px){
+  .worldmap.journey-worldmap{padding:12px 9px 18px!important}
+  .journey-map-emblem{width:39px;height:39px}
+  .journey-map-total{font-size:.75rem}
+  .journey-map-heading small{font-size:.66rem}
+  .journey-chapter,.journey-state{font-size:.61rem;padding:7px 7px}
+  .region-card.journey-card{height:230px;min-height:230px!important}
+  .journey-name{font-size:1.36rem}
+  .journey-description{font-size:.74rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .journey-stop.current::before{animation:none}
+  .region-card.journey-card .journey-art>*{transition:none}
+}
+body.calm .journey-stop.current::before{animation:none}
