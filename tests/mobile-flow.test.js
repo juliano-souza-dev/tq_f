@@ -42,8 +42,10 @@ screenIncludes('Cinco fases, uma estrela');
 screenIncludes('mobile-bottom-nav');
 click('home');
 screenIncludes('Mapa do mundo');
-const sceneCount=(root.innerHTML.match(/assets\/atlas-scenes.svg#scene-\d+/g)||[]).length;
-assert.ok(sceneCount>=12,'Mapa precisa ter as 12 artes regionais');
+const regionArtCount=(root.innerHTML.match(/assets\/atlas-scenes.svg#scene-\d+/g)||[]).length + (root.innerHTML.match(/assets\/artwork\/(beach|forest|candy)\.webp/g)||[]).length;
+assert.ok(regionArtCount>=12,'Mapa precisa ter as 12 artes regionais');
+for(const file of ['beach','forest','candy','nilo','chest','splash'])assert.ok(fs.existsSync(require('node:path').join(__dirname,'../assets/artwork',file+'.webp')),file+' ausente');
+screenIncludes('hero-illustrated');
 screenIncludes('mobile-hud');
 // Abas + navegação inferior sem perder o jogador
 click('openCollection');
