@@ -166,9 +166,7 @@ test('moda e moldura conquistadas são equipadas, salvas e continuam ao reabrir'
  const reopened=createApp({root,storage:mem,random:()=>.2});
  reopened.act('openFeature',{feature:'Moda'});
  assert.match(root.innerHTML,/Pirata/);
- reopened.act('wardrobeTab',{tab:'frames'});
- assert.match(root.innerHTML,/Floral/);
- reopened.act('wardrobeTab',{tab:'fashion'});
+ assert.doesNotMatch(root.innerHTML,/Minhas molduras/);
  reopened.act('equipFashion',{skin:'pirate'});
  reopened.act('equipFrame',{frame:'frame_floral'});
  assert.equal(reopened.getPlayer().avatar.skinId,'pirate');
