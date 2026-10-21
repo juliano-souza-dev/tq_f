@@ -169,6 +169,22 @@ function renderCollection(){
  ${section('shop','🧥 Boutique da aventura','Adquira roupas e acessórios usando apenas moedas e cristais ganhos no jogo. Não é possível comprar respostas.',shopCards)}
  <p class="footnote">Você já encontrou ${stickers} de 12 figurinhas. Os tesouros pertencem ao perfil de ${escapeHTML(p.name)}.</p>`);
 }
+function renderProfileScreen(){
+ const p=active();
+ if (!p){screen='profiles';render();return;}
+ Rewards.ensure(p);
+ const facts=Object.values(p.factStats||{});
+ const correct=facts.reduce((n,x)=>n+(Number(x.correct)||0),0);
+ const errors=facts.reduce((n,x)=>n+(Number(x.errors)||0),0);
+ const friends=p.pets.length+1;
+ const mastery=Math.floor(p.done.length/5);
+ const r=unlockedRegion(p);
+ shell(`<section class="tq-profile-cover"><span class="tq-profile-picture" aria-hidden="true">${escapeHTML(p.avatar)}</span><div><span class="eyebrow">Minha aventureira</span><h1>${escapeHTML(p.name)}</h1><p>${worldDone(p)?'Guardiã do Grande Atlas!':'Exploradora da região '+(r+1)+' de 12'}</p></div></section>
+ <div class="tq-profile-stats" aria-label="Resumo de aprendizagem"><div class="tq-profile-stat"><strong>${p.done.length}/60</strong><span>Fases dominadas</span></div><div class="tq-profile-stat"><strong>${mastery}/12</strong><span>Estrelas conquistadas</span></div><div class="tq-profile-stat"><strong>${correct}</strong><span>Respostas corretas registradas</span></div><div class="tq-profile-stat"><strong>${errors}</strong><span>Tentativas para revisar</span></div></div>
+ <section class="panel" style="padding:18px"><span class="eyebrow">Minha coleção</span><h2 style="margin:7px 0 12px">Tesouros que já conquistei</h2><div class="rewardstrip"><span>🐾 ${friends} amigos</span><span>🎁 ${p.chests.length} baús</span><span>✨ ${p.relics.length} relíquias</span><span>🪙 ${p.gold} moedas</span></div><p>Você avança aprendendo cada multiplicação, no seu ritmo. Nenhuma recompensa substitui o desafio.</p><div class="meter" aria-label="${progress(p)} por cento do mundo concluído"><span style="width:${progress(p)}%"></span></div></section>
+ <div class="tq-profile-actions"><button class="btn btn-primary" data-action="home">🗺️ Continuar aventura</button><button class="btn btn-secondary" data-action="openCollection">🎒 Ver coleção</button><button class="btn btn-ghost" data-action="switchProfile">👥 Trocar jogador</button><button class="btn btn-ghost" data-action="toggleCalm" aria-pressed="${db.calm}">${db.calm?'🌿 Modo calmo ligado':'🌿 Reduzir animações'}</button><button class="btn btn-ghost" data-action="toggleSound" aria-pressed="${db.sound}">${db.sound?'🔊 Som ligado':'🔇 Som desligado'}</button></div>
+ <p class="footnote">🔐 O progresso de ${escapeHTML(p.name)} fica salvo somente neste navegador. Ele não sincroniza automaticamente entre aparelhos.</p>`);
+}
 function render(){window.scrollTo(0,0);document.body.classList.toggle('is-quiz',screen==='quiz');document.body.classList.toggle('is-prologue',screen==='prologue');if(screen==='profiles'){renderProfiles();return;}if(!active()){screen='profiles';renderProfiles();return;}if(screen==='prologue')renderPrologue();else if(screen==='world')renderWorld();else if(screen==='region')renderRegion();else if(screen==='book')renderBook();else if(screen==='collection')renderCollection();else if(screen==='profile')renderProfileScreen();else if(screen==='mission')renderMissionStory();else if(screen==='quiz')renderQuiz();else if(screen==='success')renderSuccess();else if(screen==='victory')renderVictory();else{screen='world';renderWorld();}}
 function navigate(action,data={}){const p=active();switch(action){
 case 'home':quiz=null;mission=null;screen=p?'world':'profiles';break;
