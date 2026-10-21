@@ -6,38 +6,44 @@ varying vec2 v_uv;
 uniform float u_time;
 uniform vec2 u_resolution;
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
-vec3 starfield(vec2 uv,float density,float drift,float radius,vec3 tint){
- float ratio=u_resolution.x/max(1.0,u_resolution.y);
- vec2 p=uv*vec2(density*ratio,density);
- p+=vec2(u_time*drift,-u_time*drift*.26);
- vec2 cell=floor(p),f=fract(p);
- vec3 light=vec3(0.);
+vec3 stars(vec2 uv,float density,float speed,float radius,vec3 tint){
+ float aspect=u_resolution.x/max(1.,u_resolution.y);
+ vec2 p=uv*vec2(density*aspect,density)+vec2(u_time*speed,-u_time*speed*.3);
+ vec2 cell=floor(p),f=fract(p);vec3 light=vec3(0.);
  for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++){
-  vec2 offset=vec2(float(x),float(y));
-  vec2 key=cell+offset;
-  float seed=hash(key);
-  vec2 star=offset+vec2(.15+.7*seed,.15+.7*hash(key+13.5));
-  float d=length(f-star);
-  float halo=1.0-smoothstep(radius*.17,radius,d);
-  float pulse=.62+.38*sin(u_time*(1.2+seed*2.0)+seed*28.0);
-  float spike=max(0.,1.0-abs(f.x-star.x)*65.)*max(0.,1.0-abs(f.y-star.y)*10.);
-  float core=1.0-smoothstep(0.0,radius*.23,d);
-  vec3 color=mix(tint,vec3(1.0),seed*.65);
-  light+=color*(halo*.62+core*.42+spike*halo*.09)*pulse;
+  vec2 key=cell+vec2(float(x),float(y));float seed=hash(key);
+  vec2 center=vec2(float(x),float(y))+vec2(.15+.7*seed,.15+.7*hash(key+12.7));
+  vec2 delta=f-center;float d=length(delta);
+  float halo=(1.-smoothstep(0.,radius*2.5,d))*.50;
+  float core=1.-smoothstep(radius*.05,radius*.38,d);
+  float twinkle=.68+.32*sin(u_time*(1.8+seed*2.0)+seed*35.);
+  float cross=(exp(-abs(delta.x)*42.)*exp(-abs(delta.y)*5.)+exp(-abs(delta.y)*42.)*exp(-abs(delta.x)*5.))*.35;
+  float prominent=step(.82,seed);
+  vec3 color=mix(tint,vec3(1.),seed*.6);
+  light+=color*(halo+core*.75+cross*prominent)*twinkle;
  }
- return clamp(light,vec3(0.),vec3(1.));
+ return min(light,vec3(1.));
+}
+float meteor(vec2 uv,float seed){
+ float cycle=mod(u_time*.23+seed,1.);
+ float active=smoothstep(.03,.10,cycle)*(1.-smoothstep(.28,.36,cycle));
+ vec2 head=vec2(1.24-cycle*3.,.92-cycle*.95)+vec2(seed*.14,-seed*.22);
+ vec2 d=uv-head;
+ float distanceLine=abs(d.y-d.x*.32);
+ float behind=smoothstep(-.36,-.02,d.x)*(1.-smoothstep(0.,.025,d.x));
+ return active*exp(-distanceLine*115.)*behind*.92;
 }
 void main(){
  vec2 uv=v_uv;
- vec2 p=uv-.5;
- float nebula=sin(uv.x*6.5+u_time*.12)*sin(uv.y*7.3-u_time*.09);
- float haze=smoothstep(.0,.8,nebula)*.055;
- vec3 distant=starfield(uv,22.0,.009,.105,vec3(.58,.74,1.0));
- vec3 middle=starfield(uv,13.0,.021,.115,vec3(.82,.65,1.0));
- vec3 near=starfield(uv,7.0,.043,.095,vec3(1.0,.93,.79));
- vec3 rgb=clamp(distant*.65+middle*.86+near+vec3(.32,.13,.65)*haze,vec3(0.),vec3(1.));
- float alpha=clamp(max(max(rgb.r,rgb.g),rgb.b)*.88+haze,0.,.9);
- gl_FragColor=vec4(rgb,alpha);
+ float n=sin(uv.x*8.+u_time*.16)*sin(uv.y*5.5-u_time*.11);
+ float mist=smoothstep(-.35,.9,n)*.11;
+ vec3 far=stars(uv,23.,.014,.17,vec3(.49,.72,1.));
+ vec3 middle=stars(uv,13.,.033,.22,vec3(.84,.59,1.));
+ vec3 near=stars(uv,7.,.065,.24,vec3(1.,.9,.63));
+ float shooting=max(meteor(uv,.07),meteor(uv,.57));
+ vec3 color=far*.9+middle*1.1+near*1.3+vec3(.46,.19,.85)*mist+shooting*vec3(.95,.94,1.);
+ float opacity=clamp(max(max(color.r,color.g),color.b)*.95+mist*.6,0.,.96);
+ gl_FragColor=vec4(min(color,vec3(1.)),opacity);
 }`;
 function makeShader(gl,type,source){
  const shader=gl.createShader(type);gl.shaderSource(shader,source);gl.compileShader(shader);
