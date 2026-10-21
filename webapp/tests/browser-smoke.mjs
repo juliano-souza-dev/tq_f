@@ -86,6 +86,15 @@ try{
  for(const size of screens){
    const [w,h]=size.split('x').map(Number);
    const {page,ctx}=await setup(w,h);
+   await page.locator('.fashion-shortcut.right').click();
+   assert.equal(await page.locator('.fashion-card').count(),9,'Alana tem nove roupas no catálogo');
+   await page.locator('.fashion-card button[data-skin="pirate"]').click();
+   const owner=await page.evaluate(()=>JSON.parse(localStorage.getItem('tabuadaquest.webapp.v1')).profiles.find(p=>p.name==='Alana'));
+   assert.equal(owner.avatar.skinId,'pirate');
+   assert.equal(owner.coins,9820);
+   await page.screenshot({path:'screenshots/fashion-'+size+'.png',fullPage:true});
+   await page.locator('.wardrobe-view > .main-cta').click();
+   assert.equal(await page.locator('.hero-character').getAttribute('src'),'./assets/optimized/avatar-luna-pirate.webp');
    await page.locator('.play-button').click();
    assert.equal(await page.locator('canvas.home-webgl-fx').count(),0,'Deve destruir canvas após navegar');
    await page.locator('.world-pin[data-world="1"]').click();
