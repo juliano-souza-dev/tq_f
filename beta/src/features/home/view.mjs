@@ -1,16 +1,23 @@
-import {assetUrl,avatarUrl,homeCharacterUrl} from '../../resources/asset-map.mjs';
+import {assetUrl,equippedAvatarUrl,equippedFrameUrl} from '../../resources/asset-map.mjs';
 import {art,escapeHTML} from '../../components/ui.mjs';
 import {masteredCount,level,experienceProgress,chestProgress} from '../../core/progression.mjs';
 export function homeScreen(profile){
  const coin=Number(profile.coins||0),gems=Number(profile.gems||0);
  const chest=chestProgress(profile),mastered=masteredCount(profile),xp=experienceProgress(profile.xp);
  const amount=value=>new Intl.NumberFormat('pt-BR').format(value);
+ const equippedAvatar=equippedAvatarUrl(profile);
+ const equippedFrame=equippedFrameUrl(profile);
  const image=(n,cls='',alt='')=>art(assetUrl('home_new_'+n+'.webp'),{className:cls,alt});
  const feature=(name,action,label)=>`<button class="home-tile" data-slot="${name}" type="button" data-action="${action}" ${action==='openFeature'?'data-feature="'+escapeHTML(label)+'"':''} aria-label="${escapeHTML(label)}">${image(name,'tile-art','')}<span class="sr-only">${escapeHTML(label)}</span></button>`;
  return `<main class="home-view screen-stack">
    <div class="home-header" aria-label="Perfil e recursos da aventureira">
     <button class="hero-identity" type="button" data-action="profiles" aria-label="Trocar de aventureira">
-      ${art(avatarUrl(profile.avatar.id),{className:'hero-mini-avatar',alt:''})}
+      <span class="hero-portrait" aria-hidden="true">
+        <span class="hero-portrait-window">
+          ${art(equippedAvatar,{className:'hero-portrait-face',alt:''})}
+        </span>
+        ${equippedFrame?art(equippedFrame,{className:'hero-portrait-frame',alt:''}):'<span class="hero-portrait-frame-default"></span>'}
+      </span>
       <span class="hero-identity-info"><strong>${escapeHTML(profile.name)}</strong><small class="home-level">NÍVEL ${level(profile.xp)}</small><span class="home-xp-label">${xp} / 100</span></span>
     </button>
     <progress class="home-profile-xp" value="${xp}" max="100" aria-label="Experiência: ${xp} de 100"></progress>
@@ -24,7 +31,7 @@ export function homeScreen(profile){
    <div class="hero-stage">
     <button type="button" data-action="openFeature" data-feature="Fundos" class="fashion-shortcut left" aria-label="Escolher fundo">${image('fundo')}</button>
     <div class="hero-fashion">
-     ${art(homeCharacterUrl(profile.avatar.id),{className:'hero-character',alt:'Aventureira '+profile.name})}
+     ${art(equippedAvatar,{className:'hero-character',alt:'Aventureira '+profile.name})}
     </div>
     <button type="button" data-action="openFeature" data-feature="Moda" class="fashion-shortcut right" aria-label="Mudar roupa">${image('moda')}</button>
    </div>
