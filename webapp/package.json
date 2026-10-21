@@ -1,0 +1,12 @@
+{
+  "name": "@tq/webapp",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Reconstrução modular do Tabuada Quest a partir da fonte APK",
+  "scripts": {
+    "check": "node --check scripts/legacy.js && node --test tests/*.test.mjs",
+    "audit-assets": "node tools/build-asset-inventory.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
