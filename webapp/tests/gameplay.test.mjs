@@ -128,3 +128,20 @@ test('controlador renderiza perfil, home, mapa, quiz e vitória sem depender da 
  assert.match(root.innerHTML,/Floresta da Dupla/);
  app.destroy();
 });
+
+test('moldura e moda seguem o contrato do APK, sem conceder itens não conquistados',()=>{
+ const st=storeForTest();
+ st.updateActive(p=>{p.fashionOwned.push('pirate');p.owned.push('frame_floral');});
+ const root={innerHTML:'',addEventListener(){},removeEventListener(){},contains(){return true}};
+ const memory=storage();
+ const app=createApp({root,storage:memory,random:()=>.31});
+ app.act('selectPlayer',{player:'alana'});app.act('enter');
+ app.act('openFeature',{feature:'Moda'});
+ assert.equal(app.getScreen(),'wardrobe');
+ assert.match(root.innerHTML,/Moda e molduras/);
+ app.act('equipFashion',{skin:'pirate'});
+ assert.equal(app.getPlayer().avatar.skinId,'original','Não pode equipar moda não conquistada');
+ app.act('equipFrame',{frame:'frame_floral'});
+ assert.equal(app.getPlayer().equipped.frame,null,'Não pode equipar moldura não conquistada');
+ app.destroy();
+});
