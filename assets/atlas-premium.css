@@ -329,3 +329,143 @@ body{
   .region-card.journey-card .journey-art>*{transition:none}
 }
 body.calm .journey-stop.current::before{animation:none}
+
+/* ==========================================================================
+   Interior dos capítulos: a mesma arte e sensação de exploração do mapa.
+   ========================================================================== */
+.islandhero.panel{
+  position:relative;isolation:isolate;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+  gap:0;height:clamp(295px,34vw,385px);min-height:295px;
+  padding:24px 26px!important;overflow:hidden;
+  border:3px solid #fae4b6;border-radius:29px;
+  background:#355881;
+  box-shadow:0 9px 0 #433664,0 20px 35px #050b2e94;
+}
+.islandhero.panel>.big-emoji{
+  position:absolute;inset:0;z-index:-2;
+  width:100%;height:100%;min-width:0;max-width:none;margin:0;
+  padding:0;border:0;border-radius:0;box-shadow:none;
+  transform:none;filter:none;overflow:hidden;
+}
+.islandhero.panel .big-emoji>.tq-scene,
+.islandhero.panel .big-emoji>.game-artwork{
+  display:block;width:100%;height:100%;max-height:none;
+  object-fit:cover;object-position:center 44%;
+}
+.islandhero.panel::after{
+  content:"";pointer-events:none;position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,transparent 16%,#1e214b30 42%,#0f163df4 100%);
+}
+.islandhero.panel>div:last-child{
+  position:relative;z-index:2;max-width:560px;
+  padding:0!important;
+}
+.islandhero.panel .eyebrow{
+  display:inline-block;color:#ffe9b0;font-size:.77rem;font-weight:900;
+  text-shadow:0 2px 8px #060a29;
+}
+.islandhero.panel h1{
+  font-size:clamp(2rem,4.2vw,3rem);line-height:1.08;
+  margin:10px 0 9px;color:#fff8e5;
+  text-shadow:0 2px 8px #070b2b,0 0 14px #0b113a;
+}
+.islandhero.panel p{color:#fff1e2;line-height:1.4;text-shadow:0 2px 5px #081133}
+.chapter-story{
+  border:2px solid #f9e9c0!important;border-radius:27px!important;
+  background:linear-gradient(145deg,#fff2d7,#e7d5e9)!important;
+  color:#3d315d;box-shadow:0 8px 0 #3c355f,0 21px 36px #080e348c;
+}
+.chapter-story .chapter-tag{
+  background:#a97acb;color:#fff5e6;border:1px solid #fff0cb;
+}
+.chapter-story>p{color:#544369;font-size:.97rem;line-height:1.61}
+.chapter-story .character-talk{
+  border:2px solid #cab4cf;
+  background:#fff9e8eb;border-radius:20px;
+}
+.chapter-story .character-talk p,.chapter-story .character-talk b{color:#44345b}
+.chapter-story .chapter-outro p{color:#574e67}
+.islandroute{
+  background:linear-gradient(165deg,#344b7d,#222f60)!important;
+  border:2px solid #9da9eb9c;border-radius:27px;box-shadow:0 8px 0 #141f49,0 20px 36px #090d2f75;
+}
+.island{
+  background:linear-gradient(160deg,#eee1ff,#b7caea)!important;
+  color:#3b325c!important;
+  border:3px solid #f2e0ff!important;
+  box-shadow:0 5px 0 #1a234f,0 10px 16px #080a2761;
+}
+.island.current{
+  background:linear-gradient(145deg,#ffeed0,#f7bf94)!important;
+  border-color:#fff5b9!important;
+  box-shadow:0 0 0 3px #f1d67c5c,0 7px 0 #9d6a7d,0 15px 24px #080a2775;
+}
+.island.done{
+  background:linear-gradient(145deg,#c7efd1,#9fd1d1)!important;
+  border-color:#e2ffe2!important;
+}
+.island.locked{
+  opacity:.77!important;
+  filter:saturate(.8);
+}
+.island .circle{
+  border:3px solid #fff8e5!important;
+  background:linear-gradient(155deg,#fff5d3,#e1b9ea)!important;
+  color:#4a356d;
+  box-shadow:0 5px 0 #967da97d;
+}
+.island .island-title{font-size:.93rem;color:#352d55}
+.island .island-detail{color:#5f557d}
+.island .badge-mini{
+  color:#fff4e9;background:#68509a;
+  border:1px solid #ffedbb91;box-shadow:0 3px 0 #3c3460;
+}
+.learning-card{
+  border:2px solid #f6d8ab;
+  border-radius:24px;
+  background:linear-gradient(130deg,#5a4b98,#394a88);
+  box-shadow:0 6px 0 #1a224f;
+}
+.learning-card .btn{min-height:54px}
+.quiz-panel{
+  border:3px solid #ffebb9!important;
+  background:linear-gradient(160deg,#fff7e3,#eee3fc)!important;
+  box-shadow:0 8px 0 #69518b,0 21px 42px #0a0e2e7d;
+}
+.quiz-panel .question-box{
+  background:linear-gradient(160deg,#fff9e9,#f8e2cd);
+  border:2px solid #e8bf9b;
+}
+.quiz-panel .answer{
+  border:3px solid #b7a5d9!important;
+  background:linear-gradient(150deg,#ffffff,#e3ddf6);
+  box-shadow:0 5px 0 #978abe;
+}
+.quiz-panel .answer:focus-visible{outline:3px solid #573b9f;outline-offset:3px}
+.quiz-panel .hinttoggle{color:#594480}
+.success{
+  border:3px solid #fbe3ad;
+  border-radius:29px;
+  background:linear-gradient(160deg,#60489c,#344f8a);
+}
+.success .rewardstrip span{
+  background:linear-gradient(155deg,#ffedc3,#f1caa1);
+  border:2px solid #fff5d6;color:#433758;box-shadow:0 4px 0 #66548c;
+}
+@media(max-width:900px){
+  .islandhero.panel{
+    height:clamp(255px,52vw,345px);min-height:255px;
+    padding:19px 17px!important;border-radius:25px;
+  }
+  .islandhero.panel h1{font-size:clamp(1.85rem,7vw,2.5rem)}
+  .islandhero.panel p{font-size:.88rem}
+  .islandroute{padding:16px 13px!important}
+  .island{min-height:85px!important;padding:11px 12px!important}
+  .island .circle{width:60px!important;height:60px!important}
+  .island .island-title{font-size:.92rem}
+  .chapter-story{padding:20px 16px!important}
+  .chapter-story>p{font-size:.91rem}
+  .learning-card{padding:16px}
+  .quiz-panel{padding:16px 13px 20px!important}
+}
