@@ -1,5 +1,1 @@
-Tabuada Quest Beta · Ateliê mobile v2
-Provador com prévia ampla, carrossel horizontal de roupas, categoria Molduras e controle de compra fixo na parte inferior.
-Sem rolagem vertical em 360x740, 390x844 e 1280x800. Teste Chromium aprovado.
-Catálogo original do APK preservado, com preços, exclusividades e progresso de cada perfil.
-Fonte: feature/webapp-modular.
+Beta experimental. Fonte: feature/webapp-modular

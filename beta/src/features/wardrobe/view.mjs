@@ -14,40 +14,46 @@ function sourceLabel(skin){
  return mastery?'🏆 Conquista de tabuada':'🔒 Recompensa especial';
 }
 export function wardrobeScreen(profile,notice='',selectedSkin=null,tab='fashion'){
- const skins=fashionFor(profile),frames=availableFrames(profile);
- const equipped=profile.avatar?.skinId||'original';
- const selected=skins.find(x=>x.id===selectedSkin)||skins.find(x=>x.id===equipped)||skins[0];
- const status=fashionStatus(profile,selected);
- const unlocked=skins.filter(x=>fashionStatus(profile,x).owned).length;
- const source=status.owned?'✓ Disponível no guarda-roupa':sourceLabel(selected);
- const action=status.equipped?'✓ Em uso':status.owned?'Equipar visual':status.buyable?'🪙 Comprar por '+coins(status.price):'🔒 Desbloqueie jogando';
- return `<main class="wardrobe-view screen-stack">
-   <header class="atelier-head"><button type="button" class="atelier-back" data-action="home" aria-label="Voltar à home">‹</button><strong>ATELIÊ MÁGICO</strong><span class="atelier-coins" aria-label="${coins(profile.coins||0)} moedas">🪙 ${coins(profile.coins||0)}</span></header>
-   <section class="atelier-stage" aria-label="Prévia do visual">
-     <div class="atelier-spotlight"></div>
-     ${art(fashionAssetUrl(profile.avatar.id,selected.id),{className:'atelier-preview-avatar',alt:'Prévia da roupa '+selected.name,eager:true})}
-     <div class="atelier-stage-info"><span>${escapeHTML(profile.name)}</span><strong>${escapeHTML(selected.name)}</strong><small>${escapeHTML(selected.theme||'Visual especial')}</small></div>
-   </section>
-   <nav class="atelier-tabs" aria-label="Categorias do Ateliê">
-     <button type="button" data-action="wardrobeTab" data-tab="fashion" aria-pressed="${tab==='fashion'}">👗 Roupas</button>
-     <button type="button" data-action="wardrobeTab" data-tab="frames" aria-pressed="${tab==='frames'}">🖼️ Molduras</button>
-   </nav>
-   ${tab==='fashion'?`
-     <section class="atelier-collection" aria-label="Escolha uma roupa">
-      <div class="atelier-section-caption"><strong>Escolha seu visual</strong><small>${unlocked}/${skins.length} desbloqueados</small></div>
-      <div class="atelier-rail" role="group" aria-label="Visuais do personagem">
-       ${skins.map(skin=>{const st=fashionStatus(profile,skin);return `<button class="atelier-skin ${selected.id===skin.id?'is-selected':''}" type="button" data-action="previewFashion" data-skin="${escapeHTML(skin.id)}" aria-pressed="${selected.id===skin.id}">${art(fashionAssetUrl(profile.avatar.id,skin.id),{className:'atelier-skin-img',alt:''})}<span>${escapeHTML(skin.name)}</span><small>${st.owned?'✓':st.buyable?'🪙 '+coins(st.price):'🔒'}</small></button>`}).join('')}
-      </div>
+ const skins=fashionFor(profile),frames=availableFrames(profile),current=skins.find(x=>x.id===(profile.avatar?.skinId||'original'))||skins[0];
+ const unlocked=skins.filter(s=>fashionStatus(profile,s).owned).length;
+ const file=n=>'./assets/optimized/fashion-'+n+'.webp';
+ const icon=n=>art(file('icon-'+n),{alt:''});
+ return `<main class="fashion-reference">
+   <div class="fashion-reference-inner">
+     <header class="fashion-reference-head">
+       ${art(file('header'),{alt:'Moda',className:'fashion-reference-logo',eager:true})}
+       <button type="button" class="fashion-head-hit back" data-action="home" aria-label="Voltar"></button>
+       <button type="button" class="fashion-head-hit help" data-action="fashionHelp" aria-label="Como obter roupas"> </button>
+     </header>
+     <div class="fashion-reference-wallet">${icon('coin')}<span><small>SUAS MOEDAS</small><strong>${coins(profile.coins||0)}</strong></span></div>
+     <section class="fashion-reference-preview" aria-label="Roupa equipada">
+       <div class="fashion-reference-preview-copy"><span>${escapeHTML(profile.name)}</span><b>✓ ${escapeHTML(current.name)}</b></div>
+       ${art(fashionAssetUrl(profile.avatar.id,current.id),{className:'fashion-reference-character',alt:'Visual equipado: '+current.name,eager:true})}
      </section>
-     <section class="atelier-footer" aria-label="Visual selecionado">
-       ${notice?`<p class="atelier-notice" role="status">${escapeHTML(notice)}</p>`:''}
-       <p class="atelier-acquire">${escapeHTML(source)}</p>
-       <button type="button" class="atelier-main-action" data-action="fashionAction" data-skin="${escapeHTML(selected.id)}" ${status.equipped||(!status.owned&&!status.buyable)?'disabled':''}>${action}</button>
-     </section>`:`
-     <section class="atelier-collection atelier-frame-collection" aria-label="Escolha uma moldura">
-      <div class="atelier-section-caption"><strong>Suas molduras</strong><small>${frames.length} disponíveis</small></div>
-      <div class="atelier-rail">${frames.map(x=>`<button type="button" class="atelier-skin atelier-frame-option" data-action="equipFrame" data-frame="${x.id||''}" aria-pressed="${(profile.equipped?.frame||null)===x.id}"><span class="wardrobe-frame-swatch">${x.src?art(assetUrl(x.src),{alt:''}):'✦'}</span><span>${escapeHTML(x.label)}</span><small>${(profile.equipped?.frame||null)===x.id?'✓ Em uso':'Equipar'}</small></button>`).join('')}</div>
+     <div class="fashion-reference-heading"><strong>Seu guarda-roupa</strong><span>${unlocked}/${skins.length} DESBLOQUEADAS</span></div>
+     ${notice?`<p class="fashion-reference-notice" role="status">${escapeHTML(notice)}</p>`:''}
+     <section class="fashion-reference-grid" aria-label="Catálogo de roupas">
+       ${skins.map(skin=>{
+        const st=fashionStatus(profile,skin);
+        const source=sourceLabel(skin);
+        const label=st.equipped?'✓ Em uso':st.owned?'Selecionar':st.buyable?coins(st.price):'Bloqueada';
+        return `<article class="fashion-reference-card ${st.equipped?'selected':''} ${st.owned?'':'locked'}" aria-label="${escapeHTML(skin.name)}">
+         <div class="fashion-reference-art">
+           ${art(fashionAssetUrl(profile.avatar.id,skin.id),{alt:skin.name,className:'fashion-reference-outfit'})}
+           ${!st.owned?`<div class="fashion-reference-lock">${icon('lock')}</div>`:''}
+           <span class="fashion-reference-state">${st.owned?'★':icon('lock')}</span>
+         </div>
+         <h2>${escapeHTML(skin.name)}</h2>
+         <p>${escapeHTML(skin.theme||'Visual')}</p>
+         <div class="fashion-reference-source">${st.owned?'✓ Desbloqueada':escapeHTML(source)}</div>
+         <button type="button" class="fashion-reference-action" data-action="fashionAction" data-skin="${escapeHTML(skin.id)}" ${st.equipped||(!st.owned&&!st.buyable)?'disabled':''}>${st.buyable&&!st.owned?icon('coin'):''}${label}</button>
+        </article>`;
+       }).join('')}
      </section>
-     <section class="atelier-footer"><p class="atelier-acquire">Molduras conquistadas personalizam seu retrato.</p><button type="button" class="atelier-main-action" data-action="home">Concluir personalização</button></section>`}
+     <div class="fashion-reference-frames">
+       <button type="button" data-action="wardrobeTab" data-tab="frames">🖼️ Minhas molduras</button>
+       ${tab==='frames'?`<div class="fashion-frame-grid">${frames.map(x=>`<button type="button" data-action="equipFrame" data-frame="${x.id||''}" aria-pressed="${(profile.equipped?.frame||null)===x.id}">${x.src?art(assetUrl(x.src),{alt:''}):'✦'}<span>${escapeHTML(x.label)}</span></button>`).join('')}</div>`:''}
+     </div>
+   </div>
  </main>`;
 }
