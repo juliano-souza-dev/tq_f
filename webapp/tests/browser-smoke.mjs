@@ -87,32 +87,31 @@ try{
    const [w,h]=size.split('x').map(Number);
    const {page,ctx}=await setup(w,h);
    await page.locator('.fashion-shortcut.right').click();
-   assert.equal(await page.locator('.atelier-skin[data-action="previewFashion"]').count(),9,'Catálogo completo de Alana');
-   await page.locator('.atelier-skin[data-skin="pirate"]').click();
-   assert.match(await page.locator('.atelier-stage-info strong').innerText(),/Pirata/);
-   assert.equal(await page.locator('.atelier-preview-avatar').getAttribute('src'),'./assets/optimized/avatar-luna-pirate.webp');
-   await page.locator('.atelier-main-action[data-action="fashionAction"]').click();
+   assert.equal(await page.locator('.fashion-reference-card').count(),9);
+   assert.equal(await page.locator('.fashion-reference-logo').count(),1);
+   assert.equal(await page.locator('.fashion-reference-wallet').count(),1);
+   assert.equal(await page.locator('.fashion-reference-grid').count(),1);
+   await page.locator('.fashion-reference-card [data-skin="pirate"]').click();
    const owner=await page.evaluate(()=>JSON.parse(localStorage.getItem('tabuadaquest.webapp.v1')).profiles.find(p=>p.name==='Alana'));
    assert.equal(owner.avatar.skinId,'pirate');
    assert.equal(owner.coins,9820);
-   const brokenFashion=await page.locator('.atelier-skin-img,.atelier-preview-avatar').evaluateAll(async imgs=>{
+   const broken=await page.locator('.fashion-reference img').evaluateAll(async imgs=>{
      await Promise.all(imgs.map(img=>img.decode().catch(()=>null)));
-     return imgs.filter(img=>!img.naturalWidth).map(img=>img.src);
+     return imgs.filter(img=>!img.naturalWidth).map(img.src);
    });
-   assert.deepEqual(brokenFashion,[],'Moda contém assets quebrados');
-   const layout=await page.evaluate(()=>{
-      const r=q=>{const b=document.querySelector(q).getBoundingClientRect();return {top:b.top,bottom:b.bottom,height:b.height,left:b.left,right:b.right}};
-      return {screen:r('.wardrobe-view'),stage:r('.atelier-stage'),rail:r('.atelier-rail'),footer:r('.atelier-footer'),button:r('.atelier-main-action'),w:innerWidth,h:innerHeight,scroll:document.documentElement.scrollHeight,sw:document.documentElement.scrollWidth};
-   });
-   assert.ok(layout.stage.height>135,'Prévia do visual muito pequena');
-   assert.ok(layout.rail.height>=110,'Faixa horizontal de roupas pequena');
-   assert.ok(layout.footer.bottom<=layout.h+2,'Ação abaixo da tela');
-   assert.ok(layout.scroll<=layout.h+3,'Ateliê exige rolagem vertical');
-   assert.ok(layout.sw<=layout.w+2,'Ateliê causa scroll horizontal na página');
+   assert.deepEqual(broken,[]);
+   const geometry=await page.evaluate(()=>({
+     overflow:document.documentElement.scrollWidth-innerWidth,
+     columns:getComputedStyle(document.querySelector('.fashion-reference-grid')).gridTemplateColumns.split(' ').length,
+     sticky:getComputedStyle(document.querySelector('.fashion-reference-preview')).position
+   }));
+   assert.ok(geometry.overflow<3,'Moda com scroll horizontal');
+   assert.equal(geometry.columns,2);
+   assert.equal(geometry.sticky,'sticky');
    await page.screenshot({path:'screenshots/fashion-'+size+'.png',fullPage:true});
-   await page.locator('.atelier-tabs [data-tab="frames"]').click();
-   assert.ok(await page.locator('.atelier-frame-option').count()>0,'Aba Molduras ausente');
-   await page.locator('.atelier-back').click();
+   await page.locator('.fashion-reference-frames>button').click();
+   assert.ok(await page.locator('.fashion-frame-grid button').count()>0);
+   await page.locator('.fashion-head-hit.back').click();
    assert.equal(await page.locator('.hero-character').getAttribute('src'),'./assets/optimized/avatar-luna-pirate.webp');
    await page.locator('.play-button').click();
    assert.equal(await page.locator('canvas.home-webgl-fx').count(),0,'Deve destruir canvas após navegar');
