@@ -67,3 +67,8 @@ html:has(.backgrounds-view),body:has(.backgrounds-view){height:100%;overflow:hid
 /* Cards da galeria são exclusivamente seletores. Compra/equipamento só na prévia. */
 .bg-tile.bg-tile-preview{width:100%;padding:9px;gap:7px;text-align:center}
 .bg-equipped-mark{font-size:11px;font-weight:900;color:#a7f77e}
+
+/* GPU overlay anchored strictly to the preview art. */
+.bg-feature-art{position:relative;isolation:isolate}
+.bg-feature-art .bg-feature-image{position:relative;z-index:0}
+.bg-feature-art .background-webgl-layer{z-index:1}
