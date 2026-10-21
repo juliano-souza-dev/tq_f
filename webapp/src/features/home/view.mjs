@@ -1,4 +1,4 @@
-import {assetUrl,avatarUrl} from '../../resources/asset-map.mjs';
+import {assetUrl,avatarUrl,homeCharacterUrl} from '../../resources/asset-map.mjs';
 import {art,escapeHTML} from '../../components/ui.mjs';
 import {masteredCount,level,experienceProgress,chestProgress} from '../../core/progression.mjs';
 export function homeScreen(profile){
@@ -23,7 +23,7 @@ export function homeScreen(profile){
    <div class="hero-stage">
     <button type="button" data-action="openFeature" data-feature="Fundos" class="fashion-shortcut left" aria-label="Escolher fundo">${image('fundo')}</button>
     <div class="hero-fashion">
-     ${art(avatarUrl(profile.avatar.id),{className:'hero-character',alt:'Aventureira '+profile.name})}
+     ${art(homeCharacterUrl(profile.avatar.id),{className:'hero-character',alt:'Aventureira '+profile.name})}
     </div>
     <button type="button" data-action="openFeature" data-feature="Moda" class="fashion-shortcut right" aria-label="Mudar roupa">${image('moda')}</button>
    </div>
