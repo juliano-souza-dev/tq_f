@@ -1,1 +1,6 @@
-Beta experimental. Fonte: feature/webapp-modular
+Tabuada Quest Beta · Ateliê Moda v1
+Catálogo integral APK: Alana 9, Thaís 14, Heloísa 9.
+32 visuais catalogados; 26 WebP novos otimizados em 79%.
+Compra com moedas, trajes exclusivos por recompensa, equipar e persistir por perfil.
+Home preservada. Testes Node e Chromium mobile aprovados.
+Fonte: feature/webapp-modular.
