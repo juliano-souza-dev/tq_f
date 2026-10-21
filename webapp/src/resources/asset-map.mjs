@@ -9,7 +9,8 @@ const converted=[...BATCH_001.map(n=>n+'.webp'),
  'avatar-luna-neutral-base.webp','avatar-sofia-neutral-base.webp',
  'avatar-maya-neutral-base.webp','world-practice-01.webp',
  ...Array.from({length:10},(_,i)=>'world_map_'+String(i+1).padStart(2,'0')+'.webp'),
- 'world_map_bg.webp'];
+ 'world_map_bg.webp',
+ 'avatar-luna-pirate.webp','avatar-sofia-pirate.webp','avatar-maya-pirate.webp'];
 export const AVAILABLE_ASSETS=new Set(converted);
 export function assetUrl(name){
  if(!AVAILABLE_ASSETS.has(name))throw Error('Asset fora dos lotes migrados: '+name);
@@ -29,4 +30,9 @@ export function avatarUrl(avatar){
 export function worldUrl(number){
  if(!Number.isInteger(number)||number<1||number>10)throw Error('Mundo inválido');
  return assetUrl('world_map_'+String(number).padStart(2,'0')+'.webp');
+}
+
+export function homeCharacterUrl(avatar){
+ const options={luna:'avatar-luna-pirate.webp',sofia:'avatar-sofia-pirate.webp',maya:'avatar-maya-pirate.webp'};
+ return assetUrl(options[avatar]||options.luna);
 }
