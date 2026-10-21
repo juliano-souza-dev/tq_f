@@ -145,3 +145,32 @@ test('moldura e moda seguem o contrato do APK, sem conceder itens não conquista
  assert.equal(app.getPlayer().equipped.frame,null,'Não pode equipar moldura não conquistada');
  app.destroy();
 });
+
+test('moda e moldura conquistadas são equipadas, salvas e continuam ao reabrir',()=>{
+ const mem=storage();
+ const root={innerHTML:'',addEventListener(){},removeEventListener(){},contains(){return true}};
+ const app=createApp({root,storage:mem,random:()=>.2});
+ app.act('selectPlayer',{player:'alana'});app.act('enter');
+ // Faz a conquista passar pelo estado persistido, sem desbloqueios fictícios.
+ const current=JSON.parse(mem.dump(STORAGE_KEY));
+ const user=current.profiles.find(x=>x.name==='Alana');
+ user.fashionOwned.push('pirate');user.owned.push('frame_floral');
+ mem.setItem(STORAGE_KEY,JSON.stringify(current));
+ app.destroy();
+ const reopened=createApp({root,storage:mem,random:()=>.2});
+ reopened.act('openFeature',{feature:'Moda'});
+ assert.match(root.innerHTML,/Pirata/);
+ assert.match(root.innerHTML,/Floral/);
+ reopened.act('equipFashion',{skin:'pirate'});
+ reopened.act('equipFrame',{frame:'frame_floral'});
+ assert.equal(reopened.getPlayer().avatar.skinId,'pirate');
+ assert.equal(reopened.getPlayer().equipped.frame,'frame_floral');
+ reopened.act('home');
+ assert.match(root.innerHTML,/avatar-luna-pirate.webp/);
+ assert.match(root.innerHTML,/frame-floral.webp/);
+ reopened.destroy();
+ const again=createProfileStore({storage:mem,now:()=>300});
+ again.select('alana');
+ assert.equal(again.active().avatar.skinId,'pirate');
+ assert.equal(again.active().equipped.frame,'frame_floral');
+});
