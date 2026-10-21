@@ -29,6 +29,24 @@ jobs:
           Path('/tmp/expedicao-tabuada.js').write_text(script, encoding='utf-8')
           PY
           node --check /tmp/expedicao-tabuada.js
+          node --check assets/rewards.js
+          node tests/rewards.test.js
+          python - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          svg=Path('assets/atlas-scenes.svg')
+          ET.parse(svg)
+          root=ET.parse(svg).getroot()
+          ns='{http://www.w3.org/2000/svg}'
+          ids={el.attrib.get('id') for el in root.iter() if el.attrib.get('id')}
+          for n in range(12): assert 'scene-'+str(n) in ids
+          assert {'mascot-nilo','treasure-chest'}.issubset(ids)
+          html=Path('index.html').read_text(encoding='utf-8')
+          for path in ['assets/rewards.js','assets/adventure.css','assets/atlas-scenes.svg']:
+              assert Path(path).is_file()
+              assert path in html
+          print('✓ SVG válido, 12 paisagens e dependências do HTML encontradas')
+          PY
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
         with:
