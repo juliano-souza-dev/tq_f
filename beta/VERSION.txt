@@ -1,6 +1,1 @@
-Tabuada Quest Beta | Moda fiel à referência original do APK
-Cenário fashion-bg, cabeçalho fashion-header, painel de preview sticky e catálogo vertical de duas colunas.
-Ícones originais, estados de bloqueio, origem e compra/equipamento com moedas preservados.
-8 assets de interface convertidos e publicados em WebP.
-Testes Chromium 360x740, 390x844, 1280x800 e Node aprovados.
-Fonte: feature/webapp-modular.
+Beta experimental. Fonte: feature/webapp-modular
