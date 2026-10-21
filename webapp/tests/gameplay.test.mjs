@@ -139,7 +139,7 @@ test('moldura e moda seguem o contrato do APK, sem conceder itens não conquista
  app.act('selectPlayer',{player:'alana'});app.act('enter');
  app.act('openFeature',{feature:'Moda'});
  assert.equal(app.getScreen(),'wardrobe');
- assert.match(root.innerHTML,/ATELIÊ MÁGICO/);
+ assert.match(root.innerHTML,/Seu guarda-roupa/);
  app.act('equipFashion',{skin:'pirate'});
  assert.equal(app.getPlayer().avatar.skinId,'pirate','A compra com moedas equipa a moda');
  assert.equal(app.getPlayer().coins,9820,'A compra precisa descontar 180 moedas');
