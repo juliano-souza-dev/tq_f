@@ -27,6 +27,8 @@ https://juliano-souza-dev.github.io/tq_f/
 
 Leia [Direção Visual e Recompensas](docs/DIRECAO-VISUAL-E-RECOMPENSAS.md) para o documento de produto, critérios de aceite e o escopo já implementado.
 
+**Versão mobile vertical:** HUD compacto, mapa em trilha única, menu inferior fixo, desafios e coleção em abas. Veja [Direção Mobile Retrato](docs/MOBILE-RETRATO.md) para layouts, contratos e testes.
+
 ## Qualidade
 O workflow valida a sintaxe JavaScript, verifica o atlas SVG e executa `node tests/rewards.test.js` antes de publicar.
 
