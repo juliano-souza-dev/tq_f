@@ -74,6 +74,11 @@ for spec in batch["items"]:
             selected = buf.getvalue()
             method = f"lossy-q{quality}"
             break
+    # WebP de origem já dentro do limite mantém bytes e evita recompressão cumulativa.
+    if name.lower().endswith(".webp") and original.width <= max_width and len(content) <= (len(selected) if selected else float("inf")):
+        selected = content
+        method = "retained-original-webp"
+        fidelity = float("inf")
     if selected is None:
         buf = io.BytesIO()
         img.save(buf, "WEBP", lossless=True, method=6)
