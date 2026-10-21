@@ -576,3 +576,23 @@ body:has(.home-view) #app{position:relative;z-index:1}
 @media(max-width:390px){
  .home-view .hero-portrait{width:clamp(72px,23vw,95px);height:clamp(72px,23vw,95px)}
 }
+
+/* FX WebGL da home: um canvas transparente, não-interativo, entre fundo e UI. */
+.home-view .home-webgl-fx{
+ position:absolute;inset:0;z-index:0;width:100%;height:100%;
+ pointer-events:none;display:block;contain:strict;opacity:.85;
+}
+.home-view> :not(.home-webgl-fx){position:relative;z-index:1}
+.home-view .home-header,.home-view .home-menu,.home-view .next-chest,.home-view .hero-stage{isolation:isolate}
+.home-view .home-logo{animation:tqLogoFloat 6.7s ease-in-out infinite}
+.home-view .hero-character{animation:tqIdleCharacter 5.6s ease-in-out infinite}
+.home-view .play-button{animation:tqPlayGlow 4.8s ease-in-out infinite}
+@keyframes tqLogoFloat{0%,100%{translate:0 0}50%{translate:0 -2px}}
+@keyframes tqIdleCharacter{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes tqPlayGlow{0%,75%,100%{filter:drop-shadow(0 5px 4px #32163d89)}85%{filter:drop-shadow(0 3px 10px #ffe6a699)}}
+.home-view.home-fx-fallback .home-logo,.home-view.home-fx-fallback .hero-character,
+.home-view.home-fx-fallback .play-button{animation:none}
+@media(prefers-reduced-motion:reduce){
+ .home-view .home-webgl-fx{display:none!important}
+ .home-view .home-logo,.home-view .hero-character,.home-view .play-button{animation:none!important;translate:none!important}
+}

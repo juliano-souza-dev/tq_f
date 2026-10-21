@@ -4,6 +4,7 @@ import {createPractice,answerPractice,nextPractice,finishPractice} from '../core
 import {profilesScreen} from '../features/profiles/view.mjs';
 import {wardrobeScreen,availableFashion,availableFrames} from '../features/wardrobe/view.mjs';
 import {homeScreen} from '../features/home/view.mjs';
+import {mountHomeEffects} from '../features/home/effects.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
 
@@ -16,6 +17,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let session=null;
  let result=null;
  let feature='';
+ let stopHomeEffects=null;
 
  function pickAvailableWorld(profile){
   const choice=WORLDS.find(w=>worldState(profile,w.number,now()).enabled);
@@ -27,6 +29,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   if(typeof window!=='undefined'&&typeof window.scrollTo==='function')window.scrollTo(0,0);
  }
  function render(){
+  stopHomeEffects?.();stopHomeEffects=null;
   const player=profiles.active();
   try{
    switch(screen){
@@ -46,6 +49,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?featureScreen(player,feature):profilesScreen(profiles.profiles(),selectedPlayer);break;
     default:throw Error('Tela desconhecida: '+screen);
    }
+   if(screen==='home'&&player&&typeof window!=='undefined')stopHomeEffects=mountHomeEffects({root,windowRef:window});
   }catch(e){
    console.error('Falha ao renderizar:',e);
    root.textContent='Não foi possível carregar esta tela. Recarregue a página para tentar novamente.';
@@ -138,6 +142,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   getSelectedWorld:()=>selectedWorld,
   act,
   destroy(){
+   stopHomeEffects?.();stopHomeEffects=null;
    root.removeEventListener('click',onClick);
    if(typeof window!=='undefined')window.removeEventListener('keydown',onKeydown);
   }
