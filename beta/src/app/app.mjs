@@ -10,6 +10,7 @@ import {acquireBackground} from '../features/backgrounds/catalog.mjs';
 import {mountHomeEffects} from '../features/home/effects.mjs';
 import {mountBackgroundEffect} from '../features/backgrounds/effects.mjs';
 import {mountSnowEffect} from '../features/backgrounds/snow.mjs';
+import {mountCosmicEffect} from '../features/backgrounds/cosmic.mjs';
 import {mountOceanEffect} from '../features/backgrounds/ocean.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
@@ -64,11 +65,11 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    }
    if(screen==='home'&&player&&typeof window!=='undefined'){
      const bg=player.owned?.includes(player.equipped?.background)?player.equipped.background:null;
-     stopHomeEffects=bg==='bg_ocean'?mountOceanEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_ice'?mountSnowEffect(root.querySelector('.home-view'),{windowRef:window}):bg?mountBackgroundEffect(root.querySelector('.home-view'),bg,{windowRef:window}):mountHomeEffects({root,windowRef:window});
+     stopHomeEffects=bg==='bg_ocean'?mountOceanEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_ice'?mountSnowEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_space'?mountCosmicEffect(root.querySelector('.home-view'),{windowRef:window}):bg?mountBackgroundEffect(root.querySelector('.home-view'),bg,{windowRef:window}):mountHomeEffects({root,windowRef:window});
    }
    if(screen==='backgrounds'&&player&&typeof window!=='undefined'){
      const id=selectedBackground||player.equipped?.background||'bg_forest';
-     stopHomeEffects=id==='bg_ocean'?mountOceanEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_ice'?mountSnowEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
+     stopHomeEffects=id==='bg_ocean'?mountOceanEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_ice'?mountSnowEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_space'?mountCosmicEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
    }
   }catch(e){
    console.error('Falha ao renderizar:',e);
