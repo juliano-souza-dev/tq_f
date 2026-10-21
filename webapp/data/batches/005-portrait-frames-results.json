@@ -1,0 +1,65 @@
+{
+  "batch": "005-portrait-frames",
+  "processed": 4,
+  "sourceBytes": 314212,
+  "optimizedBytes": 372766,
+  "items": [
+    {
+      "source": "frame-star.webp",
+      "target": "frame-star.webp",
+      "sourceBytes": 69620,
+      "optimizedBytes": 85502,
+      "sourceWidth": 600,
+      "sourceHeight": 600,
+      "outputWidth": 320,
+      "outputHeight": 320,
+      "encoding": "lossless",
+      "psnrDb": "lossless",
+      "savedPercent": -22.8,
+      "qualityReviewedByHuman": false
+    },
+    {
+      "source": "frame-floral.webp",
+      "target": "frame-floral.webp",
+      "sourceBytes": 94040,
+      "optimizedBytes": 108544,
+      "sourceWidth": 600,
+      "sourceHeight": 600,
+      "outputWidth": 320,
+      "outputHeight": 320,
+      "encoding": "lossless",
+      "psnrDb": "lossless",
+      "savedPercent": -15.4,
+      "qualityReviewedByHuman": false
+    },
+    {
+      "source": "frame-champion.webp",
+      "target": "frame-champion.webp",
+      "sourceBytes": 86382,
+      "optimizedBytes": 94424,
+      "sourceWidth": 600,
+      "sourceHeight": 600,
+      "outputWidth": 320,
+      "outputHeight": 320,
+      "encoding": "lossless",
+      "psnrDb": "lossless",
+      "savedPercent": -9.3,
+      "qualityReviewedByHuman": false
+    },
+    {
+      "source": "frame-rainbow.webp",
+      "target": "frame-rainbow.webp",
+      "sourceBytes": 64170,
+      "optimizedBytes": 84296,
+      "sourceWidth": 600,
+      "sourceHeight": 600,
+      "outputWidth": 320,
+      "outputHeight": 320,
+      "encoding": "lossless",
+      "psnrDb": "lossless",
+      "savedPercent": -31.4,
+      "qualityReviewedByHuman": false
+    }
+  ],
+  "note": "PSNR automático não substitui comparação visual em tamanhos de tela reais."
+}
