@@ -46,7 +46,7 @@ async function setup(width,height){
    const base=document.querySelector('.next-chest').getBoundingClientRect();
    const badge=document.querySelector('.next-chest-progress').getBoundingClientRect();
    const caption=document.querySelector('.next-chest-counter').getBoundingClientRect();
-   const body=document.querySelector('.home-tiles').getBoundingClientRect();
+   const body=document.querySelector('.home-menu').getBoundingClientRect();
    const wallet=document.querySelector('.hero-wallet').getBoundingClientRect();
    const hud=document.querySelector('.home-header').getBoundingClientRect();
    return {base:{top:base.top,bottom:base.bottom,left:base.left,right:base.right},
