@@ -33,7 +33,32 @@ async function setup(width,height){
    };
  });
  assert.ok(composition.scene.includes('home-magical-bg.webp'),'Cenário mágico não aplicado');
- assert.equal(composition.tileRects.length,7,'Atalhos completos');
+ assert.equal(composition.tileRects.length,5,'Cinco atividades secundárias, sem destinos repetidos');
+ assert.ok(!await page.locator('.home-tile[data-action="worlds"]').count(),'Mundos não deve duplicar Jogar e rodapé');
+ assert.ok(!await page.locator('.home-tile[data-feature="Colecionáveis"]').count(),'Coleção já está no rodapé');
+ assert.equal(await page.locator('.wallet-coin').count(),1,'Ícone de moeda em CSS');
+ assert.equal(await page.locator('.wallet-gem').count(),1,'Ícone de gema em CSS');
+ assert.equal(await page.locator('.next-chest-progress-fill').getAttribute('value'),'0');
+ assert.equal(await page.locator('.next-chest-progress-fill').getAttribute('max'),'3');
+ assert.equal((await page.locator('.next-chest-counter').innerText()).trim(),'0 / 3');
+ const panel=await page.evaluate(()=>{
+   const base=document.querySelector('.next-chest').getBoundingClientRect();
+   const badge=document.querySelector('.next-chest-progress').getBoundingClientRect();
+   const caption=document.querySelector('.next-chest-counter').getBoundingClientRect();
+   const body=document.querySelector('.home-tiles').getBoundingClientRect();
+   const wallet=document.querySelector('.hero-wallet').getBoundingClientRect();
+   const hud=document.querySelector('.home-header').getBoundingClientRect();
+   return {base:{top:base.top,bottom:base.bottom,left:base.left,right:base.right},
+           badge:{top:badge.top,bottom:badge.bottom,left:badge.left,right:badge.right},
+           caption:{top:caption.top,bottom:caption.bottom,left:caption.left,right:caption.right},
+           body:{top:body.top,bottom:body.bottom},wallet:{left:wallet.left,right:wallet.right},
+           hud:{left:hud.left,right:hud.right}};
+ });
+ assert.ok(panel.badge.left>=panel.base.left&&panel.badge.right<=panel.base.right,'Plaqueta ultrapassou o baú');
+ assert.ok(panel.badge.top>=panel.base.top&&panel.badge.bottom<=panel.base.bottom,'Plaqueta está fora do baú');
+ assert.ok(panel.caption.left>=panel.badge.left&&panel.caption.right<=panel.badge.right,'Texto do progresso não cabe na plaqueta');
+ assert.ok(panel.badge.bottom<=panel.body.top+1,'Plaqueta invade a área de atividades');
+ assert.ok(panel.wallet.left>=panel.hud.left&&panel.wallet.right<=panel.hud.right,'Saldo sai do HUD');
  assert.ok(composition.screen.bottom<=composition.viewport+3,'Home ultrapassou viewport');
  assert.ok(composition.scroll<=composition.viewport+4,'Home exige rolagem vertical: '+JSON.stringify(composition));
  assert.ok(composition.header.bottom<=composition.logo.bottom+2,'Header fora de hierarquia');
