@@ -1,5 +1,5 @@
 name: Webapp · Publicar beta isolada
-# Release: Moda fiel ao APK, com assets 007 e catálogo de duas colunas
+# Release: Moda fiel ao APK sem menu extra Minhas molduras
 # Release: atelie mobile em provador com trilho horizontal
 on:
   push:
