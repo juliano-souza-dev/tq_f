@@ -531,3 +531,11 @@ body:has(.home-view) #app{position:relative;z-index:1}
  .home-view .home-header{border-radius:20px}
  .home-view .hero-wallet{min-width:25%;padding:6px 3px}
 }
+
+.home-view .home-profile-xp-number{
+ position:absolute;left:36%;top:61%;height:18%;width:34%;
+ display:flex;align-items:center;justify-content:center;
+ z-index:3;pointer-events:none;font-size:clamp(.59rem,2.4vw,.76rem);
+ color:#fff;font-weight:1000;text-shadow:0 1px 2px #142a4f;
+ font-variant-numeric:tabular-nums;
+}
