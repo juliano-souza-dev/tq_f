@@ -20,3 +20,39 @@ body:has(.backgrounds-view){background:#2c1053}
 @media(max-width:390px){.bg-feature{gap:9px;padding:9px}.bg-feature-art{max-height:212px}.bg-head{gap:5px;padding:6px}.bg-player-avatar{width:43px;height:43px}.bg-wallet{padding:7px;font-size:12px}.bg-tabs button{font-size:11px}.bg-feature h2{font-size:19px}}
 
 .bg-reset{display:block;margin:-2px 0 12px;padding:9px 13px;border:1px solid #a77cca;border-radius:13px;background:#562587;color:#fff4d7;font-weight:850;cursor:pointer}.bg-reset:disabled{opacity:.45;cursor:default}
+
+/* Cabeçalho, prévia e categorias travados. Somente os cards rolam. */
+html:has(.backgrounds-view),body:has(.backgrounds-view){height:100%;overflow:hidden;overscroll-behavior:none}
+.backgrounds-view{height:100dvh;min-height:0;overflow:hidden;display:flex;flex-direction:column;padding:calc(6px + env(safe-area-inset-top)) 12px calc(7px + env(safe-area-inset-bottom))}
+.bg-container{height:100%;min-height:0;display:flex;flex-direction:column}
+.bg-head,.bg-title,.bg-feature,.bg-tabs,.bg-collection-heading,.bg-reset,.bg-notice{flex-shrink:0}
+.bg-head{padding:6px;gap:7px}
+.bg-player-avatar{width:43px;height:43px}
+.bg-back{height:40px;width:40px}
+.bg-title{font-size:clamp(18px,5vw,25px);margin:9px 0}
+.bg-feature{gap:10px;padding:9px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.bg-feature-art{aspect-ratio:auto;height:clamp(112px,22dvh,205px);max-height:none}
+.bg-feature-body{gap:4px}
+.bg-feature h2{font-size:clamp(17px,4.5vw,24px)}
+.bg-feature p{font-size:11px;line-height:1.24}
+.bg-kicker{padding:4px 7px;font-size:9px}
+.bg-rarity{padding:3px 8px}
+.bg-primary{min-height:40px}
+.bg-tabs{margin:11px 0 9px;gap:7px}
+.bg-tabs button{min-height:42px}
+.bg-collection-heading{margin:0 0 6px}
+.bg-collection-heading strong{font-size:15px}
+.bg-reset{width:max-content;max-width:100%;margin:0 0 8px;padding:6px 11px;font-size:12px}
+.bg-notice{margin:0 0 6px;padding:5px 9px}
+.bg-grid{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;align-content:start;padding:4px 3px 14px;scrollbar-width:thin;scrollbar-color:#a86cdb transparent}
+.bg-grid:focus-visible{outline:2px solid #ffdc6a;outline-offset:-2px}
+@media(max-height:660px){
+ .bg-feature-art{height:clamp(90px,18dvh,130px)}
+ .bg-title{margin:5px 0}
+ .bg-feature{padding:7px}
+ .bg-feature p{display:none}
+ .bg-tabs{margin:7px 0}
+ .bg-tabs button{min-height:36px}
+ .bg-collection-heading small{display:none}
+ .bg-reset{margin-bottom:5px}
+}
