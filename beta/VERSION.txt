@@ -1,1 +1,3 @@
-Beta experimental. Fonte: feature/webapp-modular
+Tabuada Quest Beta | Moda sem botão Minhas molduras
+A seção extra de molduras foi retirada da tela Moda. Catálogo, compra e equipamento preservados.
+Fonte: feature/webapp-modular.
