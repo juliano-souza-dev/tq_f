@@ -6,7 +6,7 @@
 .hero.hero-illustrated{
  background-color:#293a71;
  background-image:
-   linear-gradient(180deg,rgba(19,25,67,.72) 0%,rgba(32,35,83,.56) 36%,rgba(20,34,77,.18) 74%,rgba(12,27,66,.24) 100%),
+   linear-gradient(180deg,rgba(19,25,67,.68) 0%,rgba(32,35,83,.35) 36%,rgba(20,34,77,.06) 70%,rgba(12,27,66,.18) 100%),
    url("./artwork/splash.webp");
  background-position:center 52%;
  background-size:cover;
@@ -130,3 +130,10 @@
 @media(prefers-reduced-motion:reduce){
  .region-card .art .game-artwork{transition:none!important}
 }
+
+/* Enquadramento premium: cenários sem distorção, personagens inteiros. */
+.tq-collection-hero > img.game-artwork,.tq-prize-icon img.game-artwork,.tq-success-art img.game-artwork,.illustrated-guide img.game-artwork{object-fit:contain;object-position:center}
+.region-card .art img.game-artwork{object-fit:cover;object-position:center 42%}
+.islandhero .big-emoji img.game-artwork{object-fit:cover;object-position:center 46%}
+.mission-scene-art.game-artwork{object-position:center 43%}
+@media(max-width:900px){.hero.hero-illustrated{background-position:center 53%}.hero.hero-illustrated .eyebrow{max-width:max-content}}
