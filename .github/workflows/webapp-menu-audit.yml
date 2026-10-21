@@ -1,0 +1,42 @@
+name: Webapp · Auditoria das proporcoes do menu
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths:
+      - '.github/workflows/webapp-menu-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -q Pillow
+      - name: Medir dimensoes reais e limites visiveis (alpha)
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('webapp/assets/optimized')
+          names=['home_new_chests','home_new_pets','home_new_store','home_new_daily','home_new_items','home_new_jogar','home_new_next_chest','home_new_logo','home_new_fashion_stage']
+          out=[]
+          for name in names:
+              p=root/(name+'.webp')
+              with Image.open(p) as f:
+                  img=f.convert('RGBA')
+              a=img.getchannel('A')
+              bounds=a.point(lambda v:255 if v>=24 else 0).getbbox() or (0,0,img.width,img.height)
+              l,t,r,b=bounds
+              out.append({'file':p.name,'canvas':[img.width,img.height],'bounds':[l,t,r,b],
+                  'visible':[r-l,b-t],'visibleFraction':[round((r-l)/img.width,3),round((b-t)/img.height,3)],
+                  'ratio':round((r-l)/(b-t),3),'bytes':p.stat().st_size})
+          print('ASSET_GEOMETRY_BEGIN')
+          print(json.dumps(out,ensure_ascii=False,indent=2))
+          print('ASSET_GEOMETRY_END')
+          PY
