@@ -1,4 +1,1 @@
-Beta visual - Refinamento do menu
-Atualização: 2026-10-21
-HUD de moeda/gema sem emoji, baú com progresso independente, cinco atalhos sem repetição.
-Fonte: feature/webapp-modular. Conteúdo /beta/ não substitui o jogo antigo.
+Beta experimental. Fonte: feature/webapp-modular
