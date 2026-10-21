@@ -8,6 +8,7 @@ import {homeScreen} from '../features/home/view.mjs';
 import {backgroundsScreen} from '../features/backgrounds/view.mjs';
 import {acquireBackground} from '../features/backgrounds/catalog.mjs';
 import {mountHomeEffects} from '../features/home/effects.mjs';
+import {mountBackgroundEffect} from '../features/backgrounds/effects.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
 
@@ -59,7 +60,14 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?featureScreen(player,feature):profilesScreen(profiles.profiles(),selectedPlayer);break;
     default:throw Error('Tela desconhecida: '+screen);
    }
-   if(screen==='home'&&player&&typeof window!=='undefined')stopHomeEffects=mountHomeEffects({root,windowRef:window});
+   if(screen==='home'&&player&&typeof window!=='undefined'){
+     const bg=player.owned?.includes(player.equipped?.background)?player.equipped.background:null;
+     stopHomeEffects=bg?mountBackgroundEffect(root.querySelector('.home-view'),bg,{windowRef:window}):mountHomeEffects({root,windowRef:window});
+   }
+   if(screen==='backgrounds'&&player&&typeof window!=='undefined'){
+     const id=selectedBackground||player.equipped?.background||'bg_forest';
+     stopHomeEffects=mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
+   }
   }catch(e){
    console.error('Falha ao renderizar:',e);
    root.textContent='Não foi possível carregar esta tela. Recarregue a página para tentar novamente.';
