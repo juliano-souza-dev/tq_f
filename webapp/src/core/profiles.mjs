@@ -23,12 +23,21 @@ export function makeProfile(family,id){
 }
 function normalizeProfile(p,family,createId){
  const base=makeProfile(family,createId());
+ const tables={...base.learning.tables,...p.learning?.tables};
+ // Versões anteriores do APK guardavam conquistas em stats.masteredDecks.
+ // Se ainda não houver a marca mais nova, preservamos o fato já dominado.
+ for(const [id,entry] of Object.entries(p.stats?.masteredDecks||{})){
+  if(!tables[id]?.masteredAt && Number(entry?.at)>0){
+    tables[id]={...tables[id],masteredAt:Number(entry.at),reviewStage:0,
+     reviewCount:0,nextReviewAt:Number(entry.at),lapses:0};
+  }
+ }
  return {...base,...p,name:family.name,
   avatar:{...base.avatar,...p.avatar,id:family.avatar},
   equipped:{...base.equipped,...p.equipped},
   flags:{...base.flags,...p.flags},
   stats:{...base.stats,...p.stats,masteredDecks:{...base.stats.masteredDecks,...p.stats?.masteredDecks}},
-  learning:{...base.learning,...p.learning,tables:{...base.learning.tables,...p.learning?.tables}},
+  learning:{...base.learning,...p.learning,tables},
   history:Array.isArray(p.history)?p.history:[],
   coins:number(p.coins,10000),gems:number(p.gems,45),xp:number(p.xp)
  };
