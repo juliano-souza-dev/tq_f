@@ -1,3 +1,4 @@
+import {migratedAssetPath,HOME_ARTWORK} from '../src/resources/asset-map.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -49,5 +50,17 @@ test('cada migração exige entrada auditável de lote',()=>{
    assert.ok(fs.existsSync(new URL('assets/optimized/'+i.target,root)),i.target+' ausente');
    assert.ok(i.optimizedBytes>0);
   }
+ }
+});
+
+test('registro modular resolve apenas o lote convertido sem afetar os demais recursos',()=>{
+ assert.equal(Object.keys(HOME_ARTWORK).length,14);
+ assert.equal(migratedAssetPath('home_new_logo.png'),'./assets/optimized/home_new_logo.webp');
+ assert.equal(migratedAssetPath('/anywhere/home_new_jogar.png'),'./assets/optimized/home_new_jogar.webp');
+ assert.equal(migratedAssetPath('pet30-01-idle_00.png'),null);
+ const html=read('index.html');
+ assert.match(html,/src="\.\/src\/app\/bootstrap\.mjs"/);
+ for(const key of ['home_new_logo','home_new_jogar','home_new_worlds','home_new_chests']){
+   assert.ok(html.includes(key+'.webp'),'Imagem WebP ainda não conectada ao HTML: '+key);
  }
 });
