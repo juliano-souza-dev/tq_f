@@ -25,13 +25,21 @@ SOURCE_URL = "https://raw.githubusercontent.com/juliano-souza-dev/tq_f/{}/{}".fo
     batch["sourceBranch"], batch["sourcePrefix"]
 )
 def psnr(a, b):
-    # Mede a diferença de cor, após qualquer redimensionamento.
+    # Não compara RGB invisível sob pixels transparentes.
+    # Avalia a aparência da imagem composta nos dois fundos extremos do jogo.
     a = a.convert("RGBA")
     b = b.convert("RGBA")
-    diff = ImageChops.difference(a, b)
-    squared = ImageStat.Stat(diff)
-    mse = sum((sd**2 + mn**2) for sd,mn in zip(squared.stddev,squared.mean)) / 4
-    return float("inf") if mse == 0 else 10 * math.log10((255*255)/mse)
+    scores = []
+    for background in ((255,255,255,255),(34,27,76,255)):
+        base = Image.new("RGBA", a.size, background)
+        other = Image.new("RGBA", b.size, background)
+        base.alpha_composite(a)
+        other.alpha_composite(b)
+        diff = ImageChops.difference(base.convert("RGB"), other.convert("RGB"))
+        stats = ImageStat.Stat(diff)
+        mse = sum(sd**2 + mn**2 for sd,mn in zip(stats.stddev,stats.mean)) / 3
+        scores.append(float("inf") if mse == 0 else 10 * math.log10((255*255)/mse))
+    return min(scores)
 
 out = []
 for spec in batch["items"]:
@@ -53,7 +61,7 @@ for spec in batch["items"]:
     if img.width > max_width:
         img = img.resize((max_width, round(img.height*max_width/img.width)), Image.Resampling.LANCZOS)
     img = img.convert("RGBA" if "A" in img.getbands() else "RGB")
-    options = [87, 91, 94, 97]
+    options = [90, 93, 96, 98]
     selected = None
     method = ""
     for quality in options:
