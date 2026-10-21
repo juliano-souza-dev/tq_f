@@ -13,11 +13,11 @@ export function mountOceanEffect(host,{windowRef=window,preview=false}={}){
   vec2 p=uv; // p.y 0 at bottom, 1 at top
   // The tropical beach art has the open sea on the right, with the waterline
   // extending diagonally down toward the lower-left portion of the picture.
-  float shoreline=mix(.13,.67,smoothstep(.08,.90,p.x));
-  float sea=smoothstep(shoreline-.07,shoreline+.035,p.y);
-  sea*=smoothstep(.30,.48,p.x);
-  // Remove upper sky; a soft transition near the distant horizon.
-  sea*=1.0-smoothstep(.69,.81,p.y);
+  float shoreline=mix(.64,.15,smoothstep(.10,.95,p.x));
+  float sea=smoothstep(shoreline-.06,shoreline+.09,p.x*0.10+p.y*0.90);
+  sea*=smoothstep(.30,.53,p.x);
+  // Water is below the horizon in this artwork, not in the sky.
+  sea*=1.0-smoothstep(.49,.69,p.y);
   vec2 w=p;
   float wave=sin(w.y*126.0+w.x*19.0-time*2.0+sin(w.x*23.0+time*.55)*1.4);
   float cross=sin(w.y*78.0-w.x*40.0-time*1.3);
