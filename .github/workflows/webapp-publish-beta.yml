@@ -1,5 +1,5 @@
 name: Webapp · Publicar beta isolada
-# Release: Moda fiel ao APK sem menu extra Minhas molduras
+# Release: Moda sem botão extra Minhas molduras, testes atualizados
 # Release: atelie mobile em provador com trilho horizontal
 on:
   push:
