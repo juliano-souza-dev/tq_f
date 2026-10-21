@@ -1,0 +1,15 @@
+{
+  "id": "003-home-scene",
+  "sourceBranch": "apoio",
+  "sourcePrefix": "apk-extraido/assets",
+  "outputPrefix": "webapp/assets/optimized",
+  "qualityMinimumPsnr": 39,
+  "note": "Ambiência cinematográfica da home. Usar somente aqui, carregamento independente e tamanho controlado.",
+  "items": [
+    {
+      "source": "home-magical-bg.webp",
+      "target": "home-magical-bg.webp",
+      "maxWidth": 1100
+    }
+  ]
+}
