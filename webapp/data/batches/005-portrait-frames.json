@@ -1,0 +1,30 @@
+{
+  "id": "005-portrait-frames",
+  "sourceBranch": "apoio",
+  "sourcePrefix": "apk-extraido/assets",
+  "outputPrefix": "webapp/assets/optimized",
+  "qualityMinimumPsnr": 39,
+  "note": "Molduras WebP existentes que podem ser equipadas. Preservar alpha e proporção.",
+  "items": [
+    {
+      "source": "frame-star.webp",
+      "target": "frame-star.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "frame-floral.webp",
+      "target": "frame-floral.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "frame-champion.webp",
+      "target": "frame-champion.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "frame-rainbow.webp",
+      "target": "frame-rainbow.webp",
+      "maxWidth": 320
+    }
+  ]
+}
