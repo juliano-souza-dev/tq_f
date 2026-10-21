@@ -50,10 +50,7 @@ export function wardrobeScreen(profile,notice='',selectedSkin=null,tab='fashion'
         </article>`;
        }).join('')}
      </section>
-     <div class="fashion-reference-frames">
-       <button type="button" data-action="wardrobeTab" data-tab="frames">🖼️ Minhas molduras</button>
-       ${tab==='frames'?`<div class="fashion-frame-grid">${frames.map(x=>`<button type="button" data-action="equipFrame" data-frame="${x.id||''}" aria-pressed="${(profile.equipped?.frame||null)===x.id}">${x.src?art(assetUrl(x.src),{alt:''}):'✦'}<span>${escapeHTML(x.label)}</span></button>`).join('')}</div>`:''}
-     </div>
+
    </div>
  </main>`;
 }
