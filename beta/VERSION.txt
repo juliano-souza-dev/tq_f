@@ -1,1 +1,5 @@
-Beta experimental. Fonte: feature/webapp-modular
+Tabuada Quest Beta · WebGL home equilibrado
+Efeitos: 32 vagalumes, profundidade suave, luz ambiente, idle do personagem e brilho do botão.
+Limites: 30 FPS, DPR 1.25, máximo 430.000 pixels WebGL. Canvas pass-through, pausa em aba oculta, fallback e movimento reduzido.
+Testes Chromium: 360x740, 390x844 e 1280x800; sem regressão de jogo.
+Fonte: feature/webapp-modular.
