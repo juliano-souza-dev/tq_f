@@ -3,7 +3,7 @@ import {art,escapeHTML} from '../../components/ui.mjs';
 import {masteredCount,level,experienceProgress,chestProgress} from '../../core/progression.mjs';
 export function homeScreen(profile){
  const coin=Number(profile.coins||0),gems=Number(profile.gems||0);
- const chest=chestProgress(profile),mastered=masteredCount(profile);
+ const chest=chestProgress(profile),mastered=masteredCount(profile),xp=experienceProgress(profile.xp);
  const amount=value=>new Intl.NumberFormat('pt-BR').format(value);
  const image=(n,cls='',alt='')=>art(assetUrl('home_new_'+n+'.webp'),{className:cls,alt});
  const feature=(name,action,label)=>`<button class="home-tile" data-slot="${name}" type="button" data-action="${action}" ${action==='openFeature'?'data-feature="'+escapeHTML(label)+'"':''} aria-label="${escapeHTML(label)}">${image(name,'tile-art','')}<span class="sr-only">${escapeHTML(label)}</span></button>`;
@@ -11,8 +11,9 @@ export function homeScreen(profile){
    <div class="home-header" aria-label="Perfil e recursos da aventureira">
     <button class="hero-identity" type="button" data-action="profiles" aria-label="Trocar de aventureira">
       ${art(avatarUrl(profile.avatar.id),{className:'hero-mini-avatar',alt:''})}
-      <span class="hero-identity-info"><strong>${escapeHTML(profile.name)}</strong><small>Nível ${level(profile.xp)} · ${mastered}/10 mundos</small></span>
+      <span class="hero-identity-info"><strong>${escapeHTML(profile.name)}</strong><small class="home-level">NÍVEL ${level(profile.xp)}</small><span class="home-xp-label">${xp} / 100</span></span>
     </button>
+    <progress class="home-profile-xp" value="${xp}" max="100" aria-label="Experiência: ${xp} de 100"></progress>
     <div class="hero-wallet" aria-label="Saldo de moedas e gemas">
       <span class="wallet-item" aria-label="${amount(coin)} moedas de ouro"><span class="wallet-coin" aria-hidden="true">★</span><strong>${amount(coin)}</strong></span>
       <span class="wallet-item" aria-label="${amount(gems)} gemas"><span class="wallet-gem" aria-hidden="true"></span><strong>${amount(gems)}</strong></span>
@@ -22,7 +23,6 @@ export function homeScreen(profile){
    <div class="hero-stage">
     <button type="button" data-action="openFeature" data-feature="Fundos" class="fashion-shortcut left" aria-label="Escolher fundo">${image('fundo')}</button>
     <div class="hero-fashion">
-     ${image('fashion_stage','fashion-base')}
      ${art(avatarUrl(profile.avatar.id),{className:'hero-character',alt:'Aventureira '+profile.name})}
     </div>
     <button type="button" data-action="openFeature" data-feature="Moda" class="fashion-shortcut right" aria-label="Mudar roupa">${image('moda')}</button>
