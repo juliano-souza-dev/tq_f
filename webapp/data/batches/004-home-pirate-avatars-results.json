@@ -1,0 +1,51 @@
+{
+  "batch": "004-home-pirate-avatars",
+  "processed": 3,
+  "sourceBytes": 4905016,
+  "optimizedBytes": 1093290,
+  "items": [
+    {
+      "source": "avatar-luna-pirate.png",
+      "target": "avatar-luna-pirate.webp",
+      "sourceBytes": 1792183,
+      "optimizedBytes": 405550,
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "outputWidth": 560,
+      "outputHeight": 747,
+      "encoding": "lossless",
+      "psnrDb": "lossless",
+      "savedPercent": 77.4,
+      "qualityReviewedByHuman": false
+    },
+    {
+      "source": "avatar-sofia-pirate.png",
+      "target": "avatar-sofia-pirate.webp",
+      "sourceBytes": 1470040,
+      "optimizedBytes": 318376,
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "outputWidth": 560,
+      "outputHeight": 747,
+      "encoding": "lossless",
+      "psnrDb": "lossless",
+      "savedPercent": 78.3,
+      "qualityReviewedByHuman": false
+    },
+    {
+      "source": "avatar-maya-pirate.png",
+      "target": "avatar-maya-pirate.webp",
+      "sourceBytes": 1642793,
+      "optimizedBytes": 369364,
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "outputWidth": 560,
+      "outputHeight": 747,
+      "encoding": "lossless",
+      "psnrDb": "lossless",
+      "savedPercent": 77.5,
+      "qualityReviewedByHuman": false
+    }
+  ],
+  "note": "PSNR automático não substitui comparação visual em tamanhos de tela reais."
+}
