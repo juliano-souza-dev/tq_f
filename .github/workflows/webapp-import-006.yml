@@ -1,0 +1,35 @@
+name: Webapp · Coleção Moda 006
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths: ['.github/workflows/webapp-import-006.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fashion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/webapp-modular
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - name: Converter somente 26 roupas catalogadas
+        run: python webapp/tools/convert-batch.py webapp/data/batches/006-fashion-collection.json
+      - name: Atualizar inventário
+        run: node webapp/tools/apply-batch-to-inventory.mjs webapp/data/batches/006-fashion-collection-results.json
+      - name: Validar arquivos
+        run: cd webapp && npm run check
+      - name: Versionar assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add webapp/assets/optimized/avatar-*.webp webapp/data/asset-inventory.csv webapp/data/batches/006-fashion-collection-results.json
+          git diff --cached --quiet && exit 0
+          git commit -m "assets(moda): importa 26 roupas com dimensoes otimizadas"
+          git pull --rebase origin feature/webapp-modular
+          git push origin HEAD:feature/webapp-modular
