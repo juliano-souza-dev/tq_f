@@ -139,7 +139,7 @@ test('moldura e moda seguem o contrato do APK, sem conceder itens não conquista
  app.act('selectPlayer',{player:'alana'});app.act('enter');
  app.act('openFeature',{feature:'Moda'});
  assert.equal(app.getScreen(),'wardrobe');
- assert.match(root.innerHTML,/Moda de Alana/);
+ assert.match(root.innerHTML,/ATELIÊ MÁGICO/);
  app.act('equipFashion',{skin:'pirate'});
  assert.equal(app.getPlayer().avatar.skinId,'pirate','A compra com moedas equipa a moda');
  assert.equal(app.getPlayer().coins,9820,'A compra precisa descontar 180 moedas');
@@ -166,7 +166,9 @@ test('moda e moldura conquistadas são equipadas, salvas e continuam ao reabrir'
  const reopened=createApp({root,storage:mem,random:()=>.2});
  reopened.act('openFeature',{feature:'Moda'});
  assert.match(root.innerHTML,/Pirata/);
+ reopened.act('wardrobeTab',{tab:'frames'});
  assert.match(root.innerHTML,/Floral/);
+ reopened.act('wardrobeTab',{tab:'fashion'});
  reopened.act('equipFashion',{skin:'pirate'});
  reopened.act('equipFrame',{frame:'frame_floral'});
  assert.equal(reopened.getPlayer().avatar.skinId,'pirate');
