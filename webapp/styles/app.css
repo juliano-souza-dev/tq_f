@@ -157,3 +157,18 @@ p,h1,h2{margin-top:0}
 /* Hotspots próximos das bordas não devem ser recortados. */
 .world-map-art{border-radius:19px}
 .world-map-shell{position:relative;margin-bottom:22px}
+
+/* Guarda-roupa: controles próprios, sem CSS ou eventos inline. */
+.wardrobe-view{max-width:620px;background:linear-gradient(165deg,#884cc4,#443080 68%,#3e3f8e);color:#fff9e6}
+.wardrobe-view h1{font-size:clamp(1.5rem,6vw,2.2rem);margin:15px 0 8px}
+.wardrobe-view>p{line-height:1.5;font-size:.92rem;color:#eddefc}
+.wardrobe-picks{border:2px solid #ecd19a;background:#583c91;border-radius:22px;padding:15px 12px;margin:17px 0;box-shadow:0 6px 0 #30205b}
+.wardrobe-picks h2{font-size:1.12rem;color:#ffecb9;margin:0 0 12px}
+.wardrobe-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.wardrobe-choice{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:140px;padding:10px 7px;border:3px solid #e1c8f2;border-radius:19px;background:linear-gradient(#f5e8ff,#dac9ec);color:#503078;box-shadow:0 4px 0 #362465;text-align:center}
+.wardrobe-choice[aria-pressed="true"]{border-color:#ffeb8c;background:linear-gradient(#fff7df,#fad89d);box-shadow:0 4px 0 #ba8845}
+.wardrobe-choice strong{font-size:.88rem;line-height:1.12}
+.wardrobe-choice>span:last-child{font-size:.72rem;font-weight:1000}
+.wardrobe-avatar{height:105px;width:100%;object-fit:contain}
+.wardrobe-frame-swatch{width:86px;height:86px;display:grid;place-items:center;border-radius:50%;background:#bd9bdd;font-size:2.5rem}
+.wardrobe-frame-swatch img{height:100%;width:100%;object-fit:contain}
