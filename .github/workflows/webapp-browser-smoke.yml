@@ -1,0 +1,38 @@
+name: Webapp · Navegador real
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths:
+      - '.github/workflows/webapp-browser-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chrome:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          cd webapp
+          npm install --no-save playwright@1.55.1
+          npx playwright install --with-deps chromium
+      - name: Servidor HTTP isolado
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory webapp >/tmp/tq-server.log 2>&1 &
+          sleep 2
+          curl -fsSL http://127.0.0.1:8765/ > /dev/null
+      - name: Fluxo navegável e imagens responsivas
+        run: |
+          cd webapp
+          mkdir -p screenshots
+          node tests/browser-smoke.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capturas-beta
+          path: webapp/screenshots/
+          retention-days: 3
