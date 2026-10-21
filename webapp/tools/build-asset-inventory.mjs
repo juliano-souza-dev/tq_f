@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
-const source=path.resolve(process.argv[2]||path.join(here,'../../../apk-extraido/assets'));
+const source=path.resolve(process.argv[2]||path.join(here,'../../apk-extraido/assets'));
 const dest=path.resolve(process.argv[3]||path.join(here,'../data/asset-inventory.csv'));
 const html=fs.readFileSync(path.join(source,'index.html'),'utf8');
 const lottieData=fs.readFileSync(path.join(source,'lottie-data.js'),'utf8');
