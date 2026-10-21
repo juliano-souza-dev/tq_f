@@ -1,4 +1,4 @@
-// Forest Magic: WebGL fireflies, pollen and subtle moving sunbeams.
+// Forest Magic: daytime WebGL sunlight, airborne dust and drifting autumn leaves.
 // Single quad, no textures or point sprites. Canvas never intercepts input.
 const VERT=`attribute vec2 a_pos;varying vec2 v_uv;void main(){v_uv=a_pos*.5+.5;gl_Position=vec4(a_pos,0.0,1.0);}`;
 const FRAG=`precision highp float;
@@ -6,40 +6,59 @@ varying vec2 v_uv;
 uniform float u_time;
 uniform vec2 u_resolution;
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
-vec3 forestLayer(vec2 uv,float density,float speed,float radius,float opacity,vec3 tint){
+vec4 fallingLeaves(vec2 uv,float density,float speed,float opacity){
  float aspect=u_resolution.x/max(u_resolution.y,1.);
  vec2 p=uv*vec2(aspect*density,density);
+ p.y+=u_time*speed;
+ p.x+=sin(u_time*.48+p.y*.7)*.26;
  vec2 cell=floor(p),f=fract(p);
- vec3 sum=vec3(0.);
+ vec4 result=vec4(0.);
  for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++){
   vec2 key=cell+vec2(float(x),float(y));
-  float seed=hash(key+11.);
-  // A few fireflies hover in place instead of filling every cell.
-  float enabled=step(.26,seed);
-  vec2 center=vec2(float(x),float(y))+
-   vec2(.15+.70*hash(key+23.),.15+.7*hash(key+38.));
-  center+=vec2(sin(u_time*speed+seed*14.)*.15,
-               cos(u_time*speed*.72+seed*33.)*.12);
-  float d=length(f-center);
-  float light=1.-smoothstep(radius*.15,radius*2.4,d);
-  float core=1.-smoothstep(.0,radius*.36,d);
-  float pulse=.60+.40*sin(u_time*(1.2+seed*.9)+seed*29.);
-  vec3 c=mix(tint,vec3(1.,.96,.64),hash(key+62.)*.55);
-  sum+=c*(light*.40+core*.75)*enabled*pulse*opacity;
+  float seed=hash(key+8.);
+  vec2 center=vec2(float(x),float(y))+vec2(.14+.72*hash(key+18.),.14+.72*hash(key+29.));
+  center.x+=sin(u_time*.7+seed*23.)*.24;
+  vec2 d=f-center;
+  float angle=seed*6.283+sin(u_time*.9+seed*13.)*.6;
+  vec2 q=vec2(cos(angle)*d.x-sin(angle)*d.y,sin(angle)*d.x+cos(angle)*d.y);
+  float shape=length(q/vec2(.17,.065));
+  float leaf=1.-smoothstep(.76,1.10,shape);
+  float vein=1.-smoothstep(.006,.024,abs(q.y));
+  vec3 color=mix(vec3(.85,.48,.12),vec3(.58,.78,.23),hash(key+51.));
+  float a=leaf*(.64+.12*vein)*opacity*step(.15,seed);
+  result.rgb+=color*a;
+  result.a+=a;
  }
- return min(sum,vec3(1.));
+ return vec4(min(result.rgb,vec3(1.)),min(result.a,1.));
+}
+float dust(vec2 uv,float scale,float speed){
+ float ratio=u_resolution.x/max(u_resolution.y,1.);
+ vec2 p=uv*vec2(scale*ratio,scale)+vec2(u_time*.016,-u_time*speed);
+ vec2 cell=floor(p),f=fract(p);
+ float b=0.;
+ for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++){
+  vec2 key=cell+vec2(float(x),float(y));
+  vec2 center=vec2(float(x),float(y))+vec2(hash(key+2.),hash(key+19.));
+  float d=length(f-center);
+  b+= (1.-smoothstep(.022,.085,d))*(.4+.6*hash(key+31.));
+ }
+ return min(b,1.);
 }
 void main(){
  vec2 uv=v_uv;
- // Pollen gradually rises between the trunks; fireflies hover near foliage.
- vec3 distant=forestLayer(uv,16.,.36,.115,.33,vec3(.70,.95,.49));
- vec3 pollen=forestLayer(uv+vec2(0.,u_time*.0035),12.,.42,.12,.32,vec3(.98,.83,.44));
- vec3 flies=forestLayer(uv,6.5,.95,.17,.76,vec3(.67,1.,.43));
- // Warm forest light shafts, low-opacity and slow to avoid obscuring artwork.
- float shaft=pow(max(0.,sin(uv.x*19.+sin(uv.y*3.+u_time*.15))),11.)*.023;
- vec3 rgb=min(distant+pollen+flies+vec3(.9,.8,.42)*shaft,vec3(1.));
- float alpha=clamp(max(max(rgb.r,rgb.g),rgb.b)*.79+shaft,0.,.82);
- gl_FragColor=vec4(rgb,alpha);
+ // Wide sunlight shafts leaning through canopy from the upper left.
+ float beamX=uv.x+(.95-uv.y)*.35;
+ float shafts=pow(max(0.,sin(beamX*14.0+sin(uv.y*2.3+u_time*.14)*.20)),5.0);
+ float sunMask=smoothstep(.02,.30,uv.y)*(1.-smoothstep(.65,1.,uv.y));
+ float light=shafts*sunMask*(.20+.055*sin(u_time*.32));
+ float ambient=(.028+.025*sin(uv.x*7.+u_time*.14))*sunMask;
+ float pollen=dust(uv,13.,.05)*.32;
+ vec4 farLeaves=fallingLeaves(uv,4.7,.22,.57);
+ vec4 closeLeaves=fallingLeaves(uv+vec2(.27,.16),3.3,.34,.85);
+ vec3 glow=vec3(1.,.84,.44)*(light+ambient)+vec3(1.,.92,.59)*pollen;
+ vec3 mixed=glow+farLeaves.rgb+closeLeaves.rgb;
+ float alpha=clamp(light*.8+ambient+pollen*.65+farLeaves.a+closeLeaves.a,0.,.83);
+ gl_FragColor=vec4(min(mixed,vec3(1.)),alpha);
 }`;
 function makeShader(gl,type,source){
  const shader=gl.createShader(type);gl.shaderSource(shader,source);gl.compileShader(shader);
