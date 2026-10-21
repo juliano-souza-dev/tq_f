@@ -14,7 +14,7 @@ export function homeScreen(profile){
       <span class="hero-identity-info"><strong>${escapeHTML(profile.name)}</strong><small>Nível ${level(profile.xp)} · ${mastered}/10 mundos</small></span>
     </button>
     <span class="hero-coins">🪙 ${coin}<span> 💎 ${gems}</span></span>
-    <div class="home-xp"><span style="--progress:${xp}%"></span><small>EXP ${xp}/100</small></div>
+    <div class="home-xp"><progress value="${xp}" max="100" aria-label="Experiência"></progress><small>EXP ${xp}/100</small></div>
    </div>
    ${image('logo','home-logo','Tabuada Quest')}
    <div class="hero-stage">
