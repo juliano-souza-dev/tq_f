@@ -6,7 +6,7 @@ import {wardrobeScreen,availableFrames} from '../features/wardrobe/view.mjs';
 import {acquireFashion} from '../features/wardrobe/fashion.mjs';
 import {homeScreen} from '../features/home/view.mjs';
 import {backgroundsScreen} from '../features/backgrounds/view.mjs';
-import {acquireBackground} from '../features/backgrounds/catalog.mjs';
+import {BACKGROUNDS,acquireBackground} from '../features/backgrounds/catalog.mjs';
 import {mountHomeEffects} from '../features/home/effects.mjs';
 import {mountBackgroundEffect} from '../features/backgrounds/effects.mjs';
 import {mountSnowEffect} from '../features/backgrounds/snow.mjs';
@@ -65,7 +65,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     default:throw Error('Tela desconhecida: '+screen);
    }
    if(screen==='home'&&player&&typeof window!=='undefined'){
-     const bg=player.owned?.includes(player.equipped?.background)?player.equipped.background:null;
+     const bg=BACKGROUNDS.some(item=>item.id===player.equipped?.background)&&player.owned?.includes(player.equipped.background)?player.equipped.background:null;
      stopHomeEffects=bg==='bg_ocean'?mountOceanEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_ice'?mountSnowEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_space'?mountCosmicEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_forest'?mountForestEffect(root.querySelector('.home-view'),{windowRef:window}):bg?mountBackgroundEffect(root.querySelector('.home-view'),bg,{windowRef:window}):mountHomeEffects({root,windowRef:window});
    }
    if(screen==='backgrounds'&&player&&typeof window!=='undefined'){
