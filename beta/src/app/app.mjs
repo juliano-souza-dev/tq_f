@@ -2,7 +2,8 @@ import {createProfileStore} from '../core/profiles.mjs';
 import {WORLDS,worldState} from '../core/progression.mjs';
 import {createPractice,answerPractice,nextPractice,finishPractice} from '../core/practice.mjs';
 import {profilesScreen} from '../features/profiles/view.mjs';
-import {wardrobeScreen,availableFashion,availableFrames} from '../features/wardrobe/view.mjs';
+import {wardrobeScreen,availableFrames} from '../features/wardrobe/view.mjs';
+import {acquireFashion} from '../features/wardrobe/fashion.mjs';
 import {homeScreen} from '../features/home/view.mjs';
 import {mountHomeEffects} from '../features/home/effects.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
@@ -17,6 +18,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let session=null;
  let result=null;
  let feature='';
+ let fashionNotice='';
  let stopHomeEffects=null;
 
  function pickAvailableWorld(profile){
@@ -36,7 +38,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     case 'profiles':
       root.innerHTML=profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'wardrobe':
-      root.innerHTML=player?wardrobeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
+      root.innerHTML=player?wardrobeScreen(player,fashionNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -98,14 +100,18 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
-     if(feature==='Moda')navigate('wardrobe');
+     if(feature==='Moda'){fashionNotice='';navigate('wardrobe');}
      else navigate('feature');
      break;
-   case 'equipFashion': {
+   case 'equipFashion':
+   case 'fashionAction': {
      const player=profiles.active();
+     if(!player)break;
      const id=String(dataset.skin||'original');
-     if(!player||!availableFashion(player).some(x=>x.id===id))break;
-     profiles.updateActive(p=>{p.avatar.skinId=id;});render();break;
+     let result;
+     profiles.updateActive(p=>{result=acquireFashion(p,id)});
+     fashionNotice=result?.reason==='insufficient-coins'?'Faltam '+result.missing+' moedas para este visual.':result?.reason==='reward-only'?'Este visual é exclusivo de recompensas.':result?.reason==='purchased'?'Nova roupa desbloqueada e equipada!':result?.reason==='equipped'?'Visual equipado!':'';
+     render();break;
    }
    case 'equipFrame': {
      const player=profiles.active();

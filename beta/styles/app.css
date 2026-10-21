@@ -172,3 +172,38 @@ p,h1,h2{margin-top:0}
 .wardrobe-avatar{height:105px;width:100%;object-fit:contain}
 .wardrobe-frame-swatch{width:86px;height:86px;display:grid;place-items:center;border-radius:50%;background:#bd9bdd;font-size:2.5rem}
 .wardrobe-frame-swatch img{height:100%;width:100%;object-fit:contain}
+
+/* Ateliê modular. Hero, cards e seleção sem estilos inline. */
+.wardrobe-view{padding-bottom:45px;max-width:660px}
+.fashion-hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 44%;min-height:260px;overflow:hidden;
+ border:3px solid #ffe6ab;border-radius:25px;margin:10px 0 22px;padding:22px 14px;
+ background:radial-gradient(circle at 83% 30%,#d67cffb3,transparent 46%),linear-gradient(145deg,#6732a5,#392475);
+ box-shadow:0 7px 0 #362062,0 15px 25px #190c484f}
+.fashion-hero-copy{z-index:1;align-self:center}
+.fashion-hero-copy>span{color:#ffe79a;letter-spacing:.13em;font-size:.68rem;font-weight:1000}
+.fashion-hero h1{font-size:clamp(1.45rem,5vw,2.2rem);line-height:1.06;margin:10px 0;color:#fff8d5;text-shadow:0 3px #36156c}
+.fashion-hero p{font-size:.83rem;line-height:1.4;color:#f2e1ff}
+.fashion-wallet{display:inline-flex;gap:6px;align-items:center;padding:8px 11px;background:#ffecb5;color:#4a2e71;border:2px solid #fff;border-radius:999px;font-weight:1000;font-size:.9rem}
+.fashion-wallet small{font-size:.66rem}
+.fashion-stage-avatar{position:absolute;right:0;bottom:0;width:48%;height:97%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 10px 7px #1f0b596e)}
+.fashion-collection{margin:20px 0}
+.fashion-section-title{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:12px}
+.fashion-section-title h2{font-size:1.2rem;color:#fff3bd;margin:0}
+.fashion-section-title>span{font-size:.73rem;color:#f1d4ff;font-weight:900;text-align:right}
+.fashion-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.fashion-card{display:flex;flex-direction:column;gap:6px;padding:9px 8px 10px;border:3px solid #f4d4ff;border-radius:19px;
+ background:linear-gradient(#fff9e2,#efd4f4);color:#4e3370;box-shadow:0 6px 0 #392261;min-width:0}
+.fashion-card.fashion-equipped{border-color:#ffe47e;background:linear-gradient(#fff8cf,#ffd6a5)}
+.fashion-card.fashion-locked .fashion-card-media{background:linear-gradient(160deg,#e2d3ee,#c4b8d4)}
+.fashion-card-media{position:relative;display:grid;place-items:center;height:clamp(135px,42vw,213px);border-radius:14px;overflow:hidden;background:radial-gradient(circle at 50% 45%,#ffeeb8,#d9b9f3)}
+.fashion-card-figure{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.fashion-locked .fashion-card-figure{filter:saturate(.78)}
+.fashion-check{position:absolute;right:7px;top:7px;width:30px;height:30px;display:grid;place-items:center;border:2px solid white;border-radius:50%;background:#56ae6f;color:#fff;font-weight:1000}
+.fashion-card h3{font-size:.91rem;line-height:1.15;margin:5px 0 0;font-weight:1000}
+.fashion-card>p{font-size:.72rem;line-height:1.25;color:#765895;margin:0;min-height:28px}
+.fashion-source{font-size:.68rem;font-weight:900;color:#78518b;line-height:1.3;min-height:24px}
+.fashion-card>button{width:100%;margin-top:auto;min-height:41px;padding:7px 5px;border-radius:12px;border:2px solid #fff4ca;background:linear-gradient(#ffe28d,#eeb250);color:#573468;font-weight:1000;font-size:.8rem;box-shadow:0 3px 0 #b77e42}
+.fashion-card>button:disabled{background:#ddd0df;border-color:#e7dbed;color:#7e6a8e;box-shadow:none;opacity:1}
+.fashion-card.fashion-equipped>button:disabled{background:#a6e9b6;color:#31593b}
+@media(min-width:550px){.fashion-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:360px){.fashion-hero{min-height:230px}.fashion-card-media{height:135px}.fashion-cards{gap:8px}.fashion-card{padding:7px 6px}}
