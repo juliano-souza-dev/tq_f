@@ -1,0 +1,85 @@
+{
+  "id": "002-profiles-worlds",
+  "sourceBranch": "apoio",
+  "sourcePrefix": "apk-extraido/assets",
+  "outputPrefix": "webapp/assets/optimized",
+  "qualityMinimumPsnr": 39,
+  "note": "Perfis (3), fundo da primeira prática (1), mapas por região (10) e mapa geral (1). Mapas carregados apenas ao abrir mundos.",
+  "items": [
+    {
+      "source": "avatar-luna-neutral-base.png",
+      "target": "avatar-luna-neutral-base.webp",
+      "maxWidth": 500
+    },
+    {
+      "source": "avatar-sofia-neutral-base.png",
+      "target": "avatar-sofia-neutral-base.webp",
+      "maxWidth": 500
+    },
+    {
+      "source": "avatar-maya-neutral-base.png",
+      "target": "avatar-maya-neutral-base.webp",
+      "maxWidth": 500
+    },
+    {
+      "source": "world-practice-01.png",
+      "target": "world-practice-01.webp",
+      "maxWidth": 900
+    },
+    {
+      "source": "world_map_01.webp",
+      "target": "world_map_01.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_02.webp",
+      "target": "world_map_02.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_03.webp",
+      "target": "world_map_03.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_04.webp",
+      "target": "world_map_04.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_05.webp",
+      "target": "world_map_05.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_06.webp",
+      "target": "world_map_06.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_07.webp",
+      "target": "world_map_07.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_08.webp",
+      "target": "world_map_08.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_09.webp",
+      "target": "world_map_09.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_10.webp",
+      "target": "world_map_10.webp",
+      "maxWidth": 840
+    },
+    {
+      "source": "world_map_bg.webp",
+      "target": "world_map_bg.webp",
+      "maxWidth": 900
+    }
+  ]
+}
