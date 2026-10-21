@@ -127,6 +127,6 @@ export function mountHomeEffects({root=document,windowRef=window,quality=FX_BALA
    if(typeof windowRef.ResizeObserver==='function'){observer=new windowRef.ResizeObserver(updateSize);observer.observe(host)}
    else{windowRef.addEventListener('resize',updateSize);cleanupFns.push(()=>windowRef.removeEventListener('resize',updateSize))}
    updateSize();resume();
- }catch(e){pause();fallback();if(gl){if(buffer)gl.deleteBuffer(buffer);if(program)gl.deleteProgram(program}}
+ }catch(e){pause();fallback();if(gl){if(buffer)gl.deleteBuffer(buffer);if(program)gl.deleteProgram(program)}}
  return destroy;
 }
