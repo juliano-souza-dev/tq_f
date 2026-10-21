@@ -92,6 +92,11 @@ try{
    const owner=await page.evaluate(()=>JSON.parse(localStorage.getItem('tabuadaquest.webapp.v1')).profiles.find(p=>p.name==='Alana'));
    assert.equal(owner.avatar.skinId,'pirate');
    assert.equal(owner.coins,9820);
+   const brokenFashion=await page.locator('.fashion-card-figure,.fashion-stage-avatar').evaluateAll(async imgs=>{
+     await Promise.all(imgs.map(img=>img.decode().catch(()=>null)));
+     return imgs.filter(img=>!img.naturalWidth).map(img=>img.src);
+   });
+   assert.deepEqual(brokenFashion,[],'Moda contém assets quebrados');
    await page.screenshot({path:'screenshots/fashion-'+size+'.png',fullPage:true});
    await page.locator('.wardrobe-view > .main-cta').click();
    assert.equal(await page.locator('.hero-character').getAttribute('src'),'./assets/optimized/avatar-luna-pirate.webp');
