@@ -1,0 +1,36 @@
+name: Webapp · Avatar pirata home 004
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths: ['.github/workflows/webapp-import-004.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/webapp-modular
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pillow
+      - name: Comprimir três trajes
+        run: python webapp/tools/convert-batch.py webapp/data/batches/004-home-pirate-avatars.json
+      - name: Atualizar inventário
+        run: node webapp/tools/apply-batch-to-inventory.mjs webapp/data/batches/004-home-pirate-avatars-results.json
+      - name: Verificar arquivos e salvar apenas o lote
+        run: |
+          cd webapp
+          npm run check
+          cd ..
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add webapp/assets/optimized/avatar-*-pirate.webp webapp/data/asset-inventory.csv webapp/data/batches/004-home-pirate-avatars-results.json
+          git commit -m "assets(home): trajes piratas otimizados"
+          git pull --rebase origin feature/webapp-modular
+          git push origin HEAD:feature/webapp-modular
