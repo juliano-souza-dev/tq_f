@@ -19,6 +19,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let result=null;
  let feature='';
  let fashionNotice='';
+ let wardrobeSelection=null;
+ let wardrobeTab='fashion';
  let stopHomeEffects=null;
 
  function pickAvailableWorld(profile){
@@ -38,7 +40,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     case 'profiles':
       root.innerHTML=profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'wardrobe':
-      root.innerHTML=player?wardrobeScreen(player,fashionNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+      root.innerHTML=player?wardrobeScreen(player,fashionNotice,wardrobeSelection,wardrobeTab):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -100,14 +102,19 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
-     if(feature==='Moda'){fashionNotice='';navigate('wardrobe');}
+     if(feature==='Moda'){fashionNotice='';wardrobeSelection=null;wardrobeTab='fashion';navigate('wardrobe');}
      else navigate('feature');
      break;
+   case 'previewFashion':
+     wardrobeSelection=String(dataset.skin||'original');fashionNotice='';render();break;
+   case 'wardrobeTab':
+     wardrobeTab=dataset.tab==='frames'?'frames':'fashion';render();break;
    case 'equipFashion':
    case 'fashionAction': {
      const player=profiles.active();
      if(!player)break;
      const id=String(dataset.skin||'original');
+     wardrobeSelection=id;
      let result;
      profiles.updateActive(p=>{result=acquireFashion(p,id)});
      fashionNotice=result?.reason==='insufficient-coins'?'Faltam '+result.missing+' moedas para este visual.':result?.reason==='reward-only'?'Este visual é exclusivo de recompensas.':result?.reason==='purchased'?'Nova roupa desbloqueada e equipada!':result?.reason==='equipped'?'Visual equipado!':'';
