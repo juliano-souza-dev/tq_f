@@ -1,0 +1,34 @@
+name: Webapp · Home cenario 003
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths:
+      - .github/workflows/webapp-import-003.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  scene:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/webapp-modular
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pillow
+      - name: Otimizar somente fundo
+        run: python webapp/tools/convert-batch.py webapp/data/batches/003-home-scene.json
+      - name: Atualizar inventario
+        run: node webapp/tools/apply-batch-to-inventory.mjs webapp/data/batches/003-home-scene-results.json
+      - name: Commit somente do lote 003
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add webapp/assets/optimized/home-magical-bg.webp webapp/data/asset-inventory.csv webapp/data/batches/003-home-scene-results.json
+          git commit -m "assets(home): importa e otimiza cenario do reino magico"
+          git pull --rebase origin feature/webapp-modular
+          git push origin HEAD:feature/webapp-modular
