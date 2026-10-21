@@ -56,3 +56,10 @@ html:has(.backgrounds-view),body:has(.backgrounds-view){height:100%;overflow:hid
  .bg-collection-heading small{display:none}
  .bg-reset{margin-bottom:5px}
 }
+
+/* Ações independentes: arte pré-visualiza, botão compra/equipa. */
+.bg-tile-preview{display:flex;flex:1;flex-direction:column;align-items:center;gap:7px;width:100%;padding:0;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;min-width:0}
+.bg-tile-preview .bg-tile-art{display:block}
+.bg-tile-status{border:0;cursor:pointer;font:inherit}
+.bg-tile-status:disabled{cursor:default;opacity:1}
+.bg-tile-status:focus-visible,.bg-tile-preview:focus-visible{outline:3px solid #ffe580;outline-offset:2px}
