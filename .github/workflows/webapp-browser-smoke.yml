@@ -39,7 +39,7 @@ jobs:
           python - <<'PY'
           import base64, io
           from PIL import Image
-          for name in ('home-1280x800', 'home-390x844'):
+          for name in ('home-1280x800', 'home-390x844', 'fashion-390x844'):
               image = Image.open('webapp/screenshots/'+name+'.png').convert('RGB')
               if name=='home-1280x800':
                   w,h=image.size
