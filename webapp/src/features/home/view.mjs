@@ -7,8 +7,7 @@ export function homeScreen(profile){
  const image=(n,cls='',alt='')=>art(assetUrl('home_new_'+n+'.webp'),{className:cls,alt});
  const feature=(name,action,label)=>`<button class="home-tile" type="button" data-action="${action}" ${action==='openFeature'?'data-feature="'+escapeHTML(label)+'"':''} aria-label="${escapeHTML(label)}">${image(name,'tile-art','')}<span class="sr-only">${escapeHTML(label)}</span></button>`;
  return `<main class="home-view screen-stack">
-   <div class="home-header">
-    ${image('header','home-header-art')}
+   <div class="home-header" aria-label="Perfil e recursos da aventureira">
     <button class="hero-identity" type="button" data-action="profiles" aria-label="Trocar de aventureira">
       ${art(avatarUrl(profile.avatar.id),{className:'hero-mini-avatar',alt:''})}
       <span class="hero-identity-info"><strong>${escapeHTML(profile.name)}</strong><small>Nível ${level(profile.xp)} · ${mastered}/10 mundos</small></span>
@@ -28,9 +27,9 @@ export function homeScreen(profile){
    <button type="button" class="play-button" data-action="worlds" aria-label="Jogar: abrir os mundos">
      ${image('jogar','play-art')}
    </button>
-   <div class="next-chest" aria-label="Próxima recompensa">
+   <div class="next-chest" aria-label="${chest.available?chest.available+' baú disponível':chest.into+' de '+chest.nextReq+' atividades para o próximo baú'}">
       ${image('next_chest','next-chest-art')}
-      <span class="next-chest-counter">${chest.available?chest.available+' baú disponível':chest.into+'/'+chest.nextReq+' atividades'}</span>
+      <span class="next-chest-counter">${chest.available?chest.available+' disponível':chest.into+' / '+chest.nextReq}</span>
    </div>
    <section class="home-tiles" aria-label="Explore o jogo">
     ${feature('worlds','worlds','Explorar mundos')}
@@ -41,7 +40,6 @@ export function homeScreen(profile){
     ${feature('store','openFeature','Loja')}
     ${feature('items','openFeature','Itens')}
    </section>
-   <p class="progress-note">⭐ ${mastered} de 10 tabuadas dominadas. Sua jornada continua!</p>
    ${endNav('home')}
  </main>`;
 }
