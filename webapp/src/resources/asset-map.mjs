@@ -11,7 +11,8 @@ const converted=[...BATCH_001.map(n=>n+'.webp'),
  ...Array.from({length:10},(_,i)=>'world_map_'+String(i+1).padStart(2,'0')+'.webp'),
  'world_map_bg.webp',
  'avatar-luna-pirate.webp','avatar-sofia-pirate.webp','avatar-maya-pirate.webp',
- 'frame-star.webp','frame-floral.webp','frame-champion.webp','frame-rainbow.webp'];
+ 'frame-star.webp','frame-floral.webp','frame-champion.webp','frame-rainbow.webp',
+ 'avatar-luna-pirata1.webp','avatar-luna-navigator2.webp','avatar-luna-inventor3.webp','avatar-luna-coelhinha.webp','avatar-luna-havaiana.webp','avatar-luna-lbug.webp','avatar-luna-penelope.webp','avatar-sofia-pirata1.webp','avatar-sofia-navigator2.webp','avatar-sofia-inventor3.webp','avatar-sofia-coelhinha.webp','avatar-sofia-havaiana.webp','avatar-sofia-lbug.webp','avatar-sofia-penelope.webp','avatar-sofia-panda-infinity-01.webp','avatar-sofia-panda-infinity-02.webp','avatar-sofia-panda-infinity-03.webp','avatar-sofia-panda-infinity-04.webp','avatar-sofia-panda-infinity-05.webp','avatar-maya-pirata1.webp','avatar-maya-navigator2.webp','avatar-maya-inventor3.webp','avatar-maya-coelhinha.webp','avatar-maya-havaiana.webp','avatar-maya-lbug.webp','avatar-maya-penelope.webp'];
 export const AVAILABLE_ASSETS=new Set(converted);
 export function assetUrl(name){
  if(!AVAILABLE_ASSETS.has(name))throw Error('Asset fora dos lotes migrados: '+name);
@@ -49,12 +50,18 @@ export function equippedFrameUrl(profile){
  if(!id || !profile?.owned?.includes(id))return null;
  return FRAME_FILES[id]?assetUrl(FRAME_FILES[id]):null;
 }
+export function fashionAssetUrl(avatar,skin='original'){
+ const original=avatarUrl(avatar);
+ if(skin==='original')return original;
+ const names={pirate:'pirate',pirata1:'pirata1',navigator2:'navigator2',inventor3:'inventor3',coelhinha:'coelhinha',havaiana:'havaiana',lbug:'lbug',penelope:'penelope',
+ panda_infinity_01:'panda-infinity-01',panda_infinity_02:'panda-infinity-02',panda_infinity_03:'panda-infinity-03',panda_infinity_04:'panda-infinity-04',panda_infinity_05:'panda-infinity-05'};
+ const suffix=names[skin];
+ const file=avatar&&suffix?'avatar-'+avatar+'-'+suffix+'.webp':null;
+ return file&&AVAILABLE_ASSETS.has(file)?assetUrl(file):original;
+}
 export function equippedAvatarUrl(profile){
  const id=profile?.avatar?.id||'luna';
  const skin=profile?.avatar?.skinId||'original';
- const allowed=skin==='original'||profile?.fashionOwned?.includes(skin);
- if(!allowed || skin==='original')return avatarUrl(id);
- if(skin==='pirate')return homeCharacterUrl(id);
- // Demais looks aguardam seus lotes. Nunca substituir o estado equipado.
- return avatarUrl(id);
+ if(skin!=='original'&&!profile?.fashionOwned?.includes(skin))return avatarUrl(id);
+ return fashionAssetUrl(id,skin);
 }
