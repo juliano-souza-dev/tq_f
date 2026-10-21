@@ -8,15 +8,15 @@ uniform vec2 u_resolution;
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
 vec3 stars(vec2 uv,float density,float speed,float radius,vec3 tint){
  float aspect=u_resolution.x/max(1.,u_resolution.y);
- vec2 p=uv*vec2(density*aspect,density)+vec2(u_time*speed,-u_time*speed*.3);
+ vec2 p=uv*vec2(density*aspect,density); // Stars remain fixed; only their light twinkles.
  vec2 cell=floor(p),f=fract(p);vec3 light=vec3(0.);
  for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++){
   vec2 key=cell+vec2(float(x),float(y));float seed=hash(key);
   vec2 center=vec2(float(x),float(y))+vec2(.15+.7*seed,.15+.7*hash(key+12.7));
   vec2 delta=f-center;float d=length(delta);
-  float halo=(1.-smoothstep(0.,radius*2.5,d))*.50;
+  float halo=(1.-smoothstep(0.,radius*2.25,d))*.47;
   float core=1.-smoothstep(radius*.05,radius*.38,d);
-  float twinkle=.68+.32*sin(u_time*(1.8+seed*2.0)+seed*35.);
+  float twinkle=.70+.30*sin(u_time*(1.5+seed*1.8)+seed*35.);
   float cross=(exp(-abs(delta.x)*42.)*exp(-abs(delta.y)*5.)+exp(-abs(delta.y)*42.)*exp(-abs(delta.x)*5.))*.35;
   float prominent=step(.82,seed);
   vec3 color=mix(tint,vec3(1.),seed*.6);
@@ -37,11 +37,11 @@ void main(){
  vec2 uv=v_uv;
  float n=sin(uv.x*8.+u_time*.16)*sin(uv.y*5.5-u_time*.11);
  float mist=smoothstep(-.35,.9,n)*.11;
- vec3 far=stars(uv,23.,.014,.17,vec3(.49,.72,1.));
- vec3 middle=stars(uv,13.,.033,.22,vec3(.84,.59,1.));
- vec3 near=stars(uv,7.,.065,.24,vec3(1.,.9,.63));
+ vec3 far=stars(uv,21.5,0.,.155,vec3(.49,.72,1.));
+ vec3 middle=stars(uv,12.2,0.,.205,vec3(.84,.59,1.));
+ vec3 near=stars(uv,6.6,0.,.225,vec3(1.,.9,.63));
  float shooting=max(meteor(uv,.07),meteor(uv,.57));
- vec3 color=far*.9+middle*1.1+near*1.3+vec3(.46,.19,.85)*mist+shooting*vec3(.95,.94,1.);
+ vec3 color=far*.86+middle*1.03+near*1.18+vec3(.46,.19,.85)*mist+shooting*vec3(.95,.94,1.);
  float opacity=clamp(max(max(color.r,color.g),color.b)*.95+mist*.6,0.,.96);
  gl_FragColor=vec4(min(color,vec3(1.)),opacity);
 }`;
@@ -56,7 +56,7 @@ export function mountCosmicEffect(host,{windowRef=window,preview=false}={}){
  if(media?.matches)return ()=>{};
  const canvas=doc.createElement('canvas');canvas.className='background-webgl-layer cosmic-scene';
  canvas.setAttribute('aria-hidden','true');
- canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:15';
+ canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0';
  host.prepend(canvas);
  let gl=null,program=null,buffer=null,raf=0,observer=null,dead=false,last=0;
  const cleanup=[];
