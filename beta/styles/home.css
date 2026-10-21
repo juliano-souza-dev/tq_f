@@ -613,3 +613,8 @@ body:has(.home-view) #app{position:relative;z-index:1}
 /* Keep the GPU particles over the background, underneath interactive Home elements. */
 .home-view>.background-webgl-layer{z-index:0}
 .home-view>.background-webgl-layer~*{position:relative;z-index:1}
+
+/* Ice scene: visible snowfall across the entire Home, including foreground. */
+.home-view>.background-webgl-layer.snow-scene{position:absolute;inset:0;z-index:12;opacity:1;pointer-events:none;mix-blend-mode:screen}
+.home-view>.background-webgl-layer.snow-scene~*{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.home-view>.background-webgl-layer.snow-scene{display:none}}
