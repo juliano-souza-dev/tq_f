@@ -606,3 +606,6 @@ body:has(.home-view) #app{position:relative;z-index:1}
 }
 @keyframes tqAmbientBreath{from{opacity:.42}to{opacity:.95}}
 @media(prefers-reduced-motion:reduce){.home-view::after{animation:none!important}}
+
+/* Per-player background layer without changing layout proportions. */
+.home-view[style*='--player-bg']{background-image:linear-gradient(180deg,rgba(34,12,70,.15),rgba(34,12,70,.26)),var(--player-bg);background-position:center top;background-size:cover;background-attachment:scroll}
