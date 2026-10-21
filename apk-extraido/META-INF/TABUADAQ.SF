@@ -1,0 +1,4103 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA-256-Digest-Manifest: sOqQPIAOrGt0u/KrNozmY7gJL/g+VQk17MRVT8BbstU=
+X-Android-APK-Signed: 2, 3
+
+Name: AndroidManifest.xml
+SHA-256-Digest: eqETi48hcKRZt0GvNbwtTKbPHu0p14fMXb43zUjJ8wM=
+
+Name: assets/app-icon.png
+SHA-256-Digest: wqarPNg2eojOVaQBXlLjC/Vc2LlCO1C9S9dS524EdDM=
+
+Name: assets/avatar-luna-coelhinha.png
+SHA-256-Digest: 6ZDVkOULQuS47wqkb2WY05nYRobvqawlxxpYm4XwmUY=
+
+Name: assets/avatar-luna-havaiana.png
+SHA-256-Digest: gYzjZdRFs2Bw9a+0fZo5rVwHS0lsujDYNs1VjraupfE=
+
+Name: assets/avatar-luna-inventor3.png
+SHA-256-Digest: Fv/gh0xhNCz8H/O41bbNJ37Shv1/99OmY+kovI9oAbE=
+
+Name: assets/avatar-luna-lbug.png
+SHA-256-Digest: YZGcQykzBqIqmWbv1opMSIBpTusW7fgiTotfgrvvarY=
+
+Name: assets/avatar-luna-navigator2.png
+SHA-256-Digest: oehlXw/5DU5+3ugHnR5V9xPOkv6jjMtGG+rYr+XjypQ=
+
+Name: assets/avatar-luna-neutral-base.png
+SHA-256-Digest: gbd0l1uy3nzLHjTVGYk6nsTfTtQLoY3w/KPmdUS73X4=
+
+Name: assets/avatar-luna-penelope.png
+SHA-256-Digest: OKeiH7hlVLjwMI99B0xe+6E00IeEzcI84OpLBhVldl4=
+
+Name: assets/avatar-luna-pirata1.png
+SHA-256-Digest: xW3hYYeWM6AbVEoF3meAYxyoDUXjr09iRorwoo43xdw=
+
+Name: assets/avatar-luna-pirate.png
+SHA-256-Digest: X2GY5pyXn74h4WFfHQlyyJIfrjSn6tlODNBspJ0cR2w=
+
+Name: assets/avatar-maya-coelhinha.png
+SHA-256-Digest: AB893gkvLrLETuaCkbZHf44E4B17AFuF7u+aap2zZ4k=
+
+Name: assets/avatar-maya-havaiana.png
+SHA-256-Digest: LvGnhWArSUBuCISnh4OmvVyHScJiJ5PdEFlj4JqfjZE=
+
+Name: assets/avatar-maya-inventor3.png
+SHA-256-Digest: i+PZz2XuANC57Wn5GZ37WfhnvluwxxdyiclwNFS9mcg=
+
+Name: assets/avatar-maya-lbug.png
+SHA-256-Digest: nbY9H74YBOUEkQ2YnEAfUBs+Ml9/lcEobelyWYbZzjA=
+
+Name: assets/avatar-maya-navigator2.png
+SHA-256-Digest: r1MGWUXZntNwvwHpZXFLE8ZoK/oG5ov3GSod+opOB50=
+
+Name: assets/avatar-maya-neutral-base.png
+SHA-256-Digest: 4bLUjEobSY4eIWAbFwqercpzk+MOKOdZi27UPMCvdo0=
+
+Name: assets/avatar-maya-penelope.png
+SHA-256-Digest: 0xMXogwKhaLdXbmoqbS/1C6utwCCWxNvVd+pu49rbLk=
+
+Name: assets/avatar-maya-pirata1.png
+SHA-256-Digest: FjCHkMpJ+TgRiUFmNsVnVyvGn3h7mN48izK9LwjyDNI=
+
+Name: assets/avatar-maya-pirate.png
+SHA-256-Digest: um8Qx2rvdnHI+frNQgb2NDU18r264DFiDEgDaROQf7o=
+
+Name: assets/avatar-papai-exclusive.png
+SHA-256-Digest: xzoKvNldSauPl9c8FUcwIpj8Y3sThzRa/B6CO+A+OK0=
+
+Name: assets/avatar-sofia-coelhinha.png
+SHA-256-Digest: SF26qPcGe4v0YV6uFAUUDI1Gl6ZYNpPEZHvd+WqSmI0=
+
+Name: assets/avatar-sofia-havaiana.png
+SHA-256-Digest: EOfGVFZtxxWp3j4eIcrtVXEDFUk984SY8kav3F++22o=
+
+Name: assets/avatar-sofia-inventor3.png
+SHA-256-Digest: Q+bhHo21XYzr7s5vJraUWwk9+A8ngvwSJraBTsxR3XY=
+
+Name: assets/avatar-sofia-lbug.png
+SHA-256-Digest: Pu12b/JutkEdJlh1IRs5vuJkyJoNKpWzhb+5sJNNJGA=
+
+Name: assets/avatar-sofia-navigator2.png
+SHA-256-Digest: hwtU/AknqiFrG63kyonoIsst7OVMFsLdX8S8GN9Enec=
+
+Name: assets/avatar-sofia-neutral-base.png
+SHA-256-Digest: E9lO+qigmREWnisHtNBedgbkhEQJbGxNqOFsEt92NMw=
+
+Name: assets/avatar-sofia-panda-infinity-01.png
+SHA-256-Digest: ibjPLLIF6mx/nmZ2wdqG37OGfIF12Z2PnSyKA3tozsw=
+
+Name: assets/avatar-sofia-panda-infinity-02.png
+SHA-256-Digest: ie9JHerOPxORgOz9j3IlIXdiZG82Ji754N3lotA+MDA=
+
+Name: assets/avatar-sofia-panda-infinity-03.png
+SHA-256-Digest: QZM4V8XhhCB+HMFgu48FTF78vJ6JEhQImVSr1IIX2+I=
+
+Name: assets/avatar-sofia-panda-infinity-04.png
+SHA-256-Digest: vzsNGdmyiB9T7Ch7Y9WVC3lKSdtzwcN1GPSOUMiTMAo=
+
+Name: assets/avatar-sofia-panda-infinity-05.png
+SHA-256-Digest: TGuB2EflvEbwumy25kioRWCigEXBM7uV2VsKkvkFI9w=
+
+Name: assets/avatar-sofia-penelope.png
+SHA-256-Digest: DdtSFfSKgXgStw1wo37EWHdIadL1Bxw7Pgsx4wUX850=
+
+Name: assets/avatar-sofia-pirata1.png
+SHA-256-Digest: g1YOgGzQwh7YdjtvlrfQxlrXzYnN2bbK7fAPbFVJo1M=
+
+Name: assets/avatar-sofia-pirate.png
+SHA-256-Digest: 5+k8/QL9K4d8fR7v4D5a3xLNpoMIIJ+WUz90uE9wdYw=
+
+Name: assets/bg-beach.webp
+SHA-256-Digest: WCoUJodaEZp7W7NhItT72L1+uG0xOrK+GiWh8tW5wOw=
+
+Name: assets/bg-candy.webp
+SHA-256-Digest: siY4W4mKJCf8ZUqgPax2XcVR14LNjnlOXk9x1Fs5qEc=
+
+Name: assets/bg-city.webp
+SHA-256-Digest: wlniGzWBn7yvQCoCMg65XNMTvsnFaMXKXYEqywSZC9w=
+
+Name: assets/bg-constellation.png
+SHA-256-Digest: F4/e993h73T68wd/L6fCHeISaWYGeO0HoEm5zzPvHGU=
+
+Name: assets/bg-constellation.svg
+SHA-256-Digest: Pj0Fub8i9PbZ+nZNTtuvgB+Se727WW0lRWg7PKmoeE0=
+
+Name: assets/bg-dinos.webp
+SHA-256-Digest: w/pk9qLj7ErvzA0t1BeWZ2GhrzS/G0vodGF+bpqUE+U=
+
+Name: assets/bg-equations.png
+SHA-256-Digest: 5hYmh+0hEv4Io+bfD6pA6m+uOvgHLezNOzwIBR0zLNc=
+
+Name: assets/bg-equations.svg
+SHA-256-Digest: t/d7Nns6CU6XmIT9Syeshxjmr1OrBbjzQjs16SAzd8A=
+
+Name: assets/bg-farm.webp
+SHA-256-Digest: NROjsnIqeV3vyfz8aJVkJKu9lUKOJaWpzfUi+zmwurc=
+
+Name: assets/bg-forest.webp
+SHA-256-Digest: OTfShXjf8c2XmUzfPgksGpmQPsRDKHN+1I1RmozFDFA=
+
+Name: assets/bg-ice.webp
+SHA-256-Digest: fwzi8oT0ev4YwclUGutqihIjhqJSCO+/ttwuhwbGqIU=
+
+Name: assets/bg-kingdom.webp
+SHA-256-Digest: jTGzrTfQ2oCYj0MNjRFE4KV1gLo2baP8EJlTmhb5wo4=
+
+Name: assets/bg-library.png
+SHA-256-Digest: bI3eEgMmulFCbEn6DINhZ2L9Qiw6hfZJ0Do71lMKZxw=
+
+Name: assets/bg-library.svg
+SHA-256-Digest: fPCv0Xt1F29IUK+BjeFi2aRzcvq88fikF5r5QL8YmuY=
+
+Name: assets/bg-royal.webp
+SHA-256-Digest: KtJgL/1r1slJy1RCDkOxSSh6IGI0hOHv/tTm0t4vBFY=
+
+Name: assets/bg-secret-vault.png
+SHA-256-Digest: YlHX9LsYZWdv0puLuGyIl/n3ajdQ0pFkLFde66SO44U=
+
+Name: assets/bg-secret-vault.svg
+SHA-256-Digest: AdeBf38wLnpjyoVrWsCkJFofKfP3LJ7M6ibIvURr6Qk=
+
+Name: assets/bg-space.webp
+SHA-256-Digest: VPXMdfMeFz7WxvHjm1D4Qm2X5YHqtSRM5i2/0UZGz+w=
+
+Name: assets/bonus-bg-01.png
+SHA-256-Digest: //RKSg3fTeg55PG10QO7OavVPZSG+5vqYoDfc/v8xnw=
+
+Name: assets/bonus-bg-02.png
+SHA-256-Digest: 3xy2hNg1G6Y2F9FG2vGETni40Has2wAoQxfpYF05Xrg=
+
+Name: assets/bonus-bg-03.png
+SHA-256-Digest: D45GJ5vBAR74eIXsM9gRBii7RkxrTnd6WM6mU6d0JkQ=
+
+Name: assets/bonus-bg-04.png
+SHA-256-Digest: 3euVYS9kQC5gPR+OAEsSycj6oYY+t2zYQoemcsV4K88=
+
+Name: assets/bonus-bg-05.png
+SHA-256-Digest: V+q3XuAlARoNbPzdWR+pt+/b/+kuQ2cfKJIFYnyLWv8=
+
+Name: assets/bonus-bg-06.png
+SHA-256-Digest: TSxm33fX/uZ/JeOBVIR78VtH8dkp+pOO3wK5DDy5pkc=
+
+Name: assets/bonus-bg-07.png
+SHA-256-Digest: lauQgKAfbaUNUt2FuyE/2Lm6AAiZuQQpZwt0UkdNVNg=
+
+Name: assets/bonus-bg-08.png
+SHA-256-Digest: +omHg49EUNhwAzb7wLalyX1W/dTqQWh1STHRPTuS+v4=
+
+Name: assets/bonus-bg-09.png
+SHA-256-Digest: jmj+v85rJm1CvY0QW1CSdIYnXkTeA6ruuZ48DO3vS4k=
+
+Name: assets/bonus-bg-10.png
+SHA-256-Digest: jLA2PFEOflvRqbJF4y28a0TxsFf9hfNqvoRI6wZiFWk=
+
+Name: assets/bonus-bg-11.png
+SHA-256-Digest: ptL8kbcF2IVe1PmNeztoedU5o8Mbu3AzDDtI1sxXwS0=
+
+Name: assets/bonus-bg-12.png
+SHA-256-Digest: tw/i/6Fcux1duNesQE9fX8tYtoLv6IW1hPG1hLEukso=
+
+Name: assets/bonus-bg-13.png
+SHA-256-Digest: lk0fifDWKSf4xN1fZFy/v9Izmfwf7sqpfgxodogvtXo=
+
+Name: assets/bonus-bg-14.png
+SHA-256-Digest: wAH8KjHFpEL1CXOm3Rn1l1H9CEaeOX5iJvCfgK46+NE=
+
+Name: assets/bonus-collect-01.png
+SHA-256-Digest: dyBzKEXaxVc3LdB57Mb5W3R0XscbBN/yfIXG4GrtgF4=
+
+Name: assets/bonus-collect-02.png
+SHA-256-Digest: KwggQacDqG53weaAnnAu8HhMaLMPHFj+NoyXaa/j9B4=
+
+Name: assets/bonus-collect-03.png
+SHA-256-Digest: 52Wbp8C+SBD5dYF1Nf7VFbN7Dha298nsOhSUdPNz/8I=
+
+Name: assets/bonus-collect-04.png
+SHA-256-Digest: oGqa4lM4pm+9du1kUWFBPR6asrAY+1i0DHIaL0w7Qs8=
+
+Name: assets/bonus-collect-05.png
+SHA-256-Digest: 3IisPNS3yzGhD3EYC/jmtqZNC1ya8XSWgD+9+omq4yw=
+
+Name: assets/bonus-collect-06.png
+SHA-256-Digest: YzEkDmERoafXf0lQO4OI5grpWzVFF0E4CFM7wRWlcRQ=
+
+Name: assets/bonus-collect-07.png
+SHA-256-Digest: ipZ180K+9XWrGin4aTrgGppmAAvEuAmdZyVjbMEspNw=
+
+Name: assets/bonus-collect-08.png
+SHA-256-Digest: mqoagt1Aa5z8HqdVuQCqgKp0cM3IXIw4AIxriYMYChs=
+
+Name: assets/bonus-collect-09.png
+SHA-256-Digest: oa+LcSOlInZSyfDnlca2lNySrLBK3e8+jdxfwznZwZ0=
+
+Name: assets/bonus-collect-10.png
+SHA-256-Digest: pCnDkwumVMISBQyugKZqrfF/6Ie9h/QLnYzIeTuyRt0=
+
+Name: assets/bonus-frame-01.png
+SHA-256-Digest: t2zJJNfuN3yNd1hsjDXFhDke0SSB2+8rWHZB3H1VznI=
+
+Name: assets/bonus-frame-02.png
+SHA-256-Digest: d0D7XUSk1MoRR+0zI6PAQq8RJqjgALzDS7JfJjCtTkE=
+
+Name: assets/bonus-frame-03.png
+SHA-256-Digest: nBHeXt/knggWsfe5HR91tpowA/LVnfynEa8+1FMR+DA=
+
+Name: assets/bonus-frame-04.png
+SHA-256-Digest: ezlOx+6yFSlIrKlKnTJbz+yfkhatYHTrYfKbcynrVFg=
+
+Name: assets/bonus-frame-05.png
+SHA-256-Digest: mUuscbiNBP6X8h34U3QoSmBvC0lErern2D2HmlhoohA=
+
+Name: assets/bonus-frame-06.png
+SHA-256-Digest: Ze7kG03gfwTGkwho2lSGsoow7AwAGLiNO0wr8hDzElY=
+
+Name: assets/bonus-frame-07.png
+SHA-256-Digest: mvr6QJV+5JtukmhYQob/N+UylMuvXvm6dxpNEPT7KsA=
+
+Name: assets/bonus-frame-08.png
+SHA-256-Digest: B04aoVGYLcziehFMNaC9PeAyhYUXmhpGHqBQ16Y2TrQ=
+
+Name: assets/bonus-frame-09.png
+SHA-256-Digest: PCR/lBc1jPZUQVfyRj8+v0MmyP7IzKnBNQv8tVQXZDs=
+
+Name: assets/bonus-frame-10.png
+SHA-256-Digest: pqaR6HSYJUz/7Xm/lI26pTucDPGjPc3sjuoHNtj6BHQ=
+
+Name: assets/chest-bg-challenge-island.png
+SHA-256-Digest: IwFJy6mWKfc2dXpbGFJS9ussRXCODvYIMiu+as5Fq4k=
+
+Name: assets/chest-bg-cloud-kingdom.png
+SHA-256-Digest: jxCcubijtvsJ5EM38W8tZQNZgkMR/mSsD4GFJTXavZ4=
+
+Name: assets/chest-bg-crystal-cave.png
+SHA-256-Digest: tIoDTX9BWIqRXCYvJLc9A378s7AzAghEHk9/uMMGy6A=
+
+Name: assets/chest-bg-enchanted-library.png
+SHA-256-Digest: NjTaJuaihPqSxyv3C6zY0xo7ktiDZB6Y+AwuutNLINQ=
+
+Name: assets/chest-bg-magic-castle.png
+SHA-256-Digest: frmHV669uUQ4mzlkQ5lP/hnwO7Xwj6r+BN7l7s6RZtg=
+
+Name: assets/chest-bg-mushroom-forest.png
+SHA-256-Digest: ZRM9iGPKK58bfFQKEWR8PC9yAykymVxd2dAx4iO602s=
+
+Name: assets/chest-bg-number-desert.png
+SHA-256-Digest: xjFba1tdVEyMSgvM149zoIUlFeFy853RWdEceAIzXmI=
+
+Name: assets/chest-bg-number-valley.png
+SHA-256-Digest: xJ/9B1vEXV/jigVVSpTHGgcta94BoFqhwVEyvZ4iyYU=
+
+Name: assets/chest-bg-pirate-harbor.png
+SHA-256-Digest: GGxfXGDKUiBslPMrrAcxyyoS9cpTBf7MagGaVhzwz+Q=
+
+Name: assets/chest-bg-pirate-island.png
+SHA-256-Digest: 0SaRCsPa/i2dThdJpP3dEoyNwwJhdulcfnXWw4TAhlU=
+
+Name: assets/chest-bg-rainbow-sky.png
+SHA-256-Digest: Y3hgi1nIQnHGDlgSc6HIuLinQ+wy6lHzqDV3rAtdALs=
+
+Name: assets/chest-bg-starry-night.png
+SHA-256-Digest: nygUyDpkI5jmpCfiR5EtihWWzTknUWZlFeTRURc85vI=
+
+Name: assets/chest-bg-treasure-cave.png
+SHA-256-Digest: vKQB5tpS0txbgVon59OhW+YaYsIczEgvFvNRPEp3ZYQ=
+
+Name: assets/chest-collect-adventure-map.png
+SHA-256-Digest: uyBoqhtLNU1jasl3nVtBGtnMwLAdRbxxVCcaJXX6p88=
+
+Name: assets/chest-collect-calc-potion.png
+SHA-256-Digest: fhde8rzDcLD657X4/TENo9oPhsLWPbn1npqf4RCGM1k=
+
+Name: assets/chest-collect-crystal-multiply.png
+SHA-256-Digest: qcKOgJJoNIBwwoFox6IhnzS+IuiFCGpkX4jtrqrNqz8=
+
+Name: assets/chest-collect-knowledge-key.png
+SHA-256-Digest: uGsgNXlNVtU7NC3YTTr5+GyKdE4no9l3exS55M0TOo8=
+
+Name: assets/chest-collect-mathmage-coin.png
+SHA-256-Digest: sazC3+7CWcCgas2scdZocJjvkglfBufK3PTsg4Coswc=
+
+Name: assets/chest-collect-medal-subtract.png
+SHA-256-Digest: YP0NLJNiC6Z0Je2aH84KmQTVcjQVPTAXz9HTsBHWpwI=
+
+Name: assets/chest-collect-number-pearl.png
+SHA-256-Digest: 7ViIKCtBFVctk7j0ngL4rVOHO9aOlByCnPggbL7+h/0=
+
+Name: assets/chest-collect-number-scroll.png
+SHA-256-Digest: Cfi8AQ3m+7N+L2La9XgMf4mKpItFl8JGrOUj4YedcS0=
+
+Name: assets/chest-collect-orb-division.png
+SHA-256-Digest: pj3VMXIP0xz98GJ5DEXkaSoxixala9J44qEWQvRIQc0=
+
+Name: assets/chest-collect-sea-star-coin.png
+SHA-256-Digest: W/GEFfeo+RPh/gX0bm/K4d72eKRpf2NGL+rVMiDMaZQ=
+
+Name: assets/chest-collect-star-sum.png
+SHA-256-Digest: y9cKJWLN27IfkKlw3uWXCHSU7gPckHf8gy8zHf0T1uc=
+
+Name: assets/chest-collect-times-book.png
+SHA-256-Digest: a2vukt3NTaZY9aeE6dkeEg9f/jEAMG4JqJN8zhjVDSQ=
+
+Name: assets/chest-collect-times-orb.png
+SHA-256-Digest: mB/my7t2xyD6MIofhtm43xexj1YdG0fHweSvoOB6xlM=
+
+Name: assets/chest-collect-treasure-compass.png
+SHA-256-Digest: YbqnEM9o5BMUgSs6jJzhr9D6PTaiLDMCvqVvnwjn7Vk=
+
+Name: assets/chest-frame-astral-lotus.png
+SHA-256-Digest: dT08Et2q7+4FLxy3lz/E9o746N+HRr2SoH011Y+lSJA=
+
+Name: assets/chest-frame-celestial-crystal.png
+SHA-256-Digest: LYosiMO4WZ3szqu4atL6gKyexHz2oMjFcmfuLczcTWY=
+
+Name: assets/chest-frame-crimson-eclipse.png
+SHA-256-Digest: lOYEOazsBjch/VAn5HkoPwgE4rxshtR14mvoPwtVb7E=
+
+Name: assets/chest-frame-pirate-fantastic-treasures.png
+SHA-256-Digest: ES8FvumXGkSY6HkXNr4q9QQXcm698FMEqHjxXw4TTYU=
+
+Name: assets/chest-frame-pirate-golden-nautical.png
+SHA-256-Digest: RMFjm0SYraqr236BkvPqTHILABuc4GQCUR9JUPNsF3U=
+
+Name: assets/chest-frame-pirate-treasure.png
+SHA-256-Digest: 2piwFAlIzRPQAAt0x0QjA0wUQZZNU3+ivkFS6lUxMqw=
+
+Name: assets/chest-frame-pirate-waves-gems.png
+SHA-256-Digest: XUIkV4ZGHboL/q5nvwDJKDYtkf+gbTIXQWoJ/Z94xeY=
+
+Name: assets/chest-frame-tide-dragon.png
+SHA-256-Digest: 3rCkMdtLderUKz3WBFUWOu/gdIfFnGE3bWf4FZseII4=
+
+Name: assets/chest-inventor-frame-0.webp
+SHA-256-Digest: gHXp8IoXd8OlTDFGd86As6ZWR4O476Ma4QnrVGT+dus=
+
+Name: assets/chest-inventor-frame-1.webp
+SHA-256-Digest: x4nw72Oks8W1ZLB/3+NP4OhJIvN3FF4cEDCZ5FRVa+8=
+
+Name: assets/chest-inventor-frame-2.webp
+SHA-256-Digest: seb7NoqYUnewt/134DbdG+cbTGDUKTOd8q74dPr7SvA=
+
+Name: assets/chest-inventor-frame-3.webp
+SHA-256-Digest: fCE+l30Ld7phB2NW1PHjU4g7RVE+8KLNKRnwWfhxtz8=
+
+Name: assets/chest-inventor-frame-4.webp
+SHA-256-Digest: UWHRNKxVyvLjGfclR67nxtPO4OMZ0qg55kqvggJP3CI=
+
+Name: assets/chest-inventor-frame-5.webp
+SHA-256-Digest: cZMIRVj+D0yBMpVKLWRkU9hYHwdZvbPSCq7kH/Tm+u4=
+
+Name: assets/chest-magic-frame-0.webp
+SHA-256-Digest: /KWwtIkls5gkvpB8VKiGw4BYMdFD+fzkGIKWGOuQCys=
+
+Name: assets/chest-magic-frame-1.webp
+SHA-256-Digest: 314Fu3iYP3fz6QVjhXX4OZu8EC/KGOMa0PRtFens9Oo=
+
+Name: assets/chest-magic-frame-2.webp
+SHA-256-Digest: cuhstWK95ybpEvMstyDD75xhLvGljVm3a+G1Nmho9vs=
+
+Name: assets/chest-magic-frame-3.webp
+SHA-256-Digest: QzU5gYgU6TYrwIFmaujDUt/ttLV/vZWuRpqOJl4bXrI=
+
+Name: assets/chest-magic-frame-4.webp
+SHA-256-Digest: 6SpSKp/ngrCtjKi+8q0J6Uh8hyDfMcqBRVwyZfR+Mow=
+
+Name: assets/chest-magic-frame-5.webp
+SHA-256-Digest: mzr0r+5HIrGsFXi5WYUXsZKB2QGxAx7IubeA/CtzKuQ=
+
+Name: assets/chest-pirate-frame-0.webp
+SHA-256-Digest: OlO8oOQ8/szs9wkoDYK3ug4oAChZaWXYsHByzxXPkaA=
+
+Name: assets/chest-pirate-frame-1.webp
+SHA-256-Digest: sjDwO5c3qtlpd9hC61PzYOXm5Q+FBCIDHQG3EzBN+zI=
+
+Name: assets/chest-pirate-frame-2.webp
+SHA-256-Digest: +rC7mB6ZA5YIkd4z1FBd3fIyqDbM5uCYvedQhyhKgS4=
+
+Name: assets/chest-pirate-frame-3.webp
+SHA-256-Digest: jWbvsN+spUQdOd0e8qQqPEEYPwsOSklvDwvi7Ye11AI=
+
+Name: assets/chest-pirate-frame-4.webp
+SHA-256-Digest: usFm4Kyk7Gb/6baF9WwD+eaq+LMVDDKujVnRzCBHBjU=
+
+Name: assets/chest-pirate-frame-5.webp
+SHA-256-Digest: +JzQvR3wy4GbrzqbsKruGD/F4nj50yzaYNDCBkAgkPo=
+
+Name: assets/chest-royal-frame-0.webp
+SHA-256-Digest: k7UeBNT7uQ7DQ9vuQ1G26yhjibstNl/X36G1/QrsgK8=
+
+Name: assets/chest-royal-frame-1.webp
+SHA-256-Digest: kl5iGwX6GvOGnB5vKuhrbO/uFiDFNtLnrr1L3dMBcnQ=
+
+Name: assets/chest-royal-frame-2.webp
+SHA-256-Digest: S4wqn+yWOFzOAVU70Cv8Fz9Ap/0wGtKX1GlPpLTV5R4=
+
+Name: assets/chest-royal-frame-3.webp
+SHA-256-Digest: 4OAr9o1mPbl8DyyTcEDtLywU65HNeu59f3W9hFiDlrs=
+
+Name: assets/chest-royal-frame-4.webp
+SHA-256-Digest: ZwC1QSQlcslI0B2Y9Da/PqyVMNbAImivvAIlXBjXq5U=
+
+Name: assets/chest-royal-frame-5.webp
+SHA-256-Digest: U+Fm4tmupP+5zRGrQWa/mJvqRpcFjLZSydRCFrQchks=
+
+Name: assets/chest-starlight-frame-0.webp
+SHA-256-Digest: 8k3cWD2ydslJswZR6CtOBuzqAOV25m1OyjCKeqJwe1A=
+
+Name: assets/chest-starlight-frame-1.webp
+SHA-256-Digest: MaPamGAMs8wQP0FLOfCS/QqIqCkC/NYZ70xVWEqmRjQ=
+
+Name: assets/chest-starlight-frame-2.webp
+SHA-256-Digest: zuxBEh5g09K43hs/p2ApxUB/Kmch8nWJVEZ1sE+fXV8=
+
+Name: assets/chest-starlight-frame-3.webp
+SHA-256-Digest: 5POtlJ+fQtNAcpRmikdRIhxzycO8Ead8poQAPU0DVc4=
+
+Name: assets/chest-starlight-frame-4.webp
+SHA-256-Digest: 4QKqozEIgKJZ4k4i7nCKkKrgUrYoFfnx4loGh+Jznqo=
+
+Name: assets/chest-starlight-frame-5.webp
+SHA-256-Digest: +Wqs9ATG0jIcgS3ar/EK5rkusgno4RAkui7IPko4qzA=
+
+Name: assets/chest-table2-frame-0.webp
+SHA-256-Digest: eHMzLHDuT2xVPPByp1b1YH5xpxq2xr7A7aIJ5R+ToDk=
+
+Name: assets/chest-table2-frame-1.webp
+SHA-256-Digest: bK9z4viyRw+h465aQx83Q7BLxzhvzIpuJgmrGwpnEXw=
+
+Name: assets/chest-table2-frame-2.webp
+SHA-256-Digest: Ql7aHM62NNp+XojLOM8iS8G94/rL/MEfMnw5HkmL5vA=
+
+Name: assets/chest-table2-frame-3.webp
+SHA-256-Digest: YdjAqUNvH2BXFmahQfytieCd2CS1WvGVai5Jq3OpWIk=
+
+Name: assets/chest-table2-frame-4.webp
+SHA-256-Digest: iU39xQTmGTPdXiWvxyTpWzlvdYvqrkYiQ5r+9IKYFYM=
+
+Name: assets/chest-table2-frame-5.webp
+SHA-256-Digest: v2TTkiIo5YXjf6K3yVcq3FyrdZeOSrSNmocxdAJ1tfE=
+
+Name: assets/coin.webp
+SHA-256-Digest: uN+SkzCDHesksEh1suKp00iSPqsbLIROapNsKDNKZLA=
+
+Name: assets/collect-apple.webp
+SHA-256-Digest: OdnlQmVXj4T3xWDZ1pBOHEz8oEJEuiBwd5Ek6zKH1tY=
+
+Name: assets/collect-ball.webp
+SHA-256-Digest: Yz393cFbCHqjvtwHA7RdZuLDPYCGYNre3ODneTu7eE0=
+
+Name: assets/collect-carrot.webp
+SHA-256-Digest: QENgs2GfUtwF9zUX4rikEE2pw991CYPzoYJkBeExY50=
+
+Name: assets/collect-cloud-bed.webp
+SHA-256-Digest: DSp7OtKer7ByADBJArrQJVwYDaxsUdRF6QXZfcSmvUg=
+
+Name: assets/collect-cookie.webp
+SHA-256-Digest: E3T6fiVKwBMsDaEzgzCSvSrFNQevW9AWWyG0DhFaVCI=
+
+Name: assets/collect-gift.webp
+SHA-256-Digest: 6EeZ3EFYnhPkFudwcmIyCT4wPZCsbEk7cb5cqV/do7Q=
+
+Name: assets/collect-medal.webp
+SHA-256-Digest: +MQdnRHm8djsI2IB4FsmLyuSv3Szv5JnmRyw0SCSsBg=
+
+Name: assets/collect-moon-bed.webp
+SHA-256-Digest: 8ERVL70C47/BJ2DM6Z1XKTHVxgvlHpnDTruPGGndhKw=
+
+Name: assets/collect-potion.webp
+SHA-256-Digest: 226jj7NQCT7DKFLc6uSECWH6diX4XT4+HIG1B2t0QhQ=
+
+Name: assets/collect-wand.webp
+SHA-256-Digest: 0/HeAl2KlPKsg7JHp5alooH3jBrrCDey88g5pJSauNM=
+
+Name: assets/collection-gallery-bg.webp
+SHA-256-Digest: BCKhVittMLzaKGyVHERdytOgaGg7JlbZ7NhQwW7kwIc=
+
+Name: assets/collection-item-frame.png
+SHA-256-Digest: nJkDY7nCVbpeLT8jtcbZcIrC6i4ogDhWyWj7wzf5IDE=
+
+Name: assets/collection-locked-card.png
+SHA-256-Digest: rNLVtpBtlKJqVn98dd8g6f+rDsNHqIVrDrbN3zuDnkI=
+
+Name: assets/collection-pedestal.png
+SHA-256-Digest: yJC6p7nYmqx5wPHCD7egQaS6gAPliKNRGnYIhJa5QUM=
+
+Name: assets/effect-lottie-black_flash_impact.json
+SHA-256-Digest: ZW3fWiTEzLwT/X4eaAPYICDnlGbuS3SEz1yRWpp2G1I=
+
+Name: assets/effect-lottie-blue_cursed_slash.json
+SHA-256-Digest: uN8O8hxy5N50zBGUhxPHSb5iWX2X5UZM3P80atTOgag=
+
+Name: assets/effect-lottie-celestial_pulse.json
+SHA-256-Digest: ESrrnVVVVq2pJK3qMZ3lXPlzmh3rCWE9Wod5Vg6dlbw=
+
+Name: assets/effect-lottie-cursed_orb_expansion.json
+SHA-256-Digest: lNV9H0bY5XwPutW79A/xjSC7F4ORatRYdDb5TfO1ExQ=
+
+Name: assets/effect-lottie-golden_ritual_seal.json
+SHA-256-Digest: JcqaPk7E2rgCIkki8RlZ1tiSorewz5hVYFraim7FhBU=
+
+Name: assets/effect-lottie-green_vortex_spiral.json
+SHA-256-Digest: Luo+3WDje7M1D90pZemG3Ra3H0/XLGr1jgOY0pnRVTM=
+
+Name: assets/effect-lottie-purple_domain_vortex.json
+SHA-256-Digest: R1U4KAKWXKMSyLuse4ZEeGntCVBYVaYlRJN0t608GNY=
+
+Name: assets/effect-lottie-red_energy_beam.json
+SHA-256-Digest: Ulq0nXOJHIov0f4CFcGoYPX9tv+NZe4FwbYotGCW7sg=
+
+Name: assets/effect-lottie-rift_portal.json
+SHA-256-Digest: jVviN8unM1wErpLM1v1B1/7GcZsRCDU861Tjimd/rUg=
+
+Name: assets/effect-lottie-talisman_eruption.json
+SHA-256-Digest: 2JPlkbbto6obLXCCajBjOWvZkCGRG6MkVQ6v7ExobYk=
+
+Name: assets/fashion-bg.png
+SHA-256-Digest: jwShHyI2pYupW5CwzQflg+pmqpHwZ5SNLc3RX0UeYaA=
+
+Name: assets/fashion-header.png
+SHA-256-Digest: eXm8rY7wJvr4gNYftUONL8FqOgdfV8U8QjgVsrUeXh8=
+
+Name: assets/fashion-icon-chest.png
+SHA-256-Digest: JkEDPQgn9/XIK8Oo94WVdq0GEUO6Rc6s3o51oO9eJ8Q=
+
+Name: assets/fashion-icon-coin.png
+SHA-256-Digest: ocRX9dlk65cZRiNFC5qFPZ7wZOm+qaIGRFUpvIbbSjA=
+
+Name: assets/fashion-icon-daily.png
+SHA-256-Digest: xOMpJjS/mROz9tB5Q11KM9oaqx1ePFXem3R5M+orUsY=
+
+Name: assets/fashion-icon-heart.png
+SHA-256-Digest: 2IBN4UI4fRSMYcOagAPOC391+90jzYdOD9vuvbhW3AA=
+
+Name: assets/fashion-icon-lock.png
+SHA-256-Digest: aoUC7boxcjMP4viUYDA93jVPAY6Rnr2y4+J2G/pmbvU=
+
+Name: assets/fashion-icon-plus.png
+SHA-256-Digest: p1diRa0rh+SkVcStsKgqOIZ0EXC36mBXrOlls+0I1PM=
+
+Name: assets/fashion-icon-star.png
+SHA-256-Digest: jJfZ+Q5uL2o7mGxWvhvS/LRqPjXNiHZikG5iONzamMk=
+
+Name: assets/fashion-info.png
+SHA-256-Digest: EdsKMTUHpGIeZUbM6tqsSP7yVYOx5eiw/PyxCODTw08=
+
+Name: assets/final-chest-sequence.png
+SHA-256-Digest: JcX0tnoJ+GKrcdnQMnvcFmGnp/+VoKRy/ReTNyH8Ftg=
+
+Name: assets/final-letter-papai.png
+SHA-256-Digest: xUxDh9sWiFNOLx9q3gja8cUtyQ0YFXIV5OpV1+M+eJw=
+
+Name: assets/frame-adventure-01-strawhat.png
+SHA-256-Digest: mO1Iy6tSnvvzEjvZum9vZyZ0UHk6Dv9OuRm/V6bda08=
+
+Name: assets/frame-adventure-02-three-blades.png
+SHA-256-Digest: gJzHPManchT8lqZMzj3NZ7oKNRt3pGH4RMeHsnyY8Y4=
+
+Name: assets/frame-adventure-03-tide-wheel.png
+SHA-256-Digest: KWvple7hemhDa9TFsoahQjJFpRK7A2HNF5HLJmxYJUM=
+
+Name: assets/frame-adventure-04-flame-chef.png
+SHA-256-Digest: lfBkV3ZQ3GNBDdLr7G6p022CylA0Jd6CK9MxM+rRGpk=
+
+Name: assets/frame-adventure-05-rescue-bloom.png
+SHA-256-Digest: 3cCHK7JvLxwDI6KAz+E3tQBSKVScdcsYi/wzWzPrmJg=
+
+Name: assets/frame-adventure-06-sky-marksman.png
+SHA-256-Digest: i+7LvV4A4aeEEubWOcHCYV/BXBFdH+nDJ4r+TsHRrg0=
+
+Name: assets/frame-adventure-07-mecha-tide.png
+SHA-256-Digest: ldphxN0h4RrNln5HQYIrsg60LpLxPJbOOU9fr0HyvpM=
+
+Name: assets/frame-adventure-08-music-crown.png
+SHA-256-Digest: Wb7oSWneovJIbyvTwwtkaEipeo1QH/HiQzmcQhEwjxI=
+
+Name: assets/frame-adventure-09-pirate-treasure.png
+SHA-256-Digest: Fi97tQudhIMfX4QMjPdyOx75iAHhQYWbpbCqfxxLZ+Q=
+
+Name: assets/frame-adventure-10-navigator-map.png
+SHA-256-Digest: bfMdTiOYXm1TKDAfZk3/8Jzi9zAtaX4QwCDJUOtBokw=
+
+Name: assets/frame-champion.webp
+SHA-256-Digest: eUc6GiU3CBtbOnzCXYSZhG7mBWWL9YeCKkzypzkbwKI=
+
+Name: assets/frame-crystal.png
+SHA-256-Digest: 0cO/OUfYb7nR4DZP2ArYpIwd8OsUUM90U4cpkHdbRc8=
+
+Name: assets/frame-crystal.svg
+SHA-256-Digest: PJl3xmcNW/Je2jelsM9rC7pzOlJPggiG9VL40J6QAn8=
+
+Name: assets/frame-curse-crimson-beast.png
+SHA-256-Digest: eDQuMT9EBZlzJ8OUn+S5WnpNfB+PjqRmo0tTGRssqEk=
+
+Name: assets/frame-curse-glacial-chain.png
+SHA-256-Digest: q/8DJXdJlrS2jQqEdrcl5XGVvdEkFCJJ1dDVjnalWO0=
+
+Name: assets/frame-curse-tide-beast.png
+SHA-256-Digest: bLz5NsZi6RWk/z2syhTwMtxCUXPcLUFqyt9IuJ9SW00=
+
+Name: assets/frame-curse-violet-eclipse.png
+SHA-256-Digest: PqdXmyUleZrX5RHj+n4K20uyKbP3fHNed9BPPJg+eS8=
+
+Name: assets/frame-floral.webp
+SHA-256-Digest: oTT3xan1jRQiiw32VFvGYQaMnqLeoKBfy+fhgPSSNoE=
+
+Name: assets/frame-infinity-crystal.png
+SHA-256-Digest: cu1zPWs+iZ7ZbeG+UvVxixE9GsEwi656/Wk5o498Jeo=
+
+Name: assets/frame-infinity-sensei.png
+SHA-256-Digest: i4vntdySgMVxuVtXiptticTRQQcF6at1bVSOy/eruDM=
+
+Name: assets/frame-moon.png
+SHA-256-Digest: eoCfxwcaXqU4OyPbEirDZlZr6rLfVGoguBjA/axgQlk=
+
+Name: assets/frame-moon.svg
+SHA-256-Digest: rgRGrBLnaR5sRhdo5kZxd7feeKfUBwigt+4L+W+dpp4=
+
+Name: assets/frame-numbers.png
+SHA-256-Digest: X0FfG+569kKu2ARMCDK45Fig2wEWGlLjSYlGlAmEyQ0=
+
+Name: assets/frame-numbers.svg
+SHA-256-Digest: NjJTmJKCtdzzebOfwWM2CAO8AtDYzwOzaY+uwbYpPEM=
+
+Name: assets/frame-panda-bamboo-guardian.png
+SHA-256-Digest: 1FYXxY6SpjYAY27T0NgP/DJM7gjuxpxSlCVnif2FTl0=
+
+Name: assets/frame-panda-cosmic.png
+SHA-256-Digest: sktriE11qqyHE/A5hHHOBmUh6wfFfry2gqThZZ3lzTo=
+
+Name: assets/frame-panda-ninja.png
+SHA-256-Digest: 0vAZ4nV/VMIxlD55WOB8ZDoXPta4EM+dRC5776a0rlk=
+
+Name: assets/frame-panda-vault-cosmic.png
+SHA-256-Digest: 9/Wu6GRVRjcVdSoOH18+ELr+MjydTJPiaPVHvSg3XBk=
+
+Name: assets/frame-panda-vault-crystal.png
+SHA-256-Digest: xRXRWdWmNxC2KnGD3SrZ0I+8tXWnQeG2rdu1Z8blGMI=
+
+Name: assets/frame-panda-vault-frost.png
+SHA-256-Digest: kiW3NXIouGG5xRx2Q8ss8+iYOp71kr0TS1hdfScspOU=
+
+Name: assets/frame-panda-vault-ninja.png
+SHA-256-Digest: 6+wl1SAKTpNGHjyaoTTb493jO4wwU3dqeHZ2AW/BnIQ=
+
+Name: assets/frame-panda-vault-royal.png
+SHA-256-Digest: UrjQFXACSFEJBMrWCl5xAcWS/BnSE5flfntnNbXBtBs=
+
+Name: assets/frame-pet-bear-honey.png
+SHA-256-Digest: uzsL9M6p4AIiM7JJYIi2dXgoXOIFeO+Bz9ihjWmJyIU=
+
+Name: assets/frame-pet-bunny-dream.png
+SHA-256-Digest: hWslGasWSo37dTjlpuQqV6/s6U65helOdueYsroFIJI=
+
+Name: assets/frame-pet-chick-spring.png
+SHA-256-Digest: SopwNRtYQLmahoKfvKwqXkIzXVkfD0TynqymD66v9WM=
+
+Name: assets/frame-pet-fox-autumn.png
+SHA-256-Digest: nli1EjqA1B554en/Lo//vVoqpTdawWWJ6o3DGKxXcvk=
+
+Name: assets/frame-pet-frog-pond.png
+SHA-256-Digest: LocCi/HEHTnhCrAtJrrdGYuMjtV2AbHLYKGpmSfOI9E=
+
+Name: assets/frame-pet-kitten-paws.png
+SHA-256-Digest: qDkOPHPN/ON9RPi4NEHTpNK+W0edzDbQvXIHJWFmpjs=
+
+Name: assets/frame-pet-panda-bamboo.png
+SHA-256-Digest: jq3SAFAGwbF1snD+zPuLHVgz3yDiuKkmPebbmu5bsE8=
+
+Name: assets/frame-pet-penguin-frost.png
+SHA-256-Digest: 8avTIuM3Crwga4j1Lv/OVV+Uac1EhwDGr5dL/ikw+ug=
+
+Name: assets/frame-pet-puppy-friendship.png
+SHA-256-Digest: qGBlupefFVhy152m8FR8CfXIgCAdDjxl0lBj0F4o5G4=
+
+Name: assets/frame-pet-unicorn-rainbow.png
+SHA-256-Digest: 3km/kwWFff0KbGD69VsRe+6becMdhFCI2aC4YytKSpg=
+
+Name: assets/frame-rainbow.webp
+SHA-256-Digest: coS0iYyeseqA+p9AG1VFJhEXihmkXuX4dIB0lDe+dHg=
+
+Name: assets/frame-secret-royal.png
+SHA-256-Digest: xhqnkHmhrA0SjX63CCFyIQLPf9oNk/PEWQaaC1WR0GI=
+
+Name: assets/frame-secret-royal.svg
+SHA-256-Digest: zppv/9J7qhe8aJRqHsO0h9Cr3+soXwD9QG/VV0/oMCI=
+
+Name: assets/frame-star.webp
+SHA-256-Digest: a6YYTSZbhllUAdCD20dvZgzUJsIUOm5LtGIES3AixS8=
+
+Name: assets/home-collectibles.png
+SHA-256-Digest: cEJmMLZYvgrvK/JCvQ0twEngoJPEOW/QN1N5R2Cglsk=
+
+Name: assets/home-daily-icon.webp
+SHA-256-Digest: fLmDbAStI2RrhBGObqV5Fvol4pHskVgSGh45FGidXkE=
+
+Name: assets/home-logo.webp
+SHA-256-Digest: t7uYYmm41XqYY28e9I4xLGyWVVeAF9Se49+eJ3UOPRQ=
+
+Name: assets/home-magical-bg.webp
+SHA-256-Digest: YCYYZFKByDZ/2/aGIeibXVElzDyJyNU5I2NRFj8UkgE=
+
+Name: assets/home-play.webp
+SHA-256-Digest: HCCatKC0dgO3mVobBnx7I1pitkylPxeTvUuuY6WF6wM=
+
+Name: assets/home-portal.png
+SHA-256-Digest: gCwzYInHXg2uToCp6gMZenAtNGCX02jZQDnMqoHBvlk=
+
+Name: assets/home-portal.svg
+SHA-256-Digest: e2PsQ4F1iy3dYAZ5IA5rOFoKCT7d4gbfqXKU4tOLeuc=
+
+Name: assets/home-store-card.webp
+SHA-256-Digest: gqc/P1S3rLViXuduVNrCY/h8jvHaJbfgvhYcQpENt6A=
+
+Name: assets/home-worlds-card.webp
+SHA-256-Digest: fBUw3fMdBkcYerU3QngScKtWYrT/PoW589z7X7Db0Ro=
+
+Name: assets/home_new_chests.png
+SHA-256-Digest: Raa3FOtix2Yzuby3oBXPleU+TOy5QwwU3VSq0Tu3bFg=
+
+Name: assets/home_new_collectibles.png
+SHA-256-Digest: WunH4fKjzNvShc2PLsJIeU1mfOHho3slG2FWUhlJUUs=
+
+Name: assets/home_new_daily.png
+SHA-256-Digest: PTKqpGNK/CKoigyTscESl0LYOEiDBJjmwym0ZrDxI9E=
+
+Name: assets/home_new_fashion_stage.png
+SHA-256-Digest: qTIJPq/ybsdE57ahVb2goob2vSENJvMN7wI0K8y0m0Y=
+
+Name: assets/home_new_fundo.png
+SHA-256-Digest: jaJ0JLcBRUYN9mhuy5rhyhH4TbDgL0hLjo9Sxi1LjM4=
+
+Name: assets/home_new_header.png
+SHA-256-Digest: YmJrNL/k67bsP1V+/pra/OMQYR/MWaF/TwihdR3wuWg=
+
+Name: assets/home_new_items.png
+SHA-256-Digest: 9mXlRqqYgE9gS0UbkZ52OrC7HHG1/F73wrYEkiyjEMI=
+
+Name: assets/home_new_jogar.png
+SHA-256-Digest: OlduIhrvuPXvaZNxjFYTkUuMuUAGAlJ4Uv2VNDntUlE=
+
+Name: assets/home_new_logo.png
+SHA-256-Digest: x13Nko/n1QJow8nij+Zqz5vYWC/MSqhEYXScUKfpS20=
+
+Name: assets/home_new_moda.png
+SHA-256-Digest: sFEtdEj4FcoiOs6B44zxcW0uN8dGWYT6GPn+7yZlS3s=
+
+Name: assets/home_new_next_chest.png
+SHA-256-Digest: Tt2RQJ9yU/EinJ2Ysh69RIUMEa5d5kknYb0+dM+MPuw=
+
+Name: assets/home_new_pets.png
+SHA-256-Digest: X/6jlT9YQPpGXdTJt6xtU4f0luDT+pq+KmZnR8H1LlE=
+
+Name: assets/home_new_store.png
+SHA-256-Digest: IdX9J5CdePjlfZENzx+L/QlEFZ/Xod+4+CbXAn87Ki4=
+
+Name: assets/home_new_worlds.png
+SHA-256-Digest: FXLzFmapq8839WDbbA4WCpN4U3OfWp5C9AbMlqykPaU=
+
+Name: assets/index.html
+SHA-256-Digest: 4o1oir0lWdxSqRrBg6UF0ONifu0MloBcF1yFE4zpFvc=
+
+Name: assets/lottie-data.js
+SHA-256-Digest: UvG6VYheCu8hWPJ8Bqb5WPeK12hJgf43fxAuQq4nrhM=
+
+Name: assets/lottie-light-5.12.2.min.js
+SHA-256-Digest: 9fnfcIKhrDtSXMQ7KkDgR8EboUurGazF5XCO9Y8g3C0=
+
+Name: assets/mail-pigeon-down.png
+SHA-256-Digest: ksz20tD/G485/cTiz3c+EgQStV0SGiwtx0uNyszqRSo=
+
+Name: assets/mail-pigeon-up.png
+SHA-256-Digest: aGKIObwrDsqBpVY6eIf84HPDMSMv9VsbAurw6j6hDnk=
+
+Name: assets/pack-explorer.png
+SHA-256-Digest: BwIQ5oPFSD5XT7H2u6u6mekmA2wI+Y2T3y2qQ/VvMqc=
+
+Name: assets/pack-explorer.svg
+SHA-256-Digest: LtcftJ5SIpDuM5xa6W/cw61wSWQb2IihE8Vg/hfYbgE=
+
+Name: assets/pack-magic.webp
+SHA-256-Digest: dMOCRYohopHdTAa5YJmovpCy+olCzFG1JKmE2fKn17M=
+
+Name: assets/pack-royal.png
+SHA-256-Digest: OZdKCIQywmzR43glFAsj9VxXiceJ3D1ecHfcsw11qUs=
+
+Name: assets/pack-royal.svg
+SHA-256-Digest: NPVxRWU3cbwVLXgwR1p3MLob3i3Q05+O+rjGWyFINLM=
+
+Name: assets/pack-starlight.png
+SHA-256-Digest: FdoT0UkdcZrShzCA6suqmo5r5Qi+gMUSwn7jyi/jm+A=
+
+Name: assets/pack-starlight.svg
+SHA-256-Digest: e7IaBrMHa5vJd3SHJhsD4bYMngkTAcRyqbOPiUk4ltA=
+
+Name: assets/papa-letter-portal-01.png
+SHA-256-Digest: NOdLP/1QIsPogTQOmdk1gxnKTvNmm06AVtMtM0YoiIY=
+
+Name: assets/papa-letter-portal-02.png
+SHA-256-Digest: KJEn3EAzstjhw8xsm1dVphSb5GkjpkJLGbw3NYY4XZA=
+
+Name: assets/papa-letter-portal-03.png
+SHA-256-Digest: j0PXDECo3pG64UnVFdeeby1ULYoU4kRUQt90nfb1Kks=
+
+Name: assets/papa-letter-portal-04.png
+SHA-256-Digest: F9Y3brv/MkMfh7H3qWuyT5v5nlUYH7LMCCe/JuEHmco=
+
+Name: assets/papa-letter-portal-05.png
+SHA-256-Digest: Dv0fuuFaNxNVeewIbRHIbIRWjtj3s08YL7BsDEpv/8M=
+
+Name: assets/papa-letter-portal-06.png
+SHA-256-Digest: v2z9iBpK/f5MHmFg6f3jVXI5vbKxljBd9+Q29NaJdAs=
+
+Name: assets/papa-letter-portal-07.png
+SHA-256-Digest: TAuzR0M0Vyg/LOXwLJmOt2mqV0AuDAVrs4iLV9EAi5A=
+
+Name: assets/papa-letter-portal-08.png
+SHA-256-Digest: 8cAX5ebyXr5xwHoqpgnmk/ZBNkEJKIS0O3l1cKDFBgQ=
+
+Name: assets/papa-letter-portal-09.png
+SHA-256-Digest: SHrefkkOfKeVRQLvJiLhnSh9v5/zXunBg0m4j4hoKwc=
+
+Name: assets/papa-letter-portal-10.png
+SHA-256-Digest: EEOhSGLgpSU0XmD/2iAvMwNZ9PagaojM9bM3uyDVzv8=
+
+Name: assets/papai-base.png
+SHA-256-Digest: Mi6XzldUBkt4f7mhg0Fehefz+Tbi5E+yar//2fjSt5g=
+
+Name: assets/papai-celebrate-01.png
+SHA-256-Digest: WjR1FAvJ48qvgBQ/xkqIygOdPQFy9etV2blZHCuyiis=
+
+Name: assets/papai-celebrate-02.png
+SHA-256-Digest: qxDwVSmu5zilQTV/1ibbUq/66dpllR5trrL0//0VMcw=
+
+Name: assets/papai-celebrate-03.png
+SHA-256-Digest: l4tvE88Lvljgz7SUYe8oc2OAwma/xAbM2/T2aZ9kUgQ=
+
+Name: assets/papai-celebrate-04.png
+SHA-256-Digest: FMLq/cgJqK4NxtL8wS8oNwbHJZBKE4Lw1gZ9I+ydKo8=
+
+Name: assets/papai-celebrate-05.png
+SHA-256-Digest: JskcvkQLxxMN0TSgtTRbp3/Qfrkf7hnN2w+e5qulY5k=
+
+Name: assets/papai-celebrate-06.png
+SHA-256-Digest: smBr3l3mrP52KBWZ6XwB+T9hv5J4QEJ6eoiZvsmWh3Q=
+
+Name: assets/papai-celebrate-07.png
+SHA-256-Digest: y79i/tiI8DAXkHvZs9WIL9fFYA+Ee71OZBF0LXwiZGk=
+
+Name: assets/papai-celebrate-08.png
+SHA-256-Digest: Zg+SJot55BvDBWJesc1HJZkBW77F98UFPSoXZ+BUZtA=
+
+Name: assets/papai_correct_lottie/assets/magic_check.png
+SHA-256-Digest: zIrOUVpo5IiQB+ryQRLFqex/yxW5T4filyDvAOUy81I=
+
+Name: assets/papai_correct_lottie/assets/magic_seal.png
+SHA-256-Digest: dTAdmM/LWBE/lNA4qc71wQ7c/UNnxu/MaKXZrI2ZJIc=
+
+Name: assets/papai_correct_lottie/assets/magic_sparkles.png
+SHA-256-Digest: /pwRZ4BCCY5KOCz6AFfagMy3+dDo1bMWvKNiNKhjkVE=
+
+Name: assets/papai_correct_lottie/assets/magic_swirl.png
+SHA-256-Digest: URhzaur9yMm1gftS5uHpOid6hEGG78BVOry7kurfuwM=
+
+Name: assets/papai_correct_lottie/assets/papai_idle.png
+SHA-256-Digest: lHvik7oK9L055TS38cNuF/nCXJd1Z47ZarnSvQVMNd0=
+
+Name: assets/papai_correct_lottie/assets/papai_magic.png
+SHA-256-Digest: uD7jJju9NutK7aeR1ydROcLcvjQnZbRskNMHXi4zyZ0=
+
+Name: assets/papai_correct_lottie/assets/papai_proud.png
+SHA-256-Digest: N41b7ALi4FJNBIuw9LqKAxpzYoFzUq5y4aVWE4taF5A=
+
+Name: assets/papai_correct_lottie/assets/papai_thumbsup.png
+SHA-256-Digest: /JZWNIfvPQmjReDVKf2zRLK6iI/hXCylQcYYeQsg58I=
+
+Name: assets/papai_correct_lottie/assets/source_sprite_sheet.png
+SHA-256-Digest: NimVKLjkR8GJpqY2IZnU4LASvJhtHPrTiPL99mwLUvc=
+
+Name: assets/papai_correct_lottie/manifest.json
+SHA-256-Digest: QIgAmpETpidn18Dkh+EV8KJYmtMA9yw/6Rhs1d07d20=
+
+Name: assets/papai_correct_lottie/papai_correct_effect_jjk_lottie.json
+SHA-256-Digest: yLg596rJrgtimqQgv7RCIhxAmjZeGNlSuEV5eM2b6+k=
+
+Name: assets/pet30-01-happy_00.png
+SHA-256-Digest: tS/GOa75v1HZZSESSL9LTeC124wrxlQVJsiFB/XH9H4=
+
+Name: assets/pet30-01-happy_01.png
+SHA-256-Digest: 00LFcedDc3n8J5kL/1dmRz14UeLQ0UsKFmRid1UY48o=
+
+Name: assets/pet30-01-happy_02.png
+SHA-256-Digest: 1WeGlxMzS7sjjJZ8nBU2685zqKNjgjD/kDmnNVeimx0=
+
+Name: assets/pet30-01-happy_03.png
+SHA-256-Digest: GQWDoau0T+HWj1FhWQvehURxmoTRTix51+XNNvVDYtY=
+
+Name: assets/pet30-01-happy_04.png
+SHA-256-Digest: iZrmKQ0pAm85dImYpTMSsuy2nyj3y1+3wEpe5Mi1eKg=
+
+Name: assets/pet30-01-happy_05.png
+SHA-256-Digest: 9rxe1vG8BjVRiFrqq3HbtUDnp9eQVhVeIA27ujFgUBs=
+
+Name: assets/pet30-01-happy_06.png
+SHA-256-Digest: aSEGcegDOay72RHROZFlzuLuH3fBUfkupbASd6eDXNI=
+
+Name: assets/pet30-01-happy_07.png
+SHA-256-Digest: YA6CTfywMVci4+p7FpgqjYD/S49erUjn5MpgbZaGErs=
+
+Name: assets/pet30-01-idle-lottie.json
+SHA-256-Digest: 9jiQqQxyGxaKb8DXTsG9kd8iT8o/ke9hRi5nJKCWRnQ=
+
+Name: assets/pet30-01-idle_00.png
+SHA-256-Digest: IBzBnJsFERRtS/wabAEhihO1lX3H5avjN4ZGv1vybzo=
+
+Name: assets/pet30-01-idle_01.png
+SHA-256-Digest: NprjS7aawFpmiWt+Wb/9ATDgt0PWbhsJbYtdYZ5YMAk=
+
+Name: assets/pet30-01-idle_02.png
+SHA-256-Digest: hRQQKAm/+lQr11sabmw7yci+5x4snpWB1FGVTv0ts+Q=
+
+Name: assets/pet30-01-idle_03.png
+SHA-256-Digest: BAitt0RjpbYdWvBrIi7/x1l15OphQLN1WS5D9GSCFNI=
+
+Name: assets/pet30-01-idle_04.png
+SHA-256-Digest: 9tFNmbzkUM+bpxamFdze3iUE17OuOV9NDlGgN29IKsE=
+
+Name: assets/pet30-01-idle_05.png
+SHA-256-Digest: DnLM1/iItQ5eZaaY58P7xK7JWJrtO1D3i46MI7XByRQ=
+
+Name: assets/pet30-01-idle_06.png
+SHA-256-Digest: Ni2A2O8vioTAb0nJv5lAfl50XMuX4WYC5VIZT2diMAA=
+
+Name: assets/pet30-01-idle_07.png
+SHA-256-Digest: q7iuYjXg4kcpQxZY4alDgHylk0W2bCM5S1ugWym/V9Q=
+
+Name: assets/pet30-01-jump_00.png
+SHA-256-Digest: YOCSzenCa7edyBHSUG0ct8H81TjjM7TP1oajfmJNbwc=
+
+Name: assets/pet30-01-jump_01.png
+SHA-256-Digest: 89eDnOKQEzuHt1hywqNKSjlUkvMtv0SPf+Aysxw3l8A=
+
+Name: assets/pet30-01-jump_02.png
+SHA-256-Digest: ZCCOEiqQcQZzfSFAVuwkT5P0a/pkY4H2gsmnQfgaPCQ=
+
+Name: assets/pet30-01-jump_03.png
+SHA-256-Digest: hBxB8TI+kXKUFRrJprwTDtMF+nykTjkogKJa9JlUC6M=
+
+Name: assets/pet30-01-jump_04.png
+SHA-256-Digest: YzlAqTN7muY82BopGndWNF8cZbsN23xMA1NAooLTDkc=
+
+Name: assets/pet30-01-jump_05.png
+SHA-256-Digest: Xj3G6gvcTmDeXmNjp8rsjjg77G2iSBKQur2VJ+SLjE0=
+
+Name: assets/pet30-01-jump_06.png
+SHA-256-Digest: Jvizv6pULrKg8guZ9e0ygvQk7Nxma4eJ/gDLJHm+FPI=
+
+Name: assets/pet30-01-jump_07.png
+SHA-256-Digest: Rq6EuM6KwmeK0xQTVAtRh5v59sYGOeF3Idu1cz4ahEs=
+
+Name: assets/pet30-01-special_00.png
+SHA-256-Digest: DVgBqMyL7lAdSTigUVq9laslUpiq00nfA9JoemxpvQg=
+
+Name: assets/pet30-01-special_01.png
+SHA-256-Digest: 1gYPBGh0ODmfQ/VcCYCJvQ2HorMkkWmSK2fOqS60/jw=
+
+Name: assets/pet30-01-special_02.png
+SHA-256-Digest: NxwGVeGqdOlXOaHkQ32tlXVEFd1a534u4dF45R6WBJw=
+
+Name: assets/pet30-01-special_03.png
+SHA-256-Digest: qDd/JxvMz2kuQ0etTmz9ImoyatpLfjJjkxIaPi0nNlw=
+
+Name: assets/pet30-01-special_04.png
+SHA-256-Digest: t6pjlxq7X2hzqltoxuXDL+zhq50aouLMwWAjBiowjN4=
+
+Name: assets/pet30-01-special_05.png
+SHA-256-Digest: aoS8QJpMoo4ZxH97ZNooD9JNJPNbN1Tjm5N+sOuVC8Q=
+
+Name: assets/pet30-01-special_06.png
+SHA-256-Digest: t79rRZqzj4MOIijrdm5yLZzuoPGeWNVFxb/Sos9aMCI=
+
+Name: assets/pet30-01-special_07.png
+SHA-256-Digest: ItF9tydMhJM+5DE21q9JuyfK+pEvaSOzPA7nt327eZQ=
+
+Name: assets/pet30-02-happy_00.png
+SHA-256-Digest: MUHfjHoQxtncPmHiC+NYoX35V7EpU8hClaPajRXb2N0=
+
+Name: assets/pet30-02-happy_01.png
+SHA-256-Digest: 7vHFk/P36Q4OLTMY/SqoupYGOLN3KhqSRBUVD5qqGDo=
+
+Name: assets/pet30-02-happy_02.png
+SHA-256-Digest: 22dzDxDxuBUFbQhYNZQwwNmM8A78fous5srKpOK70eU=
+
+Name: assets/pet30-02-happy_03.png
+SHA-256-Digest: 8FW6+kfFA39js/U7iFAu10PmbfpxpGx0hCMFWIwg9U8=
+
+Name: assets/pet30-02-happy_04.png
+SHA-256-Digest: oLmFP4SS3AVguDX58CUCFaFmWJnAi+QSjWpRbJiy0Sc=
+
+Name: assets/pet30-02-happy_05.png
+SHA-256-Digest: meADF5JR2sYENfJUhnnFWCch/lcTSlLIPlpvnCO8UlQ=
+
+Name: assets/pet30-02-happy_06.png
+SHA-256-Digest: 5OZS2h0gH/uH+Ss4T6i3LNqs1L6YueiS/jbkAh+U6nY=
+
+Name: assets/pet30-02-happy_07.png
+SHA-256-Digest: seWf71d6hlZEO+D0/HF8A5Up9Yz6upLuZ2waYWH75Uc=
+
+Name: assets/pet30-02-idle-lottie.json
+SHA-256-Digest: cblplvSqaoGYzexGna5a/x+g3eTt1xyEkewTtDxQ5Rw=
+
+Name: assets/pet30-02-idle_00.png
+SHA-256-Digest: 5yRJRp0K2Fzwvr6dBq7GX84iwuI9wfIwI/UDK2AZeYI=
+
+Name: assets/pet30-02-idle_01.png
+SHA-256-Digest: lNxm0i5do3aP5YuSV2DN/MPDdF9q26C7LuDQNZl34qU=
+
+Name: assets/pet30-02-idle_02.png
+SHA-256-Digest: sa1A3Baey/0VrGt0ZE7guOPyAeQIw6FyY8Y/XxXo5iM=
+
+Name: assets/pet30-02-idle_03.png
+SHA-256-Digest: 3deoqzeTfS8U3beOzcgwz/JUzEbFz6tBMzzTrkH6hXE=
+
+Name: assets/pet30-02-idle_04.png
+SHA-256-Digest: 2VEMyy/bJCx5kvUjF68yFwc484MRmwNt8bkLDKE3VtY=
+
+Name: assets/pet30-02-idle_05.png
+SHA-256-Digest: uojB2noomqdlZfdcMJweUQNC8VGrj3ZuGcye1jLtklg=
+
+Name: assets/pet30-02-idle_06.png
+SHA-256-Digest: i34OWLqcgQvI/lYaUonYRZm4cfHJ3hnMP8N+GU/XByA=
+
+Name: assets/pet30-02-idle_07.png
+SHA-256-Digest: Qk2gkNW5WNwtesxRY5YQChf8eaVk8lWqXQRYc7nzjHY=
+
+Name: assets/pet30-02-jump_00.png
+SHA-256-Digest: 1a+M5Vq1Bx/Xn2s7ObN849mVHcm0YA5ZRxmhxRXBF0g=
+
+Name: assets/pet30-02-jump_01.png
+SHA-256-Digest: Aou0pJl71EdAP7a5m5fTMxoNeCQi4kXJG1+pVLZXG28=
+
+Name: assets/pet30-02-jump_02.png
+SHA-256-Digest: 5N9XpNT9c9haC94YhphZ7R04tcFJk8+LoF0WUzjmRZ4=
+
+Name: assets/pet30-02-jump_03.png
+SHA-256-Digest: wUZiadi4S332huxjsffm5vbVrSFHv8gOiOKfphFWgi4=
+
+Name: assets/pet30-02-jump_04.png
+SHA-256-Digest: CiZtXTaKJsAmNfkVjCDWdB8FjrWGd+eO0FncL86+5/A=
+
+Name: assets/pet30-02-jump_05.png
+SHA-256-Digest: MuaFZ2SYYIG5MJjyIKEyU8AwRsyl60YbFDp7mdr8hYM=
+
+Name: assets/pet30-02-jump_06.png
+SHA-256-Digest: 5elu1rqWXwaVlXpw5ua4qhHKPdJosoKFsfX9xkDbWis=
+
+Name: assets/pet30-02-jump_07.png
+SHA-256-Digest: OVMsJUqyEXnX28p48M6CkwEVAyXsHZc9eGpdEDsKCoc=
+
+Name: assets/pet30-02-special_00.png
+SHA-256-Digest: Kb7fjAnHbijsExHgAG43gPEkn4AOyfJI/tyuhvw2U68=
+
+Name: assets/pet30-02-special_01.png
+SHA-256-Digest: fMk/ircb8lo7oFLrSr6dtT/HnoiURZIU2635I2Pm/PU=
+
+Name: assets/pet30-02-special_02.png
+SHA-256-Digest: XWZHqeU8yPDCmx3IDiOhYROraRjxtTwHxV+e3z5cln0=
+
+Name: assets/pet30-02-special_03.png
+SHA-256-Digest: 2rgACvarl8gGATm2meXiMPa0bZ81g8Vc6gYOz+m1ZIg=
+
+Name: assets/pet30-02-special_04.png
+SHA-256-Digest: UN1REW2B6qkenSM4CTUAZ1o5f2yoGutKL6oe/xteFNU=
+
+Name: assets/pet30-02-special_05.png
+SHA-256-Digest: YjxEmbm3eh6QOrmei7fP/tCUMY854wS0GCZ27F5+PNQ=
+
+Name: assets/pet30-02-special_06.png
+SHA-256-Digest: PyWrcGKRabbDLGNZnBaE86f08kBU/rfgLMP2cetVHWA=
+
+Name: assets/pet30-02-special_07.png
+SHA-256-Digest: hXz3tgY63idX7K9/F3LgLjeUBgKkJFg25JneLEDu4yQ=
+
+Name: assets/pet30-03-happy_00.png
+SHA-256-Digest: n/itnEcoP3kEu9y60ehrMqQSlJcUZhda8DI3ioha/YI=
+
+Name: assets/pet30-03-happy_01.png
+SHA-256-Digest: 8pzmkViqWNdiyyfQXR/cYr+mtGm2rxX7Fpj+CD+jK2k=
+
+Name: assets/pet30-03-happy_02.png
+SHA-256-Digest: 8Ugkhe0PWQvk363lNO+yXXjmodkYQUrp18CBkD4kWnQ=
+
+Name: assets/pet30-03-happy_03.png
+SHA-256-Digest: wcSe0bxxaN8qfpIT/AtZpZvxuy3sCuhJHujciUS0PiQ=
+
+Name: assets/pet30-03-happy_04.png
+SHA-256-Digest: BnHHvFfSmEJM4ZfmUjZDRsv1ryb9kjvgO62ji3ARCzY=
+
+Name: assets/pet30-03-happy_05.png
+SHA-256-Digest: Izjgl+zZ326gwVhRDwa0dIDTHEJKZ67CosWzRLqfQz8=
+
+Name: assets/pet30-03-happy_06.png
+SHA-256-Digest: PBtZWUJpYZjG8ktMThkBHJwKrhOrPofsE8XuEuoSlGA=
+
+Name: assets/pet30-03-happy_07.png
+SHA-256-Digest: 6q3TRhNSVKeKXv9d2r5Db5GA01q3fNvFMSNjGnWq5ec=
+
+Name: assets/pet30-03-idle-lottie.json
+SHA-256-Digest: cK3DYdBenUchkk8nmDgCZGGG3nbtwxLRPAj5QyfGWTA=
+
+Name: assets/pet30-03-idle_00.png
+SHA-256-Digest: euiA/tP9F/mh+r+d8LdnTt1xVbUtNsS36HudP1KRQqM=
+
+Name: assets/pet30-03-idle_01.png
+SHA-256-Digest: 5HQ4qI9ByrsX8nvKI2tIWZ9RLSTFv0srh/V8o+CBkug=
+
+Name: assets/pet30-03-idle_02.png
+SHA-256-Digest: o/P2ShrsZY1XDxiASHKnasPoDxQSaBWA3KF2AKQNfy0=
+
+Name: assets/pet30-03-idle_03.png
+SHA-256-Digest: 07Hv9SYeImZrxHKrtomSvmpjNN8NuLP2rifBAL19TfE=
+
+Name: assets/pet30-03-idle_04.png
+SHA-256-Digest: VB9RuCV7u7PLTIt4poD7cD7Id2at2OdIEq9c41k014M=
+
+Name: assets/pet30-03-idle_05.png
+SHA-256-Digest: 9o9TWFI9fHI43PkbmbhXE4T/06J5wEKagNTB9o9qssM=
+
+Name: assets/pet30-03-idle_06.png
+SHA-256-Digest: DPaYoKhInTVUOf3HuPJpQ2UvZNZuCaB4UVlu/UeYypc=
+
+Name: assets/pet30-03-idle_07.png
+SHA-256-Digest: zx8HK/iTYM8+tIsmOKEEHArJNiNf3u9pR/iNj4VcL6w=
+
+Name: assets/pet30-03-jump_00.png
+SHA-256-Digest: 2sWoTEowcOOrgKEDAz9el4uUorgA7TemMaEQRlQzFSY=
+
+Name: assets/pet30-03-jump_01.png
+SHA-256-Digest: nUpnWJjifCyTN7LTsGAnpGqYKAYufa4nXMqPOibuPQo=
+
+Name: assets/pet30-03-jump_02.png
+SHA-256-Digest: dPdpdR/qvjAZLaTb9OGSRI/Edcvp1uCq3JZlwQ0F5gM=
+
+Name: assets/pet30-03-jump_03.png
+SHA-256-Digest: XVQvxLSExTcz892M3Wr9AcMHwnvkf0uUkCbeDLAfmk8=
+
+Name: assets/pet30-03-jump_04.png
+SHA-256-Digest: 2jo2/Tn9fWItNCw9a4h2P+KEFhB1U0cqDb0Iq+TtB5M=
+
+Name: assets/pet30-03-jump_05.png
+SHA-256-Digest: Xo67bD/ceTGJJPLzOmLQPawtNagcAw+YLnwAS7YWmYw=
+
+Name: assets/pet30-03-jump_06.png
+SHA-256-Digest: XgWkxx3xDjpOSCCw7l27hvQMG/3FE2P7os+vT/FDaQA=
+
+Name: assets/pet30-03-jump_07.png
+SHA-256-Digest: EMu4yGPnyLzvS7Zv6YwEBTwZjpP3wAkU3SP1HJ5xObU=
+
+Name: assets/pet30-03-special_00.png
+SHA-256-Digest: 2X/w69x0TtOlixfZZ58WQSyKTTGkVZOdUEa4JN5Go0Q=
+
+Name: assets/pet30-03-special_01.png
+SHA-256-Digest: y8IA6u2HUds2LvM0wBnJEqdqAe2+7VAeyVutP4t7HQg=
+
+Name: assets/pet30-03-special_02.png
+SHA-256-Digest: qbYG/LBph6x3JXpEp0oo7W6tNt7YkuUavqoEB7U0dtg=
+
+Name: assets/pet30-03-special_03.png
+SHA-256-Digest: j2YQm6UGwQD2z2Fj9MXc1X2EnddIlV+LO7bLyRxmHLc=
+
+Name: assets/pet30-03-special_04.png
+SHA-256-Digest: 4D9oc1hDtiv+QUcMsi3CKKTcVsi8igQJXbFwZbuiXd0=
+
+Name: assets/pet30-03-special_05.png
+SHA-256-Digest: 6d2W9tgYjNNtQAkv4z9NuI3RG2Uqbao69auGZ7oBBmE=
+
+Name: assets/pet30-03-special_06.png
+SHA-256-Digest: 60vr7k4vrj1SHsndgtYnSX7C0tH5BpVjyvxgYTI+NkA=
+
+Name: assets/pet30-03-special_07.png
+SHA-256-Digest: V/BGd/yDADGCVx9Qv3F+mH3qoknN+tu2M5dN0quGC7s=
+
+Name: assets/pet30-04-happy_00.png
+SHA-256-Digest: 2J9rD2Lk7Y4ZlWlJwIM/vRGyPJxXZEY7C+wZA+1S06Q=
+
+Name: assets/pet30-04-happy_01.png
+SHA-256-Digest: n1+M1hZBPA4XWvdbKZqGQAxLokWmxJmOoIv9+nuh3f4=
+
+Name: assets/pet30-04-happy_02.png
+SHA-256-Digest: Wt29mZB7AThIXy1BstpvdfztKKC5lWjgHgJCngREQW8=
+
+Name: assets/pet30-04-happy_03.png
+SHA-256-Digest: RlwH0HXpdyKyT523HakRCFZz5UJ9lL7sos2dHRivv2A=
+
+Name: assets/pet30-04-happy_04.png
+SHA-256-Digest: beDQaDDvYwSodwpX9YVb8AoDV8Rm9Qhm8F0zouVLsHg=
+
+Name: assets/pet30-04-happy_05.png
+SHA-256-Digest: PuDu0PVZXHvffPJL7UgNXEwSlxsFiy1t1YvCxIw9+F0=
+
+Name: assets/pet30-04-happy_06.png
+SHA-256-Digest: +6/xv8LrEeq3UKFjoZ2DpDx80ojQhbY++oR0Pws160I=
+
+Name: assets/pet30-04-happy_07.png
+SHA-256-Digest: TGVPUUgCgbRHPgisN0caZIqlgfrrO7rs1TsaGixql/g=
+
+Name: assets/pet30-04-idle-lottie.json
+SHA-256-Digest: kbYXfH3lfdpBONeuFX8rLHQSR8ZEX7KzIj4dt3BOIx0=
+
+Name: assets/pet30-04-idle_00.png
+SHA-256-Digest: 7FxDXiI+PMFxvHArQQYvOmEYV4JIqwvQYcfRA2PZrOs=
+
+Name: assets/pet30-04-idle_01.png
+SHA-256-Digest: O9M4/5/71G8ZWWB9NOJm/vHRih61Sf+wuoGrzzUYKDY=
+
+Name: assets/pet30-04-idle_02.png
+SHA-256-Digest: 5CRwvoIGUubL1uEXuC4He7HYtAfUdvsyWhr8m1dxdOc=
+
+Name: assets/pet30-04-idle_03.png
+SHA-256-Digest: 4aw+7w5DB2mAjQKSOBvX7rWpserDBTU62s1/urNAWck=
+
+Name: assets/pet30-04-idle_04.png
+SHA-256-Digest: naYx8VJZMpAYrus/ejyZHMlea/gpruDjf3pF8qwgjQM=
+
+Name: assets/pet30-04-idle_05.png
+SHA-256-Digest: l5HwJ7jtpkf9Vm6nEk7G7IAMKql7djk3sSUjSaf5XV4=
+
+Name: assets/pet30-04-idle_06.png
+SHA-256-Digest: sKM8CxdD9wEN1aLvtUk6nmJIZxdtljqmMZowxj4Hr2Y=
+
+Name: assets/pet30-04-idle_07.png
+SHA-256-Digest: 8cX7zdQiCRfqLSX0iJXtADNMWxfsYw4xxnsCt+OAtMY=
+
+Name: assets/pet30-04-jump_00.png
+SHA-256-Digest: 8HuhMLNduIzlBTykDY6qHO10uyrR/HNdAyfhu8Qewb0=
+
+Name: assets/pet30-04-jump_01.png
+SHA-256-Digest: JbpVMVhSWqDzTbQYK6vpnRSo9abFNkS0Xz5cK/g7Bok=
+
+Name: assets/pet30-04-jump_02.png
+SHA-256-Digest: MvTpXWXSPhrEpE6vKatitPG1CtXWzOG+uriX+peZfB0=
+
+Name: assets/pet30-04-jump_03.png
+SHA-256-Digest: S0Wy05x+kCqyd6560lpQZEQ5D2684PIrqIlmpodHj4o=
+
+Name: assets/pet30-04-jump_04.png
+SHA-256-Digest: XeIU+ir/CaUG59JyDEKEFDFuo4olpF+xIvJu73TmOJw=
+
+Name: assets/pet30-04-jump_05.png
+SHA-256-Digest: Dx0gk5DSSL87jMYPxC0VaEtYx/xpG0JYubSZWX4F+AY=
+
+Name: assets/pet30-04-jump_06.png
+SHA-256-Digest: eREnZjZKMakbuag9xxA2huq+ztIBIrg9p8vddEf/oe8=
+
+Name: assets/pet30-04-jump_07.png
+SHA-256-Digest: kZzBGbsoYmlQczExGsEh0Vv28q4EPgwDcSkTmtIoHjo=
+
+Name: assets/pet30-04-special_00.png
+SHA-256-Digest: q8sZY5TA2TcMeYvjTCsPWhiKfREehR6QCoqFsQvo0rE=
+
+Name: assets/pet30-04-special_01.png
+SHA-256-Digest: kLp9hzcvgkrYvspIfjpJE8ISRd+1PO5MSzfr55l9mZk=
+
+Name: assets/pet30-04-special_02.png
+SHA-256-Digest: iP2lI/mY264mKyXQxcEq2RbgSEjFp04G11jQiFHXws0=
+
+Name: assets/pet30-04-special_03.png
+SHA-256-Digest: g6NZSEilj7CcVO57MFJn0HtzIvSlOgSywK3jApZljzA=
+
+Name: assets/pet30-04-special_04.png
+SHA-256-Digest: bAZjG1gmolM/1tYlpJ5pKovn/j3pkQ+w09KhyhnreoA=
+
+Name: assets/pet30-04-special_05.png
+SHA-256-Digest: 0UP7+8Ey6bCeFzfHD5Bi8wea0nxxp8ePHybSwIzfWZ8=
+
+Name: assets/pet30-04-special_06.png
+SHA-256-Digest: gnU7bbfprlqTBWpZnlx1Mcn+XpODRqvnJAULXgcv24U=
+
+Name: assets/pet30-04-special_07.png
+SHA-256-Digest: A609qTmcUUtd14gYFu89jFHG0P7Z8b1dAE6hvFr5IAk=
+
+Name: assets/pet30-05-happy_00.png
+SHA-256-Digest: YthbkGKoRyV4EkJ4j0XBVvi2vbb7BuiJYrQdfvejPE4=
+
+Name: assets/pet30-05-happy_01.png
+SHA-256-Digest: jCdGx3gR4WCtzB0I8SqgVMk327ATQaGGtmhwiL2gO64=
+
+Name: assets/pet30-05-happy_02.png
+SHA-256-Digest: j5RZ9FNTq5btTqRJjREbVBrldKkrzHLRr7bnuG3jJVQ=
+
+Name: assets/pet30-05-happy_03.png
+SHA-256-Digest: D3fmWhGc1xEj992QQcaZs7LEZE5uSwoPsFuX/vFOybY=
+
+Name: assets/pet30-05-happy_04.png
+SHA-256-Digest: SSFQBqC+bpPTHG/WZTEk9EnjwBGthEftMZGK0SMX/8w=
+
+Name: assets/pet30-05-happy_05.png
+SHA-256-Digest: 4FkiWTFzkDDtscQpZ01zF+1c/XsbEdLpYJoJKaaxOkI=
+
+Name: assets/pet30-05-happy_06.png
+SHA-256-Digest: Xv6kxcXjFiBKryiyvtM5fzpY/v7sU4NelhIIGCuFfG0=
+
+Name: assets/pet30-05-happy_07.png
+SHA-256-Digest: RQPmptC3Goiqo2TZZ8HHANbwHvrwSERmgWc3xUfyFpU=
+
+Name: assets/pet30-05-idle-lottie.json
+SHA-256-Digest: JhObtAmNNzrrGpdcBLe+bXfirUAxzwgjebtFF3Tem3o=
+
+Name: assets/pet30-05-idle_00.png
+SHA-256-Digest: 1upS9SB0BcJgnW+xDCD6L0Kje779tDJtrS+FyISxzsE=
+
+Name: assets/pet30-05-idle_01.png
+SHA-256-Digest: Yb3iWi/j5bOlWBU6ilD1cMz4ycb+08C/Zav7LB4cRpU=
+
+Name: assets/pet30-05-idle_02.png
+SHA-256-Digest: whuHaUqbKOP+v2ikIZ3M80ergvaVDif/M0CC6IysbgE=
+
+Name: assets/pet30-05-idle_03.png
+SHA-256-Digest: 1CXGIbjjN62cyzAbNyOVdfvsasn6mHEkm7DYeaGw0so=
+
+Name: assets/pet30-05-idle_04.png
+SHA-256-Digest: MeYWvtLq75yQ0f3cDrXRd3uSzUXlR+IOtI/x8FhPTs4=
+
+Name: assets/pet30-05-idle_05.png
+SHA-256-Digest: Lz3C70gl9II67AU/gmKqGlxuTxBvhV33I0EQ9hKPLCE=
+
+Name: assets/pet30-05-idle_06.png
+SHA-256-Digest: woLUBpntl3iSu60+rlbySD/dKPhqF84XzyjIMuMeudU=
+
+Name: assets/pet30-05-idle_07.png
+SHA-256-Digest: 8vml6DdKiRsTcKA9sQTrkPs2x780qrObbwGidpIRS0s=
+
+Name: assets/pet30-05-jump_00.png
+SHA-256-Digest: UMzQH6ZbLGiFHRY8CAc5QppDygJuo1NUMPrU58jQyCk=
+
+Name: assets/pet30-05-jump_01.png
+SHA-256-Digest: HZ/KEEPZomqJhTvfU8hoE+wxGwHK1LqTY7rphCXT2Ss=
+
+Name: assets/pet30-05-jump_02.png
+SHA-256-Digest: zF5qZkcAywB9IIrE7L1DHn+bWaKpRowS89RKDszx2PE=
+
+Name: assets/pet30-05-jump_03.png
+SHA-256-Digest: kRhaZ70L6TY4IfHZdog7QPURoRdl/S6wXmR7+q0bZ58=
+
+Name: assets/pet30-05-jump_04.png
+SHA-256-Digest: T0LHZ8qY94FieWyb9v1TVRHhv4wSeuPZ3VvMZQH8IpU=
+
+Name: assets/pet30-05-jump_05.png
+SHA-256-Digest: laiF+qReRNq9Ccp4fBWry+KRXcjqxlEMtsNGk+nPpgU=
+
+Name: assets/pet30-05-jump_06.png
+SHA-256-Digest: Q7rajmecegi1+eVr+K09PLGr6zQo60xHjsaiSncXwRs=
+
+Name: assets/pet30-05-jump_07.png
+SHA-256-Digest: DYbzAWb4IrOQPfFJNi+nSVkCd3h5fLKICPE2S1oUo3A=
+
+Name: assets/pet30-05-special_00.png
+SHA-256-Digest: ZlUpM1DmPSYuO//oP74fvO1KK2KoKhM7D0yJmUEQQRU=
+
+Name: assets/pet30-05-special_01.png
+SHA-256-Digest: 38y8Rkc6HBW3dtItPR60i/1411CYHwFHvSSXsNc3xJo=
+
+Name: assets/pet30-05-special_02.png
+SHA-256-Digest: 7b93bfM24+soCE0xlxZ0Kp1wrrLc+9HOb6e5ZpZRCiQ=
+
+Name: assets/pet30-05-special_03.png
+SHA-256-Digest: vFigcD66xrIF6kxGQIrJiqYpkmc0TYwfs3ptArfDHqs=
+
+Name: assets/pet30-05-special_04.png
+SHA-256-Digest: dCeCAx3bG51gjl00N9CY+I+09R46USTB75TmaoT1nqg=
+
+Name: assets/pet30-05-special_05.png
+SHA-256-Digest: pB+R4R60tvMIohOUA2tc6Aym78KU4n+BF5/usaQgEH0=
+
+Name: assets/pet30-05-special_06.png
+SHA-256-Digest: 8dczMNH6mQjc118hA+/Dx7NSTxCAfC2FLp9v08hrqxA=
+
+Name: assets/pet30-05-special_07.png
+SHA-256-Digest: /lUoDdMjVYG67sTqvpMhozX2d1fnTwBuggfxnxtp0eU=
+
+Name: assets/pet30-06-happy_00.png
+SHA-256-Digest: zymYy3uAe12Mu/YZHwZeP17lRkYc5WZOdQeiXaOZVE8=
+
+Name: assets/pet30-06-happy_01.png
+SHA-256-Digest: RTHWtE8DThacmRQ7zeTgyemWWD93VSBzxrYllgGuo3U=
+
+Name: assets/pet30-06-happy_02.png
+SHA-256-Digest: YrM+y3mnQNHQzkj27jG5VkskSVzK4q7JCxQLOeGOP6M=
+
+Name: assets/pet30-06-happy_03.png
+SHA-256-Digest: ESPZxoz81EIMx7J8M2D0/VFbyhxJVjMtqBeAUrWeXcs=
+
+Name: assets/pet30-06-happy_04.png
+SHA-256-Digest: xioTAu+lRJFh7c4KkZOiE/n34HbNTOudH3RmFeBVPKE=
+
+Name: assets/pet30-06-happy_05.png
+SHA-256-Digest: 8GGPEBuQz9B+ARtcp65pcGF8W5a+2Ocm3i7PBvT6FZI=
+
+Name: assets/pet30-06-happy_06.png
+SHA-256-Digest: Rz+I4ElbfKuhJHvzdQ8UI+hHLCRUQ0OH2Lcn8dNLWwo=
+
+Name: assets/pet30-06-happy_07.png
+SHA-256-Digest: ekTcBYQSwko4YtQlDruP04UHezKGaN6dUOaynkwaxKc=
+
+Name: assets/pet30-06-idle-lottie.json
+SHA-256-Digest: zT65SPlC7YYeFGkwyhkBMgWrB0EL32wdzlAB3jDIHQk=
+
+Name: assets/pet30-06-idle_00.png
+SHA-256-Digest: 6lW7cVlQ/zesRYaEpvodobgjieopwIGvgMC/OzcdNZQ=
+
+Name: assets/pet30-06-idle_01.png
+SHA-256-Digest: h/MqRO8Lcm/Y+FuumyEHLc5I5qRkpjWheN5jOef0YIk=
+
+Name: assets/pet30-06-idle_02.png
+SHA-256-Digest: 8klPLDpnu7O9HjeIEeLXB7Fcoe0rC6n2IURdtt7SrGE=
+
+Name: assets/pet30-06-idle_03.png
+SHA-256-Digest: QIUZjcMvbp23e1r0uS7kaGbCgd13EMZ4YIe5Xrri0nI=
+
+Name: assets/pet30-06-idle_04.png
+SHA-256-Digest: djbMC4nGvwoU/xXLCxVNQ/WzOK9IdgL0U3cr2MkBvr0=
+
+Name: assets/pet30-06-idle_05.png
+SHA-256-Digest: m18wDJ+ymgX7bbITF0r3S1Ggcn6VJ5bCAeQX+Jm0iKU=
+
+Name: assets/pet30-06-idle_06.png
+SHA-256-Digest: WYSdGD0El1scDx8sZdEIhqU0NBrvkMzlWiOVLcJ+rSY=
+
+Name: assets/pet30-06-idle_07.png
+SHA-256-Digest: 690d03lJ+yhfmEgs8fS7/doN0jQy8GvrXMt9cuKLudo=
+
+Name: assets/pet30-06-jump_00.png
+SHA-256-Digest: ACSDjWZQgNK1yf9jSiwXIUDkOB6MzYrGUZa/K6Eje6o=
+
+Name: assets/pet30-06-jump_01.png
+SHA-256-Digest: LofLVr1RNoYXLIy74e6iATrd288tdluSy+ZZaLAXlx4=
+
+Name: assets/pet30-06-jump_02.png
+SHA-256-Digest: zBg/DgdS2WnBYpngbHabqzt5bW0c0RBdrOYxfEER6Vg=
+
+Name: assets/pet30-06-jump_03.png
+SHA-256-Digest: XtYhxPd4a4hIrYQUYs1vyxJ0cltSsQHgrWDbVAAg53M=
+
+Name: assets/pet30-06-jump_04.png
+SHA-256-Digest: wiQrZifF4Bl10BYsXi0JvVkEIlotodLS9CUbiVWTLQg=
+
+Name: assets/pet30-06-jump_05.png
+SHA-256-Digest: /fQu72z99/8imZ8jZGSbrcW12+0AT+JGUckBodAksXM=
+
+Name: assets/pet30-06-jump_06.png
+SHA-256-Digest: cMKrlsqfqrqFXf6jyhxBT6LcZi+51reMm/PereazH/g=
+
+Name: assets/pet30-06-jump_07.png
+SHA-256-Digest: I04/K6Jfv8rM9Pf8PiAkmctpb1uI9fYjPy7O2IxJXc0=
+
+Name: assets/pet30-06-special_00.png
+SHA-256-Digest: hbztorHkq4RjTxmneWctWotgZTz0oqi9n7xIc0u8buQ=
+
+Name: assets/pet30-06-special_01.png
+SHA-256-Digest: hloMdaPPSq0iKnH+ryp9rTLDdpmziGGjT28Qdi8DAes=
+
+Name: assets/pet30-06-special_02.png
+SHA-256-Digest: wmqlqROM3ClketVAKrVkB75A4/DqR/tGbtsohprIStQ=
+
+Name: assets/pet30-06-special_03.png
+SHA-256-Digest: IyOwTDwUT5R2yv0N5CoZInlIvvGxO9n1cg0NSpbqlyo=
+
+Name: assets/pet30-06-special_04.png
+SHA-256-Digest: guUUqzDH5kP1CWqqajOGyzjFE2HdYE0g/prxA/eN4G4=
+
+Name: assets/pet30-06-special_05.png
+SHA-256-Digest: fVUc6uc14GTRrN3a0VWpU8nnvkkcLNRBCBlgPTTnNmo=
+
+Name: assets/pet30-06-special_06.png
+SHA-256-Digest: TdFWkecPgZMyTda26Z0BweVnb5UQAnaMjp826c/YuXw=
+
+Name: assets/pet30-06-special_07.png
+SHA-256-Digest: Q2ksqFCHu4+UWgdJ9fuGSO/ZWVvHNav4haBy8aULLHY=
+
+Name: assets/pet30-07-happy_00.png
+SHA-256-Digest: oZItiA1MGhMfigLeCp9pI9XwF9l7sXb83VTtTuTcrnU=
+
+Name: assets/pet30-07-happy_01.png
+SHA-256-Digest: +YKx5pdOD2rQeI5CS+0WkvRafqFeE+mMSd37wXcO2DE=
+
+Name: assets/pet30-07-happy_02.png
+SHA-256-Digest: m/jibPHNuwkQ0CmZCEI10mF9LutABoCL3m1xFfncG/8=
+
+Name: assets/pet30-07-happy_03.png
+SHA-256-Digest: pk48tY9PIB6REm2Wui8wuaaviq0j8sedQ3BvKRPzkXM=
+
+Name: assets/pet30-07-happy_04.png
+SHA-256-Digest: V2XYLZ7siV9Sd8biqKzjRa6NZU5GK8Gc9VbaxOv4tVo=
+
+Name: assets/pet30-07-happy_05.png
+SHA-256-Digest: 0ujbYqfO6xPp2owDpNl5LanIPIWV3hMiebAgmWkQAmc=
+
+Name: assets/pet30-07-happy_06.png
+SHA-256-Digest: 30ac+OhSF3GxT6rwJUpyR3AFuTDhDKS/0vN3u85evnk=
+
+Name: assets/pet30-07-happy_07.png
+SHA-256-Digest: 0LVT8pDWBM1rgeRDpKXsp7ryASMw+MvDFLY3wz8oTJE=
+
+Name: assets/pet30-07-idle-lottie.json
+SHA-256-Digest: AwXERa142F7FAsjaHvvupHRiiY00fzINKiwGC8CyPQ4=
+
+Name: assets/pet30-07-idle_00.png
+SHA-256-Digest: /DGKJvElm9Uj1GwdF6Xnwn5Fts42Gs7wAUYxyeTNc7c=
+
+Name: assets/pet30-07-idle_01.png
+SHA-256-Digest: ANJwFrXoWK4zAs21HTSU1VY3QoXgOuW0sYCjDzjv8fo=
+
+Name: assets/pet30-07-idle_02.png
+SHA-256-Digest: 5HuRuiFYtgoncQq9Nzv5Oa/7ank0ojy/PH0mhqjowC8=
+
+Name: assets/pet30-07-idle_03.png
+SHA-256-Digest: dDaXY8mNGGhCa2kpeSoyhO7DRmyUDaW6KBUYSnzj8Kg=
+
+Name: assets/pet30-07-idle_04.png
+SHA-256-Digest: 3X0u2va31ybERBAUM8aa+Ln0vZE1S2HL+WkL0v5BMDQ=
+
+Name: assets/pet30-07-idle_05.png
+SHA-256-Digest: WpjmA2/smDg5VgRoYPfLEqoudxvaLwh3WjFXeeya960=
+
+Name: assets/pet30-07-idle_06.png
+SHA-256-Digest: 9H7aXwpP4E4QZKKky3BlztMB0TiWSa0xYdmASEORRt0=
+
+Name: assets/pet30-07-idle_07.png
+SHA-256-Digest: 2MaVNjQz4EOqUxJ0FR6WIdNUkC/ycFy+DFDTeETqYag=
+
+Name: assets/pet30-07-jump_00.png
+SHA-256-Digest: nusm+y3aO1qnNUGrNyTinTncRWEAMcyFtcRfLUaL2tc=
+
+Name: assets/pet30-07-jump_01.png
+SHA-256-Digest: PJmaRizUQhsKz/bshSGot+pNNwTvZrFJrCYUFlBZ+hE=
+
+Name: assets/pet30-07-jump_02.png
+SHA-256-Digest: iqMVHS/NhAKu4PM7nu/PlSngMkh6Ikrkuhrjju2wnHw=
+
+Name: assets/pet30-07-jump_03.png
+SHA-256-Digest: A/1hSKAvoZy71bMJz3bbdD+aWu79TyTx5JZQGv+5ogc=
+
+Name: assets/pet30-07-jump_04.png
+SHA-256-Digest: QtgD7UHt783eWencqO8bd0hB4E2m5ZyFp6YBcsC/R5I=
+
+Name: assets/pet30-07-jump_05.png
+SHA-256-Digest: yV+tdPJcAQCla9Q2oCzyIQwhsbvnDLNZ2E8Q6m33nOY=
+
+Name: assets/pet30-07-jump_06.png
+SHA-256-Digest: LNgsTQ8JGENq48u2ZW7TzfsUCVZvTnIZhmIwaRFriVI=
+
+Name: assets/pet30-07-jump_07.png
+SHA-256-Digest: z36Sv8RJ4wHBUnPbY2HWAxGXL7miOroHjr3J6wmU8lM=
+
+Name: assets/pet30-07-special_00.png
+SHA-256-Digest: TXNBSrGb9CDbTlBmjZe4hZqEoCWXq6r8/9kr9vBmeAg=
+
+Name: assets/pet30-07-special_01.png
+SHA-256-Digest: iGJul6qeg+65YMw24CByWPCR6USZ40iBhOW30Xl4jb4=
+
+Name: assets/pet30-07-special_02.png
+SHA-256-Digest: 0S9BgX82TC2trwrFq9Fk67jFa6R7fl3I53ox60OAe+w=
+
+Name: assets/pet30-07-special_03.png
+SHA-256-Digest: tV5G2NZDBl9Ck5gH1rGtN/jlawZM+w6bPGBDj9zZ2t0=
+
+Name: assets/pet30-07-special_04.png
+SHA-256-Digest: y0eqCrQ8u5lQk3hYR8IPVZRirHwTVy0U46tW68dY0cU=
+
+Name: assets/pet30-07-special_05.png
+SHA-256-Digest: LKjc+5rApQmh0qxYqu0xCDwsP8uU3SEJUGt8mToB3NE=
+
+Name: assets/pet30-07-special_06.png
+SHA-256-Digest: qSQmmreF7JTLxutLeUYWVG4i3tNMWO0bbdmaSU5tC4s=
+
+Name: assets/pet30-07-special_07.png
+SHA-256-Digest: 2zKclU2HKn2IIQTiudyHalIQLqZtzcuiHusHzNa49aA=
+
+Name: assets/pet30-08-happy_00.png
+SHA-256-Digest: +aa64vXT0L6Gs98KaWmnVnKdX3avFGrsZb45vhKsPgc=
+
+Name: assets/pet30-08-happy_01.png
+SHA-256-Digest: fLmcXMJ5txpdgsHF9jBN1x5QZdQ3sdsctRIIkgbVElg=
+
+Name: assets/pet30-08-happy_02.png
+SHA-256-Digest: Jn2mHu0Pz64SciN5ppUBbnrA6jDJ0dpoEcPTMLf/+7U=
+
+Name: assets/pet30-08-happy_03.png
+SHA-256-Digest: pmw5BFjnfhqkBih1lVLA8sBXRNdE+bwYjO6N/C2jONU=
+
+Name: assets/pet30-08-happy_04.png
+SHA-256-Digest: j8Akt/vhPdoSkDxa8f/8N+l/mu3FErYceMz/8H4H87o=
+
+Name: assets/pet30-08-happy_05.png
+SHA-256-Digest: 5FPK3Bhuumcg35KiBtLXaQhqFuto7F2UYfeJDIMl4lU=
+
+Name: assets/pet30-08-happy_06.png
+SHA-256-Digest: bs18WEnUS3MsT48y/aouuYKwpaU0zGlIEnB59o4oA48=
+
+Name: assets/pet30-08-happy_07.png
+SHA-256-Digest: uT7eFFoUHhKNjXG/Xu9fXMobAfgsdjC+1UP1wYYDmGk=
+
+Name: assets/pet30-08-idle-lottie.json
+SHA-256-Digest: UjcgjcDPeMs453EHYjnZ1FEkodSLf/32/u0Kv5AY+04=
+
+Name: assets/pet30-08-idle_00.png
+SHA-256-Digest: QGKf0ctQ9U/fHav59aIkvYZhjWIoh/Lq0hG6Gnm/lhY=
+
+Name: assets/pet30-08-idle_01.png
+SHA-256-Digest: 34+1idggGmAAqML0iC2hKpcHHBd9ihzB1Z1ZfDJl+Z0=
+
+Name: assets/pet30-08-idle_02.png
+SHA-256-Digest: xlBek8TnPqZ74dr/2ATfrU5UNcM7eej7xVgWEANkAlQ=
+
+Name: assets/pet30-08-idle_03.png
+SHA-256-Digest: N242ek+T/NDRZuM0PPbB7b9iBzQhobbkFVBNJQmMRy8=
+
+Name: assets/pet30-08-idle_04.png
+SHA-256-Digest: 4WjtKllm6iAd3gSFO0+zvEfgsXO1JeCwy6nr84rSXvw=
+
+Name: assets/pet30-08-idle_05.png
+SHA-256-Digest: Su3PlU2eVEg9B+jkScsS3/oMYJKHHTN3a4gc+IaBYFk=
+
+Name: assets/pet30-08-idle_06.png
+SHA-256-Digest: X/dzNzi+gNkEt4pYk+aa/kXq5i+xqgRCrYBQQCrKKBg=
+
+Name: assets/pet30-08-idle_07.png
+SHA-256-Digest: l3TWHvcIhuyO/KrHYj4vyil+R3edZLg5PpzK5RtQHbw=
+
+Name: assets/pet30-08-jump_00.png
+SHA-256-Digest: jba2YTCf5hq1Fl35ceYmLVl+8jVxNg4500eT+P0ScMQ=
+
+Name: assets/pet30-08-jump_01.png
+SHA-256-Digest: 8v+LEWINX5+8W2ihqiU9M8Ept+zoMbuIFU5YeK59DxE=
+
+Name: assets/pet30-08-jump_02.png
+SHA-256-Digest: YQoE8l8aQtlRDyoUPpCVOX783Z7fL5wBA1eWfSe8FrM=
+
+Name: assets/pet30-08-jump_03.png
+SHA-256-Digest: kD2ITGBesOwpNOibKx14SZKeAKfkM4YyIjwJAuWIa5Y=
+
+Name: assets/pet30-08-jump_04.png
+SHA-256-Digest: fUykJ2Z2VmgbIJ0zq96t68f0zioaw16tHkZ1KZgEUBc=
+
+Name: assets/pet30-08-jump_05.png
+SHA-256-Digest: YN9+HvnLeGIVq+tC/81sQO737JYb/XWU0Q1BpweGv5Q=
+
+Name: assets/pet30-08-jump_06.png
+SHA-256-Digest: Ekk47V8qp53j75kgZwmSItoMDDf9SMRokiwIzV+0gJs=
+
+Name: assets/pet30-08-jump_07.png
+SHA-256-Digest: usxjOHZRSXBJBoufdLY+blMcjzvn1jAjru2tZr1PUZ8=
+
+Name: assets/pet30-08-special_00.png
+SHA-256-Digest: E5nSUySn+/GrK4TPAI18AnDip1aDuPQaXjj2VUmnKkk=
+
+Name: assets/pet30-08-special_01.png
+SHA-256-Digest: jTGV/gsrGXY8PdHjV9AG5+QU+r9lry2S4fwfyqKUd0w=
+
+Name: assets/pet30-08-special_02.png
+SHA-256-Digest: nNYeuEWb4oCfrJeLxGcdQuyBwajOpv5yeRofM+7H5dc=
+
+Name: assets/pet30-08-special_03.png
+SHA-256-Digest: wbDdkknKMM7i9j4o+gcm1Jq0FAiq+zzu8TrkjzxGJdw=
+
+Name: assets/pet30-08-special_04.png
+SHA-256-Digest: Cx6Yil+Q1p+4wNhBpV8Q0STV651PLRhdZ7de0rwAbf0=
+
+Name: assets/pet30-08-special_05.png
+SHA-256-Digest: a2aGnTmfat3SNWbAYb4PS2rzIy1kOayyQWnxU3HFbWc=
+
+Name: assets/pet30-08-special_06.png
+SHA-256-Digest: enEXhJU/AXenS25RRBHNCjcD75ThCFxN4POMxQXF5C4=
+
+Name: assets/pet30-08-special_07.png
+SHA-256-Digest: UG51tDC8KpI4H22FST2HRc+4Ueb6zoRapLs9qEmHNUQ=
+
+Name: assets/pet30-09-happy_00.png
+SHA-256-Digest: 7MH94lv0TZ3o/EygWP2Wh5mOsy4io6CzvZA5pcD6Jw8=
+
+Name: assets/pet30-09-happy_01.png
+SHA-256-Digest: 4flreowoUw+KoSf9Y7OJqKn0ffAeJbXqOz0K7rOu/mE=
+
+Name: assets/pet30-09-happy_02.png
+SHA-256-Digest: p1JmVrx6Vt8lZIEUEtYAI9piaha9wf0Ce2VPksB66W4=
+
+Name: assets/pet30-09-happy_03.png
+SHA-256-Digest: BF40lvZHEZZm5WlFERUleDsAiVLol8n2sdvc2BsT85A=
+
+Name: assets/pet30-09-happy_04.png
+SHA-256-Digest: TbAP4zLiULdpq7N6k3GwztQmUqMCVaORYlucgmKZy6g=
+
+Name: assets/pet30-09-happy_05.png
+SHA-256-Digest: xFrdz0hqwVcUWCoOHcPiOEtCx7QzDSafT6tOh0aCroY=
+
+Name: assets/pet30-09-happy_06.png
+SHA-256-Digest: DTZ7OOaFi5ulACliQMoGhZ2uKHAd4jjCC4enGdDDOLY=
+
+Name: assets/pet30-09-happy_07.png
+SHA-256-Digest: u4wAEOajduaR2fa5ywxyjUjnnOlTDX6Sruq9BJEjfwk=
+
+Name: assets/pet30-09-idle-lottie.json
+SHA-256-Digest: b+9BsMJvVkabx2TcdgqeO/gljjfAcjBu06kpHWy7D9Y=
+
+Name: assets/pet30-09-idle_00.png
+SHA-256-Digest: IHbC++TXhVbxi/hqSKSeGwStqv3S10nBPEUQom2tpBU=
+
+Name: assets/pet30-09-idle_01.png
+SHA-256-Digest: gK5wweB6OJNV+O7o3WcmkSfh6+oVqIDOj19Oe8mmDuw=
+
+Name: assets/pet30-09-idle_02.png
+SHA-256-Digest: JInMOTTqniWabQy2LaTRUhtsWfbkDb1Son0hhoa+JiM=
+
+Name: assets/pet30-09-idle_03.png
+SHA-256-Digest: XCIhnuq64itap8bCz1mA7iKzaIK9NEkpcR5/2igFtYw=
+
+Name: assets/pet30-09-idle_04.png
+SHA-256-Digest: vi6UHNzTmZTmD8eNYToWEdbnL7dVfh4wMmB0EzFop8s=
+
+Name: assets/pet30-09-idle_05.png
+SHA-256-Digest: Nhn2qwgPlFx5rvUGoW2zfYnVWUATKqbs0Fx3BDui3co=
+
+Name: assets/pet30-09-idle_06.png
+SHA-256-Digest: +bk6dXXii2Wm/R9ih5jx6zQcWOg5tfocq1cJa6IQGGU=
+
+Name: assets/pet30-09-idle_07.png
+SHA-256-Digest: qaUTDzjivcngBytyoXt6OOT4fiuesCZlJXHCCi1eOBc=
+
+Name: assets/pet30-09-jump_00.png
+SHA-256-Digest: Kw33Tonb3fb5vbsGppCqDaa5eZDfncgSQjmyGFuRLX8=
+
+Name: assets/pet30-09-jump_01.png
+SHA-256-Digest: htJUGEucuix0WYHaUupdbooR/uHILG7DJ87RCzbHN1o=
+
+Name: assets/pet30-09-jump_02.png
+SHA-256-Digest: rWzUNWSkVYkA1tBWVjI4OPFp7K5Ov4n3Ms3UCROWikI=
+
+Name: assets/pet30-09-jump_03.png
+SHA-256-Digest: 5FVLKiuhQkEEEhEFwv0Aw5hoH4BGCTSkwDSbOb9OPbA=
+
+Name: assets/pet30-09-jump_04.png
+SHA-256-Digest: 386Yj3UD9luqJbcOln+JLuE8I0tYCHcCjC8zCpvqTM4=
+
+Name: assets/pet30-09-jump_05.png
+SHA-256-Digest: JCosfEylFaKx6gsijhKR+LiKLv8oO0ShfXTpSaJ5xL4=
+
+Name: assets/pet30-09-jump_06.png
+SHA-256-Digest: lIRYa2rF3r3KQ4rKQXC6QGz3ZSNAKENCOtusL/F6yLA=
+
+Name: assets/pet30-09-jump_07.png
+SHA-256-Digest: 0OI37BtpQghHbmeiXBeQ66AQUYfzdJAUOvIl6Qa5cPI=
+
+Name: assets/pet30-09-special_00.png
+SHA-256-Digest: AQnu6DPJCUdWKMRpWGrviPqmmfXXAuwmXZofwG4NYws=
+
+Name: assets/pet30-09-special_01.png
+SHA-256-Digest: E4KgtJbii3Pal//R7f5O3o8QWTEteHrr9naW9KLTA+w=
+
+Name: assets/pet30-09-special_02.png
+SHA-256-Digest: rD5w8Nbbkk7Fp2O8cIRgzfiEclFgDGFX+Ic58QB71zA=
+
+Name: assets/pet30-09-special_03.png
+SHA-256-Digest: A57In3DN1dk02FLU3bmyhuZU53L3AKOxxEn+m0x6ueg=
+
+Name: assets/pet30-09-special_04.png
+SHA-256-Digest: 8fbjOy8I3/GpwBS0/H0vISFcTmBsnyMbBLFAuTbZqXk=
+
+Name: assets/pet30-09-special_05.png
+SHA-256-Digest: WeBILX23k6ibTIrHMviEEx3Inp7fw4OIXs61YIjH0Rs=
+
+Name: assets/pet30-09-special_06.png
+SHA-256-Digest: HrJorC9inNBoB628MElcbdmInugAKVdGfbSzitEUD8k=
+
+Name: assets/pet30-09-special_07.png
+SHA-256-Digest: fHWCB0cXojvgDL2s0/gW0Am5/KB5LpkxG538qS9VV9s=
+
+Name: assets/pet30-10-happy_00.png
+SHA-256-Digest: tM+wsAJpc/pcQULlrSzFODI+tnqMp71zMZHkuS/tNAU=
+
+Name: assets/pet30-10-happy_01.png
+SHA-256-Digest: 68jjlUvR6/q7W8vpLCpe0kvH84XBG1fEJkShWzwX6Ec=
+
+Name: assets/pet30-10-happy_02.png
+SHA-256-Digest: LswDIcX4LvbWnqcTyL+raXrwBByclaRd44jjw/q1LyE=
+
+Name: assets/pet30-10-happy_03.png
+SHA-256-Digest: LaKRG5HvT5PNpbocecxthGPG5DI84L+NGJibEs6eXOs=
+
+Name: assets/pet30-10-happy_04.png
+SHA-256-Digest: vNJamM460ycq/tK2lekYxfXwbwe2EBgNjXWQaRZkutA=
+
+Name: assets/pet30-10-happy_05.png
+SHA-256-Digest: ofU4IRD5Fw1aIAmfl0Ph83CeKxHnGVpwI95TUJLYG+U=
+
+Name: assets/pet30-10-happy_06.png
+SHA-256-Digest: Ki6ET9Rqew/l6KO1f1TfRnp84WUapbvbaoJHk2VKCfw=
+
+Name: assets/pet30-10-happy_07.png
+SHA-256-Digest: CrkWlBGQIp+K72tgVjQ5ZaVDtfe5VJbGxz7GUWBQ3gc=
+
+Name: assets/pet30-10-idle-lottie.json
+SHA-256-Digest: iTFVnxBbs3vHdaQVTiTcVjxpgzWcvZIq8QeGFSk31jo=
+
+Name: assets/pet30-10-idle_00.png
+SHA-256-Digest: N9VeClX58WCvLAnBiqFAGniGa6p/vg4RX+WosdhzTII=
+
+Name: assets/pet30-10-idle_01.png
+SHA-256-Digest: XGgwU80C6Kwr/8bTpEHbUISNCCzXQsCc+fOp5e2ipfE=
+
+Name: assets/pet30-10-idle_02.png
+SHA-256-Digest: aceVXUxSG9r/jM/hHB326vFeRXGMe+NyNK7SGTME2YA=
+
+Name: assets/pet30-10-idle_03.png
+SHA-256-Digest: BNcNpCX3HgLovTgiBA6f9RalFoq7UZbjlQGvBGFoQbk=
+
+Name: assets/pet30-10-idle_04.png
+SHA-256-Digest: 5nWxq4kMDanKXXfhF/qav0s9d+GQgFAihODyjhCYcLY=
+
+Name: assets/pet30-10-idle_05.png
+SHA-256-Digest: dHqiDUO4aNzk/4g8yjB7gNUBNL3gjc18j5BWad6/L4c=
+
+Name: assets/pet30-10-idle_06.png
+SHA-256-Digest: uhISWHyi+kuKyNkqejruzcBnqwRRlgkuiC7G9lYvSuE=
+
+Name: assets/pet30-10-idle_07.png
+SHA-256-Digest: F4faWf73fwFwZ2GuDQzOYggFGUrDA99mzp2u/Izu80c=
+
+Name: assets/pet30-10-jump_00.png
+SHA-256-Digest: YVtPSTtCwXKEGRGXwqPM2DbQJltOmN+388aQZrzG6cQ=
+
+Name: assets/pet30-10-jump_01.png
+SHA-256-Digest: NQ8X+IG5BSSOOGMWFL4faWMT5a7dxn1ksSuwE5vx2+I=
+
+Name: assets/pet30-10-jump_02.png
+SHA-256-Digest: FmaiTf5l5iofZ42olO2CCdVEJBKmRxB277YDiUQ+SZ0=
+
+Name: assets/pet30-10-jump_03.png
+SHA-256-Digest: uvQuG3fLgmWpDK4umBpo6krSbdhFmHLdvJhSDl4MRis=
+
+Name: assets/pet30-10-jump_04.png
+SHA-256-Digest: KCvCmbfUXNRmLlc+i1u9//sS8ppQZcP7jbPztiEjvMg=
+
+Name: assets/pet30-10-jump_05.png
+SHA-256-Digest: Xl3u1YrriaL5qzgRhZd/ay9zLQ3AtfU/ZVBEKE4V7FU=
+
+Name: assets/pet30-10-jump_06.png
+SHA-256-Digest: eMeoMLR7swLyRh/Uu7GWra/UZMKtTGrD5XBC/Qu4p6M=
+
+Name: assets/pet30-10-jump_07.png
+SHA-256-Digest: UwU/VsPWoZvxY71coXP8wVHk34OpnQNd0Z/vOvASIRU=
+
+Name: assets/pet30-10-special_00.png
+SHA-256-Digest: Epn+6Ydd3luz8yZZgsaMs8LKtNEoY5EK5EoyTrJhTZQ=
+
+Name: assets/pet30-10-special_01.png
+SHA-256-Digest: biHq/7Qoqq0Vm/BtQQcFdxZu9Eo5YkluajAqDs9WTxg=
+
+Name: assets/pet30-10-special_02.png
+SHA-256-Digest: +eL0x6YcA0qzuQRqZU50j+3eXI63JJ60d1IIKnk91aM=
+
+Name: assets/pet30-10-special_03.png
+SHA-256-Digest: r1XotQMTpF1fabsaWcshXHGUGLd+8qottoxKaEnvJGw=
+
+Name: assets/pet30-10-special_04.png
+SHA-256-Digest: gqylQWB4Dj3bxrTgRVB1lEVVV6C1a5Q5fz8vtPP7EQY=
+
+Name: assets/pet30-10-special_05.png
+SHA-256-Digest: UV57CoWWJ8uQyxi/pqtml1Hvm/q+0ba+cyuaxFaMDoE=
+
+Name: assets/pet30-10-special_06.png
+SHA-256-Digest: OSN5sfkVljyg0MpODYOzNcfiU3VhHiYINCDzTDJofdE=
+
+Name: assets/pet30-10-special_07.png
+SHA-256-Digest: rekOhUSjqizeawzT85yc+ZyteHd3PLqnZbclt0hH8DU=
+
+Name: assets/pet30-11-happy_00.png
+SHA-256-Digest: oBQNmtMG/uKX/BVUpUQ0ib4Zga2THA7GMwmC6g5VLdw=
+
+Name: assets/pet30-11-happy_01.png
+SHA-256-Digest: fpfEWghw03Ejkb0jNxhPGAhMSuOPrnWp/rhEqeFkz2Y=
+
+Name: assets/pet30-11-happy_02.png
+SHA-256-Digest: TwldAcnCNS3mTXUo7DJoudpI49Hx5ZHWJHE4ZboGcHY=
+
+Name: assets/pet30-11-happy_03.png
+SHA-256-Digest: QbjPrUqWZN+m5YQ53AF/bFKdHqgsSYsoq8S4ygXeXBw=
+
+Name: assets/pet30-11-happy_04.png
+SHA-256-Digest: atnoCznWGuAIr3VRORNO6j+68wAM6UvcRwWNHubjeqE=
+
+Name: assets/pet30-11-happy_05.png
+SHA-256-Digest: GPpvc64P1zdNSEYh4EmJ7Axkb6SnmszVMEIH/nHC5io=
+
+Name: assets/pet30-11-happy_06.png
+SHA-256-Digest: iPKiCIhy2mzsdzAmUAS3Y22Y6RaU4/VCE9mycMOSy/4=
+
+Name: assets/pet30-11-happy_07.png
+SHA-256-Digest: J+zYM7U9xj/u0yr94CYPiHJyiutLccHDtie2MSDwWy4=
+
+Name: assets/pet30-11-idle-lottie.json
+SHA-256-Digest: C9YcOZM20VHX7TGG9eYigCBy3knp9UA6lBeOGLfNIr4=
+
+Name: assets/pet30-11-idle_00.png
+SHA-256-Digest: QdSmgDkeyOOQG6IKIOYwhqMsvR4DYxNAWi6kvnmJCB8=
+
+Name: assets/pet30-11-idle_01.png
+SHA-256-Digest: 9NzOecntmx1qKPpFb6ZILE8Y8jgbNjOspPNvmSaMkPU=
+
+Name: assets/pet30-11-idle_02.png
+SHA-256-Digest: Z9nYlSUhfkyi+drPto9NvOGtk2OqOy3OL+ASIbLMuhs=
+
+Name: assets/pet30-11-idle_03.png
+SHA-256-Digest: A+DTq0Zfpb38IbCsAPOKxuH5TTFbA4kCgcYC+ZtxH1A=
+
+Name: assets/pet30-11-idle_04.png
+SHA-256-Digest: vTGTy4b5HgW5q+0iKQRnunabqb3wvKkvsZdcP3nYRqY=
+
+Name: assets/pet30-11-idle_05.png
+SHA-256-Digest: y15sRlu00zTJ+q99Px3npfu2xYSM0wn60OLH05i9GyY=
+
+Name: assets/pet30-11-idle_06.png
+SHA-256-Digest: cJlc4780keUQqv1YsR5wpTHqFvvPuVnuDhyq9Vr5bU4=
+
+Name: assets/pet30-11-idle_07.png
+SHA-256-Digest: 26J0GNlE4s9HEosuMybD+vRJm0l8DYKTTf2QA/jdHzY=
+
+Name: assets/pet30-11-jump_00.png
+SHA-256-Digest: gMRqH2JwrzzfgGLq86HR+uC7ipMFOfpjMJH1ESeBtAc=
+
+Name: assets/pet30-11-jump_01.png
+SHA-256-Digest: wfLt31n16aPT4vT/BqL9QL1q82W9ZjP8eyE0GrJqbAM=
+
+Name: assets/pet30-11-jump_02.png
+SHA-256-Digest: 3ZcTyhf7jmu58e99dJJ8BfjqlRP5jP4uBTju1mjrzDs=
+
+Name: assets/pet30-11-jump_03.png
+SHA-256-Digest: cl600ug2fTPre6VKo0gKvNsY5ueUUO8uxvX4CZIn+0g=
+
+Name: assets/pet30-11-jump_04.png
+SHA-256-Digest: WqzxdZVDCybxMvsBr9su9ITmG5SWlrosTSLeDAGMfAI=
+
+Name: assets/pet30-11-jump_05.png
+SHA-256-Digest: WKDeVkC4/6wePdeZZYBbh96N11/B9jhc6SD1Jq5OgeE=
+
+Name: assets/pet30-11-jump_06.png
+SHA-256-Digest: +keU4xLSNQQXE2dNPkARREcKUZ4ll6Qqnifan0BO9Zk=
+
+Name: assets/pet30-11-jump_07.png
+SHA-256-Digest: cx5cwMWC7rSGRa+lcq+o0Gl3Z+SS7FtaayYu1S26ah4=
+
+Name: assets/pet30-11-special_00.png
+SHA-256-Digest: pgr5wq8Gjw7vlFhqp9nuCQqnIKtk4KF6Qw8OaHmG0Ps=
+
+Name: assets/pet30-11-special_01.png
+SHA-256-Digest: G5vjcIGLG7/d3fgDnCI9rBtIZ1N1xeT8Hcr1CPg6W98=
+
+Name: assets/pet30-11-special_02.png
+SHA-256-Digest: N0ngwHT4gBv1SddZd07A3OwIRa9KOgs4Gr1gTQl6HLA=
+
+Name: assets/pet30-11-special_03.png
+SHA-256-Digest: Bsmq2/4bCAoK2vUFwCn9Z2jjcdq/11+eTCrs+ATz3Nc=
+
+Name: assets/pet30-11-special_04.png
+SHA-256-Digest: j4MumNvmKa0HnhDhAT63Jogh/mkmb2Mg0cqR8al0aYY=
+
+Name: assets/pet30-11-special_05.png
+SHA-256-Digest: /fp0AytFpp0NU4Gytx/er/jyoEJzG9w2Y6e4b0O2kvk=
+
+Name: assets/pet30-11-special_06.png
+SHA-256-Digest: N7l4fs4RFW14rnku1Ey+/ylYCDeBHM21RijLLfzClGA=
+
+Name: assets/pet30-11-special_07.png
+SHA-256-Digest: KXGxgdLffESsUKPAdcW2eedfAn/+lKIlzxmOZV+mMQY=
+
+Name: assets/pet30-12-happy_00.png
+SHA-256-Digest: iHrXo4WAH2ouVBwCf/lT3ExmJlcSIiiwLE940GkGW7c=
+
+Name: assets/pet30-12-happy_01.png
+SHA-256-Digest: CS+4RPc9bFSXI568C13IxSKHUHGXFd9yPxN/veSWVP4=
+
+Name: assets/pet30-12-happy_02.png
+SHA-256-Digest: rI3y7wZsqwPENSdymyhdrD9RpuQZsd/tPYxXKVAGiw4=
+
+Name: assets/pet30-12-happy_03.png
+SHA-256-Digest: 9YCn631xHq8RlPjtZ/7vOo6m+8MkqZ7n6ALQFmc3clY=
+
+Name: assets/pet30-12-happy_04.png
+SHA-256-Digest: cbOSIssqU4oGq9oyb+HllucdKTVTj8Q4CDV2gWvGwoo=
+
+Name: assets/pet30-12-happy_05.png
+SHA-256-Digest: 4U42gxyziuKGQ//WK9NDAr9Lzc596rUzqs+qmg/Umwg=
+
+Name: assets/pet30-12-happy_06.png
+SHA-256-Digest: zz/PDKyKYZj1v+pTha7UoJBGruHZu++0cxR2faktxs4=
+
+Name: assets/pet30-12-happy_07.png
+SHA-256-Digest: rdBdVuDislNjWcIglQgYi/t0VUfARO1B5ii0W+i1gT8=
+
+Name: assets/pet30-12-idle-lottie.json
+SHA-256-Digest: mgwoPF34C9HuBhbYdJZqHZVQgQUkabH4JildhRWhUYA=
+
+Name: assets/pet30-12-idle_00.png
+SHA-256-Digest: V2Sds992JWBFHoTrJC1G96nrxk12BRbs9eWuOOLSCEY=
+
+Name: assets/pet30-12-idle_01.png
+SHA-256-Digest: gEf5IZCII/bxM2sq+4952P3fGfo6un3ZOZh/s51aNz4=
+
+Name: assets/pet30-12-idle_02.png
+SHA-256-Digest: 1eG+H01o/KwNN0QVh3n7LpmrUhMPzT2FlcDrCvfM3Jk=
+
+Name: assets/pet30-12-idle_03.png
+SHA-256-Digest: iUiiA2BvBsFJBcUmrsI9CqoeIV7HVvG+8hu8671IWwE=
+
+Name: assets/pet30-12-idle_04.png
+SHA-256-Digest: q4aQEanr/lra5PDRfGas2rArKkPEcS0rigS/IYGtjf4=
+
+Name: assets/pet30-12-idle_05.png
+SHA-256-Digest: P2g8A7O5e5Vr/qcoOS5UxIK+IuGNeM7KRtOS6SGEm7o=
+
+Name: assets/pet30-12-idle_06.png
+SHA-256-Digest: oAs8O4IwBCo2o7Qs1uiuQ6P6fNU0kD4Vf9voFDOfGNg=
+
+Name: assets/pet30-12-idle_07.png
+SHA-256-Digest: 6i6i1DQUaMnJHK1o/0O7TgA6nxyIvBkF5aMTVeKGbIQ=
+
+Name: assets/pet30-12-jump_00.png
+SHA-256-Digest: 80k7G8i11QR+3OSxEWV9k5QObFiNIxk3oV0cOG0FBfY=
+
+Name: assets/pet30-12-jump_01.png
+SHA-256-Digest: ZOZIEFKoU5Wd+xDCuN2KgtB74xmTxBUQF7ourYbFJoc=
+
+Name: assets/pet30-12-jump_02.png
+SHA-256-Digest: spFc3GeiROtSAm+/DjaiyqUxGmuNMCpyWxujbWLQr+s=
+
+Name: assets/pet30-12-jump_03.png
+SHA-256-Digest: 1kISDfNcduszXz9mcxzKZzbq+AF1sVHSHDVzC8rhrAw=
+
+Name: assets/pet30-12-jump_04.png
+SHA-256-Digest: 2uaPjRC34tdD+klFfnTY8cFA7XBd4f6gAWXCKHKkXC0=
+
+Name: assets/pet30-12-jump_05.png
+SHA-256-Digest: iDMma/R/x8KkJiSN87UwHKxyhlX6SfZO1Hi4kGkt2Lw=
+
+Name: assets/pet30-12-jump_06.png
+SHA-256-Digest: rgiS16PeJUf94lnIsZJpYUC2ejcu7QBeS9WXIvEhVGE=
+
+Name: assets/pet30-12-jump_07.png
+SHA-256-Digest: C/R2X3PkTRYQ7ZDbkLsnwmH1o3+DX7pSUdSmPX36+D4=
+
+Name: assets/pet30-12-special_00.png
+SHA-256-Digest: mYP9a/9ZC+LNeOt4GqMfCk3pUF3n3Bqg3yjGBlBmWZg=
+
+Name: assets/pet30-12-special_01.png
+SHA-256-Digest: dzRIyW1UUQTIcpXGkJitMa9Hoj6g8chLuhHZB1LhTCk=
+
+Name: assets/pet30-12-special_02.png
+SHA-256-Digest: mli3IW/nUoIVVrS2TRszW4azR2Z6T1Xw4iTjlhyjhnM=
+
+Name: assets/pet30-12-special_03.png
+SHA-256-Digest: iyFCJZ32T666jB0qFMZVI73/YQyskvln6Ht9XUIHj08=
+
+Name: assets/pet30-12-special_04.png
+SHA-256-Digest: v4sci0eFLPwr7dJd9obs3n2id+9AMRz4bNzH31aXYTg=
+
+Name: assets/pet30-12-special_05.png
+SHA-256-Digest: ba24WyaW1EfGnB3UJb4/pcWA9qrV0T3b/ys6n1wWj8c=
+
+Name: assets/pet30-12-special_06.png
+SHA-256-Digest: klfcoGhMI5wbMvvj7woiyWcZ0v82V8MOJ/Uj5uLeHUw=
+
+Name: assets/pet30-12-special_07.png
+SHA-256-Digest: /iLsUyIyBhHtsRzWlApBR1PjznR3kL1lHj4K9E+79hw=
+
+Name: assets/pet30-13-happy_00.png
+SHA-256-Digest: AUsmnCF+7PmXb3tj1lwHvwCvPFfHG7biSHA/L+gWscI=
+
+Name: assets/pet30-13-happy_01.png
+SHA-256-Digest: zZH0jaOpQZViggyxe+kMm32mc8vaxx8Gx0xCz5bmagI=
+
+Name: assets/pet30-13-happy_02.png
+SHA-256-Digest: u+FLrDJA6voSA/bjRlRzSKAJHuykgnlH0rOJx1C+QsM=
+
+Name: assets/pet30-13-happy_03.png
+SHA-256-Digest: ccE9WXAKvVKlJHxewSjg5D+lYhE4xO1uA6qNi0wNKpk=
+
+Name: assets/pet30-13-happy_04.png
+SHA-256-Digest: a9au9OXYoxauS+dCkyHSSBfnpd1fr+wk9hEEUGEgB0E=
+
+Name: assets/pet30-13-happy_05.png
+SHA-256-Digest: c+DCwufuQEyK49us62/pGmHZqhpp5+FyonHopmW9nWw=
+
+Name: assets/pet30-13-happy_06.png
+SHA-256-Digest: HtcDekzc5zNrS33rG8kbQpCeWlOZOdl5r2ZgKCg26sw=
+
+Name: assets/pet30-13-happy_07.png
+SHA-256-Digest: D/Aq18UbgBQKOB7Z4y5j0FPTVsPsBC2clvWnmiflv2w=
+
+Name: assets/pet30-13-idle-lottie.json
+SHA-256-Digest: Eqsqqhl8shtYsLXyaCEvLQ1lYPgmqBPR+jBy6KSLek8=
+
+Name: assets/pet30-13-idle_00.png
+SHA-256-Digest: npLgPEIuanhezMFELVSNpYK3NtJn8gyibPyaJlivI8k=
+
+Name: assets/pet30-13-idle_01.png
+SHA-256-Digest: t1aCf68FpuF/68ErHBAITR1LF9wgEL8ounLV9P/PrOU=
+
+Name: assets/pet30-13-idle_02.png
+SHA-256-Digest: sX3vTgpyC+Ui+UFwLbseyd7VbR2hn5zJJPFFoCdqC7I=
+
+Name: assets/pet30-13-idle_03.png
+SHA-256-Digest: s7cWuDS+wj2np1LImS3g8IZIPrQ4GSZMK9JKE9rLCs4=
+
+Name: assets/pet30-13-idle_04.png
+SHA-256-Digest: IvU2lP010+MjyOt8Wd1K/PK/q6vsdlmvTS/JSDm9eFA=
+
+Name: assets/pet30-13-idle_05.png
+SHA-256-Digest: Y+hziFuN7s2UQT80ugnOCA7QZKaPsJdjrMQJ3GHVLE8=
+
+Name: assets/pet30-13-idle_06.png
+SHA-256-Digest: wz3yxutwx0pF6EtXOB4TaOJgoWVjw/L6GppYDJFtyQ8=
+
+Name: assets/pet30-13-idle_07.png
+SHA-256-Digest: pMi7llip/VFIFi6k+rjAawCtCI1Ta19pVo7ltFPWEas=
+
+Name: assets/pet30-13-jump_00.png
+SHA-256-Digest: DLjyatmpw6ce1hKz95iqBla6RSBhbKLr3qx1LQ1hvkk=
+
+Name: assets/pet30-13-jump_01.png
+SHA-256-Digest: fEbK+Me5sYcHUBarpCz9xOxez6B5UAK8NUppT08/VfQ=
+
+Name: assets/pet30-13-jump_02.png
+SHA-256-Digest: A2FGYcPxcObPy6WVqkIvpSUwDo4+Fd6yYV/qHM6d7ro=
+
+Name: assets/pet30-13-jump_03.png
+SHA-256-Digest: dZEA2q/LMIZ3CZxfVuu10QL3aeEPTBjiHlbckTaJvEw=
+
+Name: assets/pet30-13-jump_04.png
+SHA-256-Digest: T7k9bcjcllQjoma/XSA5t/+AvrZlM6YdAN0Ricd2EWA=
+
+Name: assets/pet30-13-jump_05.png
+SHA-256-Digest: O1/ctcvKkWMwByXF3vzn/1O8oCh+EHaohoLbskMJb1A=
+
+Name: assets/pet30-13-jump_06.png
+SHA-256-Digest: GhkPR0pUWnVps+ei8hgnAG8Rga+4XHGGG6mB2KUUkpQ=
+
+Name: assets/pet30-13-jump_07.png
+SHA-256-Digest: SdJD/vJWsSP3QaeFVaNIpXKYVHCUhsXOLSr1lVBU3ao=
+
+Name: assets/pet30-13-special_00.png
+SHA-256-Digest: DGdlAFW8oqkarZbb7Vnr4hA/wsTjIk8kio2gdWfJDTg=
+
+Name: assets/pet30-13-special_01.png
+SHA-256-Digest: diRBhzP4AtSl+FrNXt6exfvMU5jii4mOCkdXQW5IRuo=
+
+Name: assets/pet30-13-special_02.png
+SHA-256-Digest: D5aj1AJ8/w6t3aOOF3CcSyehF2ymKbng8FmXjeAyUls=
+
+Name: assets/pet30-13-special_03.png
+SHA-256-Digest: XDLlnOCYHquScX4yH5Tz1Zy/JsObwjYQlHs7aexd2Vw=
+
+Name: assets/pet30-13-special_04.png
+SHA-256-Digest: MgFskZaFy+xc9NBs9OZ4NodtsTVvxN3if+wRMJup/mg=
+
+Name: assets/pet30-13-special_05.png
+SHA-256-Digest: KTDvxT9MLYeSfeGZlaFaNUAq/9ar+rtt6sv4GOgrDsE=
+
+Name: assets/pet30-13-special_06.png
+SHA-256-Digest: 5k43dBuEKVDNiSMbW+Z0LdZMDFejnwZYKlkbJx7zltU=
+
+Name: assets/pet30-13-special_07.png
+SHA-256-Digest: fQgIxGM4/rRbCH/HCwixKyExvveSBzbwUSo9WbnQdH8=
+
+Name: assets/pet30-14-happy_00.png
+SHA-256-Digest: Bm/BkewhG990tWX0y585uhpkLGLzTvbVPcslVbO7v4E=
+
+Name: assets/pet30-14-happy_01.png
+SHA-256-Digest: 8kDrxOfr2ny4ps4LsYmDaHq4X5o0yzB+DZY11i7YW9E=
+
+Name: assets/pet30-14-happy_02.png
+SHA-256-Digest: 6Mwygt5PWRCVt8JFKVv94GUtXRWVUqlbRy+eHO6ODS4=
+
+Name: assets/pet30-14-happy_03.png
+SHA-256-Digest: Sgm1iq8iV00H7gy3bds8fECR8fPZWcLssvdJIfFng48=
+
+Name: assets/pet30-14-happy_04.png
+SHA-256-Digest: GyEOCgcV85DPOWo3vaKnp37rKZAcOfwBcqsHGgNjkoo=
+
+Name: assets/pet30-14-happy_05.png
+SHA-256-Digest: dx15OINNOsxCTBb8r53OgeLvSnAcmNzlDMMIJveKRt8=
+
+Name: assets/pet30-14-happy_06.png
+SHA-256-Digest: KchCp56LNtTju+to5EH4eccMe65IXbthJqgzEZvmw20=
+
+Name: assets/pet30-14-happy_07.png
+SHA-256-Digest: b3sjBLVCYpgWBfIbgymiiid9acY3ugL+3ABnX7G8YFQ=
+
+Name: assets/pet30-14-idle-lottie.json
+SHA-256-Digest: y3k4qMIPMr1Wqy4SSB98+lKU/FADdb4cfWsS5jZbq2c=
+
+Name: assets/pet30-14-idle_00.png
+SHA-256-Digest: t8qdEvkE+TBYjzHWCH5WuUCZeUTjILEJyou6Fem6ieI=
+
+Name: assets/pet30-14-idle_01.png
+SHA-256-Digest: jYxOaD8OVdH7yQ5BQj+KWd77DF+Z4r4thsdkiQIo2ZE=
+
+Name: assets/pet30-14-idle_02.png
+SHA-256-Digest: HSRIhk0iMPJQ9EX5pUMZaSCE1YlyV3G9xlzEd6d5sn8=
+
+Name: assets/pet30-14-idle_03.png
+SHA-256-Digest: wL3bn6ziW6FAhRRYX7HKIcYUeowsU+4MgGz3m63Ttf0=
+
+Name: assets/pet30-14-idle_04.png
+SHA-256-Digest: sjF4nItNRI6F4SqKpfWdluWcwDIiUFLZcg4M+i0yTRE=
+
+Name: assets/pet30-14-idle_05.png
+SHA-256-Digest: SToF7KpQUaWnubjNiC4VecYv+Cg1NxCmhWJF/J+6sdQ=
+
+Name: assets/pet30-14-idle_06.png
+SHA-256-Digest: HFUay6hF3ynsC8dkhKSTFFhoQopevryUv/4vDhI0dYI=
+
+Name: assets/pet30-14-idle_07.png
+SHA-256-Digest: WE0f1Mi0JbclMW1gQwYOEUjuNUYuSLHYpH8v+RuYbQo=
+
+Name: assets/pet30-14-jump_00.png
+SHA-256-Digest: K4PnSUr6iD5/81yBGohWIndAVLrJFLeje48pnQeLxKo=
+
+Name: assets/pet30-14-jump_01.png
+SHA-256-Digest: Nta6i4IkxeQeVOBdpkgG7NtZHTvhTsX+qlixCkpKV+Q=
+
+Name: assets/pet30-14-jump_02.png
+SHA-256-Digest: 2yo03uVN7WqFkJCP2Yp3ncXCGVjBWX3cPVOqRmp4Vv4=
+
+Name: assets/pet30-14-jump_03.png
+SHA-256-Digest: 2jYWAFxlIFLtcEfcDPW4fjkxwwDoZFEH+LhV5eT3I+g=
+
+Name: assets/pet30-14-jump_04.png
+SHA-256-Digest: YliJgOqlMgflznk/XVrj1JDj3SOEJQv2+iMbv990Xa0=
+
+Name: assets/pet30-14-jump_05.png
+SHA-256-Digest: H5270749G0UoU2DzAjZYZytvwmpnrG218qEr01i44+M=
+
+Name: assets/pet30-14-jump_06.png
+SHA-256-Digest: xo3nvfXYwDEk2PYbmiBt14TbumKQk8Yr5g/u83JVQYQ=
+
+Name: assets/pet30-14-jump_07.png
+SHA-256-Digest: i+l6rDHCSRgoRI7dxtCSZcLnkU4sxZ5jwC9nOxy5b0Y=
+
+Name: assets/pet30-14-special_00.png
+SHA-256-Digest: ksVv7AMTxAcla2+KJRgPqCsYPse0+OPSi2qNQw/XOfM=
+
+Name: assets/pet30-14-special_01.png
+SHA-256-Digest: fqb2itQw0sazb7ryPSru0U0HjnVSgCc9J62Q39xzg3Y=
+
+Name: assets/pet30-14-special_02.png
+SHA-256-Digest: uDYNmfp77u/k/PK413QVIuFV0QkojMsYNjIQwP7Zm8o=
+
+Name: assets/pet30-14-special_03.png
+SHA-256-Digest: 4/jweAdD66cnzIEg2+EAs413QG45dnDx74AahknP+Mo=
+
+Name: assets/pet30-14-special_04.png
+SHA-256-Digest: hkQf13OTjrNU7V3iU0QTe7CEEbYeG57eiFMA9EDt0sE=
+
+Name: assets/pet30-14-special_05.png
+SHA-256-Digest: Je+VNrdJL/7BaMUF0ucX0NHgX0XAz4GPX0fot5jZAoY=
+
+Name: assets/pet30-14-special_06.png
+SHA-256-Digest: MYkUpToV+B94L3Me0yL1Ck72dGE8DAgLv5IFK7TGJzg=
+
+Name: assets/pet30-14-special_07.png
+SHA-256-Digest: W9DaCzMvUhJVhnc0c1M07etNKunowmtm25zPs/Yrjqc=
+
+Name: assets/pet30-15-happy_00.png
+SHA-256-Digest: t3wsA4wHY4qkB4LqD/Y/BAq2HqesrbVW/1hxbBiEJt0=
+
+Name: assets/pet30-15-happy_01.png
+SHA-256-Digest: rWHJKg7/rmjJsdUs6/GcRtpaOXUqJN73Rt6gJsFnh9U=
+
+Name: assets/pet30-15-happy_02.png
+SHA-256-Digest: bK4VZ/fJ4kAc6CzfCqPCeAlHE3pAniSs49x9/AINeXw=
+
+Name: assets/pet30-15-happy_03.png
+SHA-256-Digest: 5vStnDawJ8HehwG2BVWFS1Ks/2GwVcQcpAwbmg3W6VI=
+
+Name: assets/pet30-15-happy_04.png
+SHA-256-Digest: S1uhocuB9OQj7Gnrc1C618aNxiEO1Q5e86sA2D4yAb8=
+
+Name: assets/pet30-15-happy_05.png
+SHA-256-Digest: pQKm60AWCAQbQ69GImKF4pcaI68Elrz1tvJuJoUqodw=
+
+Name: assets/pet30-15-happy_06.png
+SHA-256-Digest: 5ZNUcDVysbOBI47szxbfIHnqbNYxQxRpYzZYSmelTnU=
+
+Name: assets/pet30-15-happy_07.png
+SHA-256-Digest: jucnHXl+X1gQIowmFD25GlOyuCMghjJZCk63ssS9AIU=
+
+Name: assets/pet30-15-idle-lottie.json
+SHA-256-Digest: /0ixeuvtqKfE+GzU0dp2oKUgkthuYz/4wGW2wViRz18=
+
+Name: assets/pet30-15-idle_00.png
+SHA-256-Digest: yrOR2l6vqA4Sr/2JCIYJJDdGAA3pC2vWHT7GfaJA/FY=
+
+Name: assets/pet30-15-idle_01.png
+SHA-256-Digest: 9SqAj2LAqcTNmFVQo/V6d6fnTOEmd8muBhY5keFvKAI=
+
+Name: assets/pet30-15-idle_02.png
+SHA-256-Digest: OYJPSEOG0iIYvQXSOIhW6eNQ76GMEUPwKsTktZT4HQQ=
+
+Name: assets/pet30-15-idle_03.png
+SHA-256-Digest: SvjI+2v3eCJSYMz6uj2gM4FIG5muNC/hXDx0+yAA5f8=
+
+Name: assets/pet30-15-idle_04.png
+SHA-256-Digest: eA7LunXdczc5XAVdCrGQ9lxi7J1PuJN+4/zhlgDVWog=
+
+Name: assets/pet30-15-idle_05.png
+SHA-256-Digest: UvlU94RsEPZknzpHmJSZYj0aQMNiBA70PjjbAAtEUyI=
+
+Name: assets/pet30-15-idle_06.png
+SHA-256-Digest: 7PmHbZXaMwVTcuzlJL9MLhfJOMtUXmnHxAE9wMPSTMY=
+
+Name: assets/pet30-15-idle_07.png
+SHA-256-Digest: fqMinN00fWY5ksYxrWz2/1lDNqbgJKITgBsF9JHFEE4=
+
+Name: assets/pet30-15-jump_00.png
+SHA-256-Digest: uWU1bkOAXysTR4kmqpA06gokewvhT+47JRLBy2Ngxnk=
+
+Name: assets/pet30-15-jump_01.png
+SHA-256-Digest: 5WJRm7VauXNVXDLSjxDk+G7lSjLLCI1aOmkEILNViHk=
+
+Name: assets/pet30-15-jump_02.png
+SHA-256-Digest: d0BXnvhQagMmwUlvwfV16t3PfD5zPOVjtchxnBYRPps=
+
+Name: assets/pet30-15-jump_03.png
+SHA-256-Digest: ewqnbGVa29R3zOaFqxammS0xPsCD+kWgVnaxEhPKUoE=
+
+Name: assets/pet30-15-jump_04.png
+SHA-256-Digest: /HWNIsE+8NAla26jHlz92TFuAa9fLnyy/2oH0ltZUh8=
+
+Name: assets/pet30-15-jump_05.png
+SHA-256-Digest: DmIpUvCq4GL90EaYPzsIcMaXtnRVrNY93K0vdDeSBm0=
+
+Name: assets/pet30-15-jump_06.png
+SHA-256-Digest: GY0I9DCKQZGgUq0ijCynADVxvVD+mhr12BquWp+8gFQ=
+
+Name: assets/pet30-15-jump_07.png
+SHA-256-Digest: xWRQxx1tTv146g1jl11nM3R0N8UkejFuaXXM3YvO4fQ=
+
+Name: assets/pet30-15-special_00.png
+SHA-256-Digest: OSRyzG5Efx0VzHqKzYncWJ9k3wnhbIEfyA0WideoPwQ=
+
+Name: assets/pet30-15-special_01.png
+SHA-256-Digest: oxjRnZBYUWLTTOCWrtlJRLfMKoGAEHvdF9+8KUV20OY=
+
+Name: assets/pet30-15-special_02.png
+SHA-256-Digest: 8Gu1r1uYYGvVVHDQcYbSIrwCEA91RN77RUUHPMIWHRo=
+
+Name: assets/pet30-15-special_03.png
+SHA-256-Digest: PyWZbLVXfSpZUgxnMIwp5esncUtlDkG8Zx1JadBLMhk=
+
+Name: assets/pet30-15-special_04.png
+SHA-256-Digest: 3BI0fAFP+EOUnxyWZGxCtY4G5ecwwDXBo/c/pm7GCjI=
+
+Name: assets/pet30-15-special_05.png
+SHA-256-Digest: 5oYXQVWRw1eohg94EVeT2Crut8QfEEpj7kdfripPMLw=
+
+Name: assets/pet30-15-special_06.png
+SHA-256-Digest: GlTA96hWQDEWG9fZenjkgih9+OsWc1M8TM5coeEJquQ=
+
+Name: assets/pet30-15-special_07.png
+SHA-256-Digest: atGX6dy3GKcYVY6ArJGZ0QJowUxV0XpoOm3bL1MOWSM=
+
+Name: assets/pet30-16-happy_00.png
+SHA-256-Digest: cPafjh6+SvGR/sMhRibkh/8AYfLkT6qEqWQzWDcgq84=
+
+Name: assets/pet30-16-happy_01.png
+SHA-256-Digest: UvJyZ1jbcLe88EfBSl575vGgW4hliF6E22nZvljaY6A=
+
+Name: assets/pet30-16-happy_02.png
+SHA-256-Digest: x8LZAXXCJaog20Uf+5JMEjUhnei+kXp8qlETnVwYkcU=
+
+Name: assets/pet30-16-happy_03.png
+SHA-256-Digest: iMfrIX3AD4b/6rBGNLD08Cl4BLNDJTAcwwsQ1S3ypjg=
+
+Name: assets/pet30-16-happy_04.png
+SHA-256-Digest: wUcoPyRdiO5aXxtARTad5QSY8v/jLxG7KI4O0z0WUMg=
+
+Name: assets/pet30-16-happy_05.png
+SHA-256-Digest: HZWUeILUzAal7EHbnWb2HH83HyWdZduPTilPumf39pA=
+
+Name: assets/pet30-16-happy_06.png
+SHA-256-Digest: Tp0isU/fZFHuSMYlMo6t6ZRSY85kpDXMeXQdPxsIy6E=
+
+Name: assets/pet30-16-happy_07.png
+SHA-256-Digest: 8g4y2A/ZgTEG8Sbwyifg8BYT+BwDU2Nch/g5Y27fZGA=
+
+Name: assets/pet30-16-idle-lottie.json
+SHA-256-Digest: o4F15tz9Ap0Mx0xGkI7C1OCb8DHB+2FEG5CqDoOIi+8=
+
+Name: assets/pet30-16-idle_00.png
+SHA-256-Digest: VtozmacoFjRKaFmGyom8Y6jgim4rJwZ44e3mmmLWj84=
+
+Name: assets/pet30-16-idle_01.png
+SHA-256-Digest: 9SiBi1+TqIUh056AKCsytRcD0KUh1zvz1BGf+bQQpn4=
+
+Name: assets/pet30-16-idle_02.png
+SHA-256-Digest: 0xCQ1P1UqL2pDgwtN0pSqlcjVOyW85+6zZlsoCf1sWc=
+
+Name: assets/pet30-16-idle_03.png
+SHA-256-Digest: +t7uTvDRdriaLAaegC8KoM31UfQSxTNMBDgGteWhjLg=
+
+Name: assets/pet30-16-idle_04.png
+SHA-256-Digest: X2iY7/iV82Qkppes7tGwJfV3hpLke4egc2LKsk2JKUI=
+
+Name: assets/pet30-16-idle_05.png
+SHA-256-Digest: vczi3268lmrE0myIP9I/3q5cbR93ImKQ4TveDtg45HM=
+
+Name: assets/pet30-16-idle_06.png
+SHA-256-Digest: XhJWR2shkKg1mEJQkei/ru9VoPEQxknZE1oxESSKGIg=
+
+Name: assets/pet30-16-idle_07.png
+SHA-256-Digest: R+X+4hHZTpMxATksTOE9EcE32gtRfiZcMjCCN7CZwXY=
+
+Name: assets/pet30-16-jump_00.png
+SHA-256-Digest: HaxqNnDpp/XpqeuS7m7txH5C+YP6pVYY1RBGN4hZmVU=
+
+Name: assets/pet30-16-jump_01.png
+SHA-256-Digest: yl6B3KQFqPTn6OmxCVxKZ47/1M4My9+hyEPcdV8zZDY=
+
+Name: assets/pet30-16-jump_02.png
+SHA-256-Digest: boMAo7zQXwH11+h88hQdY0ZPmc883Y40sO1iE4ChsVA=
+
+Name: assets/pet30-16-jump_03.png
+SHA-256-Digest: DlC0gOLdwWC6M1dM5yT2UgOToWVxzXzXljgIB3zRNbU=
+
+Name: assets/pet30-16-jump_04.png
+SHA-256-Digest: vXmhFI1OAynCPWtZciEbQtuupHqqXLy/9dge6yf2QfI=
+
+Name: assets/pet30-16-jump_05.png
+SHA-256-Digest: E/kZ8xaanzmeNbJYaOJxIR9kOiRWUTq+9LqC3eEa9s0=
+
+Name: assets/pet30-16-jump_06.png
+SHA-256-Digest: ArjQaYrhTbEI0BqzJZlc/VDH4ykNt4hav6oVYyqreGc=
+
+Name: assets/pet30-16-jump_07.png
+SHA-256-Digest: j9uT8Csd8Vh6A+Qwj0MzIHH9HnUY4YpLBgRQEYVWOHw=
+
+Name: assets/pet30-16-special_00.png
+SHA-256-Digest: XquiC5aclxZRxAwCxoLYImNqbej3MQ2sxOo1r64UtuM=
+
+Name: assets/pet30-16-special_01.png
+SHA-256-Digest: AhPUo40B2GKs7O0mMjEqPF9pWeN9ddxVt1MjE4wI62k=
+
+Name: assets/pet30-16-special_02.png
+SHA-256-Digest: Ve3KkoKxDv3es54R18mBBmYbERkqtTTMEbnwReD44Ao=
+
+Name: assets/pet30-16-special_03.png
+SHA-256-Digest: hIJenIcy278Z2/abukWrpdz7obK/gkETF2zoXlbVoIM=
+
+Name: assets/pet30-16-special_04.png
+SHA-256-Digest: OZDGTBx9It3LchLspN+1875qhFo+nL4Vh0KGLwGuLc4=
+
+Name: assets/pet30-16-special_05.png
+SHA-256-Digest: h7QXXtQ8i6adzwAKR4sjkT3kdXbU99UY4maFnPtWy5w=
+
+Name: assets/pet30-16-special_06.png
+SHA-256-Digest: NEfq3SOkTQ3gijHGeWhZESSFjJxJE2PN3RcgVc/z8JU=
+
+Name: assets/pet30-16-special_07.png
+SHA-256-Digest: bfyZvJIv17BEbYKBcywqwGTfH5p7j17Dj1XY/OOEV00=
+
+Name: assets/pet30-17-happy_00.png
+SHA-256-Digest: dPBQ1mIxYShSozCGtqGJYsoxy7xagtVNsEc4v+vqUTo=
+
+Name: assets/pet30-17-happy_01.png
+SHA-256-Digest: MvLCpg0eQ0IELsW8kIVHcVmuC+TB8/sJEnatl5AD5dg=
+
+Name: assets/pet30-17-happy_02.png
+SHA-256-Digest: SL08xqeEpWqdQ9lRKF7pAnvKeHXYxfR7lNfW0nW8Yj0=
+
+Name: assets/pet30-17-happy_03.png
+SHA-256-Digest: hHizk5UZHUTUh3XwmMKhkvXoPEGpTnh5idxOsaIewA8=
+
+Name: assets/pet30-17-happy_04.png
+SHA-256-Digest: Ps16e14siGPMJe3SsJVo/PoLjohOd1eToCcO5Wzyd94=
+
+Name: assets/pet30-17-happy_05.png
+SHA-256-Digest: /941krSEBmVRGuRxib2I8VwXe5kZHiw8b3MKYIjotxQ=
+
+Name: assets/pet30-17-happy_06.png
+SHA-256-Digest: HSfvvdBjcdyVZ754lEEhuSwRKtqCSzReZ7ie6vezgAw=
+
+Name: assets/pet30-17-happy_07.png
+SHA-256-Digest: R/ro8e8a2kPDZ/p7Pc6IKdXpLJwRt810RWnecU7MTrc=
+
+Name: assets/pet30-17-idle-lottie.json
+SHA-256-Digest: EdyR5FCy1CplwXbcVHqVlvhY14hc+CaAqB9pmU9oObw=
+
+Name: assets/pet30-17-idle_00.png
+SHA-256-Digest: 35+Vo1QlwjfHc2p8z7YfhKmfAifzfus0PQvwfR6UISU=
+
+Name: assets/pet30-17-idle_01.png
+SHA-256-Digest: sXywHcCdBVGnk38I1PI/9PO+VJ9cEXqwK5SL8Riqz1E=
+
+Name: assets/pet30-17-idle_02.png
+SHA-256-Digest: J1PecfP4BWSI9n2hmvHRVwR63fKaPjRq4Kr0++qvvWo=
+
+Name: assets/pet30-17-idle_03.png
+SHA-256-Digest: OkzZiYkr+pJCQ7ESjJO2F2Kptw4UURwuthv2wUnu2LM=
+
+Name: assets/pet30-17-idle_04.png
+SHA-256-Digest: C60Y7DPiXI+vx5iDybfN1UxkoLLHzKHMRXbcmfxWsCM=
+
+Name: assets/pet30-17-idle_05.png
+SHA-256-Digest: +Cj81IZfGfd4pOrbKybh2IxQXfdBx/OhbSo54GB0cBs=
+
+Name: assets/pet30-17-idle_06.png
+SHA-256-Digest: nxee/gQPgf3qy8j7trA8ZL52WT8veYitqTmp5VVV1fc=
+
+Name: assets/pet30-17-idle_07.png
+SHA-256-Digest: eCbC1+GAuhc/9/3lZi59gF22EcwhUCs8ZKK8bxUuXJo=
+
+Name: assets/pet30-17-jump_00.png
+SHA-256-Digest: AI6+P/9HK8Ar3McfQQIKL+qlBlYUH7vcFaKNAML3lJA=
+
+Name: assets/pet30-17-jump_01.png
+SHA-256-Digest: 36wgcABQF/Qb/g3GAj/XpHRBmMz7ycL38IbQihQPUQ8=
+
+Name: assets/pet30-17-jump_02.png
+SHA-256-Digest: GzLhoUiXw/25IoSeQn62AQT+dj81vvUl70UtLN+dThU=
+
+Name: assets/pet30-17-jump_03.png
+SHA-256-Digest: aiOWVkVi3HpMpB9nP9qInh7DTo4pTU45dkna9plSYcw=
+
+Name: assets/pet30-17-jump_04.png
+SHA-256-Digest: ZSZJVE9ki6OWb5R9GSyD5mtR6dnaz61YrXc7T3PxUtg=
+
+Name: assets/pet30-17-jump_05.png
+SHA-256-Digest: 0QK7ZNMQYOYEqlUH/kUvloHMkoNtdcESWswu+E3oZhA=
+
+Name: assets/pet30-17-jump_06.png
+SHA-256-Digest: VPGFfSMAIDYyjdVqXi0tV4V+nE2O+LhiT2WBjH/shho=
+
+Name: assets/pet30-17-jump_07.png
+SHA-256-Digest: kQqMo2e4HL3CcNuiTCqDELBVSP2WbRIesmKxCieZG1Q=
+
+Name: assets/pet30-17-special_00.png
+SHA-256-Digest: W5DoHwgIbLQEDX17IFqrJq4wDnEY7t+MDRcWshXqsTY=
+
+Name: assets/pet30-17-special_01.png
+SHA-256-Digest: XeAzGzzZEUv8w0f0OkiCLeeiqGs1LHUO9cUK/AY5hVA=
+
+Name: assets/pet30-17-special_02.png
+SHA-256-Digest: 7NODJJ0Cw6Pm274SBFOPzq1NvrT6PAFyJxLxfBuZbMY=
+
+Name: assets/pet30-17-special_03.png
+SHA-256-Digest: MUsW6jpDR9Mo60LYTo+FPlhyrdhrFxEtLHDpdUrg+RY=
+
+Name: assets/pet30-17-special_04.png
+SHA-256-Digest: e6LhwdSTEzJV+vJNgVkg7/l5UfCA8sBUusLsnJZXJ2U=
+
+Name: assets/pet30-17-special_05.png
+SHA-256-Digest: vjM7zp0zQWDwq25H6ZlWfkG7hL3tkaeIq2QjiYRcnMw=
+
+Name: assets/pet30-17-special_06.png
+SHA-256-Digest: wkCdzmfrkssqawbZ8MiOz7SZlXiEQWYD7kF1IuxnEUY=
+
+Name: assets/pet30-17-special_07.png
+SHA-256-Digest: ScfCkW38kD//AyPRFtKUBtu3N0OeXzRmmHS053dwmxY=
+
+Name: assets/pet30-18-happy_00.png
+SHA-256-Digest: uaP6//CKshVzu1G2+co08yYf7F0a0ur7ePAd1pdO/ZU=
+
+Name: assets/pet30-18-happy_01.png
+SHA-256-Digest: FxfiORTBjvAnUgN8qJuocTR5MOk96mTsYXOPaoTllYw=
+
+Name: assets/pet30-18-happy_02.png
+SHA-256-Digest: EIbyLN5x0w+JPDxGSOXqypbXRtjqpKYi+Jv/0duI3TE=
+
+Name: assets/pet30-18-happy_03.png
+SHA-256-Digest: dvGsDilJO23Bn+8xYH1JL3I2BeG4ATiDvoFeOyzcc4M=
+
+Name: assets/pet30-18-happy_04.png
+SHA-256-Digest: xkArVuAX8zA2oilhX8GALfaTqdcbzXCE3CrGuE/jAMc=
+
+Name: assets/pet30-18-happy_05.png
+SHA-256-Digest: ZHH2/JkYNHTuknhuOdZwMEJYG7Rc0jiFsuSYGavypps=
+
+Name: assets/pet30-18-happy_06.png
+SHA-256-Digest: fwLilApQiseNF9iV/nQEesEGj2SOmILjM6Oyl2aHal4=
+
+Name: assets/pet30-18-happy_07.png
+SHA-256-Digest: ExhlkFwA+iLPCCRxe+k5SFishL0k7o0e8EXDTGpcYWU=
+
+Name: assets/pet30-18-idle-lottie.json
+SHA-256-Digest: JcAzF6bkJspgoksqzCyoUUeSZo3Or6PCj7978wLpQ9k=
+
+Name: assets/pet30-18-idle_00.png
+SHA-256-Digest: PpbPjnm/ilwc+51XneO8YmHaWeZCew9aSgIZpph4rns=
+
+Name: assets/pet30-18-idle_01.png
+SHA-256-Digest: F57RwNFXvgC+5MtXPZbLmTy2JRRNANY5Kh9vYvWG3OM=
+
+Name: assets/pet30-18-idle_02.png
+SHA-256-Digest: Ibj/Lcbsw1rjiJwRtHbBmaLdDUe2gXX6Aky5ZNUhNkE=
+
+Name: assets/pet30-18-idle_03.png
+SHA-256-Digest: li3WOoVPRgG0b0gcaV3hnP2Wcy2/ZW5nAaaxAfoK4eY=
+
+Name: assets/pet30-18-idle_04.png
+SHA-256-Digest: k6ecfxPQlTGKkhhUFg0OKE24w59E50moTdSo64N73Mg=
+
+Name: assets/pet30-18-idle_05.png
+SHA-256-Digest: clpPgFt9oCuv8Oi9l9kDAm82xUrnJaTulf9KVPxCbGA=
+
+Name: assets/pet30-18-idle_06.png
+SHA-256-Digest: YgqMxRCuWCGuPOxnJdut2oVJLrirqyW0JJg5J2z4ags=
+
+Name: assets/pet30-18-idle_07.png
+SHA-256-Digest: dWoLgdJi7s8HQ+EEuWmh9CROCCTAye13mErPzPzrUiI=
+
+Name: assets/pet30-18-jump_00.png
+SHA-256-Digest: Ge3Ol6UXKcmZO32ZDkIyXfQk3yiy14p3NrqFhS/XagQ=
+
+Name: assets/pet30-18-jump_01.png
+SHA-256-Digest: 0T3yfOoKdshm6S1LAo5KZwWAh2CZyWuRwy64K8Pujcw=
+
+Name: assets/pet30-18-jump_02.png
+SHA-256-Digest: qjcYenw6VZ0CueJwtEOxi99FJyT3XNA4F7CIqpkEpxE=
+
+Name: assets/pet30-18-jump_03.png
+SHA-256-Digest: hYRmvSlor5baIXFC1hDl/pObAPlOoDXFeku+XWy0L4A=
+
+Name: assets/pet30-18-jump_04.png
+SHA-256-Digest: yij6DKv76vSyt1KtjpmF5MyY19sREq3/EDFnPAMqOYs=
+
+Name: assets/pet30-18-jump_05.png
+SHA-256-Digest: kABahH/4zS0fj4SOteeFByla4HB0QAPVPNzerYt6HU8=
+
+Name: assets/pet30-18-jump_06.png
+SHA-256-Digest: fA6tW8gnCUXjcpe5G81e2rWA8wR9hfbas+Fr5kh64vs=
+
+Name: assets/pet30-18-jump_07.png
+SHA-256-Digest: 7fNnmveVgH6BCooUY/fPeijSDOzF9yxrfAv38CPNxes=
+
+Name: assets/pet30-18-special_00.png
+SHA-256-Digest: n5Zzla9Djb+Yu+e6BMITp5E1PNZsTheKkIbDCxbIiQs=
+
+Name: assets/pet30-18-special_01.png
+SHA-256-Digest: uKjg46pXTerXtL0CorFuypFT0vt6rgwwPLQhl9KP8os=
+
+Name: assets/pet30-18-special_02.png
+SHA-256-Digest: QfmUbtpEmC2G+ZpHRE6JLbvi8NsBA3r1vQVdVgh1+Qg=
+
+Name: assets/pet30-18-special_03.png
+SHA-256-Digest: QP0+9QYGmVqfeCZss0wE0boThCl+AVbqXrA9/C/4oFc=
+
+Name: assets/pet30-18-special_04.png
+SHA-256-Digest: cikuEYMuJHHFCg20pXvybBFuSBTfJv6URyXCrFOtCj8=
+
+Name: assets/pet30-18-special_05.png
+SHA-256-Digest: RC2XWTNJp+2110VG5/vdeMVjSa326uxkD6sFYoPaLbY=
+
+Name: assets/pet30-18-special_06.png
+SHA-256-Digest: FLHZQ/9JfE3ew3LrW5nsH+a5a3pnefuZ80RyGCIs3Co=
+
+Name: assets/pet30-18-special_07.png
+SHA-256-Digest: Yt9pAjK5yCxqjbiR6zO81Bhs/lWn10gv6XHQAuLBycY=
+
+Name: assets/pet30-19-happy_00.png
+SHA-256-Digest: LnFz004KG/Jjvs4PsD7y4MzntC7F9jeILzOelW+inFI=
+
+Name: assets/pet30-19-happy_01.png
+SHA-256-Digest: deK4zkgPp07kjoyQBchzm1sZgc3kr4KMg9zWE8ZsRlM=
+
+Name: assets/pet30-19-happy_02.png
+SHA-256-Digest: gwqikDtGhysYuoobKf/3WvQr+hH5rfZfv7qXsXeNQnY=
+
+Name: assets/pet30-19-happy_03.png
+SHA-256-Digest: OODES4UAQnWFpF6eMrJ7y4waPQe4AfPd7vF3V5Cuu7E=
+
+Name: assets/pet30-19-happy_04.png
+SHA-256-Digest: +9M+6ueXuz4yXpdQZWr2BzXjzJGniVQhPxhE0HgBg1o=
+
+Name: assets/pet30-19-happy_05.png
+SHA-256-Digest: eLCtaVTR+vbT0HSZyVAjQneuAsZKcndh7LCVyu4u4Go=
+
+Name: assets/pet30-19-happy_06.png
+SHA-256-Digest: BjQlXW+jpug0ryBNC0yOdwjtyH/rsku8m//sh68ZFCI=
+
+Name: assets/pet30-19-happy_07.png
+SHA-256-Digest: 9iZ/vRtOsphFgzUwIWZD5WsEV4I81kKdROpp54T+ygk=
+
+Name: assets/pet30-19-idle-lottie.json
+SHA-256-Digest: puSP7CqNNRDipKPQQNGLvk2PqsxqcVPuJ6kemqeyw/Y=
+
+Name: assets/pet30-19-idle_00.png
+SHA-256-Digest: k9xyxgdjBOSCSySJ0NlcZhonxcdH7WQY3StJIe0rfhU=
+
+Name: assets/pet30-19-idle_01.png
+SHA-256-Digest: EucIcL5rWdd2w2WAKYTZRpySPI2M0/Cpu1tWPjIQrxs=
+
+Name: assets/pet30-19-idle_02.png
+SHA-256-Digest: LE0MzZNtAkx80VOrQrW1qhDqwiJUSojzc6/x8nbm8MM=
+
+Name: assets/pet30-19-idle_03.png
+SHA-256-Digest: ++WDmn0LyExQancVPLeZSeLOFesbniClF/f+2Jt7FXE=
+
+Name: assets/pet30-19-idle_04.png
+SHA-256-Digest: Z8oMD8U2sq3fH9x/SKdiOcXsXOBYvOzmvVtjiZzIVqE=
+
+Name: assets/pet30-19-idle_05.png
+SHA-256-Digest: 2JrukAmFLrjWAT8MtmIMPaztMsfOAfLFF9i8J44CIrQ=
+
+Name: assets/pet30-19-idle_06.png
+SHA-256-Digest: 6vUC/iqFh87uL/PIC6UoNm1jiHufr30b5oTwiiJBY+8=
+
+Name: assets/pet30-19-idle_07.png
+SHA-256-Digest: mf20T46WncWEaQE8iQ+P25Xz2jff7H5rtJj0YkcFK/A=
+
+Name: assets/pet30-19-jump_00.png
+SHA-256-Digest: WPBF05CYfMD7OBCB8FUUYpxexuFN/ZN5JbrkpSHhe+I=
+
+Name: assets/pet30-19-jump_01.png
+SHA-256-Digest: 57hstAQ1DfFqMk9DMrM7z1y/7SvmezeeR1Ov6ZgP1vI=
+
+Name: assets/pet30-19-jump_02.png
+SHA-256-Digest: n+/kl7SQsWIKOibnqUVia0nHeKp+2+K3ASs5x0TFYk0=
+
+Name: assets/pet30-19-jump_03.png
+SHA-256-Digest: rfimGEL43phegVCFxQlX7tGAuK/o1ATlOsbCxCEBfEg=
+
+Name: assets/pet30-19-jump_04.png
+SHA-256-Digest: 7r8M3Y54n41Ojl8AT4GIzHcSDscgc8QzgUExZfZ70VQ=
+
+Name: assets/pet30-19-jump_05.png
+SHA-256-Digest: ChsQMmYuUz+XBKy+xxmVLioj4Sw425XzBjOOg4pQa44=
+
+Name: assets/pet30-19-jump_06.png
+SHA-256-Digest: x0GnwHS3BljEL8cYZso0H9ckKyffVDskVkyGsFfCo3o=
+
+Name: assets/pet30-19-jump_07.png
+SHA-256-Digest: l+Qczg9xq9ZDFm9EVMGz0XeevpuJrHE4Hyh1IXJJ8KY=
+
+Name: assets/pet30-19-special_00.png
+SHA-256-Digest: M1HfpVGsE/9JedvWcqyLDF+97kfUjv+KS2bIpu9s2wM=
+
+Name: assets/pet30-19-special_01.png
+SHA-256-Digest: LOjz09qeGtThegnrPBn0IHcJHUFHSrw884RiBLuB66o=
+
+Name: assets/pet30-19-special_02.png
+SHA-256-Digest: joQinjASy7ePItde66u+jmghntQ55HqpCGNCh+Jk1T8=
+
+Name: assets/pet30-19-special_03.png
+SHA-256-Digest: g8ga7+AaLnGFVj/I5LZrjjdZYqIaODRSilc3fPpQszw=
+
+Name: assets/pet30-19-special_04.png
+SHA-256-Digest: SDaOydpOPe2cedCx96FBbX7EzbfccoLPxUrSylaB9ZY=
+
+Name: assets/pet30-19-special_05.png
+SHA-256-Digest: mJfFm64ANxrtWoojaZtI1Pie0Z0kPzGl2koztc4guyQ=
+
+Name: assets/pet30-19-special_06.png
+SHA-256-Digest: wlUHzWfI3JJlqHRyzDyIcHjI5osvi5XGOh4wEcofx+w=
+
+Name: assets/pet30-19-special_07.png
+SHA-256-Digest: YgJNVVKw/H92rKtij/38peZY7xtCkew/eNGVZYDwJfw=
+
+Name: assets/pet30-20-happy_00.png
+SHA-256-Digest: Ay+3e64ZfRyzjvj5hVccHJG1KYEc/oiX6qWFBJHFOf8=
+
+Name: assets/pet30-20-happy_01.png
+SHA-256-Digest: sRl1CXyY1BUNA/cV1GaHzLTMY03iem+927uTGTOYaUY=
+
+Name: assets/pet30-20-happy_02.png
+SHA-256-Digest: 5BNYoK9/Ff3cog5XtlxxmRhZF7DrkWAujOh1ttC1whs=
+
+Name: assets/pet30-20-happy_03.png
+SHA-256-Digest: FBR3dSVHOP1zVxQFyanj72Kz3LF+kmPYshnrrDLAQno=
+
+Name: assets/pet30-20-happy_04.png
+SHA-256-Digest: x0yk/kQ2P5PnmHtDlcGISBs7G3+j8AVXPe4/J7IWZF4=
+
+Name: assets/pet30-20-happy_05.png
+SHA-256-Digest: vXK+FfC54Wc5UIuunYtnMVTRvVsgs8x6ZHHqsyqF4BI=
+
+Name: assets/pet30-20-happy_06.png
+SHA-256-Digest: OGlyfjw+8CWqBiZDDNBgusPgFXmjp2SjvlgXywuN7jM=
+
+Name: assets/pet30-20-happy_07.png
+SHA-256-Digest: mzza9xMl+naWYyGxaeKv9lk4kLuQynvpFaloQVSmUbE=
+
+Name: assets/pet30-20-idle-lottie.json
+SHA-256-Digest: DMp+uPWdZ0OxmqmyuOhv8hWD7djbXczbIqdWIoR7uc4=
+
+Name: assets/pet30-20-idle_00.png
+SHA-256-Digest: t4g5f5w2Kl64F0DiyOjSs99fkbv57YsycrSyrZ4hTnM=
+
+Name: assets/pet30-20-idle_01.png
+SHA-256-Digest: vZIuEDVUNm1X8ySgPXc2C4eboJOKNN1sOb6YH46zLkg=
+
+Name: assets/pet30-20-idle_02.png
+SHA-256-Digest: Jvut5uyhdVYZRrMhP3yb5LcJRExP4iq0agnQCL2t2fk=
+
+Name: assets/pet30-20-idle_03.png
+SHA-256-Digest: EcCz6WlMfgfTe/Gzn05VUTfHCHimPh7se/vlCaJTsKg=
+
+Name: assets/pet30-20-idle_04.png
+SHA-256-Digest: et9kn4+T5wvCbRP1oeiyVNhn88FTV+UE234WEiIOOcg=
+
+Name: assets/pet30-20-idle_05.png
+SHA-256-Digest: /0TaW7zmgv6reD3PQ832uJN3yUeEJ+gOWDht/nD8mJY=
+
+Name: assets/pet30-20-idle_06.png
+SHA-256-Digest: s8lEUDueTdvh2fJRbWO+WxF9eWVdn7qImIjMrNnIUAs=
+
+Name: assets/pet30-20-idle_07.png
+SHA-256-Digest: 7NX6MW7jcpJcM4pYZCgeVsmcXFPPfgEBc+6xto+7Jys=
+
+Name: assets/pet30-20-jump_00.png
+SHA-256-Digest: N6AMvWQBD5rE19Hvsty+r1r4LE5Y0ZHU9Wa7Bnt0kdw=
+
+Name: assets/pet30-20-jump_01.png
+SHA-256-Digest: thMP1f6U2oUqHOvZyUIAcDW6YmLL6St2H2L1TTJE/p4=
+
+Name: assets/pet30-20-jump_02.png
+SHA-256-Digest: wQ9Ir7OblmlRp2rdJHpcqc0JJVDxeRgWR0uXVQ4RXdg=
+
+Name: assets/pet30-20-jump_03.png
+SHA-256-Digest: wrNkcfdAZNxP+39pKwsPBeUG+jMjI9uwX+SD+Ad+gK0=
+
+Name: assets/pet30-20-jump_04.png
+SHA-256-Digest: ZOvWXNxVIpdf68wj7CVE4+Df11+82E4q0Ri3aQrh+n0=
+
+Name: assets/pet30-20-jump_05.png
+SHA-256-Digest: we5KKq6CVGx9wwVDlnrRjvJePjz4KelX2gQh6IJiiXU=
+
+Name: assets/pet30-20-jump_06.png
+SHA-256-Digest: 9Lk3mhJ/nOaYkqy5VtZiCg0lbflPFwq06vHHzIkVZJo=
+
+Name: assets/pet30-20-jump_07.png
+SHA-256-Digest: fiO5aU/subo10NsY+LA1omg8lE8QMviJ/6v2Vmc+Thg=
+
+Name: assets/pet30-20-special_00.png
+SHA-256-Digest: wNhWtu2Fxro+xvWqtiJRin2E5Rf5IBvQufROA5Gf+rQ=
+
+Name: assets/pet30-20-special_01.png
+SHA-256-Digest: p4A4eVuyC6Qu926CxTMwJVUG00LpEmpenYppBJavtek=
+
+Name: assets/pet30-20-special_02.png
+SHA-256-Digest: X0rVw0l6WWFUQFf9EIHUJ5w6nWUfEovJmnNWBi8741g=
+
+Name: assets/pet30-20-special_03.png
+SHA-256-Digest: XjlAAuOovZdKhU6ytwx5ArwVaf9JLIsYIoyiX5XCoc8=
+
+Name: assets/pet30-20-special_04.png
+SHA-256-Digest: v6gHPwOabGuy+wjTBpidif4blUuItqlCovWsihWJriw=
+
+Name: assets/pet30-20-special_05.png
+SHA-256-Digest: ZTCFAkwNqYdBB5znjLTooBq0MGdMztkTX3Xsa51zRoc=
+
+Name: assets/pet30-20-special_06.png
+SHA-256-Digest: C1kGMQMMVgn/fxpLpZvEUS1Qr/NJTiqGTN9JrBbzF2M=
+
+Name: assets/pet30-20-special_07.png
+SHA-256-Digest: 8V3CSTk+HfK0ZnTNDbDsIT3zclGfTTNqqFv+8Njrt5g=
+
+Name: assets/pet30-21-happy_00.png
+SHA-256-Digest: 8S+bkNZSPnbNO0Ib0DXqxLzo7Ovye6BEVw/Kfwbo3K4=
+
+Name: assets/pet30-21-happy_01.png
+SHA-256-Digest: rrvCLDhI0ajodsUqI+/8tuTz8J4mE9UAHOvZY2F1Rq4=
+
+Name: assets/pet30-21-happy_02.png
+SHA-256-Digest: 4nU0RgjRKKZ2jjymCDtX8YEpIXmcYIarzLHdQ3BVPMM=
+
+Name: assets/pet30-21-happy_03.png
+SHA-256-Digest: GmAvxT7cAr7rkQrk/0gwc/JEmPQNdMIFanxmeGP0Okc=
+
+Name: assets/pet30-21-happy_04.png
+SHA-256-Digest: zP3GSYFI4sFU0DW7ooByUEXdzcks3hZkEdpYvayc8Tg=
+
+Name: assets/pet30-21-happy_05.png
+SHA-256-Digest: YBP2kuqWyqg5BhSqyFkkDXcUkKI1tV/ZKR+St53TOhA=
+
+Name: assets/pet30-21-happy_06.png
+SHA-256-Digest: ndD2x0555n/tricgr53769U1fjSD9F9TChy69NlqJXM=
+
+Name: assets/pet30-21-happy_07.png
+SHA-256-Digest: wHslW3/+lPUlIWHP/VGCKoGuLXg/PTya53uzqGh3s9c=
+
+Name: assets/pet30-21-idle-lottie.json
+SHA-256-Digest: ib0e9WGS8Clfmd3opuoQSplfhqzMvNoEmfBdqKC45ic=
+
+Name: assets/pet30-21-idle_00.png
+SHA-256-Digest: cgMnqNWd3lhtBZ/ymAvDoC5kMO56OH2P+u7jTirzGyM=
+
+Name: assets/pet30-21-idle_01.png
+SHA-256-Digest: TCg4yjUFGprrPebItIZgVYi1nAXm4eZoJqOtoGEVjyw=
+
+Name: assets/pet30-21-idle_02.png
+SHA-256-Digest: 93EDoaD+2oiw9+4BKS0ae0zTfS/dnvwzYObuLYvNL18=
+
+Name: assets/pet30-21-idle_03.png
+SHA-256-Digest: qWIyZPP4LjBkzatkFNIk2Qgs0W6kdvslBT6YOUpz2rk=
+
+Name: assets/pet30-21-idle_04.png
+SHA-256-Digest: Ww7X0xMdMXQ+KbOYaF1KLvw2MlpyW03lXEm/6MiqfzY=
+
+Name: assets/pet30-21-idle_05.png
+SHA-256-Digest: VznR29swteoi9cMwe8cAyVW7Al2ccn8+p2qQr61uVB8=
+
+Name: assets/pet30-21-idle_06.png
+SHA-256-Digest: 3ADg2q6oMwRel60LF5GMEnqc59Hxb76kY3avE9QD06M=
+
+Name: assets/pet30-21-idle_07.png
+SHA-256-Digest: oHbx58zCe7nxDr9Xccj144KmyVzpxbOsPyLR7yDF7qE=
+
+Name: assets/pet30-21-jump_00.png
+SHA-256-Digest: GABnlEbLdVk2XvaKzUv9DTqETQtl1SrztqPawX85hn0=
+
+Name: assets/pet30-21-jump_01.png
+SHA-256-Digest: 6cKmGbqYK+CyabMC0ntYCtqr4MihZAOzLr7pA0ebrM8=
+
+Name: assets/pet30-21-jump_02.png
+SHA-256-Digest: HJXSabpWnNMWmkNMnOd7hbu3mRmepGqiFsrHzbiVtkA=
+
+Name: assets/pet30-21-jump_03.png
+SHA-256-Digest: pRBzAPd1t6/7u4y/9k7V0buQuUnmTaGMHrlIPMtjn/s=
+
+Name: assets/pet30-21-jump_04.png
+SHA-256-Digest: PVsNkig2wKl7XeiZZdqD8HJBsZ3m31gDefrOmamgE+w=
+
+Name: assets/pet30-21-jump_05.png
+SHA-256-Digest: lIKeR0BAdaetW4f/J8kFvs2g0gjsax4VMNFdmZwcJZY=
+
+Name: assets/pet30-21-jump_06.png
+SHA-256-Digest: Fkjg2MH+ODUV88SaBUADmM7A71HNJi17XaJgBIaEm7Q=
+
+Name: assets/pet30-21-jump_07.png
+SHA-256-Digest: N2pdnRyz+cQ/QXzEpmN3U1Phbdfq5eAxBTcIsmtOLOs=
+
+Name: assets/pet30-21-special_00.png
+SHA-256-Digest: uOKf1teLunmpteJZJKhwdLUF0LKaaxA9SD6r4tTQe4Q=
+
+Name: assets/pet30-21-special_01.png
+SHA-256-Digest: ILqjOYsTpIj9pVni7soh4A/9O0ZrsVGEpCNTHVcStm0=
+
+Name: assets/pet30-21-special_02.png
+SHA-256-Digest: sKHkPtMftZF3pzpIFRQMsxoQglWkopYM4Rju0m1zQxU=
+
+Name: assets/pet30-21-special_03.png
+SHA-256-Digest: FNUoqifJIhP5L2ZW8QpklgOTkX1dY/wx7EM4JavOXLc=
+
+Name: assets/pet30-21-special_04.png
+SHA-256-Digest: IfhspDo7emv7eqjSBNudsnSxFOPcd2DpKBuHb1PUxTw=
+
+Name: assets/pet30-21-special_05.png
+SHA-256-Digest: uPnkq9RHyiTYvkKsEPSr9Nl5i4yLBaDHL3IZOsVpfg4=
+
+Name: assets/pet30-21-special_06.png
+SHA-256-Digest: HXdZtKPlYFCumXU0LwCdxO0DIKHHm+8wLRE2c6ZH93A=
+
+Name: assets/pet30-21-special_07.png
+SHA-256-Digest: TcihJP+rzwB3iPSjtXaS0Y33k8cl2BmpTpUDGngJ7U0=
+
+Name: assets/pet30-22-happy_00.png
+SHA-256-Digest: 5qewxFF46uZoJSlP7S2rXehi91E/aPktvTdi71gbLbQ=
+
+Name: assets/pet30-22-happy_01.png
+SHA-256-Digest: vvhTOyLK5QYXOQZg78iWQF7M6hqodlJd/Z4EVqsJjSY=
+
+Name: assets/pet30-22-happy_02.png
+SHA-256-Digest: LdeHS8amkp/KqC7ZKPkrt/XDRdJIvKeWGM3hM72NggA=
+
+Name: assets/pet30-22-happy_03.png
+SHA-256-Digest: 9I3EPvWhlFv9B/CHMld3hTrTah8Tsr6/mUhbb2PN+mI=
+
+Name: assets/pet30-22-happy_04.png
+SHA-256-Digest: FqwlgN/aqOA3wynm4x26I7bqg6M9QvK+R6qQ4/KJN5w=
+
+Name: assets/pet30-22-happy_05.png
+SHA-256-Digest: jEnkfvzomOfKo6OZwKUF7+R4GHowITeDBGchAErtBgg=
+
+Name: assets/pet30-22-happy_06.png
+SHA-256-Digest: A2hVyM0Udh+8qoIN9ALjFGqJTys4dsmYAa2xUcxfuSQ=
+
+Name: assets/pet30-22-happy_07.png
+SHA-256-Digest: bkwcW/+gt+E/5Lz265ToGW6a9ClURRga80CEHghK9Q4=
+
+Name: assets/pet30-22-idle-lottie.json
+SHA-256-Digest: K4T5R5U7kHDhuC2Jj3iG2PZvLAphMoQrmCAWnXnHMY4=
+
+Name: assets/pet30-22-idle_00.png
+SHA-256-Digest: 5COMyEbv2Ywu0YRagK5Ubf7MaFspBohUqbjoNkmzo9Y=
+
+Name: assets/pet30-22-idle_01.png
+SHA-256-Digest: bN/vUfs8sEPxc72TdEilA45RA+EQ1RTTk5tjrR2ZE1c=
+
+Name: assets/pet30-22-idle_02.png
+SHA-256-Digest: qFUBb3OznnwUraAUbn3paQz11BOaAGJJ4eu4ascr15E=
+
+Name: assets/pet30-22-idle_03.png
+SHA-256-Digest: k2nO0kh54U1sNFZMAVYK9S/rnKLJNZWm97dqmwkr8FY=
+
+Name: assets/pet30-22-idle_04.png
+SHA-256-Digest: RBlrCJdVsZX9aRWKbZIrdk2kS9+zv6dUsYEhX9CQJC0=
+
+Name: assets/pet30-22-idle_05.png
+SHA-256-Digest: O+RQDtv1w4ABC3djFTm9LgeivHVtU9mB6hHncGFJrXo=
+
+Name: assets/pet30-22-idle_06.png
+SHA-256-Digest: bRsufBrKNsVPnQxs7JXuQK5iHn4946GO1YxzQ5IwGF8=
+
+Name: assets/pet30-22-idle_07.png
+SHA-256-Digest: F2w5qEYzRECrQPBiuYtAKLoSC1mz+zgoWUAyc/k2AT4=
+
+Name: assets/pet30-22-jump_00.png
+SHA-256-Digest: xH9KV1h7xEc4b0Y5dped6ZYKoGu53ZncbNQAMV6xTOc=
+
+Name: assets/pet30-22-jump_01.png
+SHA-256-Digest: igsTaMdvvQKIxGvtI5uwqH6K706zmW77dt2o72aEk7A=
+
+Name: assets/pet30-22-jump_02.png
+SHA-256-Digest: REQD7Yts25mw1vMqMSbfPSOnMW8UL9ejwaO9aJBcJ4M=
+
+Name: assets/pet30-22-jump_03.png
+SHA-256-Digest: 30Mn3RV84+j32rDPlnX0nLBX4FiGazU9DWA8gSTX7Do=
+
+Name: assets/pet30-22-jump_04.png
+SHA-256-Digest: rQHVo59bu5eKiE0t5C/I+EpMcYyUF3L2yoEg3LHqbSk=
+
+Name: assets/pet30-22-jump_05.png
+SHA-256-Digest: F42HhUy67kBGdimYHGfQP6gHkdZLvoInHiKsgk/Sliw=
+
+Name: assets/pet30-22-jump_06.png
+SHA-256-Digest: cBwu13nCLBr+r53e9VpHj1wWEcw0wGfRB1qZ/UI5gxE=
+
+Name: assets/pet30-22-jump_07.png
+SHA-256-Digest: 2A8I0Ib2SokOhYgYtHp/7GyXFqhBcNn4UJ3K/62XK6M=
+
+Name: assets/pet30-22-special_00.png
+SHA-256-Digest: DkzDOYS5c/eNWUmoMtueKvW7NnDgSgkNey6MX+15m+A=
+
+Name: assets/pet30-22-special_01.png
+SHA-256-Digest: P0pubLXR4e3XqNUbjq+DZzCHkuMR+OuKZOhSLw+v02Y=
+
+Name: assets/pet30-22-special_02.png
+SHA-256-Digest: 38IJMr0X/j4mMwoL8VZ0IFjmBnAfFhUZkxZ5oqCKprI=
+
+Name: assets/pet30-22-special_03.png
+SHA-256-Digest: Vl7Zgyve8iUBGUfAdpQEUeknJKp25HrFinCFKyoZBYM=
+
+Name: assets/pet30-22-special_04.png
+SHA-256-Digest: 9KPGPl79X/eQT7Z6+HOmYErkgGdF7L9nm7NJhkzKHsE=
+
+Name: assets/pet30-22-special_05.png
+SHA-256-Digest: 9kQDlFM1n/uI48MO1DHA5nJpGlA7zm1e5DM4ubW+ufE=
+
+Name: assets/pet30-22-special_06.png
+SHA-256-Digest: PfPcQ7WCOVKne520w1jfdPvGzIYL7fwHQV9uehcCKHw=
+
+Name: assets/pet30-22-special_07.png
+SHA-256-Digest: ENoF1mlu0x3sKA4htPZN1i71r/e4cxvvWyXFUhyc/Ag=
+
+Name: assets/pet30-23-happy_00.png
+SHA-256-Digest: iRnMklumCg43RW/ItiAPEUWS8JKQG/2WMbPk4bGta/k=
+
+Name: assets/pet30-23-happy_01.png
+SHA-256-Digest: 7BH9Ao1E5f4U35J7+Cf1jeS7J1leTlTI5neHS6G97fQ=
+
+Name: assets/pet30-23-happy_02.png
+SHA-256-Digest: ruXmgpiHAxyALTot5Yzzu0gHqydK4T0mYmIEoKoXmTA=
+
+Name: assets/pet30-23-happy_03.png
+SHA-256-Digest: 7OuZJRoMRcZV2koUeQyJTjtLiizHROgc2x6+EGgixck=
+
+Name: assets/pet30-23-happy_04.png
+SHA-256-Digest: aOgkokJbF71QriNzOP/gg+Cht/toxw3qSGHmKgKTdo0=
+
+Name: assets/pet30-23-happy_05.png
+SHA-256-Digest: NQqaPLxCfrEInplflrZPYWWv06Vhi2zVFCeo23iTFw0=
+
+Name: assets/pet30-23-happy_06.png
+SHA-256-Digest: apUQOLPKVJEo8MEsAMeO+Je0EXXmwCF2ul9KmcmXcTc=
+
+Name: assets/pet30-23-happy_07.png
+SHA-256-Digest: tQ38FLqNEnMpXAfKU5E0ch+Z7r29A23P8tJdRFPCdRA=
+
+Name: assets/pet30-23-idle-lottie.json
+SHA-256-Digest: RtZoIrBCzyYBgvhky73hueY99RE30Q7bznJZXS2gxyo=
+
+Name: assets/pet30-23-idle_00.png
+SHA-256-Digest: e9B+ForGrtdAzyHsDO8GjUQ8pAcbzJxALy6J7VjTrXw=
+
+Name: assets/pet30-23-idle_01.png
+SHA-256-Digest: JOu8ZX/es+dd6XcXmD8J6dPgyW7P8+LPc6W6EzlycPA=
+
+Name: assets/pet30-23-idle_02.png
+SHA-256-Digest: hL0ZIIqBeJYJpNzUiSMStGnvdMHQVZ9o9Tz5L5lUpBM=
+
+Name: assets/pet30-23-idle_03.png
+SHA-256-Digest: OjYpRafbwJ8mqvSL5v9qbLSMatmlGcBiLB0f9F0NiMI=
+
+Name: assets/pet30-23-idle_04.png
+SHA-256-Digest: 2VL7HCmQMzFB6FeZqp6Z08+VGX9Q8/93fDW/WgLPTLA=
+
+Name: assets/pet30-23-idle_05.png
+SHA-256-Digest: Wq/G7f+mMyjd5h9+x7BI4+JkHl5bC7GO0W1TtRupRyo=
+
+Name: assets/pet30-23-idle_06.png
+SHA-256-Digest: MnQzakoVaVYTAqUolRyXArqs4lXjiQ+ziaWpOV/Jals=
+
+Name: assets/pet30-23-idle_07.png
+SHA-256-Digest: QBgHWEgcVKGyJXK4xtKX6PxFriAUQ8KOIeeUXObmtcU=
+
+Name: assets/pet30-23-jump_00.png
+SHA-256-Digest: qrcCdghndW6/+b/qknztbRKf4a1hHHokd2GgfFXkho8=
+
+Name: assets/pet30-23-jump_01.png
+SHA-256-Digest: 7pDE94oVBw8bwKlVJ5naENFBu8Q0vEGrDG2wACqu80c=
+
+Name: assets/pet30-23-jump_02.png
+SHA-256-Digest: HCmRIGn8e5AlyMuI2e9kDVWrpfHu+u6ospi72ITNLbI=
+
+Name: assets/pet30-23-jump_03.png
+SHA-256-Digest: 6kOy9Gus/UciHQezqj8AdBwSWb3zdJrmP7zkvcHJX98=
+
+Name: assets/pet30-23-jump_04.png
+SHA-256-Digest: 3D1lY6U2V1L0kVmH/sOIgFYLQVcXxMlnb+HEVLZcA2Y=
+
+Name: assets/pet30-23-jump_05.png
+SHA-256-Digest: lisSP3mezmUZaQ7qm3M1Vc5qCrQufnojTCNRZvBJcUE=
+
+Name: assets/pet30-23-jump_06.png
+SHA-256-Digest: +Hr0GIaxj5iuYM1NpDFQmfdQEn1dlm0K35vEMWi4ngc=
+
+Name: assets/pet30-23-jump_07.png
+SHA-256-Digest: Cv4TXd+iWtP+MiP6+bQ9YUD+cVtnJdWP+4Nv7joA0+w=
+
+Name: assets/pet30-23-special_00.png
+SHA-256-Digest: xHA6QkyCDZ5hjwkga8zPBWxcokwz+/hkzHGjL1fv60Q=
+
+Name: assets/pet30-23-special_01.png
+SHA-256-Digest: cfZ2jKDHhbd1NYkYdXqeTyWCvMqB0p+nmLLxAJuDUKk=
+
+Name: assets/pet30-23-special_02.png
+SHA-256-Digest: HzUH0M2SPAw8EvEYei3qbQD9sUjSC6aob7RupAx9bJc=
+
+Name: assets/pet30-23-special_03.png
+SHA-256-Digest: IPVJbMH1TSweRCcKXHW6dTLyndxTl5duYNeQVIAtUAM=
+
+Name: assets/pet30-23-special_04.png
+SHA-256-Digest: w6FTVWfNLl6VEUu42HA65RIhHARIQGgI06fqwCCQ5bA=
+
+Name: assets/pet30-23-special_05.png
+SHA-256-Digest: qMZEPHYfvLpi0D34pRKFMFPx/C0Xf1TL8/L+ZdtgE1M=
+
+Name: assets/pet30-23-special_06.png
+SHA-256-Digest: suBuiDlfzrFQVEt8IQt4GwaHxer5G2bKdElblu1+wqE=
+
+Name: assets/pet30-23-special_07.png
+SHA-256-Digest: yU+ojKZvAVJNNKgtYEr+rDxcFLXVeosjBaGa71sYq8s=
+
+Name: assets/pet30-24-happy_00.png
+SHA-256-Digest: 16CAAHQz1uxPbYDx/H6L4v4KtE1AgnMJ9ktWhbjxi7M=
+
+Name: assets/pet30-24-happy_01.png
+SHA-256-Digest: sLSSyVvWp8T4NIf90mp+/2kggUelTZlM22MQrYWegm4=
+
+Name: assets/pet30-24-happy_02.png
+SHA-256-Digest: vq7WCsiB40HBe7lI5PAhzHMXeYSMoEVsFSFM8FTh9/8=
+
+Name: assets/pet30-24-happy_03.png
+SHA-256-Digest: zcNSL6cwJUwNJYNy178IkF2udmYpyaCBxPBysCXp5QE=
+
+Name: assets/pet30-24-happy_04.png
+SHA-256-Digest: IaZxNc1S5L2J0fu5c3QNCpLQ5bKBua6vPDNusRVy9S4=
+
+Name: assets/pet30-24-happy_05.png
+SHA-256-Digest: ZnkAyABy3QWI2MXAIv7g9hRq9rzORkcT50kWylb9abI=
+
+Name: assets/pet30-24-happy_06.png
+SHA-256-Digest: gfVNWT6glF5Zbwt6ZqW+QgxqzxwEYPffpeVLH9MPGWY=
+
+Name: assets/pet30-24-happy_07.png
+SHA-256-Digest: gRvoy2Pge5A3QEJ5aFVPVCIO0V4gDpxwPUmJmkHsnik=
+
+Name: assets/pet30-24-idle-lottie.json
+SHA-256-Digest: fbWHNZHfbHoF2QaDN7VZdCYKHdqHbTrFIoGVC+DJtZA=
+
+Name: assets/pet30-24-idle_00.png
+SHA-256-Digest: VDvktbmqA+yryy5NIAJwkX5rydzx0XhQGruGUzw5qvU=
+
+Name: assets/pet30-24-idle_01.png
+SHA-256-Digest: Vl4mg2cB8+Lu1jHhvmUzBs3gBGOB8dDdFdOX7Mmc6ws=
+
+Name: assets/pet30-24-idle_02.png
+SHA-256-Digest: +UNxAfZY8VOtab59OrfULZ4H4mfg7oXHnm6YvJBDnDQ=
+
+Name: assets/pet30-24-idle_03.png
+SHA-256-Digest: mXkFHseZMxNk34m57CPJSHOcNj6rjV9AMeByUeoV8r4=
+
+Name: assets/pet30-24-idle_04.png
+SHA-256-Digest: b7wc3jAjnovM7tZPpBNbezrKnOWoFe6JKfxvIyrORKI=
+
+Name: assets/pet30-24-idle_05.png
+SHA-256-Digest: I7ZeSIuQLphwkCR5oVQcd19XLJfsBMtbdKAUFEN8nfg=
+
+Name: assets/pet30-24-idle_06.png
+SHA-256-Digest: 5pZa3/qImiJZwiTb4Dr/RjMeLEk9epYug60ucN5Rhug=
+
+Name: assets/pet30-24-idle_07.png
+SHA-256-Digest: Aqe1Yziz7u+zWL8oRwjhto+T0udOymmLVnOqPYgkIxY=
+
+Name: assets/pet30-24-jump_00.png
+SHA-256-Digest: a8w8vAFu1fmKWPvJewD8C4T1nZYY2MUTbuN9G8W41w4=
+
+Name: assets/pet30-24-jump_01.png
+SHA-256-Digest: EkuUC4IgWQRSY42Kc+6durYffb7LMnI0jYX/m8strm8=
+
+Name: assets/pet30-24-jump_02.png
+SHA-256-Digest: l+xVCCAI6hWdKFGe7IrlJW56elvnetFH6EzZcCdDsbI=
+
+Name: assets/pet30-24-jump_03.png
+SHA-256-Digest: RnLYC2u4IsEYDt13+291VjgF/nMhF1XUCdHTR5mtRMk=
+
+Name: assets/pet30-24-jump_04.png
+SHA-256-Digest: ykfpAWXgngNJaQqEcqae3pt8e5HmBYzfebM+3DHgNx0=
+
+Name: assets/pet30-24-jump_05.png
+SHA-256-Digest: dYBnc6UU2bSQ8XoXg5Ig5Uzj4NolXoiOQ52iCkrlmzc=
+
+Name: assets/pet30-24-jump_06.png
+SHA-256-Digest: Sdmm5Ql5GBGjJwujutxcjKHSQXOBNHW+QZHOKCA6EOg=
+
+Name: assets/pet30-24-jump_07.png
+SHA-256-Digest: 3nidxqwq2ah9yWU7sV7gnMHEyFI60l2sZoJkabgLL1o=
+
+Name: assets/pet30-24-special_00.png
+SHA-256-Digest: sRZD9Z4qSnQuB0k6FIMfZbVN1AF3IkhV34Qqg35JZKU=
+
+Name: assets/pet30-24-special_01.png
+SHA-256-Digest: t8lyVDxeYpsLEDQl3WL+RyCkPN01PjNjz6YNfUFuGPA=
+
+Name: assets/pet30-24-special_02.png
+SHA-256-Digest: H1oTvvbBlTbuN9lksJu3jRFGLcXICh+cosC0Uh9lGeI=
+
+Name: assets/pet30-24-special_03.png
+SHA-256-Digest: SyHezaMD2DG+gwoy5868eOzlO2y8qk0WrlxhiQM6sOU=
+
+Name: assets/pet30-24-special_04.png
+SHA-256-Digest: El4F0D31XS4Lk3ZqhgzIGObpnQGnAe10j30x+hk21fU=
+
+Name: assets/pet30-24-special_05.png
+SHA-256-Digest: ZB6uyQZorxdcglgpD+BNovFnwasz1zRg3Lells3nZl8=
+
+Name: assets/pet30-24-special_06.png
+SHA-256-Digest: BACIHXJYsoSxm/IjLzphHcmxUlPUG+P4Kq5C4kkup9U=
+
+Name: assets/pet30-24-special_07.png
+SHA-256-Digest: 5THqsrnARP/NSbw0y+i4f4US7+xsowWShnAfqoiQtUo=
+
+Name: assets/pet30-25-happy_00.png
+SHA-256-Digest: UkMRTQUkrhozhu++bEuWRVHzXxNrw6mW3MGz2xjwpGw=
+
+Name: assets/pet30-25-happy_01.png
+SHA-256-Digest: ee1lK5WQtrPi8XT98OhMk4BS+JGTNMP2WAaiuS6o4oI=
+
+Name: assets/pet30-25-happy_02.png
+SHA-256-Digest: c7L4xgD6CAYxusfYDa/0WkADKcNxjtF5EFrlJe5Ut2U=
+
+Name: assets/pet30-25-happy_03.png
+SHA-256-Digest: WfuAAb/uYADroXvS0wjU7ZGJQpTJYLmlAJLzcCHsZDk=
+
+Name: assets/pet30-25-happy_04.png
+SHA-256-Digest: oyRS2KDT605FSEYTG8GNhfbUs0Yo+pnRT6QQOUCRrN4=
+
+Name: assets/pet30-25-happy_05.png
+SHA-256-Digest: mjWkC/vA37IXJFany0rB4tm9UnihCRu2uUFFRisyRQ4=
+
+Name: assets/pet30-25-happy_06.png
+SHA-256-Digest: FyyVwvXm3cIrZ3V8GcPlm0pQz3teu7gqD1aWxneJOfk=
+
+Name: assets/pet30-25-happy_07.png
+SHA-256-Digest: ZSTh4pUUj1tol0fiRlHTWQAV2JWkn6OnvnYkRvSWsYo=
+
+Name: assets/pet30-25-idle-lottie.json
+SHA-256-Digest: JiJLZckpWjFw5LmCtmLNoylBvUDYqoPtg0gjerVEkwc=
+
+Name: assets/pet30-25-idle_00.png
+SHA-256-Digest: J8vDLW1KxODjVY+8vzOjORfHevGhw820BXIJyirsdXg=
+
+Name: assets/pet30-25-idle_01.png
+SHA-256-Digest: zqqPcsSdf4vLL4mXuVUrKmI1Pq+jnu+i1gETT38IgsQ=
+
+Name: assets/pet30-25-idle_02.png
+SHA-256-Digest: JEnqBFDzVexHl8D3EER2WNVO84L89nEADfXAkQ1EWZU=
+
+Name: assets/pet30-25-idle_03.png
+SHA-256-Digest: 1csgQFkgIvqBbTrv1I4WXbq9lvNn27Ws4bWigeQA3Kg=
+
+Name: assets/pet30-25-idle_04.png
+SHA-256-Digest: w95Ks2R3I2b2+ue6VrxvdQuVQPNHBZyt6rzglB0faEg=
+
+Name: assets/pet30-25-idle_05.png
+SHA-256-Digest: boQ8eZYXivZD/Zf5hS3hme2X6kCJicXBTIPyNegL2cE=
+
+Name: assets/pet30-25-idle_06.png
+SHA-256-Digest: 6YimuyXkQjvh2WPxyfdX9o0xXNIWwPV1EY70uwZBtaM=
+
+Name: assets/pet30-25-idle_07.png
+SHA-256-Digest: Q2NEgM9B7LtCFKzDtHhaGCS1wFJ/7EOpBNJttrA/e9A=
+
+Name: assets/pet30-25-jump_00.png
+SHA-256-Digest: uH4MajK0CT71DnD6lm7DskmGAvlyLy7goCbLeHbRJ5M=
+
+Name: assets/pet30-25-jump_01.png
+SHA-256-Digest: u9wVmtjOcRfVDpFZtaGA0rTjaYN5CqwcAfjpAHo7kyk=
+
+Name: assets/pet30-25-jump_02.png
+SHA-256-Digest: hyJIYMZOD9j0IPWFQZRzdXQZ5JWfDvLA8dlA3DXWaG8=
+
+Name: assets/pet30-25-jump_03.png
+SHA-256-Digest: 6w6ueXvxbTlp92QsDBAT7aqjYYKJwoLMCfV8X/DASxA=
+
+Name: assets/pet30-25-jump_04.png
+SHA-256-Digest: AKmRUz12wxlet/pULImkmDHoI2oAEoMT1tLEyb0FQrA=
+
+Name: assets/pet30-25-jump_05.png
+SHA-256-Digest: QuZXsv0nvclUwJTqK0xYhFUU5SQRrf5CVIGdNxSozCw=
+
+Name: assets/pet30-25-jump_06.png
+SHA-256-Digest: +/dGqwMgvVhC5k2d3OnjMgxrzjlULOOrxZoJZ3aeEK0=
+
+Name: assets/pet30-25-jump_07.png
+SHA-256-Digest: GEsjYNb6cKJFtbk3/gcllvTDEn951RSiCZ+1mbESk/g=
+
+Name: assets/pet30-25-special_00.png
+SHA-256-Digest: jCcvdfJiQoJTHfyRfMIYaP7oyBFxYHlUOSzzefAYXf4=
+
+Name: assets/pet30-25-special_01.png
+SHA-256-Digest: SuEB3L0RRs1HW8hWB/FXTTaQkzt20a/pIbYCs4GVwTs=
+
+Name: assets/pet30-25-special_02.png
+SHA-256-Digest: VFb0RqPk/8AB5WRfEH1LLR0iI/lHCFC8/qTwZTu+do8=
+
+Name: assets/pet30-25-special_03.png
+SHA-256-Digest: M9BsoDvSWTDVeEBH6yFCg5LnPIMWsBSEG5J23z2xMew=
+
+Name: assets/pet30-25-special_04.png
+SHA-256-Digest: RZ7jDmzsZi+3Q+LAqdUvlId0k0r+czmxV+r9TYg4Oh0=
+
+Name: assets/pet30-25-special_05.png
+SHA-256-Digest: sgFLJbW42P149od2ClPzg9B3GHGYKxRPOcSUwsJUoE4=
+
+Name: assets/pet30-25-special_06.png
+SHA-256-Digest: /AAdo/836lnRvicKixRBhhyZy+G+BjoLvAsMGqTuJyk=
+
+Name: assets/pet30-25-special_07.png
+SHA-256-Digest: h6BBDldMinE4xWl1RvTUBTXZp2kRWwwx3zkegama/nw=
+
+Name: assets/pet30-26-happy_00.png
+SHA-256-Digest: RoWa2xmFESlWAUWERCDx8h5RAUOT3zn3ioo4JZT2uZQ=
+
+Name: assets/pet30-26-happy_01.png
+SHA-256-Digest: y0OJ6DIaVvqyB4QRzDmKA+8fuEvChPynv9lwtPP9QA4=
+
+Name: assets/pet30-26-happy_02.png
+SHA-256-Digest: dx5HgO6WPXjcF/bI16juZVvI9a6gk1YQkfUl3d3CBSw=
+
+Name: assets/pet30-26-happy_03.png
+SHA-256-Digest: S9fYRj7JSwlyULmqQD5H2MUqRoNzNN2i+A9c4nDQQbQ=
+
+Name: assets/pet30-26-happy_04.png
+SHA-256-Digest: rPdwxNztxMWgKAklrCYUBMu4U1gcuP7Y0x2AfKkYoHY=
+
+Name: assets/pet30-26-happy_05.png
+SHA-256-Digest: yphW7q7lxG41dUOB0ZuV3px82ql2/A4xeHvj6E/2LI0=
+
+Name: assets/pet30-26-happy_06.png
+SHA-256-Digest: lYuZSu7BAbQNtRd84nbvh6969GQ4SMR1uH1ZZNZuVtk=
+
+Name: assets/pet30-26-happy_07.png
+SHA-256-Digest: pksnxJvvQeNYTvVv3sKVRHvqoQLOJngcGObcz+jOS5U=
+
+Name: assets/pet30-26-idle-lottie.json
+SHA-256-Digest: jmv0I5JP30Lt/tmK+/yfLs1kAbfo04MlwMi4dpplRB8=
+
+Name: assets/pet30-26-idle_00.png
+SHA-256-Digest: iwX9C8b5MPmN9kX52LGOWQmlpDgDw6NvMOrkd1SMkWk=
+
+Name: assets/pet30-26-idle_01.png
+SHA-256-Digest: 1qxyq5+121Ezjo4i1C6Fz/5UTuPQmLkJNOb2vyIxbIc=
+
+Name: assets/pet30-26-idle_02.png
+SHA-256-Digest: nKy7yrYCNwn4zOa9Omcgv456XM8zFc3EVPF5z14Mf50=
+
+Name: assets/pet30-26-idle_03.png
+SHA-256-Digest: 3EB4g2fAhktbwQzy74LfrHU1/HOms9pkluB+wRWbElc=
+
+Name: assets/pet30-26-idle_04.png
+SHA-256-Digest: CeDNWK/ole/agLHH0KGMgGXELzs6Ogf4hbQVfZbp96U=
+
+Name: assets/pet30-26-idle_05.png
+SHA-256-Digest: MK0UhtE2kXCso1eqjEqzBnMRyHMiCZOKgWkI43WgFfo=
+
+Name: assets/pet30-26-idle_06.png
+SHA-256-Digest: C4KrGJKCP13RJnj6ys/xKgN0cbTQ5WQr+Ico35DQLkE=
+
+Name: assets/pet30-26-idle_07.png
+SHA-256-Digest: 2LLJpHtgLmbzdPKGjLS+5XMXFiXxP4+P6x+OH/AWSzM=
+
+Name: assets/pet30-26-jump_00.png
+SHA-256-Digest: XKAFX/Ok0v4QVPulP2lRJS+XfdNMeZy4KbuOzvxttM4=
+
+Name: assets/pet30-26-jump_01.png
+SHA-256-Digest: ibx3kyapovIT+z3Wl9bTLyYC6R9Zo5evceq1aFMGlQA=
+
+Name: assets/pet30-26-jump_02.png
+SHA-256-Digest: gIR0vtbMbj24zD3CMW+9/dsYYQyS3acQ3S7SF8x8nV4=
+
+Name: assets/pet30-26-jump_03.png
+SHA-256-Digest: mq5NPI8Uo5hn657XTdlSQ7OitNBOClnz5Dt6n4tyVFY=
+
+Name: assets/pet30-26-jump_04.png
+SHA-256-Digest: sEiVCw1QMyBhTopAtjWANoOyWw0rnkcWqorORVOJzZA=
+
+Name: assets/pet30-26-jump_05.png
+SHA-256-Digest: HQgpBW3qVeJJW/5YrkQ0LCnLwsEcCjhN1aAkQ5t76Yk=
+
+Name: assets/pet30-26-jump_06.png
+SHA-256-Digest: 9AqtyMRFxZx5E1C7iPo35HnRa4qEtVBjGUiy8q1GKiA=
+
+Name: assets/pet30-26-jump_07.png
+SHA-256-Digest: mbMCd/dZ2w9dbbairergcO+kcwB8FW7iszyDuGWeJYE=
+
+Name: assets/pet30-26-special_00.png
+SHA-256-Digest: KNqSDkTcrpqmBID0yzeIBvdDeFFoeFTadCfWfgU0oIA=
+
+Name: assets/pet30-26-special_01.png
+SHA-256-Digest: IuP70Lft0ULeOBqEL2rX6W2uxxEyGcf/fvvTUMpr2PU=
+
+Name: assets/pet30-26-special_02.png
+SHA-256-Digest: yag8/oZgsMjsWXXY7V0juZYv1p//vJgT893BbxZZfDM=
+
+Name: assets/pet30-26-special_03.png
+SHA-256-Digest: ZWSMSXJRh722gD5for14rlWEO/qcH9l9wZkDuGNwcAU=
+
+Name: assets/pet30-26-special_04.png
+SHA-256-Digest: d1jlh6HVrem47lIvC+P5jqY6BJEIwcrXNzfO6buENys=
+
+Name: assets/pet30-26-special_05.png
+SHA-256-Digest: nAa2gEIV661gOFAPfjP4tpJbd1DrzYpzld1nFaXRRiA=
+
+Name: assets/pet30-26-special_06.png
+SHA-256-Digest: EY+XHcQlgkHcnLDoNlQknkPmEcpNPLVhJYWpz6ZedT8=
+
+Name: assets/pet30-26-special_07.png
+SHA-256-Digest: DO/qQACLWtfirYyn0kBkjAqRzQA93g1x66rp2MFyQAw=
+
+Name: assets/pet30-27-happy_00.png
+SHA-256-Digest: I3EEYB9Qla6F9AfMrhz+1LUYp+EwrEDLT7obJZU3qrk=
+
+Name: assets/pet30-27-happy_01.png
+SHA-256-Digest: wfk2qh7BODuE3lNEQSEoTFXlVuRpdDeI0GxdYsLOafw=
+
+Name: assets/pet30-27-happy_02.png
+SHA-256-Digest: ec9Pdxd45t0uPfanAXuXO4J35mqw9Z4Wld9NekNmCnU=
+
+Name: assets/pet30-27-happy_03.png
+SHA-256-Digest: Zm5Mg4qKlVzoBadOm+KisiWlHI7KoLv3HCpwaOYXCCA=
+
+Name: assets/pet30-27-happy_04.png
+SHA-256-Digest: z4dbv05Arq8TxqqZpDAtxuo0KkHP+mm+b7mwyAA5yAc=
+
+Name: assets/pet30-27-happy_05.png
+SHA-256-Digest: bfdcV22jjWcCKpH+S+J9ziEDdf6MlF1hjo3G+JFpJdY=
+
+Name: assets/pet30-27-happy_06.png
+SHA-256-Digest: kkqn9N1wOGJU4jXjGdw9TrHwY2hTA8+5XdCsd87LJZQ=
+
+Name: assets/pet30-27-happy_07.png
+SHA-256-Digest: ggrOBLVfZbfgas61mzmJEGLeigtZRbqEj3IzRZQ/iFA=
+
+Name: assets/pet30-27-idle-lottie.json
+SHA-256-Digest: q8SZdTiMeA9CL0nwIOkMXFZaJvVKy2jrf+WCMV3wiCU=
+
+Name: assets/pet30-27-idle_00.png
+SHA-256-Digest: EJLt1m6SNmv91SF6HbBwCGqxvM77efOHkzdZPdEY5Co=
+
+Name: assets/pet30-27-idle_01.png
+SHA-256-Digest: QjIg5swTUy+m0evBLozfPFmB5FpHcLNGA6pUdTv4iMU=
+
+Name: assets/pet30-27-idle_02.png
+SHA-256-Digest: Zuyzn3TiadKrmunfuYiKOOg6ccBBr6jrPB1Iz6ipfQc=
+
+Name: assets/pet30-27-idle_03.png
+SHA-256-Digest: xQCWqIfCuJ2MNIWa+KJRDQ5sWtLMPA/mJiJRX4Ql5W4=
+
+Name: assets/pet30-27-idle_04.png
+SHA-256-Digest: m5MhRbvoKq2jBpLReIXhv8HJaQC06Zp8Ggicezje3Z8=
+
+Name: assets/pet30-27-idle_05.png
+SHA-256-Digest: abY+AJYFtcCTDZNJ+AYaLJF2+oooNqzaVwU+rrCopqo=
+
+Name: assets/pet30-27-idle_06.png
+SHA-256-Digest: 5kJzZ8PT9+cJm0wGrHehajgcG2wPYw3UpEhwKZb+4vU=
+
+Name: assets/pet30-27-idle_07.png
+SHA-256-Digest: 7FRBARt2L8M0uurR6Zo13s6xhqczuvWGigWzkWKytkU=
+
+Name: assets/pet30-27-jump_00.png
+SHA-256-Digest: dCbs9N1W1tauUs+6/ldJPfUWgHQ+Gpo1uPSSXfxNUGA=
+
+Name: assets/pet30-27-jump_01.png
+SHA-256-Digest: t6d24Ns7GatlOl8OZA6rUhDuOh6FY3bG4AImh/qywfE=
+
+Name: assets/pet30-27-jump_02.png
+SHA-256-Digest: t0nA3uLLIVO5KFh9hYVCmNJDKVyduUiMhncYBLUVsU8=
+
+Name: assets/pet30-27-jump_03.png
+SHA-256-Digest: zQiQ8GJZgr0Z/rlfZvJINZ9KKg/+A7aWVru06HpRoQg=
+
+Name: assets/pet30-27-jump_04.png
+SHA-256-Digest: tkUfHvtM8BJd4b4p7iNb1X13QGKFfS9TtfSnuTpGWUk=
+
+Name: assets/pet30-27-jump_05.png
+SHA-256-Digest: T4zBVU3rCcNtT4PTgavltyShESl+RypSY41kwODePSM=
+
+Name: assets/pet30-27-jump_06.png
+SHA-256-Digest: AjQRThRMiSjCvGzpMLxhwkeOAwt3lqeAtHab+CAdEXg=
+
+Name: assets/pet30-27-jump_07.png
+SHA-256-Digest: fUEvZmqiNVN4XflnaH7Wiw0cBBrxUaYUbCHI0tpdoJ0=
+
+Name: assets/pet30-27-special_00.png
+SHA-256-Digest: Sw8IGpehUFqChOfLHUacu1HZLJ6+cMNM1BtcwkH5Z74=
+
+Name: assets/pet30-27-special_01.png
+SHA-256-Digest: xSoAjYCsf+jZWIgBiU37EJc8nrvsJBQ6CTZRnx1EBwI=
+
+Name: assets/pet30-27-special_02.png
+SHA-256-Digest: uSMPI4NCR29gtFwKzAk+iB49aUvF4u00Mx6/wPtpVEU=
+
+Name: assets/pet30-27-special_03.png
+SHA-256-Digest: 2kXbhnCF+iTIgq0CaJW9Iimlkp5nk7oL2XxYiK7l5DA=
+
+Name: assets/pet30-27-special_04.png
+SHA-256-Digest: kJclzLBhNAL3xSOTtlt/S2S78YPQC6/+75c/FF8WEJA=
+
+Name: assets/pet30-27-special_05.png
+SHA-256-Digest: ix3tpz7uzjdqKQgYAMsmKVdezBPHdaNqrcvhiM98ZYg=
+
+Name: assets/pet30-27-special_06.png
+SHA-256-Digest: SmYjtZJL1KmZhT1mo8FBaAP1v3iCKjeFba4YVQd4hIY=
+
+Name: assets/pet30-27-special_07.png
+SHA-256-Digest: qtSMsiaplakEypOzI0BOjFFa21Q5ooJs1VSlLymU/lQ=
+
+Name: assets/pet30-28-happy_00.png
+SHA-256-Digest: KZ0rDzlPOz2xwMtLE8em1l2x8DIhi9Mq5+bhl5g0WRI=
+
+Name: assets/pet30-28-happy_01.png
+SHA-256-Digest: HoiyATEcnJ61YnhLSD4nG/fmwAI3fCsfv30QWAlGm/c=
+
+Name: assets/pet30-28-happy_02.png
+SHA-256-Digest: Q6Z1TrKG900Ux1Uej1rXhVI1oHevvADiZLwRjOSMqjY=
+
+Name: assets/pet30-28-happy_03.png
+SHA-256-Digest: YPuD//RCMXS+Jbe1NEVB8gQEMoVOmwr9dEdmiKBwfLg=
+
+Name: assets/pet30-28-happy_04.png
+SHA-256-Digest: 90yM5kPpOqnOgXdBsFCnA/3Jxm1O9e6/OrYu0cxbJB0=
+
+Name: assets/pet30-28-happy_05.png
+SHA-256-Digest: Nw/GQJwR6bnfTqw2+8EdwB2uS3NaV+TYuv/asZVPqH0=
+
+Name: assets/pet30-28-happy_06.png
+SHA-256-Digest: hCR3fDZQNb1XetY1mhF5Rd999+MtkvMSVsM4Tolvwgs=
+
+Name: assets/pet30-28-happy_07.png
+SHA-256-Digest: pbOF6KXTXaUJrrEBw4/x0zXy5esr/SYuvmbzCTDObno=
+
+Name: assets/pet30-28-idle-lottie.json
+SHA-256-Digest: WMqrZh78HD00Q+p7zRGXm1r24SxD7PP8FT9Wx9Yz+U4=
+
+Name: assets/pet30-28-idle_00.png
+SHA-256-Digest: xrHNgyrsoCOxhTmK44dL2Ba324TAIWRh662WwNw0jL0=
+
+Name: assets/pet30-28-idle_01.png
+SHA-256-Digest: nKhByzRuxzxivn97SzSaEqXK61S+3wBt+LLZSBpA+fg=
+
+Name: assets/pet30-28-idle_02.png
+SHA-256-Digest: Hozvu2uOobQmErLRkx/OPF6yKgquSo2o5uaRHxYxqeI=
+
+Name: assets/pet30-28-idle_03.png
+SHA-256-Digest: 2TGMaRCmu2VtGY4lbl4JXxOSkqv3AbiG48H/ur/1HFw=
+
+Name: assets/pet30-28-idle_04.png
+SHA-256-Digest: eB1+S7omiGIwLv17EV6Hqn7RkGoHhwi8+Q0tMLPaCwg=
+
+Name: assets/pet30-28-idle_05.png
+SHA-256-Digest: wg5IkD46rghI92icqKBkpwZc1X6BGZTUY55kS5ITTU8=
+
+Name: assets/pet30-28-idle_06.png
+SHA-256-Digest: 7mNMutDtQkVA3foUActvrIum3QD87FMyQr0Rw7vWuMM=
+
+Name: assets/pet30-28-idle_07.png
+SHA-256-Digest: 9CjJydfrZaV3RfDmOm8rgs4nf+vfvzt6QFFsomsJtM0=
+
+Name: assets/pet30-28-jump_00.png
+SHA-256-Digest: sJuFLc9MIJiilS1foLTVUgr+SnAuQpSV6fZUlz/fFCc=
+
+Name: assets/pet30-28-jump_01.png
+SHA-256-Digest: w3cCQUnG90Jdlo+hKU0Y/VzVQ+FVDHc1lCPbgxdSUHI=
+
+Name: assets/pet30-28-jump_02.png
+SHA-256-Digest: k2a+XMeBmJb+eEL2rsVaPjuNJuNXTMO1xPqFbW0jbT0=
+
+Name: assets/pet30-28-jump_03.png
+SHA-256-Digest: A/kvI+g2SwaZHcblIwhMDdUcTHANJE4pTy1+N9e0sQM=
+
+Name: assets/pet30-28-jump_04.png
+SHA-256-Digest: U/hORAPngZu3fb26irW+yh3vckfgJmWWGWWgSkirOo0=
+
+Name: assets/pet30-28-jump_05.png
+SHA-256-Digest: Nz2ihz+HAXrROT7hsDomzqnD+W5ZWvu4H/jOE3huqdI=
+
+Name: assets/pet30-28-jump_06.png
+SHA-256-Digest: IlqSkQk585w3Fwp6xWkWBnFKjeJQXHCEv0Bh1HzED5c=
+
+Name: assets/pet30-28-jump_07.png
+SHA-256-Digest: 9lAvNeISAarBokf0eDZO3yI5MI3Kend7aRCfDyeZiE8=
+
+Name: assets/pet30-28-special_00.png
+SHA-256-Digest: y+meCU7hmiM06BdAJibKJCICWPHd9FVn6/Qb+o8vZBY=
+
+Name: assets/pet30-28-special_01.png
+SHA-256-Digest: o5i6sFJZwvYFVMzuGnmP7oNBfqHIZmwJvT4NO3ko8rY=
+
+Name: assets/pet30-28-special_02.png
+SHA-256-Digest: me6B3TFLzS5fr1jgepD702p9f8DhnEuYhM6Q34ue6rY=
+
+Name: assets/pet30-28-special_03.png
+SHA-256-Digest: qALFxheVAoCxvz5AM4aMmooFJOy9MWu8E0j2KyJrPI8=
+
+Name: assets/pet30-28-special_04.png
+SHA-256-Digest: Y/Ucw0J0/twuOfDV9NzpDxrTmZR7t9P2xy8jyZ/lqEg=
+
+Name: assets/pet30-28-special_05.png
+SHA-256-Digest: podnAFGLhn2c591E+Z9uGWVeMWxL3OQ5affYyEd30jc=
+
+Name: assets/pet30-28-special_06.png
+SHA-256-Digest: DP4yrzkZ2Ms3aoNEfwwhMDKHaM+l0c2VsbLirfYXiKc=
+
+Name: assets/pet30-28-special_07.png
+SHA-256-Digest: NMioMgBbmc8ZqirB0aiXUV/cO5a7ZTY0SKwp6DSJZX8=
+
+Name: assets/pet30-29-happy_00.png
+SHA-256-Digest: 50qqitTG1cYSiPwnwAPJvp7ZwRKBicxsd0jH1OVaPlU=
+
+Name: assets/pet30-29-happy_01.png
+SHA-256-Digest: FoWx7jllZ7F3yPQ14wrnRZyBBqM8rnnz5D6GnbUylnE=
+
+Name: assets/pet30-29-happy_02.png
+SHA-256-Digest: feAOaimRsSpmjG9PrPPf9KNXjcwei3I6l8wiKghovyI=
+
+Name: assets/pet30-29-happy_03.png
+SHA-256-Digest: N5c56Hc7No97eIpurQLCKlZHbml5vfkHcpSKVQ1QdcA=
+
+Name: assets/pet30-29-happy_04.png
+SHA-256-Digest: bdc9Kegc0R8LpozXfJJ9OB60MtSaK2cBxkaaTJv4S+s=
+
+Name: assets/pet30-29-happy_05.png
+SHA-256-Digest: cb3zhWefNQEB8gRT7mJogcUEI6NsnMAaSKUhBWGo1Cw=
+
+Name: assets/pet30-29-happy_06.png
+SHA-256-Digest: LCAq83w/YbMxeihdG/AnK7CMKWfIFwa6buGJ2xy5+1Y=
+
+Name: assets/pet30-29-happy_07.png
+SHA-256-Digest: enphMPGGDHJknd+eHOE/mC9W4hL2V/TYAiIBNFKIXoA=
+
+Name: assets/pet30-29-idle-lottie.json
+SHA-256-Digest: sgc2eYNnScawBSB8xBPpgbstdUosHkJ34014BGrbNeo=
+
+Name: assets/pet30-29-idle_00.png
+SHA-256-Digest: 0b7AEC+5am3JR2ez8DhBfehdLsoUvUcDIdrFEuARcsE=
+
+Name: assets/pet30-29-idle_01.png
+SHA-256-Digest: EN5BQsKLdomPLoNWz+Lb8EzU98qUhD5MR0BbR+zODdc=
+
+Name: assets/pet30-29-idle_02.png
+SHA-256-Digest: oS1MVkIYiruyZySE4DzfeATHyNsZ4s8XMebR2A916f4=
+
+Name: assets/pet30-29-idle_03.png
+SHA-256-Digest: mfWdRA9Zg90d/2tOvg6QUMN0U7l0e7aWfE6tvu68zy0=
+
+Name: assets/pet30-29-idle_04.png
+SHA-256-Digest: zjnmdtm/4imexaMjeu6GopA1kBJR7n6tkNOEqQw0SQs=
+
+Name: assets/pet30-29-idle_05.png
+SHA-256-Digest: Z60wpB09RTw0I5hUrAOs2MZ/kau1xDNMyo5SWZy8ZqM=
+
+Name: assets/pet30-29-idle_06.png
+SHA-256-Digest: r8YoWaqy6YB2lGtrGg04dPhgsUmdPXcux331Me/0kz8=
+
+Name: assets/pet30-29-idle_07.png
+SHA-256-Digest: oNr7q6zBt6wmm7Fr6iRJRIcjAlmVxmWce0vgKThalWM=
+
+Name: assets/pet30-29-jump_00.png
+SHA-256-Digest: KJ1VgXgRFs0KOgv+p1SGA41T2WSwI43iRfMSGuL3dpA=
+
+Name: assets/pet30-29-jump_01.png
+SHA-256-Digest: 4Bal49UTNAD9p5oHORt1z+c4mPoori6VB81qjTAp0JU=
+
+Name: assets/pet30-29-jump_02.png
+SHA-256-Digest: 0SE9ZiSNdi/TRGmByhpEbtxPzuo4AMRebSUahsTnTpY=
+
+Name: assets/pet30-29-jump_03.png
+SHA-256-Digest: wY+VIYEnYNdh01VbP33mgt1rpGWbKdu111ib7rD/hAA=
+
+Name: assets/pet30-29-jump_04.png
+SHA-256-Digest: 50YgGOG04au+ZY9CTVETYFauSsdYWckl8AADXlx/+xo=
+
+Name: assets/pet30-29-jump_05.png
+SHA-256-Digest: 88mIOXuFEttnd2C0YqJ+POgYxumT53wmZfu7BWlO9AY=
+
+Name: assets/pet30-29-jump_06.png
+SHA-256-Digest: DlzIc4/Z9lG9ZeaUdQixsy60AX1gtW+9wrVkXEAL1Oc=
+
+Name: assets/pet30-29-jump_07.png
+SHA-256-Digest: edW/E14rAMwX4mmuT1WZJoTN84JRQIAbzS5ILGz0NNA=
+
+Name: assets/pet30-29-special_00.png
+SHA-256-Digest: MHmt7FUzcT4m82y2kPj2oxB618sVfAvJvJjsLkpZSeY=
+
+Name: assets/pet30-29-special_01.png
+SHA-256-Digest: BVvnigjwQ9dbwNNY1180p/UCO1VWdj0FDgNini1Cx/8=
+
+Name: assets/pet30-29-special_02.png
+SHA-256-Digest: ISkqGV8aZWsVrQO56XZe/iApmlPixpoVHa2iZcQ72To=
+
+Name: assets/pet30-29-special_03.png
+SHA-256-Digest: ZQ1++2mmO+sU+rpTGNK+7/WpuIAXMy+8heVJ1viyApI=
+
+Name: assets/pet30-29-special_04.png
+SHA-256-Digest: Az1iXIUKXu4EujVQ1s/sE8f/33yUbh7G8Ab/iqVo8/U=
+
+Name: assets/pet30-29-special_05.png
+SHA-256-Digest: 8Dada2Jr6Ula+v6QNpaEyMcyGWtj5ydWsEd+Iq3A5KI=
+
+Name: assets/pet30-29-special_06.png
+SHA-256-Digest: APYqeg7WbajYL5md4NQic98QSdrTFnLTftkMi2QvWGQ=
+
+Name: assets/pet30-29-special_07.png
+SHA-256-Digest: ogW8PBTHB6N5JB4KbGVuIA8UpcRjI7cu/DOnUrJmDew=
+
+Name: assets/pet30-30-happy_00.png
+SHA-256-Digest: Huh6eyy9UZekG2uO+u2WXp5rQdpVpSLYRku6EvMRRYs=
+
+Name: assets/pet30-30-happy_01.png
+SHA-256-Digest: TKED/dyCpsFBT+UZ3UhW9REAIX/FZ9meKVAIeZA2ORU=
+
+Name: assets/pet30-30-happy_02.png
+SHA-256-Digest: uTmJhE9BzQm1MT1ex6QJr5JYipoo2tBaKXS2k/Vso+s=
+
+Name: assets/pet30-30-happy_03.png
+SHA-256-Digest: tEISWU/905LsMxmnCJJcEtTbleqVCguapQp/V/cyA2M=
+
+Name: assets/pet30-30-happy_04.png
+SHA-256-Digest: KFMxUqVOEns3tc77KZhXaiVhwjGFoT9MwRv4DLPv764=
+
+Name: assets/pet30-30-happy_05.png
+SHA-256-Digest: rF0hFxmbLQPcpNJbHe8qsMhB8MeCn9xAHT9WMG3a960=
+
+Name: assets/pet30-30-happy_06.png
+SHA-256-Digest: +XqJz1XZ5140b+9sYbz7tEezGxrKrnAwQkKdVYwS/bQ=
+
+Name: assets/pet30-30-happy_07.png
+SHA-256-Digest: v1u4ESwruYFG7gmB5oC+vkHl6T8Cw2GPqcbdpZCeyRQ=
+
+Name: assets/pet30-30-idle-lottie.json
+SHA-256-Digest: CDkYHGaWTMGpkFnAdM8o8ftQ+mKuYn8KoMm7BqXxkkk=
+
+Name: assets/pet30-30-idle_00.png
+SHA-256-Digest: il8ii1ceOpigGdRi3BXJNiS+9HZbBMeebeNbOnlbAYg=
+
+Name: assets/pet30-30-idle_01.png
+SHA-256-Digest: X43Fd2OLEDcBBnb6jPZjcLlYBhlKVPrVJjI60fHNePg=
+
+Name: assets/pet30-30-idle_02.png
+SHA-256-Digest: xUnIECALPmMkoZ38eDtQphNwFNy7D6RFakCczlaWEA4=
+
+Name: assets/pet30-30-idle_03.png
+SHA-256-Digest: qzWCmzks6nErD+Of6XcOpWKDAJMx585fFY2OsLyvelU=
+
+Name: assets/pet30-30-idle_04.png
+SHA-256-Digest: MzrgrwCH3gQ4piL0b4y6PKdQUL3wcp1+iLspEwdzLJQ=
+
+Name: assets/pet30-30-idle_05.png
+SHA-256-Digest: xN5O4Sb1XBKFuCMfPm4m6yOCESmv7ph9XhuCvJ3R0l8=
+
+Name: assets/pet30-30-idle_06.png
+SHA-256-Digest: jDiaB9jZOt7tWZ/Flzs91y7AgNgY/LIZzQZQNAe68eY=
+
+Name: assets/pet30-30-idle_07.png
+SHA-256-Digest: UuRtsrfZ4/UUunfdM3ttej4LUl9hZdB0oD0szkYoOY4=
+
+Name: assets/pet30-30-jump_00.png
+SHA-256-Digest: 9ubGbJC+GJCSIART2peyG9mlIKtuQ6zdD0+I4cGM9DQ=
+
+Name: assets/pet30-30-jump_01.png
+SHA-256-Digest: /fellsXt6VDTIQyYfj1tpSjnWtSDaQ898hLlWTLmUtY=
+
+Name: assets/pet30-30-jump_02.png
+SHA-256-Digest: /uhbInj3L6jMymhWC5CoEx6dc3oBG5z3LJZDtakCQZQ=
+
+Name: assets/pet30-30-jump_03.png
+SHA-256-Digest: fPEgwgGVzDsC/NMXttcbkz9gYZJNbNFV+JHyudbcAzg=
+
+Name: assets/pet30-30-jump_04.png
+SHA-256-Digest: f1fMIGFl3y0fYZPWFz59yAUl0nrw7CV2XF4qGHSWQ68=
+
+Name: assets/pet30-30-jump_05.png
+SHA-256-Digest: XEEdfMDEPiLNdWgCJvOReEHPm9I5y+VquFxRoXQ6D3c=
+
+Name: assets/pet30-30-jump_06.png
+SHA-256-Digest: WGNMYwxF8ol6BBjDaAj46C5yYJSEOBn1UmG/ADm40ZY=
+
+Name: assets/pet30-30-jump_07.png
+SHA-256-Digest: 7DMzfT7eUU5fhxFfqvTPI5HN3uf8t+SECzzveHZQzd8=
+
+Name: assets/pet30-30-special_00.png
+SHA-256-Digest: xyq8upg94saTtu2vOKFV2jubglUDiJA6vqXAZEtY/5o=
+
+Name: assets/pet30-30-special_01.png
+SHA-256-Digest: uJ8aqV+zLIe/iPO1CWpbJOPjcL7Hki+NcybjJdI6hxQ=
+
+Name: assets/pet30-30-special_02.png
+SHA-256-Digest: du/WxylBRTWFpjyhMT43PfoqJiug/07/T0UXAg9l+so=
+
+Name: assets/pet30-30-special_03.png
+SHA-256-Digest: mXGsi9rD6TE4UOSKaUrhUX8Z7BUc7P5UZUsIdPcVnKQ=
+
+Name: assets/pet30-30-special_04.png
+SHA-256-Digest: 778P+JwbAxe4QxnveddSU6kN0cfA0AIvHANfNEPGMj0=
+
+Name: assets/pet30-30-special_05.png
+SHA-256-Digest: jJUrAsdn6do2DXm7Bml1Zb67YT3KjVWHkzkII92vX4E=
+
+Name: assets/pet30-30-special_06.png
+SHA-256-Digest: M6vlYz+j1CcApGlZWiLvRTsQnSHmf5ifeJBAwlz6sic=
+
+Name: assets/pet30-30-special_07.png
+SHA-256-Digest: CLcy93rAzBvdcAVX3XNh/wXQCWyEUgmAXVojjBQg/rc=
+
+Name: assets/pets-rescue-banner.png
+SHA-256-Digest: fHmAe3XPTT5X3oPlxiPY9jZV2adIf1Az+Nppbe+quGA=
+
+Name: assets/pets-sanctuary-bg.png
+SHA-256-Digest: KAHAKHm9Mx9kTO4Ju2ebaXZhQrFTliLDSyOwAaZ8OLQ=
+
+Name: assets/portal-lock.png
+SHA-256-Digest: ItZf3OZnxJh1t9D3viDz3VgMoxn6tg456LtLgKGnGbk=
+
+Name: assets/portal-world-01-map.png
+SHA-256-Digest: w+wTqfyIvHQr87JgMF+fgMEaafnvo+s7Xr733LzkUiU=
+
+Name: assets/portal-world-02-map.png
+SHA-256-Digest: 6ahh7XTgEGqdbWTC10df7XpXZ0kk7RvmOilpyoAgsdA=
+
+Name: assets/portal-world-03-map.png
+SHA-256-Digest: MlqbJuZgg5pH5DZ/BWy8/KDRtJvqapyD7QR6N/sQ288=
+
+Name: assets/portal-world-04-map.png
+SHA-256-Digest: q/8OatS/cFI1p7tg753Ug51S1dK9m/Jw9NGgpD1E++c=
+
+Name: assets/portal-world-05-map.png
+SHA-256-Digest: hDW/rDAO9wRgNZMmc0RBRsLTdrJS+xlGooPomy4ZMaI=
+
+Name: assets/portal-world-06-map.png
+SHA-256-Digest: 81KNbAUI6kkJ4K2qovJcnl6rGE36CcJArCWY8jFhgDY=
+
+Name: assets/portal-world-07-map.png
+SHA-256-Digest: BQEdOPOZJcqxAtHYn3ODJF095y2YFUBUyZWEZhxrLEU=
+
+Name: assets/portal-world-08-map.png
+SHA-256-Digest: n9J2ox0ecedyko9s30XQmPgHoRQNZ3hK9/PNjpl388U=
+
+Name: assets/portal-world-09-map.png
+SHA-256-Digest: 1MBD+52jscyR65OfEvb90T2LaxhOVj1vpPhp9RL8wUk=
+
+Name: assets/portal-world-10-map.png
+SHA-256-Digest: jZuACx5Tavo6sYJ0xEOl/VMSWf+V1mAr1qRaKg0LvJ0=
+
+Name: assets/portals-map.png
+SHA-256-Digest: WH/ErQLn0pnmikdFAbjResMHPXsxigtjRU615eBdaWQ=
+
+Name: assets/practice-answer-button.png
+SHA-256-Digest: nD83+u03RGUdKR5OMks/aZlX7aQ022XzyFG4G0eAtRA=
+
+Name: assets/practice-hud.png
+SHA-256-Digest: XoLhHtxE+HVIyK7kV+xnN4ekERzW3L641xYdRorCjM0=
+
+Name: assets/practice-question-panel.png
+SHA-256-Digest: e/cJAz7UXzUvoL1gID/CoE9Qe8l2jHAT/OVW+zFMChA=
+
+Name: assets/table2-bg-pirate-bay.png
+SHA-256-Digest: NpyTzJ4BpXMhDRgjGMYeWa+exu2UHJMAKMi/D0qh4Mo=
+
+Name: assets/table2-bg-pirate-port.png
+SHA-256-Digest: 8nr7dQOlhWbzFu9vw8dmPnPozOUvueLpoW/csNetQ3E=
+
+Name: assets/table2-chest-nautical.png
+SHA-256-Digest: abVSXvDqmFh+oflipJj+Jm/+3cNtQDQ4jYn7JyIAevg=
+
+Name: assets/table3-bg-inventor-workshop.png
+SHA-256-Digest: +TvYKHs+7IV33v3uwv7lDvy1Qmm8R06KiRyeAm1HEKo=
+
+Name: assets/table3-bg-mechanical-square.png
+SHA-256-Digest: jKSngB+sWEbg2e+Wfp4FI5K8iD1AOtQXXL46nsHarBM=
+
+Name: assets/vilao_erro_lottie/README.txt
+SHA-256-Digest: wMta7mdfI2rBCnDcRtVorU+PFh9dUbiatYBKNvBYwUA=
+
+Name: assets/vilao_erro_lottie/images/villain_error_01.png
+SHA-256-Digest: +8nc/6OlrigsoeE0fL6VFHzRIRIQ3+XoOyqWP4bezF4=
+
+Name: assets/vilao_erro_lottie/images/villain_error_02.png
+SHA-256-Digest: xAWcz+9bw5Xe9Jf07hOXG3ZeCSJc9/SyGVB8cGnsoL0=
+
+Name: assets/vilao_erro_lottie/images/villain_error_03.png
+SHA-256-Digest: qS8sumSqMPz22hzBvpUDGRHUe19EUI+ZjeoqAFY8zxY=
+
+Name: assets/vilao_erro_lottie/images/villain_error_04.png
+SHA-256-Digest: EEekItt1AZb8CsTjmhmK6NOqo/9kHiK1LYpFGRsEeA4=
+
+Name: assets/vilao_erro_lottie/images/villain_error_05.png
+SHA-256-Digest: kchGbXgUerp9zPM2bk4ld64fFL22P0uPkpefkSas9Eg=
+
+Name: assets/vilao_erro_lottie/images/villain_error_06.png
+SHA-256-Digest: dMs2vtFzE5AYjqzMX+U+HzA/SGS8sXchuoii4+SjCA4=
+
+Name: assets/vilao_erro_lottie/vilao_erro_lottie.json
+SHA-256-Digest: k4Vrltq1Z9eYMIV1qKYPjGQe2YmgAERkepTm5yAdRm4=
+
+Name: assets/villain-frame-0.webp
+SHA-256-Digest: hb4grJ3hlPWocG6rB2gBMflGx7MBzU1ya1W1enEgwd0=
+
+Name: assets/villain-frame-1.webp
+SHA-256-Digest: tHw9HUBybmnjFl0zytj1UyyOKkKnKkgtC6CtM2YRnUQ=
+
+Name: assets/villain-frame-2.webp
+SHA-256-Digest: 9IgJPgizbz+PRRejccl922b3G9iIXVVHYvW/vLxvdUg=
+
+Name: assets/villain-frame-3.webp
+SHA-256-Digest: NygKC7vRPu2MCzTmdAeRRzvEwcqHV+f0hxyKkF2kyls=
+
+Name: assets/villain-frame-4.webp
+SHA-256-Digest: 5QzLCleO3oPDjYrecNaZhfNS6Y7jjWMzGieQ5gOxPDw=
+
+Name: assets/villain-frame-5.webp
+SHA-256-Digest: 3e+dPVVuZNiVggtFfa9qHfODXXCsIjo5Cm9nFttBwvs=
+
+Name: assets/world-10.webp
+SHA-256-Digest: 4NymghoNcVzHBje+Mm+vsMBlyV6TXuYnXea3zrwCjsw=
+
+Name: assets/world-2.webp
+SHA-256-Digest: KJSv9z7XFu64D8uJchhLzq933GlKI2vfUntEh67W4fM=
+
+Name: assets/world-3.webp
+SHA-256-Digest: 7bkYDNX9tK3U1ifjNql+GJipGHm9v/G7YljjysXQNuQ=
+
+Name: assets/world-4.webp
+SHA-256-Digest: On9yFyCb5YJw39ERRHJmBH8ft6rH2rLuqA2Ss51BxjM=
+
+Name: assets/world-5.webp
+SHA-256-Digest: aJM8r7j1z/v0vmej4JujcK6V0Yp/PRdAzuyCAFjx22E=
+
+Name: assets/world-6.webp
+SHA-256-Digest: 3NeJnjAEgBXkTgaOdPD6iMoXGqn/JwpfRQtt9q8XqLw=
+
+Name: assets/world-7.webp
+SHA-256-Digest: z1JNnVaGqQL4r0USarLcEgTNvS+6OcqLOk47elBHc00=
+
+Name: assets/world-8.webp
+SHA-256-Digest: BqkoyTDmzet/igJTSILEfOXabyX9KZBKP1RaxxtP100=
+
+Name: assets/world-9.webp
+SHA-256-Digest: FdTUHhZCwfvYdsjF1oSOUHXPNtCbECkmfUkEj1vWjVA=
+
+Name: assets/world-practice-01.png
+SHA-256-Digest: p7NkyIVqHuh3bKnDddSkn61OZWvHPXyobFd4F/6Enh8=
+
+Name: assets/world-practice-02.png
+SHA-256-Digest: g84JWkGCPhibDq/9jAfiAz4Jj8f/lCdqg7TvD+IOJbU=
+
+Name: assets/world-practice-03.png
+SHA-256-Digest: jbjYPFXrUz8dNmcIByUaWgdEF7/ohDE+hgsTM9X+COE=
+
+Name: assets/world-practice-04.png
+SHA-256-Digest: JgeQ+lkfXC3PodWo35iNJSdDUyaw1LhIyRDg71/i2Hk=
+
+Name: assets/world-practice-05.png
+SHA-256-Digest: 1odPOf+owDH2U+Yvx+UQg9/GhOOPly7KQBlm8cI/vk8=
+
+Name: assets/world-practice-06.png
+SHA-256-Digest: q+7uE2E8SxyOgrdtqtuUitcgoqaHU7cyLnkWZlJ5ORc=
+
+Name: assets/world-practice-07.png
+SHA-256-Digest: LGReWDhkaaoP6HXQGt+MqFS+IeLkG/Gs/4uznvhsAGo=
+
+Name: assets/world-practice-08.png
+SHA-256-Digest: ZRF+tuLBI6s2vEy7OPNqqAWqsw2MC6PvWohaf5LS61A=
+
+Name: assets/world-practice-09.png
+SHA-256-Digest: tIbtyBSJzAI208i/BkmrkpjT4FM5GFH1ezMG7hV9LAI=
+
+Name: assets/world-practice-10.png
+SHA-256-Digest: R+K/kvZy0GTK6dklZym+WddMF7flY2oNWdX9JEwgsUY=
+
+Name: assets/world_map_01.webp
+SHA-256-Digest: n1lVJC1Rpt70HamHBXKLB9ZNzGkdC8XqS1cGjFzXOIs=
+
+Name: assets/world_map_02.webp
+SHA-256-Digest: bUC622Wypst26NY0dls8ZiNUnmL1jkbe4NIBGjRcb6A=
+
+Name: assets/world_map_03.webp
+SHA-256-Digest: xJvyQ8dy2za9JCztViq/xcY6Ya4LjeLVzAptOoXHPZc=
+
+Name: assets/world_map_04.webp
+SHA-256-Digest: iRZB90FEwH8oIDJd6wqi+GAvuIEHUFNlyJ5TzZm1Xks=
+
+Name: assets/world_map_05.webp
+SHA-256-Digest: g20UpvONLacS/46hbLrO+4c03zT4ssL9AdFJ+7MN/2E=
+
+Name: assets/world_map_06.webp
+SHA-256-Digest: l+nQIvW7LZ0P+A20p2GVFj2OBiWwr3OE+knQiEYTjcc=
+
+Name: assets/world_map_07.webp
+SHA-256-Digest: ZQmAuVjMmbA5AEnGVEDuAOOCLTpFrAZ8goqbHJP8q7c=
+
+Name: assets/world_map_08.webp
+SHA-256-Digest: jqMHxVWkICrLZKI4gzUNkOoDyzl4XrazWh6BPYTwgfM=
+
+Name: assets/world_map_09.webp
+SHA-256-Digest: EpdwY05hUcUS64l2YgQCO91D8sllM3IO8dc6IyEXPGI=
+
+Name: assets/world_map_10.webp
+SHA-256-Digest: ZHrjITZvw4ubanm6nzt3qrbPDcTsD1j0vEtSTA64JYA=
+
+Name: assets/world_map_bg.webp
+SHA-256-Digest: 3Gu1QjMMJPkLCo7hP1qb/6XcPdBBTeJhBaV5hVrhv1U=
+
+Name: assets/world_map_complete.png
+SHA-256-Digest: ldezq/qPlYQFeNWwfNB7RRhsf2ICP7cm56xzkiQjLAs=
+
+Name: classes.dex
+SHA-256-Digest: heLc7K6eZJWXgOy75VkhDn0S69ygcpqyr7S0TkaA1+8=
+
+Name: res/drawable/app_icon.png
+SHA-256-Digest: Nq5UCZDKJ1WN+px6xo1L2lu8tCwN8ZeU7SwiEFwGQsY=
+
+Name: resources.arsc
+SHA-256-Digest: bK3YSz51djKKBg4JFmCppz0B80CawwFedFCFGerRa4k=
+

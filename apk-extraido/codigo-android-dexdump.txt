@@ -1,0 +1,145 @@
+Processing 'output/tabuadaQuestFinal-extraido/classes.dex'...
+Opened 'output/tabuadaQuestFinal-extraido/classes.dex', DEX version '035'
+Class #0            -
+  Class descriptor  : 'Lcom/tabuadaquest/app/MainActivity$FileClient;'
+  Access flags      : 0x0001 (PUBLIC)
+  Superclass        : 'Landroid/webkit/WebChromeClient;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+    #0              : (in Lcom/tabuadaquest/app/MainActivity$FileClient;)
+      name          : 'owner'
+      type          : 'Lcom/tabuadaquest/app/MainActivity;'
+      access        : 0x0002 (PRIVATE)
+  Direct methods    -
+    #0              : (in Lcom/tabuadaquest/app/MainActivity$FileClient;)
+      name          : '<init>'
+      type          : '(Lcom/tabuadaquest/app/MainActivity;)V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 2
+      ins           : 2
+      outs          : 1
+      insns size    : 6 16-bit code units
+000418:                                        |[000418] com.tabuadaquest.app.MainActivity$FileClient.<init>:(Lcom/tabuadaquest/app/MainActivity;)V
+000428: 7010 0800 0000                         |0000: invoke-direct {v0}, Landroid/webkit/WebChromeClient;.<init>:()V // method@0008
+00042e: 5b01 0000                              |0003: iput-object v1, v0, Lcom/tabuadaquest/app/MainActivity$FileClient;.owner:Lcom/tabuadaquest/app/MainActivity; // field@0000
+000432: 0e00                                   |0005: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+
+  Virtual methods   -
+    #0              : (in Lcom/tabuadaquest/app/MainActivity$FileClient;)
+      name          : 'onShowFileChooser'
+      type          : '(Landroid/webkit/WebView;Landroid/webkit/ValueCallback;Landroid/webkit/WebChromeClient$FileChooserParams;)Z'
+      access        : 0x0001 (PUBLIC)
+      code          -
+      registers     : 7
+      ins           : 4
+      outs          : 3
+      insns size    : 23 16-bit code units
+000434:                                        |[000434] com.tabuadaquest.app.MainActivity$FileClient.onShowFileChooser:(Landroid/webkit/WebView;Landroid/webkit/ValueCallback;Landroid/webkit/WebChromeClient$FileChooserParams;)Z
+000444: 5430 0000                              |0000: iget-object v0, v3, Lcom/tabuadaquest/app/MainActivity$FileClient;.owner:Lcom/tabuadaquest/app/MainActivity; // field@0000
+000448: 5401 0100                              |0002: iget-object v1, v0, Lcom/tabuadaquest/app/MainActivity;.fileCallback:Landroid/webkit/ValueCallback; // field@0001
+00044c: 3801 0600                              |0004: if-eqz v1, 000a // +0006
+000450: 1202                                   |0006: const/4 v2, #int 0 // #0
+000452: 7220 0500 2100                         |0007: invoke-interface {v1, v2}, Landroid/webkit/ValueCallback;.onReceiveValue:(Ljava/lang/Object;)V // method@0005
+000458: 5b05 0100                              |000a: iput-object v5, v0, Lcom/tabuadaquest/app/MainActivity;.fileCallback:Landroid/webkit/ValueCallback; // field@0001
+00045c: 6e10 0600 0600                         |000c: invoke-virtual {v6}, Landroid/webkit/WebChromeClient$FileChooserParams;.createIntent:()Landroid/content/Intent; // method@0006
+000462: 0c01                                   |000f: move-result-object v1
+000464: 1302 e903                              |0010: const/16 v2, #int 1001 // #3e9
+000468: 6e30 0400 1002                         |0012: invoke-virtual {v0, v1, v2}, Landroid/app/Activity;.startActivityForResult:(Landroid/content/Intent;I)V // method@0004
+00046e: 1210                                   |0015: const/4 v0, #int 1 // #1
+000470: 0f00                                   |0016: return v0
+      catches       : (none)
+      positions     :
+      locals        :
+
+  source_file_idx   : -1 (unknown)
+
+Class #1            -
+  Class descriptor  : 'Lcom/tabuadaquest/app/MainActivity;'
+  Access flags      : 0x0001 (PUBLIC)
+  Superclass        : 'Landroid/app/Activity;'
+  Interfaces        -
+  Static fields     -
+  Instance fields   -
+    #0              : (in Lcom/tabuadaquest/app/MainActivity;)
+      name          : 'fileCallback'
+      type          : 'Landroid/webkit/ValueCallback;'
+      access        : 0x0002 (PRIVATE)
+  Direct methods    -
+    #0              : (in Lcom/tabuadaquest/app/MainActivity;)
+      name          : '<init>'
+      type          : '()V'
+      access        : 0x10001 (PUBLIC CONSTRUCTOR)
+      code          -
+      registers     : 1
+      ins           : 1
+      outs          : 1
+      insns size    : 4 16-bit code units
+00036c:                                        |[00036c] com.tabuadaquest.app.MainActivity.<init>:()V
+00037c: 7010 0000 0000                         |0000: invoke-direct {v0}, Landroid/app/Activity;.<init>:()V // method@0000
+000382: 0e00                                   |0003: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+
+  Virtual methods   -
+    #0              : (in Lcom/tabuadaquest/app/MainActivity;)
+      name          : 'onActivityResult'
+      type          : '(IILandroid/content/Intent;)V'
+      access        : 0x0004 (PROTECTED)
+      code          -
+      registers     : 6
+      ins           : 4
+      outs          : 4
+      insns size    : 22 16-bit code units
+0003dc:                                        |[0003dc] com.tabuadaquest.app.MainActivity.onActivityResult:(IILandroid/content/Intent;)V
+0003ec: 6f40 0100 3254                         |0000: invoke-super {v2, v3, v4, v5}, Landroid/app/Activity;.onActivityResult:(IILandroid/content/Intent;)V // method@0001
+0003f2: 1300 e903                              |0003: const/16 v0, #int 1001 // #3e9
+0003f6: 3303 1000                              |0005: if-ne v3, v0, 0015 // +0010
+0003fa: 5420 0100                              |0007: iget-object v0, v2, Lcom/tabuadaquest/app/MainActivity;.fileCallback:Landroid/webkit/ValueCallback; // field@0001
+0003fe: 3800 0c00                              |0009: if-eqz v0, 0015 // +000c
+000402: 7120 0700 5400                         |000b: invoke-static {v4, v5}, Landroid/webkit/WebChromeClient$FileChooserParams;.parseResult:(ILandroid/content/Intent;)[Landroid/net/Uri; // method@0007
+000408: 0c01                                   |000e: move-result-object v1
+00040a: 7220 0500 1000                         |000f: invoke-interface {v0, v1}, Landroid/webkit/ValueCallback;.onReceiveValue:(Ljava/lang/Object;)V // method@0005
+000410: 1201                                   |0012: const/4 v1, #int 0 // #0
+000412: 5b21 0100                              |0013: iput-object v1, v2, Lcom/tabuadaquest/app/MainActivity;.fileCallback:Landroid/webkit/ValueCallback; // field@0001
+000416: 0e00                                   |0015: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+
+    #1              : (in Lcom/tabuadaquest/app/MainActivity;)
+      name          : 'onCreate'
+      type          : '(Landroid/os/Bundle;)V'
+      access        : 0x0004 (PROTECTED)
+      code          -
+      registers     : 5
+      ins           : 2
+      outs          : 2
+      insns size    : 36 16-bit code units
+000384:                                        |[000384] com.tabuadaquest.app.MainActivity.onCreate:(Landroid/os/Bundle;)V
+000394: 6f20 0200 4300                         |0000: invoke-super {v3, v4}, Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V // method@0002
+00039a: 2200 0a00                              |0003: new-instance v0, Landroid/webkit/WebView; // type@000a
+00039e: 7020 0b00 3000                         |0005: invoke-direct {v0, v3}, Landroid/webkit/WebView;.<init>:(Landroid/content/Context;)V // method@000b
+0003a4: 6e10 0c00 0000                         |0008: invoke-virtual {v0}, Landroid/webkit/WebView;.getSettings:()Landroid/webkit/WebSettings; // method@000c
+0003aa: 0c01                                   |000b: move-result-object v1
+0003ac: 1212                                   |000c: const/4 v2, #int 1 // #1
+0003ae: 6e20 0a00 2100                         |000d: invoke-virtual {v1, v2}, Landroid/webkit/WebSettings;.setJavaScriptEnabled:(Z)V // method@000a
+0003b4: 6e20 0900 2100                         |0010: invoke-virtual {v1, v2}, Landroid/webkit/WebSettings;.setDomStorageEnabled:(Z)V // method@0009
+0003ba: 2201 0b00                              |0013: new-instance v1, Lcom/tabuadaquest/app/MainActivity$FileClient; // type@000b
+0003be: 7020 0f00 3100                         |0015: invoke-direct {v1, v3}, Lcom/tabuadaquest/app/MainActivity$FileClient;.<init>:(Lcom/tabuadaquest/app/MainActivity;)V // method@000f
+0003c4: 6e20 0e00 1000                         |0018: invoke-virtual {v0, v1}, Landroid/webkit/WebView;.setWebChromeClient:(Landroid/webkit/WebChromeClient;)V // method@000e
+0003ca: 1a01 1b00                              |001b: const-string v1, "file:///android_asset/index.html" // string@001b
+0003ce: 6e20 0d00 1000                         |001d: invoke-virtual {v0, v1}, Landroid/webkit/WebView;.loadUrl:(Ljava/lang/String;)V // method@000d
+0003d4: 6e20 0300 0300                         |0020: invoke-virtual {v3, v0}, Landroid/app/Activity;.setContentView:(Landroid/view/View;)V // method@0003
+0003da: 0e00                                   |0023: return-void
+      catches       : (none)
+      positions     :
+      locals        :
+
+  source_file_idx   : -1 (unknown)
+

@@ -1,0 +1,20 @@
+{
+  "name": "Papai Correct Effect - Jujutsu Inspired",
+  "type": "lottie_with_external_png_assets",
+  "json": "papai_correct_effect_jjk_lottie.json",
+  "asset_folder": "assets/",
+  "asset_count": 8,
+  "duration_seconds": 2.0,
+  "fps": 30,
+  "canvas": "512x512",
+  "required_assets": [
+    "papai_idle.png",
+    "papai_magic.png",
+    "papai_thumbsup.png",
+    "papai_proud.png",
+    "magic_check.png",
+    "magic_seal.png",
+    "magic_swirl.png",
+    "magic_sparkles.png"
+  ]
+}
