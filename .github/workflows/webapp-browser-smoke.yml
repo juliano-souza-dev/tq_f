@@ -4,6 +4,9 @@ on:
     branches: [feature/webapp-modular]
     paths:
       - '.github/workflows/webapp-browser-smoke.yml'
+      - 'webapp/styles/**'
+      - 'webapp/src/features/home/**'
+      - 'webapp/tests/browser-smoke.mjs'
   workflow_dispatch:
 permissions:
   contents: read
