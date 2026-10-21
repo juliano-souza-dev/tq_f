@@ -107,6 +107,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      break;
    case 'previewFashion':
      wardrobeSelection=String(dataset.skin||'original');fashionNotice='';render();break;
+   case 'fashionHelp':
+     fashionNotice='Roupas são obtidas com moedas, baús, conquistas e recompensas diárias.';render();break;
    case 'wardrobeTab':
      wardrobeTab=dataset.tab==='frames'?'frames':'fashion';render();break;
    case 'equipFashion':
