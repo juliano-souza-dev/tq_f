@@ -55,13 +55,23 @@ Webapp infantil de aventura por **mapa e capítulos**, sem navegação livre. O 
 ## Critérios de aceite
 - [ ] Mapa mostra 12 pinturas regionais sem esconder estados de bloqueio.
 - [ ] Tela de capítulo e introdução da missão exibem ilustrações.
-- [ ] Primeiro baú ao concluir fase 4, no máximo uma vez; abrir também uma vez.
-- [ ] Região completa gera relíquia; coleção reflete perfil ativo.
-- [ ] Compra com saldo insuficiente não entrega item.
-- [ ] Cosmético comprado pode ser equipado; equipar não aumenta pontuação.
-- [ ] 8 operações × 2 acertos permanece intacto e testes automatizados passam.
-- [ ] Dados anteriores conservados.
-- [ ] Deploy do Pages concluído com sucesso.
+- [x] Primeiro baú ao concluir fase 4, no máximo uma vez; abrir também uma vez. Testado automaticamente.
+- [x] Região completa gera relíquia; coleção usa o perfil ativo (concessão e isolamento testados).
+- [x] Compra com saldo insuficiente não entrega item. Testado automaticamente.
+- [x] Cosmético comprado pode ser equipado; equipar não aumenta pontuação. Testado automaticamente.
+- [x] 8 operações × 2 acertos permanecem no motor existente; verificação de sintaxe e testes de recompensas passam. Teste pedagógico de ponta a ponta no navegador ainda pendente.
+- [x] Dados anteriores conservados pelo processo de migração, verificado por testes.
+- [x] Deploy do Pages concluído com sucesso pelo GitHub Actions.
 
 ## Roadmap, fora deste pacote
 Animações por spritesheets, trilhas sonoras locais, animação de abertura de baús, personagens originais com variação de expressões, customização corporal do avatar, mais coleções e painel dos responsáveis. Nenhum desses itens deve desviar do contrato pedagógico.
+
+## Implementação na branch main
+- `index.html`: 12 cards de região com arte, capa ilustrada, tela de capítulo, cena da missão, atalhos e tela de coleção. O núcleo pedagógico preexistente foi preservado.
+- `assets/atlas-scenes.svg`: 12 paisagens, baú e Nilo em símbolos vetoriais originais, sem dependência de CDN.
+- `assets/adventure.css`: redesign de telas, mapa, cartões, recompensa e responsividade.
+- `assets/rewards.js`: economia determinística, migração de dados, baús, relíquias, compras e equipar.
+- `tests/rewards.test.js`: migração, concessão única, baú não repetível, saldos, compra e isolamento de perfis.
+- `.github/workflows/deploy-pages.yml`: verificação do JavaScript, testes da economia e validação XML dos assets antes do deploy.
+
+**Pendente antes de considerar a direção visual encerrada:** revisão visual em aparelhos reais e testes end-to-end do ciclo de 16 acertos usando teclado e toque. As ilustrações atuais são vetoriais e editáveis; animações narrativas e avatares com roupas renderizadas em camadas ficam para a próxima entrega. 
