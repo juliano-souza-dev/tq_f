@@ -1,0 +1,132 @@
+/* Artes raster otimizadas, armazenadas no próprio repositório.
+   Mantém SVG para as regiões ainda sem imagem original. */
+.game-artwork{
+ display:block;object-fit:contain;max-width:100%;height:auto;
+}
+.hero.hero-illustrated{
+ background-color:#293a71;
+ background-image:
+   linear-gradient(180deg,rgba(19,25,67,.72) 0%,rgba(32,35,83,.56) 36%,rgba(20,34,77,.18) 74%,rgba(12,27,66,.24) 100%),
+   url("./artwork/splash.webp");
+ background-position:center 52%;
+ background-size:cover;
+ background-repeat:no-repeat;
+ isolation:isolate;
+ border-color:#f7ddb87a;
+}
+.hero.hero-illustrated::before{display:none}
+.hero.hero-illustrated .hero-scene{display:none!important}
+.hero.hero-illustrated h1{
+ color:#fff8e9;
+ text-shadow:0 3px 7px #1c1b4e,0 1px 2px #151137;
+}
+.hero.hero-illustrated p,.hero.hero-illustrated p strong{
+ color:#fff8f1;text-shadow:0 2px 6px #172043,0 1px 2px #101735;
+}
+.hero.hero-illustrated .eyebrow{
+ display:inline-flex;
+ background:#282a65b8;border:1px solid #ffffff5a;
+ padding:7px 11px;border-radius:99px;color:#fff0ba;
+ backdrop-filter:blur(7px);
+}
+.hero.hero-illustrated .hero-buttons{
+ width:100%;
+}
+.region-card .art img,.region-card .art svg{
+ display:block;width:100%;height:100%;object-fit:cover;
+ object-position:center;
+}
+.region-card .art .game-artwork{
+ filter:saturate(1.08);
+ transition:transform .35s ease;
+}
+.region-card:hover:not(:disabled) .art .game-artwork{transform:scale(1.04)}
+.region-card.locked .art .game-artwork{filter:grayscale(.55) brightness(.76)}
+.islandhero .big-emoji .game-artwork{
+ width:100%;height:100%;object-fit:cover;object-position:center;
+ border-radius:inherit;
+}
+.mission-scene-art.game-artwork{
+ width:100%;height:100%;object-fit:cover;object-position:center;
+}
+.tq-side-pet .game-artwork{
+ height:100%;width:100%;object-fit:contain;
+ filter:drop-shadow(0 6px 9px #090f3690);
+}
+.tq-prize-icon .game-artwork{
+ width:min(100%,165px);height:105px;object-fit:contain;
+ filter:drop-shadow(0 8px 9px #3f285166);
+}
+.tq-collection-hero>.game-artwork{
+ width:clamp(105px,20vw,210px);
+ height:clamp(135px,23vw,240px);
+ object-fit:contain;
+ flex-shrink:0;
+ filter:drop-shadow(0 10px 14px #20214a70);
+}
+.tq-success-art .game-artwork{
+ width:100%;height:100%;object-fit:contain;
+}
+.illustrated-guide{
+ width:clamp(150px,35vw,260px);
+ min-height:200px;
+ margin:0 auto;
+ display:flex;justify-content:center;align-items:center;
+}
+.illustrated-guide .guide-prologue{
+ display:block;width:100%;height:245px;object-fit:contain;
+ filter:drop-shadow(0 14px 17px #080d3280);
+}
+@media(max-width:900px){
+ .hero.hero-illustrated{
+   min-height:clamp(350px,54vh,445px);
+   background-position:center 59%;
+   display:flex;flex-direction:column;justify-content:flex-start;
+   padding:24px 19px 20px;
+ }
+ .hero.hero-illustrated h1{
+   font-size:clamp(1.8rem,7vw,2.4rem);
+   line-height:1.13;
+   max-width:18ch;
+   margin:13px 0 10px;
+ }
+ .hero.hero-illustrated p{
+   font-size:.86rem;
+   max-width:40ch;
+   line-height:1.4;
+   margin-bottom:11px;
+ }
+ .hero.hero-illustrated .hero-buttons{
+   margin-top:auto;display:grid;
+   grid-template-columns:1.2fr .85fr;
+   gap:9px;
+ }
+ .hero.hero-illustrated .hero-buttons .btn{
+   min-height:52px;
+   background-color:#372e68ee;
+   backdrop-filter:blur(9px);
+   border:2px solid #fff1cf9a;
+ }
+ .hero.hero-illustrated .hero-buttons .btn-primary{
+   background:linear-gradient(145deg,#fff2a7,#ffb76e);
+   color:#452e51;
+ }
+ .region-card .art .game-artwork{object-position:center 55%}
+ .mission-scene-art.game-artwork{object-position:center 54%}
+ .tq-collection-hero>.game-artwork{display:block!important;width:90px;height:125px;align-self:flex-end;margin:-14px -12px -18px 0}
+ .tq-prize-icon .game-artwork{height:98px}
+ .illustrated-guide{min-height:170px}
+ .illustrated-guide .guide-prologue{height:180px}
+ .tq-side-pet{display:none}
+}
+@media(max-width:440px){
+ .hero.hero-illustrated{background-position:center 55%;min-height:350px}
+ .hero.hero-illustrated h1{font-size:clamp(1.7rem,7vw,2.05rem)}
+ .hero.hero-illustrated p{font-size:.83rem;line-height:1.33}
+ .hero.hero-illustrated .hero-buttons .btn{padding:11px 6px;font-size:.79rem}
+ .tq-collection-hero>.game-artwork{display:none!important}
+ .tq-prize-icon .game-artwork{height:82px}
+}
+@media(prefers-reduced-motion:reduce){
+ .region-card .art .game-artwork{transition:none!important}
+}
