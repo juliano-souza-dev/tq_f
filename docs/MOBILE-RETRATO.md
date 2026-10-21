@@ -71,3 +71,24 @@ Todos os arquivos a seguir são WebP otimizados e **servidos localmente pelo Git
 O helper `sceneArt` do `index.html` seleciona essas imagens quando disponíveis e mantém `atlas-scenes.svg` como alternativa para as demais regiões. O arquivo `assets/artwork.css` define composição, cortes e legibilidade em mobile, sem interferir no motor de multiplicação.
 
 Os arquivos originais foram convertidos para WebP via pipeline temporário de integração. Após conferência no repositório, o importador foi removido. Para integrar outras imagens futuramente, manter um pipeline isolado, e não converter imagens em cada carregamento do aplicativo.
+
+## Redesign de jornada premium (2026-10-21)
+
+A captura da interface anterior mostrou que os capítulos pareciam cards de dashboard: arte confinada a uma faixa, grande área vazia abaixo, bloqueados totalmente cinzas e uma grade desktop de três colunas sem sensação de aventura.
+
+### Correção aplicada
+- `assets/atlas-premium.css` é carregado **depois** de `artwork.css`, para ser a camada de composição final.
+- `regionHTML` usa `journey-stop` e `journey-card`: ilustração preenche o destino, título e contexto aparecem sobre gradiente contrastante e cinco marcas representam o progresso real.
+- O mapa usa `journey-route`, uma rota contínua **em uma coluna também no desktop**, para manter a leitura de jornada em vez de painel.
+- Capítulos futuros têm bruma colorida e identidade visual, sem remover a indicação inequívoca de bloqueio.
+- Destino atual tem moldura dourada e marco luminoso; destinos concluídos têm identidade de conquista.
+- Cartões não têm mais fundo bege vazio nem título escuro sobre imagem clara.
+- O perfil desktop ganhou acabamento de passaporte ilustrado, com Nilo como personagem destacado.
+- Dentro do capítulo, o banner se torna uma cena inteira com título protegido pelo gradiente. Etapas viram placas volumétricas, e história, desafio e vitória seguem a mesma linguagem.
+- A composição respeita (prefers-reduced-motion) e a preferência de modo calmo. Os elementos com conteúdo pedagógico não usam animação obrigatória.
+
+### Restrições mantidas
+Não alterar `buildFacts`, `selectNext`, `answer`, `finishIsland`, armazenamentos, nem lógica da loja ou de baús. Nenhuma fase oculta fica clicável e nenhuma ilustração substitui informação de acessibilidade.
+
+### Qualidade
+Os testes verificam a existência das 12 cenas, trilha ilustrada, folhas CSS, navegação, colecionáveis e conclusão de 16 acertos na mesma sessão. Não substituem inspeção visual manual em 360×740, 390×844, 412×915 e desktop, que deve ser feita depois de testar o Pages.
