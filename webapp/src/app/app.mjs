@@ -18,6 +18,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let session=null;
  let result=null;
  let feature='';
+ let fashionNotice='';
  let stopHomeEffects=null;
 
  function pickAvailableWorld(profile){
@@ -37,7 +38,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     case 'profiles':
       root.innerHTML=profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'wardrobe':
-      root.innerHTML=player?wardrobeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
+      root.innerHTML=player?wardrobeScreen(player,fashionNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -99,7 +100,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
-     if(feature==='Moda')navigate('wardrobe');
+     if(feature==='Moda'){fashionNotice='';navigate('wardrobe');}
      else navigate('feature');
      break;
    case 'equipFashion':
@@ -109,7 +110,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      const id=String(dataset.skin||'original');
      let result;
      profiles.updateActive(p=>{result=acquireFashion(p,id)});
-     if(result?.reason==='insufficient-coins')feature='Faltam '+result.missing+' moedas para desbloquear esta roupa.';
+     fashionNotice=result?.reason==='insufficient-coins'?'Faltam '+result.missing+' moedas para este visual.':result?.reason==='reward-only'?'Este visual é exclusivo de recompensas.':result?.reason==='purchased'?'Nova roupa desbloqueada e equipada!':result?.reason==='equipped'?'Visual equipado!':'';
      render();break;
    }
    case 'equipFrame': {
