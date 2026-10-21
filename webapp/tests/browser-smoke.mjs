@@ -19,6 +19,30 @@ async function setup(width,height){
  assert.deepEqual(broken,[],'Arte quebrada na home');
  const overflow=await page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));
  assert.ok(overflow<3,'Scroll horizontal na home: '+overflow);
+ const composition=await page.evaluate(()=>{
+   const rect=selector=>{const box=document.querySelector(selector)?.getBoundingClientRect();return box?{top:box.top,bottom:box.bottom,left:box.left,right:box.right,height:box.height}:null};
+   const tileElements=[...document.querySelectorAll('.home-tiles .home-tile')];
+   return {
+      screen:rect('.home-view'),header:rect('.home-header'),
+      logo:rect('.home-logo'),stage:rect('.hero-stage'),
+      play:rect('.play-button'),chest:rect('.next-chest'),
+      tiles:rect('.home-tiles'),nav:rect('.tabbar'),
+      tileRects:tileElements.map(el=>{const b=el.getBoundingClientRect();return {top:b.top,bottom:b.bottom}}),
+      scroll:document.documentElement.scrollHeight,viewport:innerHeight,
+      scene:getComputedStyle(document.querySelector('.home-view')).backgroundImage
+   };
+ });
+ assert.ok(composition.scene.includes('home-magical-bg.webp'),'Cenário mágico não aplicado');
+ assert.equal(composition.tileRects.length,7,'Atalhos completos');
+ assert.ok(composition.screen.bottom<=composition.viewport+3,'Home ultrapassou viewport');
+ assert.ok(composition.scroll<=composition.viewport+4,'Home exige rolagem vertical: '+JSON.stringify(composition));
+ assert.ok(composition.header.bottom<=composition.logo.bottom+2,'Header fora de hierarquia');
+ assert.ok(composition.logo.bottom<=composition.stage.bottom+2,'Logo fora de hierarquia');
+ assert.ok(composition.stage.bottom<=composition.play.bottom+2,'Hero excedeu CTA');
+ assert.ok(composition.play.bottom<=composition.chest.bottom+2,'CTA encosta no baú');
+ assert.ok(composition.chest.bottom<=composition.tiles.bottom+2,'Baú sobreposto aos atalhos');
+ assert.ok(composition.tileRects.every(r=>r.top>=composition.tiles.top-2 && r.bottom<=composition.tiles.bottom+3),'Cards fora do painel');
+ assert.ok(composition.tiles.bottom<=composition.nav.top+3,'Atalhos encobertos pela navegação');
  await page.screenshot({path:'screenshots/home-'+width+'x'+height+'.png',fullPage:true});
  return {page,ctx};
 }
