@@ -16,6 +16,11 @@ assert.ok(mobileCss.includes('.island-grid:before'));
 assert.ok(mobileCss.includes('env(safe-area-inset-bottom'));
 assert.ok(mobileCss.includes('.typed-row'));
 assert.ok(mobileCss.includes('@media(max-width:390px)'));
+const premiumCss=fs.readFileSync(require('node:path').join(__dirname,'../assets/atlas-premium.css'),'utf8');
+assert.ok(html.includes('<link rel="stylesheet" href="./assets/atlas-premium.css">'),'Tema premium não carregado');
+for(const selector of ['.region-grid.journey-route','.region-card.journey-card','.journey-topline','.journey-mist','.journey-art','.journey-name','.journey-dots','.journey-stop.current']){
+ assert.ok(premiumCss.includes(selector),'Seletor de mapa ausente: '+selector);
+}
 
 const source=html.split('<script>')[1]?.split('</script>')[0];
 assert.ok(source&&source.length>10000,'O script principal deve existir');
@@ -47,6 +52,17 @@ assert.ok(regionArtCount>=12,'Mapa precisa ter as 12 artes regionais');
 for(const file of ['beach','forest','candy','nilo','chest','splash'])assert.ok(fs.existsSync(require('node:path').join(__dirname,'../assets/artwork',file+'.webp')),file+' ausente');
 screenIncludes('hero-illustrated');
 screenIncludes('mobile-hud');
+screenIncludes('journey-worldmap');
+screenIncludes('O caminho das 12 estrelas');
+const destinationCount=(root.innerHTML.match(/class="region-card journey-card /g)||[]).length;
+assert.equal(destinationCount,12,'A jornada precisa ter 12 destinos');
+assert.equal((root.innerHTML.match(/class="journey-stop /g)||[]).length,12,'Todas as regiões precisam de marcos na trilha');
+assert.ok(root.innerHTML.includes('Baía das Conchas'));
+assert.ok(root.innerHTML.includes('Mistério por revelar'));
+assert.ok(root.innerHTML.includes('class="journey-name"'));
+assert.ok(root.innerHTML.includes('class="journey-dots"'));
+assert.ok(!root.innerHTML.includes('class="region-card locked"'),'Card antigo não pode voltar');
+
 // Abas + navegação inferior sem perder o jogador
 click('openCollection');
 screenIncludes('Minha coleção');
