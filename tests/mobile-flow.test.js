@@ -17,7 +17,7 @@ assert.ok(mobileCss.includes('env(safe-area-inset-bottom'));
 assert.ok(mobileCss.includes('.typed-row'));
 assert.ok(mobileCss.includes('@media(max-width:390px)'));
 const premiumCss=fs.readFileSync(require('node:path').join(__dirname,'../assets/atlas-premium.css'),'utf8');
-assert.ok(html.includes('<link rel="stylesheet" href="./assets/atlas-premium.css">'),'Tema premium não carregado');
+assert.ok(/<link rel="stylesheet" href="\.\/assets\/atlas-premium\.css(?:\?v=[^\"]+)?">/.test(html),'Tema premium não carregado');
 for(const selector of ['.region-grid.journey-route','.region-card.journey-card','.journey-topline','.journey-mist','.journey-art','.journey-name','.journey-dots','.journey-stop.current']){
  assert.ok(premiumCss.includes(selector),'Seletor de mapa ausente: '+selector);
 }
