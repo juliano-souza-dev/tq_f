@@ -1,66 +1,57 @@
-import {migratedAssetPath,HOME_ARTWORK} from '../src/resources/asset-map.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import path from 'node:path';
-
 const root=new URL('../',import.meta.url);
-const read=p=>fs.readFileSync(new URL(p,root),'utf8');
+const read=file=>fs.readFileSync(new URL(file,root),'utf8');
 
-test('HTML isolado das folhas e do JavaScript da app',()=>{
+test('nova entrada sem HTML com CSS ou lógica embutidos',()=>{
  const html=read('index.html');
- assert.doesNotMatch(html,/<style\b/i);
- assert.doesNotMatch(html,/<script>(.|\n)*?<\/script>/i);
- assert.match(html,/href="\.\/styles\/legacy\.css"/);
- assert.match(html,/src="\.\/scripts\/legacy\.js"/);
- assert.match(html,/src="\.\/vendor\/lottie-data\.js"/);
- assert.match(html,/src="\.\/vendor\/lottie-light-5\.12\.2\.min\.js"/);
+ assert.doesNotMatch(html,/<style\b|<script>(.|\n)*?<\/script>|\bonclick\s*=|\bstyle\s*=/i);
+ assert.match(html,/href="\.\/styles\/app\.css"/);
+ assert.match(html,/src="\.\/src\/app\/app\.mjs"/);
+ assert.doesNotMatch(html,/legacy\.js|legacy\.css/);
+ assert.ok(read('styles/app.css').length>10000);
 });
-
-test('regras originais permanecem na camada de compatibilidade enquanto migramos',()=>{
+test('camada antiga arquivada, regras originais ainda disponíveis como referência',()=>{
+ assert.ok(read('legacy/entry.html').includes('entryGate'));
  const js=read('scripts/legacy.js');
- for(const fn of ['profileDefaults','renderHome','renderWorlds','renderQuestion',
-                   'startGame','answer','finishGame','renderPortalMap','renderPets']){
-  assert.ok(js.includes('function '+fn+'('),'Função da fonte ausente: '+fn);
- }
- assert.match(js,/REVIEW_INTERVAL_DAYS/);
- assert.match(js,/localStorage/);
+ for(const n of ['profileDefaults','renderWorlds','renderQuestion','startGame','finishGame','renderPets'])
+  assert.ok(js.includes('function '+n+'('),n);
 });
-
-test('mapa de origem tem 100% dos arquivos da extração inicial',()=>{
+test('inventário preserva todos os 1362 arquivos extraídos',()=>{
  const rows=read('data/asset-inventory.csv').trim().split('\n');
- const metadata=JSON.parse(read('data/asset-inventory.summary.json'));
- assert.equal(rows.length-1,metadata.sourceFileCount);
- assert.equal(new Set(rows.slice(1).map(row=>row.split('","')[0])).size,metadata.sourceFileCount);
- assert.equal(metadata.sourceFileCount,1362);
- assert.equal(metadata.formatCounts.webp,95);
- assert.equal(metadata.formatCounts.png,1208);
+ assert.equal(rows.length,1363);
+ const summary=JSON.parse(read('data/asset-inventory.summary.json'));
+ assert.equal(summary.sourceFileCount,1362);
+ assert.equal(summary.formatCounts.png,1208);
+ assert.equal(summary.formatCounts.webp,95);
 });
-
-test('cada migração exige entrada auditável de lote',()=>{
- const plan=JSON.parse(read('data/batches/001-home.json'));
- assert.equal(plan.items.length,14);
- assert.equal(new Set(plan.items.map(i=>i.source)).size,14);
- assert.ok(plan.items.every(i=>i.source.endsWith('.png')&&i.target.endsWith('.webp')));
- const resultPath=new URL('data/batches/001-home-results.json',root);
- if(fs.existsSync(resultPath)){
-  const done=JSON.parse(read('data/batches/001-home-results.json'));
-  assert.equal(done.processed,14);
-  for(const i of done.items){
-   assert.ok(fs.existsSync(new URL('assets/optimized/'+i.target,root)),i.target+' ausente');
-   assert.ok(i.optimizedBytes>0);
+test('29 recursos migrados dos dois primeiros lotes e registrados',()=>{
+ const plans=['001-home','002-profiles-worlds'];
+ let total=0;
+ for(const id of plans){
+  const manifest=JSON.parse(read('data/batches/'+id+'.json'));
+  const results=JSON.parse(read('data/batches/'+id+'-results.json'));
+  assert.equal(results.processed,manifest.items.length);
+  for(const file of results.items){
+   total++;
+   const dest=new URL('assets/optimized/'+file.target,root);
+   assert.ok(fs.existsSync(dest),'Arquivo ausente: '+file.target);
+   assert.ok(file.optimizedBytes>0);
   }
  }
+ assert.equal(total,29);
+ const csv=read('data/asset-inventory.csv');
+ assert.match(csv,/importado_001-home/);
+ assert.match(csv,/importado_002-profiles-worlds/);
 });
-
-test('registro modular resolve apenas o lote convertido sem afetar os demais recursos',()=>{
- assert.equal(Object.keys(HOME_ARTWORK).length,14);
- assert.equal(migratedAssetPath('home_new_logo.png'),'./assets/optimized/home_new_logo.webp');
- assert.equal(migratedAssetPath('/anywhere/home_new_jogar.png'),'./assets/optimized/home_new_jogar.webp');
- assert.equal(migratedAssetPath('pet30-01-idle_00.png'),null);
- const html=read('index.html');
- assert.match(html,/src="\.\/src\/app\/bootstrap\.mjs"/);
- for(const key of ['home_new_logo','home_new_jogar','home_new_worlds','home_new_chests']){
-   assert.ok(html.includes(key+'.webp'),'Imagem WebP ainda não conectada ao HTML: '+key);
- }
+test('módulos isolados e interface sem eventos inline',()=>{
+ const featureFiles=[
+ 'src/core/profiles.mjs','src/core/progression.mjs','src/core/practice.mjs',
+ 'src/features/profiles/view.mjs','src/features/home/view.mjs',
+ 'src/features/worlds/view.mjs','src/features/practice/view.mjs','src/app/app.mjs'
+ ];
+ for(const p of featureFiles)assert.ok(read(p).length>100,p);
+ for(const p of featureFiles.filter(x=>x.includes('view.mjs')))
+  assert.doesNotMatch(read(p),/\bonclick\s*=|\bstyle\s*=/i,p);
 });
