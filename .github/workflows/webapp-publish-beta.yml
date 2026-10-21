@@ -1,4 +1,5 @@
 name: Webapp · Publicar beta isolada
+# Release: atelie mobile em provador com trilho horizontal
 on:
   push:
     branches: [feature/webapp-modular]
