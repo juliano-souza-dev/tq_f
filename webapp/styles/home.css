@@ -1,0 +1,357 @@
+/* Tabuada Quest · Direção visual da HOME
+   Uma única tela de jogo. Desenhos encaixados em proporções de viewport,
+   sem cards de dashboard, rolagem desnecessária ou textos duplicados. */
+body:has(.home-view){
+  background-color:#17194b;
+  background-image:
+    linear-gradient(90deg,rgba(17,14,48,.65),rgba(43,26,80,.14) 38%,rgba(28,18,66,.14) 62%,rgba(17,14,48,.65)),
+    url("../assets/optimized/home-magical-bg.webp");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+body:has(.home-view) #app{position:relative;z-index:1}
+.home-view{
+  --home-nav:calc(65px + env(safe-area-inset-bottom));
+  position:relative;
+  isolation:isolate;
+  width:min(100%,440px);
+  max-width:440px;
+  height:100dvh;
+  min-height:0;
+  margin:0 auto;
+  padding:calc(7px + env(safe-area-inset-top)) 12px calc(var(--home-nav) + 5px);
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:10fr 10fr 27fr 10fr 9fr 34fr;
+  gap:0;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(55,20,123,.12) 0%,rgba(30,26,84,.15) 58%,rgba(32,27,75,.32) 100%),
+    url("../assets/optimized/home-magical-bg.webp") center/cover;
+  border-left:2px solid rgba(255,217,146,.5);
+  border-right:2px solid rgba(255,217,146,.5);
+  box-shadow:0 0 0 1px #341b64,0 0 58px 12px rgba(15,10,47,.72);
+}
+.home-view::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 24%,rgba(255,223,179,.25),transparent 27%),
+    linear-gradient(180deg,transparent 58%,rgba(40,27,104,.28) 89%);
+}
+.home-view> :not(.tabbar){
+  min-width:0;
+  min-height:0;
+}
+.home-view .home-header{
+  grid-row:1;
+  align-self:center;
+  justify-self:stretch;
+  width:100%;
+  height:calc(100% - 7px);
+  aspect-ratio:auto;
+  position:relative;
+  margin:0;
+  border:2px solid #fbe4b4;
+  border-radius:17px;
+  background:linear-gradient(165deg,rgba(105,49,173,.97),rgba(56,30,112,.95));
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.35),0 4px 0 rgba(45,20,91,.88),0 7px 18px rgba(21,12,63,.45);
+}
+.home-view .hero-identity{
+  left:9px;
+  top:4px;
+  width:54%;
+  height:calc(100% - 8px);
+  gap:6px;
+  z-index:1;
+}
+.home-view .hero-mini-avatar{
+  display:block;
+  max-width:min(22%,54px);
+  height:86%;
+  object-fit:contain;
+}
+.home-view .hero-identity-info strong{
+  color:#fff9e8;
+  font-size:clamp(.83rem,3.7vw,1.04rem);
+  line-height:1.1;
+}
+.home-view .hero-identity-info small{
+  color:#ffdfae;
+  font-size:clamp(.59rem,2.4vw,.72rem);
+  line-height:1.2;
+  margin-top:4px;
+}
+.home-view .hero-coins{
+  top:50%;
+  right:10px;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:end;
+  gap:3px;
+  max-width:36%;
+  color:#fff1a2;
+  font-size:clamp(.72rem,2.8vw,.96rem);
+  line-height:1.1;
+  font-variant-numeric:tabular-nums;
+}
+.home-view .hero-coins span{margin:0;color:#d5f8ff}
+.home-view .home-xp{
+  left:27%;
+  width:30%;
+  bottom:7px;
+  height:7px;
+  display:none; /* Nível no HUD, progresso detalhado na tela de perfil. */
+}
+.home-view .home-logo{
+  grid-row:2;
+  align-self:center;
+  justify-self:center;
+  position:relative;
+  z-index:2;
+  display:block;
+  width:min(74%,290px);
+  max-width:none;
+  height:100%;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+  margin:0;
+  filter:drop-shadow(0 4px 4px rgba(31,12,86,.52));
+}
+.home-view .hero-stage{
+  grid-row:3;
+  align-self:stretch;
+  justify-self:center;
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns:17% 66% 17%;
+  align-items:end;
+  margin:0;
+  padding:0;
+  gap:0;
+  z-index:2;
+}
+.home-view .fashion-shortcut{
+  align-self:center;
+  display:grid;
+  place-items:center;
+  margin:0;
+  width:100%;
+  height:clamp(44px,80%,100px);
+  filter:drop-shadow(0 3px 2px rgba(26,6,67,.67));
+}
+.home-view .fashion-shortcut img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.home-view .fashion-shortcut.left,.home-view .fashion-shortcut.right{margin:0}
+.home-view .hero-fashion{
+  position:relative;
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  overflow:visible;
+}
+.home-view .fashion-base{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.home-view .hero-character{
+  height:83%;
+  max-height:none;
+  max-width:75%;
+  bottom:8%;
+  object-fit:contain;
+  filter:drop-shadow(0 6px 4px #1c0d5775);
+}
+.home-view .play-button{
+  grid-row:4;
+  justify-self:center;
+  align-self:center;
+  width:min(80%,315px);
+  height:100%;
+  min-height:0;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  z-index:3;
+  filter:drop-shadow(0 5px 4px #3e1d6052);
+}
+.home-view .play-button .play-art{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.home-view .next-chest{
+  grid-row:5;
+  justify-self:stretch;
+  align-self:center;
+  position:relative;
+  width:100%;
+  max-width:none;
+  height:100%;
+  min-height:0;
+  margin:0;
+  overflow:hidden;
+}
+.home-view .next-chest-art{
+  position:absolute;
+  top:50%;
+  left:0;
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  transform:translateY(-50%);
+  object-fit:contain;
+}
+.home-view .next-chest-counter{
+  position:absolute;
+  top:52%;
+  left:53%;
+  width:22%;
+  height:auto;
+  transform:translateY(-50%);
+  color:#fff8c9;
+  text-align:center;
+  font-size:clamp(.6rem,2.65vw,.79rem);
+  font-weight:1000;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+  line-height:1;
+  letter-spacing:.01em;
+  text-shadow:0 1px 3px #2d1355;
+}
+.home-view .home-tiles{
+  grid-row:6;
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:1px 3px;
+  align-self:stretch;
+  justify-self:stretch;
+  width:100%;
+  height:100%;
+  min-height:0;
+  margin:0;
+  padding:2px 0 4px;
+  overflow:visible;
+}
+.home-view .home-tile{
+  grid-column:span 2;
+  min-width:0;
+  min-height:0;
+  display:grid;
+  place-items:center;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:1px;
+  background:none;
+  border:0;
+  box-shadow:none;
+  transform:translateZ(0);
+  filter:drop-shadow(0 4px 3px rgba(28,11,60,.57));
+  transition:transform .16s ease,filter .16s ease;
+}
+.home-view .home-tile:nth-child(5){grid-column:2/span 2}
+.home-view .home-tile .tile-art{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.home-view .home-tile:active{transform:translateY(3px) scale(.97)}
+.home-view .home-tile:hover{filter:drop-shadow(0 5px 5px rgba(255,221,150,.5))}
+.home-view .tabbar{
+  left:50%;
+  right:auto;
+  bottom:0;
+  width:min(100%,440px);
+  min-height:65px;
+  transform:translateX(-50%);
+  padding:0 5px env(safe-area-inset-bottom);
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-top:2px solid rgba(255,224,154,.85);
+  border-left:1px solid rgba(255,219,149,.4);
+  border-right:1px solid rgba(255,219,149,.4);
+  background:linear-gradient(180deg,#4d258ae8,#2b174df5);
+  box-shadow:0 -4px 19px #180d4380;
+  backdrop-filter:blur(12px);
+}
+.home-view .tabbar button{
+  position:relative;
+  min-width:0;
+  width:100%;
+  min-height:61px;
+  padding:5px 2px;
+  border-radius:12px 12px 0 0;
+  background:transparent;
+  color:#e6d5ff;
+  font-size:clamp(1.1rem,4vw,1.4rem);
+  line-height:1.1;
+}
+.home-view .tabbar button span{font-size:clamp(.56rem,2.4vw,.68rem);font-weight:1000}
+.home-view .tabbar button[aria-current="page"]{
+  background:linear-gradient(180deg,rgba(250,201,119,.18),rgba(250,201,119,.03));
+  color:#ffe9ac;
+}
+.home-view .tabbar button[aria-current="page"]::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:28%;
+  width:44%;
+  height:3px;
+  border-radius:2px;
+  background:#ffe6ab;
+  box-shadow:0 0 8px #ffc76e;
+}
+/* A home precisa caber em 740px sem exigir rolagem;
+   para viewports muito baixos, priorizamos a usabilidade sobre cortes. */
+@media(max-height:660px){
+ .home-view{
+  min-height:660px;
+  height:660px;
+  overflow:visible;
+ }
+ body:has(.home-view){overflow-y:auto}
+}
+@media(min-width:700px){
+ body:has(.home-view){
+  background-position:center;
+ }
+ .home-view{
+  border-radius:21px 21px 0 0;
+  border:2px solid rgba(255,228,165,.64);
+  border-bottom:0;
+  box-shadow:0 0 0 5px #1b164c80,0 0 80px 12px rgba(9,6,46,.82);
+ }
+}
+@media(max-width:360px){
+ .home-view{padding-left:8px;padding-right:8px}
+ .home-view .hero-identity-info strong{font-size:.78rem}
+ .home-view .hero-coins{font-size:.68rem}
+ .home-view .next-chest-counter{font-size:.59rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-view .home-tile,.home-view .play-button{transition:none}
+}
