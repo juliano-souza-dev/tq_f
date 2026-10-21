@@ -1,4 +1,5 @@
 name: Webapp · Converter primeiro lote
+# Reexecução v2: resolução adequada a tela e PSNR de composição com alpha
 on:
   push:
     branches: [feature/webapp-modular]
