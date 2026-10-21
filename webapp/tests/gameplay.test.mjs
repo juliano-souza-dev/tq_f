@@ -4,6 +4,7 @@ import {createProfileStore,LEGACY_KEY,STORAGE_KEY,FAMILIES} from '../src/core/pr
 import {WORLDS,REVIEW_INTERVAL_DAYS,worldState,masteredCount,chestProgress,reviewSchedule} from '../src/core/progression.mjs';
 import {createPractice,answerPractice,nextPractice,finishPractice} from '../src/core/practice.mjs';
 import {createApp} from '../src/app/app.mjs';
+import {fashionFor,acquireFashion,fashionStatus} from '../src/features/wardrobe/fashion.mjs';
 
 function storage(initial={}){
  const values=new Map(Object.entries(initial));
@@ -178,4 +179,38 @@ test('moda e moldura conquistadas são equipadas, salvas e continuam ao reabrir'
  again.select('alana');
  assert.equal(again.active().avatar.skinId,'pirate');
  assert.equal(again.active().equipped.frame,'frame_floral');
+});
+
+test('catálogo Moda preserva 9, 14 e 9 roupas do APK e exclusividade Thaís',()=>{
+ const st=storeForTest();const alana=st.active();
+ assert.equal(fashionFor(alana).length,9);
+ st.select('thais');const thais=st.active();
+ assert.equal(fashionFor(thais).length,14);
+ assert.equal(fashionFor(thais).filter(item=>item.id.startsWith('panda_infinity_')).length,5);
+ st.select('heloisa');const heloisa=st.active();
+ assert.equal(fashionFor(heloisa).length,9);
+ assert.equal(fashionFor(heloisa).filter(item=>item.id.startsWith('panda_infinity_')).length,0);
+});
+test('compra Moda aplica preço uma vez; roupa de baú requer conquista; saldo insuficiente não altera perfil',()=>{
+ const st=storeForTest();let profile=st.active();
+ profile.coins=179;
+ let result=acquireFashion(profile,'pirate');
+ assert.equal(result.reason,'insufficient-coins');
+ assert.equal(profile.coins,179);
+ assert.equal(profile.avatar.skinId,'original');
+ profile.coins=180;
+ result=acquireFashion(profile,'pirate');
+ assert.equal(result.reason,'purchased');
+ assert.equal(profile.coins,0);
+ assert.equal(profile.avatar.skinId,'pirate');
+ result=acquireFashion(profile,'pirate');
+ assert.equal(profile.coins,0);
+ assert.equal(result.reason,'already-equipped');
+ result=acquireFashion(profile,'navigator2');
+ assert.equal(result.reason,'reward-only');
+ assert.equal(profile.avatar.skinId,'pirate');
+ profile.fashionOwned.push('navigator2');
+ result=acquireFashion(profile,'navigator2');
+ assert.equal(result.reason,'equipped');
+ assert.equal(profile.avatar.skinId,'navigator2');
 });
