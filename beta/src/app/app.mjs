@@ -2,6 +2,7 @@ import {createProfileStore} from '../core/profiles.mjs';
 import {WORLDS,worldState} from '../core/progression.mjs';
 import {createPractice,answerPractice,nextPractice,finishPractice} from '../core/practice.mjs';
 import {profilesScreen} from '../features/profiles/view.mjs';
+import {wardrobeScreen,availableFashion,availableFrames} from '../features/wardrobe/view.mjs';
 import {homeScreen} from '../features/home/view.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
@@ -31,6 +32,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    switch(screen){
     case 'profiles':
       root.innerHTML=profilesScreen(profiles.profiles(),selectedPlayer);break;
+    case 'wardrobe':
+      root.innerHTML=player?wardrobeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -91,7 +94,21 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
-     navigate('feature');break;
+     if(feature==='Moda')navigate('wardrobe');
+     else navigate('feature');
+     break;
+   case 'equipFashion': {
+     const player=profiles.active();
+     const id=String(dataset.skin||'original');
+     if(!player||!availableFashion(player).some(x=>x.id===id))break;
+     profiles.updateActive(p=>{p.avatar.skinId=id;});render();break;
+   }
+   case 'equipFrame': {
+     const player=profiles.active();
+     const id=String(dataset.frame||'')||null;
+     if(!player||!availableFrames(player).some(x=>x.id===id))break;
+     profiles.updateActive(p=>{p.equipped.frame=id;});render();break;
+   }
   }
  }
  const onClick=event=>{
