@@ -1,1 +1,5 @@
-Beta experimental. Fonte: feature/webapp-modular
+Tabuada Quest Beta · WebGL equilibrado
+32 partículas leves · limite 30 FPS · DPR máximo 1.5
+Fallback automático e suporte a movimento reduzido
+Canvas sem interação, pausa em abas ocultas e desmontagem nas outras telas
+Fonte: feature/webapp-modular
