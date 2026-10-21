@@ -1,1 +1,5 @@
-Beta experimental. Fonte: feature/webapp-modular
+Tabuada Quest Beta · Menu proporcional de sete itens
+Layout: cinco ícones retrato e dois horizontais
+Rodapé redundante removido
+Validado no Chromium em 360x740, 390x844 e 1280x800
+Fonte: feature/webapp-modular
