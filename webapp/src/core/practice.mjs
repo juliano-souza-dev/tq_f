@@ -26,6 +26,8 @@ export function answerPractice(session,profile,value){
  if(!session||session.answered||session.queue.length===0)return {accepted:false};
  const first=session.queue.shift(),good=Number.isInteger(value)&&value===first.answer;
  session.answered=true;
+ session.activeFact={...first};
+ session.lastChoice=value;
  if(good){
   first.streak++;
   session.correct++;session.coins++;
@@ -39,12 +41,12 @@ export function answerPractice(session,profile,value){
   profile.stats.wrong=Number(profile.stats.wrong||0)+1;
   session.queue.push(first);
  }
- session.feedback={good,actual:first.answer,multiplier:first.b,mastered:good&&first.streak===2};
+ session.feedback={good,actual:first.answer,multiplier:first.b,mastered:good&&first.streak===2,badValue:good?null:value};
  return {accepted:true,...session.feedback};
 }
 export function nextPractice(session,random=Math.random){
  if(!session?.answered)return {finished:false,advanced:false};
- session.feedback=null;session.answered=false;
+ session.feedback=null;session.answered=false;session.activeFact=null;session.lastChoice=null;
  if(session.queue.length===0)return {finished:true,advanced:true};
  session.choices=choicesFor(session.queue[0],random);
  return {finished:false,advanced:true};
