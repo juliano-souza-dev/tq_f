@@ -209,3 +209,48 @@ p,h1,h2{margin-top:0}
 @media(max-width:360px){.fashion-hero{min-height:230px}.fashion-card-media{height:135px}.fashion-cards{gap:8px}.fashion-card{padding:7px 6px}}
 
 .fashion-notice{padding:12px 14px;border:2px solid #fff0b5;border-radius:14px;background:#fbe9b8;color:#59337d;font-weight:1000;line-height:1.35;text-align:center}
+
+/* Ateliê mobile: provador em uma única tela; trilho horizontal com snap. */
+.wardrobe-view{--atelier-head:55px;--atelier-tabs:51px;--atelier-rail:166px;--atelier-action:119px;position:relative;display:grid;
+ grid-template-rows:var(--atelier-head) minmax(140px,1fr) var(--atelier-tabs) var(--atelier-rail) var(--atelier-action);
+ gap:7px;max-width:520px;width:100%;height:100dvh;min-height:0;padding:calc(8px + env(safe-area-inset-top)) 10px calc(8px + env(safe-area-inset-bottom));overflow:hidden;
+ background:radial-gradient(circle at 50% 22%,#ae6ae8,#5832a0 60%,#33216c);color:#fff}
+.wardrobe-view> *{min-height:0;min-width:0}
+.atelier-head{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:8px;padding:5px 9px;border-radius:17px;border:2px solid #ffebb1;background:linear-gradient(#6635b1,#442585);box-shadow:0 3px 0 #2b195a}
+.atelier-head strong{font-size:.98rem;letter-spacing:.04em;text-align:center}
+.atelier-back{width:38px;height:38px;border-radius:12px;border:2px solid #fff3b9;background:#ffdb89;color:#553075;font-size:1.8rem;line-height:1}
+.atelier-coins{font-size:.87rem;color:#ffefb9;font-weight:1000;font-variant-numeric:tabular-nums;white-space:nowrap}
+.atelier-stage{position:relative;isolation:isolate;overflow:hidden;border-radius:24px;border:3px solid #ffe5ae;
+ background:radial-gradient(ellipse at 50% 42%,#cc9afa,#653bb1 62%,#3a236b);box-shadow:inset 0 2px 8px #ffffff44,0 5px 0 #2e1c65}
+.atelier-spotlight{position:absolute;inset:-25% 1% 0;background:radial-gradient(ellipse at center,#fff5ac4e,transparent 64%);z-index:-1}
+.atelier-preview-avatar{display:block;width:100%;height:calc(100% - 62px);object-fit:contain;object-position:center bottom;filter:drop-shadow(0 7px 7px #24114e79)}
+.atelier-stage-info{position:absolute;left:0;right:0;bottom:0;min-height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 8px;background:linear-gradient(transparent,#2c1b5dda 20%,#2c1b5deb);text-align:center}
+.atelier-stage-info>span{font-size:.69rem;color:#e8cdff;font-weight:900}
+.atelier-stage-info strong{font-size:1.06rem;color:#fff4c1;line-height:1.08}
+.atelier-stage-info small{font-size:.62rem;color:#e6d6ff;max-width:95%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.atelier-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:stretch}
+.atelier-tabs button{min-height:44px;border:2px solid #cba4ee;border-radius:14px;background:#472780;color:#eddbff;font-size:.94rem;font-weight:1000}
+.atelier-tabs button[aria-pressed="true"]{background:linear-gradient(#fff2ae,#ffcc78);color:#573576;border-color:#fff3c7;box-shadow:inset 0 1px #fff}
+.atelier-collection{min-height:0;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.atelier-section-caption{display:flex;justify-content:space-between;align-items:center;gap:7px;padding:0 3px}
+.atelier-section-caption strong{font-size:.9rem;color:#fff1bc}
+.atelier-section-caption small{font-size:.72rem;color:#edd6ff;white-space:nowrap}
+.atelier-rail{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;min-height:0;flex:1;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#ebbd6e #42257c;padding:2px 4px 7px}
+.atelier-skin{position:relative;flex:0 0 clamp(95px,29vw,124px);min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;padding:5px 5px 7px;
+ border:3px solid #d2b2ef;border-radius:17px;background:linear-gradient(#edd6f9,#d8c0eb);color:#492e73;scroll-snap-align:center;box-shadow:0 3px 0 #382260}
+.atelier-skin.is-selected,.atelier-skin[aria-pressed="true"]{border-color:#fff4a8;background:linear-gradient(#fff4d9,#f9d497);box-shadow:0 2px 0 #ca935b,0 0 12px #ffdd9b66}
+.atelier-skin-img{display:block;width:100%;height:calc(100% - 35px);min-height:0;object-fit:contain;object-position:center bottom}
+.atelier-skin>span:not(.wardrobe-frame-swatch){font-size:.69rem;font-weight:1000;max-width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:1.1}
+.atelier-skin small{font-size:.66rem;line-height:1;font-weight:1000}
+.atelier-footer{min-height:0;display:flex;flex-direction:column;justify-content:center;gap:7px;padding:6px 10px;
+ border-radius:20px;border:2px solid #f1d8b2;background:linear-gradient(#6e3ab7,#46267e);box-shadow:0 -3px 18px #1d0e4b70}
+.atelier-acquire{margin:0;text-align:center;color:#fbe7bd;font-size:.79rem;font-weight:900}
+.atelier-notice{margin:0;color:#fff2bc;text-align:center;font-size:.72rem;line-height:1.15}
+.atelier-main-action{width:100%;min-height:49px;border:3px solid #fff4b5;border-radius:17px;background:linear-gradient(#ffeaa0,#f5b950);
+ box-shadow:0 3px 0 #b57843;color:#573076;font-size:1rem;font-weight:1000}
+.atelier-main-action:disabled{background:#c8bdd3;color:#776482;border-color:#e2d9e8;box-shadow:none}
+.atelier-frame-option .wardrobe-frame-swatch{width:100%;height:calc(100% - 30px);background:transparent}
+.atelier-frame-option .wardrobe-frame-swatch img{width:100%;height:100%;object-fit:contain}
+@media(max-height:680px){.wardrobe-view{--atelier-head:49px;--atelier-tabs:44px;--atelier-rail:145px;--atelier-action:104px;gap:4px}.atelier-stage-info{min-height:47px}.atelier-preview-avatar{height:calc(100% - 48px)}}
+@media(max-width:360px){.wardrobe-view{padding-left:6px;padding-right:6px;--atelier-rail:145px}.atelier-skin{flex-basis:100px}.atelier-head strong{font-size:.83rem}}
+@media(prefers-reduced-motion:reduce){.atelier-rail{scroll-behavior:auto!important}}
