@@ -54,3 +54,20 @@
 ## Evoluções futuras
 
 Criar transições narrativas de página, animar a rota com movimento sutil, substituir os emojis dos mascotes secundários por desenhos próprios e fazer inspeções visuais automatizadas de viewport no pipeline.
+
+## Artes originais integradas ao jogo
+
+Todos os arquivos a seguir são WebP otimizados e **servidos localmente pelo GitHub Pages**, sem depender de URLs externas:
+
+| Arquivo | Local de uso |
+|---|---|
+| `assets/artwork/splash.webp` | Capa da aventura, em retrato, no mapa principal |
+| `assets/artwork/nilo.webp` | Mascote Nilo, tela de prólogo, perfil e coleção |
+| `assets/artwork/chest.webp` | Baús da coleção e conquista da quarta missão |
+| `assets/artwork/beach.webp` | Capítulo 1, Baía das Conchas, e sua missão |
+| `assets/artwork/forest.webp` | Capítulo 2, Floresta das Araras, e sua missão |
+| `assets/artwork/candy.webp` | Capítulo final, Coroa do Mundo, na arte do castelo |
+
+O helper `sceneArt` do `index.html` seleciona essas imagens quando disponíveis e mantém `atlas-scenes.svg` como alternativa para as demais regiões. O arquivo `assets/artwork.css` define composição, cortes e legibilidade em mobile, sem interferir no motor de multiplicação.
+
+Os arquivos originais foram convertidos para WebP via pipeline temporário de integração. Após conferência no repositório, o importador foi removido. Para integrar outras imagens futuramente, manter um pipeline isolado, e não converter imagens em cada carregamento do aplicativo.
