@@ -2,7 +2,7 @@ import {worldUrl,assetUrl} from '../../resources/asset-map.mjs';
 import {WORLDS} from '../../core/progression.mjs';
 import {art,topbar,escapeHTML} from '../../components/ui.mjs';
 export function practiceScreen(player,session){
- const world=WORLDS[session.table-1],fact=session.queue[0];
+ const world=WORLDS[session.table-1],fact=session.answered?session.activeFact:session.queue[0];
  const image=session.table===1?assetUrl('world-practice-01.webp'):worldUrl(session.table);
  const percent=session.mastered*10;
  return `<main class="practice-view">
@@ -12,7 +12,7 @@ export function practiceScreen(player,session){
    <div class="game-progress"><span>⭐ ${session.mastered}/10 dominadas</span><strong>${session.mode==='review'?'Revisão espaçada':'Aprender e dominar'}</strong></div>
    <div class="practice-meter" aria-label="${percent}% do mundo concluído"><div class="practice-fill progress-${percent}"></div></div>
    <section class="question-scroll">
-    <div class="question-badge">✦ DESAFIO ${session.mastered+1} DE 10 ✦</div>
+    <div class="question-badge">✦ DESAFIO ${Math.min(10,session.mastered+1)} DE 10 ✦</div>
     <p>Quanto é?</p><h1>${fact.a} <span>×</span> ${fact.b} <span>=</span> ?</h1>
     <div class="streak" aria-label="${fact.streak} acertos consecutivos">
       <span class="${fact.streak>=1?'earned':''}">★</span><span class="${fact.streak>=2?'earned':''}">★</span>
