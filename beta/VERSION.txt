@@ -1,4 +1,1 @@
-Beta visual · Layout de referência v3
-Perfil dourado com barra XP, logo ampliado, personagem com traje original de aventura, sem painel de vitrine; sete atalhos em duas fileiras e sem rodapé.
-Validado Chromium 360x740, 390x844, 1280x800.
-Fonte: feature/webapp-modular.
+Beta experimental. Fonte: feature/webapp-modular
