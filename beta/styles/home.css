@@ -86,27 +86,32 @@ body:has(.home-view) #app{position:relative;z-index:1}
   line-height:1.2;
   margin-top:4px;
 }
-.home-view .hero-coins{
-  top:50%;
-  right:10px;
-  transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  align-items:end;
-  gap:3px;
-  max-width:36%;
-  color:#fff1a2;
-  font-size:clamp(.72rem,2.8vw,.96rem);
-  line-height:1.1;
-  font-variant-numeric:tabular-nums;
+/* Moeda desenhada em CSS evita falhas de fonte/emoji no Android e Windows. */
+.home-view .hero-wallet{
+ position:absolute;right:9px;top:50%;transform:translateY(-50%);
+ display:grid;justify-items:end;gap:3px;max-width:37%;
+ color:#fff4c7;font-variant-numeric:tabular-nums;
 }
-.home-view .hero-coins span{margin:0;color:#d5f8ff}
-.home-view .home-xp{
-  left:27%;
-  width:30%;
-  bottom:7px;
-  height:7px;
-  display:none; /* Nível no HUD, progresso detalhado na tela de perfil. */
+.home-view .wallet-item{
+ display:flex;align-items:center;justify-content:flex-end;gap:6px;
+ line-height:1;white-space:nowrap;font-size:clamp(.75rem,3vw,1rem);
+ text-shadow:0 2px 3px #2a1256;
+}
+.home-view .wallet-item strong{font-weight:1000}
+.home-view .wallet-coin{
+ width:17px;height:17px;flex:none;
+ display:grid;place-items:center;border-radius:50%;
+ border:2px solid #ffed9b;color:#95531f;
+ font-size:.58rem;line-height:1;
+ background:radial-gradient(circle at 28% 26%,#fff5ba,#f8c94a 66%,#d47d23);
+ box-shadow:inset 0 0 0 1px #ca8425,0 1px 3px #24103d;
+ text-shadow:none;
+}
+.home-view .wallet-gem{
+ width:15px;height:15px;flex:none;position:relative;
+ background:linear-gradient(145deg,#ebffff 0%,#50e7ff 47%,#1682da 85%);
+ clip-path:polygon(25% 0,75% 0,100% 40%,50% 100%,0 40%);
+ filter:drop-shadow(0 1px 2px #201d63);
 }
 .home-view .home-logo{
   grid-row:2;
@@ -115,7 +120,7 @@ body:has(.home-view) #app{position:relative;z-index:1}
   position:relative;
   z-index:2;
   display:block;
-  width:min(74%,290px);
+  width:min(88%,350px);
   max-width:none;
   height:100%;
   max-height:none;
@@ -123,6 +128,7 @@ body:has(.home-view) #app{position:relative;z-index:1}
   object-position:center;
   margin:0;
   filter:drop-shadow(0 4px 4px rgba(31,12,86,.52));
+  transform:scale(1.16);
 }
 .home-view .hero-stage{
   grid-row:3;
@@ -218,31 +224,46 @@ body:has(.home-view) #app{position:relative;z-index:1}
   transform:translateY(-50%);
   object-fit:contain;
 }
+/* A arte original tem números impressos na faixa dourada.
+   Uma plaqueta opaca cobre esses valores e apresenta somente dados reais. */
+.home-view .next-chest-progress{
+ position:absolute;left:35.4%;top:49%;width:39%;height:39%;
+ transform:translateY(-50%);
+ display:flex;align-items:center;justify-content:center;
+ isolation:isolate;overflow:hidden;border-radius:999px;
+ border:2px solid #ffda6e;
+ background:linear-gradient(180deg,#411471,#2a1359);
+ box-shadow:0 0 0 3px #422069,0 2px 0 #a95c19,inset 0 1px 5px #1d0b48;
+}
+.home-view .next-chest-progress-fill{
+ position:absolute;inset:0;z-index:-1;
+ width:100%;height:100%;margin:0;
+ appearance:none;border:0;border-radius:999px;background:transparent;
+}
+.home-view .next-chest-progress-fill::-webkit-progress-bar{background:transparent}
+.home-view .next-chest-progress-fill::-webkit-progress-value{
+ background:linear-gradient(90deg,#e6a14a,#ffe082);
+ border-radius:999px;
+}
+.home-view .next-chest-progress-fill::-moz-progress-bar{
+ background:linear-gradient(90deg,#e6a14a,#ffe082);
+ border-radius:999px;
+}
 .home-view .next-chest-counter{
-  position:absolute;
-  top:52%;
-  left:53%;
-  width:22%;
-  height:auto;
-  transform:translateY(-50%);
-  color:#fff8c9;
-  text-align:center;
-  font-size:clamp(.6rem,2.65vw,.79rem);
-  font-weight:1000;
-  font-variant-numeric:tabular-nums;
-  white-space:nowrap;
-  line-height:1;
-  letter-spacing:.01em;
-  text-shadow:0 1px 3px #2d1355;
+ position:relative;z-index:1;display:block;
+ width:100%;padding:0 4px;white-space:nowrap;text-align:center;
+ color:#fffbea;font-size:clamp(.65rem,2.9vw,.85rem);
+ font-weight:1000;line-height:1;font-variant-numeric:tabular-nums;
+ text-shadow:0 1px 4px #200b46,0 1px 2px #200b46;
 }
 .home-view .home-tiles{
   grid-row:6;
   position:relative;
   z-index:2;
   display:grid;
-  grid-template-columns:repeat(8,minmax(0,1fr));
+  grid-template-columns:repeat(6,minmax(0,1fr));
   grid-template-rows:repeat(2,minmax(0,1fr));
-  gap:1px 3px;
+  gap:3px 7px;
   align-self:stretch;
   justify-self:stretch;
   width:100%;
@@ -269,7 +290,10 @@ body:has(.home-view) #app{position:relative;z-index:1}
   filter:drop-shadow(0 4px 3px rgba(28,11,60,.57));
   transition:transform .16s ease,filter .16s ease;
 }
-.home-view .home-tile:nth-child(5){grid-column:2/span 2}
+.home-view .home-tile:nth-child(4){grid-column:2/span 2}
+.home-view .home-tile:nth-child(5){grid-column:4/span 2}
+.home-view .home-tile[data-feature="Pets"] .tile-art{transform:scale(1.16)}
+.home-view .home-tile[data-feature="Baús"] .tile-art{transform:scale(1.02)}
 .home-view .home-tile .tile-art{
   display:block;
   width:100%;
@@ -277,6 +301,7 @@ body:has(.home-view) #app{position:relative;z-index:1}
   max-height:100%;
   object-fit:contain;
   object-position:center;
+  transform-origin:center;
 }
 .home-view .home-tile:active{transform:translateY(3px) scale(.97)}
 .home-view .home-tile:hover{filter:drop-shadow(0 5px 5px rgba(255,221,150,.5))}
@@ -349,8 +374,8 @@ body:has(.home-view) #app{position:relative;z-index:1}
 @media(max-width:360px){
  .home-view{padding-left:8px;padding-right:8px}
  .home-view .hero-identity-info strong{font-size:.78rem}
- .home-view .hero-coins{font-size:.68rem}
- .home-view .next-chest-counter{font-size:.59rem}
+ .home-view .wallet-item{font-size:.7rem}
+ .home-view .next-chest-counter{font-size:.63rem}
 }
 @media(prefers-reduced-motion:reduce){
  .home-view .home-tile,.home-view .play-button{transition:none}
