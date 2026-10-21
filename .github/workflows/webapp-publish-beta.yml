@@ -1,0 +1,53 @@
+name: Webapp · Publicar beta isolada
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths:
+      - 'webapp/src/**'
+      - 'webapp/styles/app.css'
+      - 'webapp/index.html'
+      - 'webapp/assets/optimized/**'
+      - '.github/workflows/webapp-publish-beta.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tabuadaquest-beta-publish
+  cancel-in-progress: true
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/webapp-modular
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Checar webapp
+        run: cd webapp && npm run check
+      - name: Gerar beta independente sem incluir legado
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/tq-beta/styles /tmp/tq-beta/assets
+          cp webapp/index.html /tmp/tq-beta/index.html
+          cp webapp/styles/app.css /tmp/tq-beta/styles/app.css
+          cp -R webapp/src /tmp/tq-beta/src
+          cp -R webapp/assets/optimized /tmp/tq-beta/assets/optimized
+          git fetch origin main
+          git worktree add -B preview-publish /tmp/tq-publish origin/main
+          rm -rf /tmp/tq-publish/beta
+          mkdir -p /tmp/tq-publish/beta
+          cp -R /tmp/tq-beta/. /tmp/tq-publish/beta/
+          echo 'Beta experimental. Fonte: feature/webapp-modular' > /tmp/tq-publish/beta/VERSION.txt
+          cd /tmp/tq-publish
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add beta
+          if git diff --cached --quiet; then echo 'Beta sem alterações'; exit 0; fi
+          git commit -m "preview: atualiza Tabuada Quest modular em beta/"
+          git pull --rebase origin main
+          git push origin HEAD:main
