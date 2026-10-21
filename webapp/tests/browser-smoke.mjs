@@ -21,21 +21,22 @@ async function setup(width,height){
  assert.ok(overflow<3,'Scroll horizontal na home: '+overflow);
  const composition=await page.evaluate(()=>{
    const rect=selector=>{const box=document.querySelector(selector)?.getBoundingClientRect();return box?{top:box.top,bottom:box.bottom,left:box.left,right:box.right,height:box.height}:null};
-   const tileElements=[...document.querySelectorAll('.home-tiles .home-tile')];
+   const tileElements=[...document.querySelectorAll('.home-menu .home-tile')];
    return {
       screen:rect('.home-view'),header:rect('.home-header'),
       logo:rect('.home-logo'),stage:rect('.hero-stage'),
       play:rect('.play-button'),chest:rect('.next-chest'),
-      tiles:rect('.home-tiles'),nav:rect('.tabbar'),
+      tiles:rect('.home-menu'),nav:rect('.tabbar'),
       tileRects:tileElements.map(el=>{const b=el.getBoundingClientRect();return {top:b.top,bottom:b.bottom}}),
       scroll:document.documentElement.scrollHeight,viewport:innerHeight,
       scene:getComputedStyle(document.querySelector('.home-view')).backgroundImage
    };
  });
  assert.ok(composition.scene.includes('home-magical-bg.webp'),'Cenário mágico não aplicado');
- assert.equal(composition.tileRects.length,5,'Cinco atividades secundárias, sem destinos repetidos');
- assert.ok(!await page.locator('.home-tile[data-action="worlds"]').count(),'Mundos não deve duplicar Jogar e rodapé');
- assert.ok(!await page.locator('.home-tile[data-feature="Colecionáveis"]').count(),'Coleção já está no rodapé');
+ assert.equal(composition.tileRects.length,7,'Sete atalhos da referência visual');
+ assert.equal(await page.locator('.home-tile[data-action="worlds"]').count(),1,'Mundos deve aparecer no menu');
+ assert.equal(await page.locator('.home-tile[data-feature="Colecionáveis"]').count(),1,'Colecionáveis deve aparecer no menu');
+ assert.equal(await page.locator('.home-view .tabbar').count(),0,'Rodapé redundante não pode ser renderizado');
  assert.equal(await page.locator('.wallet-coin').count(),1,'Ícone de moeda em CSS');
  assert.equal(await page.locator('.wallet-gem').count(),1,'Ícone de gema em CSS');
  assert.equal(await page.locator('.next-chest-progress-fill').getAttribute('value'),'0');
@@ -67,7 +68,13 @@ async function setup(width,height){
  assert.ok(composition.play.bottom<=composition.chest.bottom+2,'CTA encosta no baú');
  assert.ok(composition.chest.bottom<=composition.tiles.bottom+2,'Baú sobreposto aos atalhos');
  assert.ok(composition.tileRects.every(r=>r.top>=composition.tiles.top-2 && r.bottom<=composition.tiles.bottom+3),'Cards fora do painel');
- assert.ok(composition.tiles.bottom<=composition.nav.top+3,'Atalhos encobertos pela navegação');
+ assert.ok(composition.tiles.bottom<=composition.screen.bottom+2,'Atalhos fora da tela');
+ const slots=await page.locator('.home-menu .home-tile').evaluateAll(nodes=>nodes.map(n=>{const b=n.getBoundingClientRect(),img=n.querySelector('img'),style=getComputedStyle(img);return {slot:n.dataset.slot,x:b.x,y:b.y,w:b.width,h:b.height,fit:style.objectFit,naturalW:img.naturalWidth,naturalH:img.naturalHeight}}));
+ assert.deepEqual(slots.map(s=>s.slot),['worlds','daily','store','collectibles','chests','pets','items']);
+ assert.ok(slots.every(x=>x.fit==='contain'&&x.naturalW>0&&x.naturalH>0),'Artes deformadas ou ausentes');
+ assert.ok(slots.slice(0,5).every(x=>x.y===slots[0].y),'Primeira fileira desalinhada');
+ assert.ok(slots.slice(5).every(x=>x.y===slots[5].y),'Segunda fileira desalinhada');
+ assert.ok(slots[5].y>=slots[0].y+slots[0].h-4,'Fileiras sobrepostas');
  await page.screenshot({path:'screenshots/home-'+width+'x'+height+'.png',fullPage:true});
  return {page,ctx};
 }
