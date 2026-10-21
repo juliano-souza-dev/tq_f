@@ -1,0 +1,49 @@
+{
+  "id": "007-fashion-screen",
+  "sourceBranch": "apoio",
+  "sourcePrefix": "apk-extraido/assets",
+  "outputPrefix": "webapp/assets/optimized",
+  "qualityMinimumPsnr": 37,
+  "items": [
+    {
+      "source": "fashion-bg.png",
+      "target": "fashion-bg.webp",
+      "maxWidth": 900
+    },
+    {
+      "source": "fashion-header.png",
+      "target": "fashion-header.webp",
+      "maxWidth": 720
+    },
+    {
+      "source": "fashion-icon-coin.png",
+      "target": "fashion-icon-coin.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "fashion-icon-lock.png",
+      "target": "fashion-icon-lock.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "fashion-icon-star.png",
+      "target": "fashion-icon-star.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "fashion-icon-chest.png",
+      "target": "fashion-icon-chest.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "fashion-icon-daily.png",
+      "target": "fashion-icon-daily.webp",
+      "maxWidth": 320
+    },
+    {
+      "source": "fashion-info.png",
+      "target": "fashion-info.webp",
+      "maxWidth": 320
+    }
+  ]
+}
