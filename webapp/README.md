@@ -1,3 +1,25 @@
+## Marco 1: fluxo jogável independente (2026-10-21)
+
+**Prévia:** https://juliano-souza-dev.github.io/tq_f/beta/
+
+Esta etapa já não depende da execução de `scripts/legacy.js`: `index.html` carrega apenas `styles/app.css` e `src/app/app.mjs`. O código antigo permanece em `legacy/entry.html`, `styles/legacy.css` e `scripts/legacy.js` como referência recuperada, não como motor desta prévia.
+
+- `src/core/profiles.mjs`: importação conservadora dos dados do APK, cópia para `tabuadaquest.webapp.v1`, sem sobrescrever `tabuadaquest.v0.1`.
+- `src/core/progression.mjs`: dez tabuadas, desbloqueio, revisão espaçada e progresso de baús.
+- `src/core/practice.mjs`: dez contas com dois acertos consecutivos, moedas, XP, histórico e persistência.
+- `src/features/`: views independentes para perfis, home, mundos e prática.
+- `src/app/app.mjs`: roteamento e eventos do primeiro fluxo jogável.
+- `src/resources/asset-map.mjs`: catálogo dos 29 arquivos aprovados para o runtime beta.
+- `data/batches/002-profiles-worlds.json`: segundo lote de 15 arquivos, inclusive mapas e avatares.
+
+**Validação:** testes Node de progressão, migração, perfil independente e 20 respostas; testes Chromium em 360×740, 390×844 e desktop com capturas e auditoria de imagens quebradas. Resultados do navegador ficam em Actions.
+
+**Em construção:** portais avançados, pets animados, loja, coleção, recompensas diárias e abertura de baús. O menu correspondente informa que a função ainda não foi migrada, sem fingir que foi implementada. A validação visual humana de cada tela continua indispensável.
+
+A prévia usa `/beta/` na branch main somente como local de teste, sem substituir a raiz do jogo antigo. O código fonte da webapp fica exclusivamente em `feature/webapp-modular`.
+
+---
+
 # Tabuada Quest: reconstrução webapp modular
 
 **Status:** início da reconstrução; não é uma versão de produção. A antiga main pode ser descartada como base do jogo, mas será preservada como histórico até a nova versão ser validada. Branch de trabalho: feature/webapp-modular. Fonte original e banco de recursos: apoio/apk-extraido/assets.
