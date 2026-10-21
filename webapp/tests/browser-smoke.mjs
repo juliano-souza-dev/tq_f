@@ -97,7 +97,7 @@ try{
    assert.equal(owner.coins,9820);
    const broken=await page.locator('.fashion-reference img').evaluateAll(async imgs=>{
      await Promise.all(imgs.map(img=>img.decode().catch(()=>null)));
-     return imgs.filter(img=>!img.naturalWidth).map(img.src);
+     return imgs.filter(img=>!img.naturalWidth).map(img=>img.src);
    });
    assert.deepEqual(broken,[]);
    const geometry=await page.evaluate(()=>({
