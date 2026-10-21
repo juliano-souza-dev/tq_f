@@ -3,78 +3,78 @@
   "sourceBranch": "apoio",
   "sourcePrefix": "apk-extraido/assets",
   "outputPrefix": "webapp/assets/optimized",
-  "note": "Primeiro lote: interface inicial. 14/1.303 imagens raster; recurso só será publicado após validar visualmente e substituir as referências.",
-  "qualityMinimumPsnr": 36,
+  "note": "Lote 001 refinado: resolução até ~2x o maior tamanho de apresentação na home (620px), PSNR sobre fundos claros/escuros, alpha preservado e comparação visual pendente.",
+  "qualityMinimumPsnr": 39,
   "items": [
     {
       "source": "home_new_logo.png",
       "target": "home_new_logo.webp",
-      "maxWidth": 1100
+      "maxWidth": 720
     },
     {
       "source": "home_new_header.png",
       "target": "home_new_header.webp",
-      "maxWidth": 1440
+      "maxWidth": 1200
     },
     {
       "source": "home_new_jogar.png",
       "target": "home_new_jogar.webp",
-      "maxWidth": 980
+      "maxWidth": 800
     },
     {
       "source": "home_new_worlds.png",
       "target": "home_new_worlds.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_chests.png",
       "target": "home_new_chests.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_pets.png",
       "target": "home_new_pets.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_collectibles.png",
       "target": "home_new_collectibles.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_daily.png",
       "target": "home_new_daily.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_store.png",
       "target": "home_new_store.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_fundo.png",
       "target": "home_new_fundo.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_moda.png",
       "target": "home_new_moda.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_items.png",
       "target": "home_new_items.webp",
-      "maxWidth": 980
+      "maxWidth": 630
     },
     {
       "source": "home_new_next_chest.png",
       "target": "home_new_next_chest.webp",
-      "maxWidth": 980
+      "maxWidth": 1000
     },
     {
       "source": "home_new_fashion_stage.png",
       "target": "home_new_fashion_stage.webp",
-      "maxWidth": 1200
+      "maxWidth": 800
     }
   ]
 }
