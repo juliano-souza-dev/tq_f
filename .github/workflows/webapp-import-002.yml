@@ -1,0 +1,37 @@
+name: Webapp · Assets 002 perfis e mundos
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths:
+      - .github/workflows/webapp-import-002.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/webapp-modular
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - name: Converter apenas segundo lote
+        run: python webapp/tools/convert-batch.py webapp/data/batches/002-profiles-worlds.json
+      - name: Registrar conversões no catálogo
+        run: node webapp/tools/apply-batch-to-inventory.mjs webapp/data/batches/002-profiles-worlds-results.json
+      - name: Validar estrutura
+        run: cd webapp && npm run check
+      - name: Salvar somente os assets do lote 002
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add webapp/assets/optimized/ webapp/data/asset-inventory.csv webapp/data/batches/002-profiles-worlds-results.json
+          git diff --cached --quiet && exit 0
+          git commit -m "assets(webapp): converte avatares e mapas em lote 002"
+          git pull --rebase origin feature/webapp-modular
+          git push origin HEAD:feature/webapp-modular
