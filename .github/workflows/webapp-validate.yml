@@ -1,0 +1,41 @@
+name: Webapp · Testes modulares
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths:
+      - 'webapp/**'
+      - '.github/workflows/webapp-validate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  node-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Testar código e fluxos de jogo
+        run: |
+          cd webapp
+          npm run check
+      - name: Auditar referências de todos os arquivos dos lotes
+        run: |
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const root='webapp/';
+          const names=['001-home','002-profiles-worlds'];
+          let total=0;
+          for(const n of names){
+            const plan=JSON.parse(fs.readFileSync(root+'data/batches/'+n+'.json','utf8'));
+            for(const entry of plan.items){
+              if(!fs.existsSync(root+'assets/optimized/'+entry.target))
+                throw new Error('Missing '+entry.target);
+              total++;
+            }
+          }
+          if(total!==29)throw new Error('Expected 29 assets, got '+total);
+          console.log('Assets presentes:',total);
+          NODE
