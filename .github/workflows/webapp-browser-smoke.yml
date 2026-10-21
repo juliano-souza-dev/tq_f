@@ -33,6 +33,22 @@ jobs:
           cd webapp
           mkdir -p screenshots
           node tests/browser-smoke.mjs
+      - name: Verificar captura visual compacta
+        run: |
+          python -m pip install -q Pillow
+          python - <<'PY'
+          import base64, io
+          from PIL import Image
+          for name in ('home-1280x800', 'home-390x844'):
+              image = Image.open('webapp/screenshots/'+name+'.png').convert('RGB')
+              if name=='home-1280x800':
+                  w,h=image.size
+                  image=image.crop((w//2-240,0,w//2+240,min(h,800)))
+              image.thumbnail((470,820))
+              stream=io.BytesIO()
+              image.save(stream,format='WEBP',quality=58,method=5)
+              print('PREVIEW_BEGIN_'+name+'='+base64.b64encode(stream.getvalue()).decode('ascii')+'=PREVIEW_END_'+name)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
