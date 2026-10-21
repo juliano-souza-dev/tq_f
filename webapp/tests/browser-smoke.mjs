@@ -11,6 +11,10 @@ async function setup(width,height){
  await page.locator('.player-choice[data-player="alana"]').click();
  await page.locator('[data-action="enter"]').click();
  await page.locator('.home-logo').waitFor();
+ const fx=await page.locator('.home-view').getAttribute('data-fx-mode');
+ assert.ok(fx==='webgl'||fx==='fallback','Home deve ter WebGL ou fallback');
+ if(fx==='webgl')assert.equal(await page.locator('canvas.home-webgl-fx').count(),1);
+
  assert.equal(await page.locator('h1').count(),0); // home usa arte de logotipo
  const broken=await page.locator('.home-logo, .home-header-art, .fashion-base, .play-art, .hero-character').evaluateAll(async images=>{
   await Promise.all(images.map(img=>img.decode().catch(()=>null)));
@@ -83,6 +87,7 @@ try{
    const [w,h]=size.split('x').map(Number);
    const {page,ctx}=await setup(w,h);
    await page.locator('.play-button').click();
+   assert.equal(await page.locator('canvas.home-webgl-fx').count(),0,'Deve destruir canvas após navegar');
    await page.locator('.world-pin[data-world="1"]').click();
    await page.locator('.world-start').click();
    assert.equal(await page.locator('.question-scroll h1').count(),1);
@@ -103,6 +108,18 @@ try{
    }
    await ctx.close();
  }
+
+ const reduced=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});
+ const reducedPage=await reduced.newPage();
+ reducedPage.on('pageerror',err=>failures.push('Reduce motion: '+err.message));
+ await reducedPage.goto('http://127.0.0.1:8765/');
+ await reducedPage.locator('.player-choice[data-player="alana"]').click();
+ await reducedPage.locator('[data-action="enter"]').click();
+ await reducedPage.locator('.home-logo').waitFor();
+ assert.equal(await reducedPage.locator('canvas.home-webgl-fx').count(),0,'Movimento reduzido deve impedir canvas');
+ assert.equal(await reducedPage.locator('.home-view').getAttribute('data-fx-mode'),'fallback');
+ assert.equal(await reducedPage.locator('.home-logo').evaluate(el=>getComputedStyle(el).animationName),'none');
+ await reduced.close();
  if(failures.length)throw Error(failures.join('\n'));
  console.log('✓ Browser smoke: 360x740, 390x844, 1280x800, login, assets, mapa, prática, 20 respostas e persistência');
 }finally{await browser.close();}
