@@ -1,6 +1,1 @@
-Tabuada Quest Beta · Perfil equipável
-Avatar superior: somente rosto recortado, com moldura equipada.
-Contrato APK: avatar.skinId, fashionOwned, equipped.frame e owned.
-Personagem central: moda equipada. Guarda-roupa: troca e persistência sem conceder itens novos.
-Teste de seleção e persistência: aprovado.
-Fonte: feature/webapp-modular.
+Beta experimental. Fonte: feature/webapp-modular
