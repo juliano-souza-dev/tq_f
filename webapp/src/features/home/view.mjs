@@ -33,7 +33,7 @@ export function homeScreen(profile){
    <div class="next-chest" aria-label="${chest.available?chest.available+' baú disponível':chest.into+' de '+chest.nextReq+' atividades para o próximo baú'}">
       ${image('next_chest','next-chest-art')}
       <span class="next-chest-progress" role="progressbar" aria-label="Atividades para o próximo baú" aria-valuemin="0" aria-valuemax="${chest.nextReq}" aria-valuenow="${chest.into}">
-        <span class="next-chest-progress-fill" data-progress="${chest.percentage}" aria-hidden="true"></span>
+        <progress class="next-chest-progress-fill" value="${chest.into}" max="${chest.nextReq}" aria-hidden="true"></progress>
         <span class="next-chest-counter">${chest.available?chest.available+' pronto'+(chest.available>1?'s':''):chest.into+' / '+chest.nextReq}</span>
       </span>
    </div>
