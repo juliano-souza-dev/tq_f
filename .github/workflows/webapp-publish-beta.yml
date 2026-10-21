@@ -4,7 +4,7 @@ on:
     branches: [feature/webapp-modular]
     paths:
       - 'webapp/src/**'
-      - 'webapp/styles/app.css'
+      - 'webapp/styles/**'
       - 'webapp/index.html'
       - 'webapp/assets/optimized/**'
       - '.github/workflows/webapp-publish-beta.yml'
@@ -34,7 +34,7 @@ jobs:
           set -euo pipefail
           mkdir -p /tmp/tq-beta/styles /tmp/tq-beta/assets
           cp webapp/index.html /tmp/tq-beta/index.html
-          cp webapp/styles/app.css /tmp/tq-beta/styles/app.css
+          cp -R webapp/styles/. /tmp/tq-beta/styles/
           cp -R webapp/src /tmp/tq-beta/src
           cp -R webapp/assets/optimized /tmp/tq-beta/assets/optimized
           git fetch origin main
