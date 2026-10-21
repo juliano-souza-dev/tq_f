@@ -1,5 +1,6 @@
 import {assetUrl,equippedAvatarUrl,equippedFrameUrl} from '../../resources/asset-map.mjs';
 import {art,escapeHTML} from '../../components/ui.mjs';
+import {BACKGROUNDS,backgroundUrl} from '../backgrounds/catalog.mjs';
 import {masteredCount,level,experienceProgress,chestProgress} from '../../core/progression.mjs';
 export function homeScreen(profile){
  const coin=Number(profile.coins||0),gems=Number(profile.gems||0);
@@ -7,9 +8,10 @@ export function homeScreen(profile){
  const amount=value=>new Intl.NumberFormat('pt-BR').format(value);
  const equippedAvatar=equippedAvatarUrl(profile);
  const equippedFrame=equippedFrameUrl(profile);
+ const bg=BACKGROUNDS.find(x=>x.id===profile.equipped?.background && profile.owned?.includes(x.id));
  const image=(n,cls='',alt='')=>art(assetUrl('home_new_'+n+'.webp'),{className:cls,alt});
  const feature=(name,action,label)=>`<button class="home-tile" data-slot="${name}" type="button" data-action="${action}" ${action==='openFeature'?'data-feature="'+escapeHTML(label)+'"':''} aria-label="${escapeHTML(label)}">${image(name,'tile-art','')}<span class="sr-only">${escapeHTML(label)}</span></button>`;
- return `<main class="home-view screen-stack">
+ return `<main class="home-view screen-stack" ${bg?"style=\"--player-bg:url("+backgroundUrl(bg)+")\"":""}>
    <div class="home-header" aria-label="Perfil e recursos da aventureira">
     <button class="hero-identity" type="button" data-action="profiles" aria-label="Trocar de aventureira">
       <span class="hero-portrait" aria-hidden="true">
