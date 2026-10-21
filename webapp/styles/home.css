@@ -596,3 +596,13 @@ body:has(.home-view) #app{position:relative;z-index:1}
  .home-view .home-webgl-fx{display:none!important}
  .home-view .home-logo,.home-view .hero-character,.home-view .play-button{animation:none!important;translate:none!important}
 }
+
+/* Luz ambiente discreta nas bordas do palco, sem cobrir interfaces. */
+.home-view::after{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:radial-gradient(ellipse 29% 21% at 18% 42%,rgba(255,216,135,.075),transparent 100%),
+ radial-gradient(ellipse 29% 20% at 83% 50%,rgba(170,199,255,.06),transparent 100%);
+ animation:tqAmbientBreath 9s ease-in-out infinite alternate;
+}
+@keyframes tqAmbientBreath{from{opacity:.42}to{opacity:.95}}
+@media(prefers-reduced-motion:reduce){.home-view::after{animation:none!important}}
