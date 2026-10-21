@@ -1,0 +1,189 @@
+{
+  "sourceBranch": "apoio",
+  "sourceCommit": "1da1c9b58ad8a87664d3e139e77833adb73f3510",
+  "relativeRoot": "apk-extraido/assets",
+  "lastAudit": "2026-10-21",
+  "sourceFileCount": 1362,
+  "sourceBytes": 520102108,
+  "formatCounts": {
+    "png": 1208,
+    "webp": 95,
+    "svg": 12,
+    "json": 43,
+    "html": 1,
+    "js": 2,
+    "txt": 1
+  },
+  "treatmentCounts": {
+    "converter_webp_em_lote": 1208,
+    "webp_ja_pequeno_validar_visual": 87,
+    "preservar_svg_vetorial": 12,
+    "preservar_json_lottie": 43,
+    "reavaliar_tamanho_webp": 8,
+    "preservar_codigo_ou_dados": 4
+  },
+  "usageCounts": {
+    "referencia_explicita": 294,
+    "referencia_dinamica_ou_derivada": 1029,
+    "nao_identificado": 39
+  },
+  "unknownExamples": [
+    {
+      "name": "bg-constellation.svg",
+      "bytes": 2917
+    },
+    {
+      "name": "bg-equations.svg",
+      "bytes": 2917
+    },
+    {
+      "name": "bg-library.svg",
+      "bytes": 2917
+    },
+    {
+      "name": "bg-secret-vault.svg",
+      "bytes": 2917
+    },
+    {
+      "name": "fashion-icon-heart.png",
+      "bytes": 141474
+    },
+    {
+      "name": "fashion-icon-plus.png",
+      "bytes": 177276
+    },
+    {
+      "name": "frame-crystal.svg",
+      "bytes": 1157
+    },
+    {
+      "name": "frame-moon.svg",
+      "bytes": 1153
+    },
+    {
+      "name": "frame-numbers.svg",
+      "bytes": 1150
+    },
+    {
+      "name": "frame-secret-royal.svg",
+      "bytes": 1155
+    },
+    {
+      "name": "home_new_fashion_stage.png",
+      "bytes": 1797903
+    },
+    {
+      "name": "home_new_header.png",
+      "bytes": 1597838
+    },
+    {
+      "name": "home-collectibles.png",
+      "bytes": 281758
+    },
+    {
+      "name": "home-daily-icon.webp",
+      "bytes": 31248
+    },
+    {
+      "name": "home-logo.webp",
+      "bytes": 149374
+    },
+    {
+      "name": "home-play.webp",
+      "bytes": 51610
+    },
+    {
+      "name": "home-portal.svg",
+      "bytes": 845
+    },
+    {
+      "name": "home-store-card.webp",
+      "bytes": 48926
+    },
+    {
+      "name": "home-worlds-card.webp",
+      "bytes": 59756
+    },
+    {
+      "name": "index.html",
+      "bytes": 448121
+    },
+    {
+      "name": "pack-explorer.svg",
+      "bytes": 931
+    },
+    {
+      "name": "pack-royal.svg",
+      "bytes": 927
+    },
+    {
+      "name": "pack-starlight.svg",
+      "bytes": 930
+    },
+    {
+      "name": "papai_correct_lottie/assets/source_sprite_sheet.png",
+      "bytes": 2518429
+    },
+    {
+      "name": "papai_correct_lottie/manifest.json",
+      "bytes": 477
+    },
+    {
+      "name": "papai-base.png",
+      "bytes": 2476895
+    },
+    {
+      "name": "vilao_erro_lottie/README.txt",
+      "bytes": 461
+    },
+    {
+      "name": "vilao_erro_lottie/vilao_erro_lottie.json",
+      "bytes": 2698
+    },
+    {
+      "name": "world_map_bg.webp",
+      "bytes": 379754
+    },
+    {
+      "name": "world_map_complete.png",
+      "bytes": 3183087
+    },
+    {
+      "name": "world-10.webp",
+      "bytes": 205378
+    },
+    {
+      "name": "world-2.webp",
+      "bytes": 170006
+    },
+    {
+      "name": "world-3.webp",
+      "bytes": 188238
+    },
+    {
+      "name": "world-4.webp",
+      "bytes": 208670
+    },
+    {
+      "name": "world-5.webp",
+      "bytes": 185460
+    },
+    {
+      "name": "world-6.webp",
+      "bytes": 193086
+    },
+    {
+      "name": "world-7.webp",
+      "bytes": 204200
+    },
+    {
+      "name": "world-8.webp",
+      "bytes": 202808
+    },
+    {
+      "name": "world-9.webp",
+      "bytes": 177736
+    }
+  ],
+  "disclaimer": "Estático; não identificados são candidatos a revisão manual, jamais confirmação de não uso. Arquivos WEBP pequenos exigem validação visual e de dimensões antes de aprovação."
+}
