@@ -1,0 +1,140 @@
+{
+  "id": "006-fashion-collection",
+  "sourceBranch": "apoio",
+  "sourcePrefix": "apk-extraido/assets",
+  "outputPrefix": "webapp/assets/optimized",
+  "qualityMinimumPsnr": 39,
+  "note": "Todos os 26 looks restantes do catálogo AVATAR_SKINS. Downloads só quando o lote é solicitado na tela de Moda.",
+  "items": [
+    {
+      "source": "avatar-luna-pirata1.png",
+      "target": "avatar-luna-pirata1.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-luna-navigator2.png",
+      "target": "avatar-luna-navigator2.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-luna-inventor3.png",
+      "target": "avatar-luna-inventor3.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-luna-coelhinha.png",
+      "target": "avatar-luna-coelhinha.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-luna-havaiana.png",
+      "target": "avatar-luna-havaiana.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-luna-lbug.png",
+      "target": "avatar-luna-lbug.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-luna-penelope.png",
+      "target": "avatar-luna-penelope.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-pirata1.png",
+      "target": "avatar-sofia-pirata1.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-navigator2.png",
+      "target": "avatar-sofia-navigator2.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-inventor3.png",
+      "target": "avatar-sofia-inventor3.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-coelhinha.png",
+      "target": "avatar-sofia-coelhinha.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-havaiana.png",
+      "target": "avatar-sofia-havaiana.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-lbug.png",
+      "target": "avatar-sofia-lbug.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-penelope.png",
+      "target": "avatar-sofia-penelope.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-panda-infinity-01.png",
+      "target": "avatar-sofia-panda-infinity-01.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-panda-infinity-02.png",
+      "target": "avatar-sofia-panda-infinity-02.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-panda-infinity-03.png",
+      "target": "avatar-sofia-panda-infinity-03.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-panda-infinity-04.png",
+      "target": "avatar-sofia-panda-infinity-04.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-panda-infinity-05.png",
+      "target": "avatar-sofia-panda-infinity-05.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-pirata1.png",
+      "target": "avatar-maya-pirata1.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-navigator2.png",
+      "target": "avatar-maya-navigator2.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-inventor3.png",
+      "target": "avatar-maya-inventor3.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-coelhinha.png",
+      "target": "avatar-maya-coelhinha.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-havaiana.png",
+      "target": "avatar-maya-havaiana.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-lbug.png",
+      "target": "avatar-maya-lbug.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-penelope.png",
+      "target": "avatar-maya-penelope.webp",
+      "maxWidth": 560
+    }
+  ]
+}
