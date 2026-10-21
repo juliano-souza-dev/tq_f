@@ -63,3 +63,7 @@ html:has(.backgrounds-view),body:has(.backgrounds-view){height:100%;overflow:hid
 .bg-tile-status{border:0;cursor:pointer;font:inherit}
 .bg-tile-status:disabled{cursor:default;opacity:1}
 .bg-tile-status:focus-visible,.bg-tile-preview:focus-visible{outline:3px solid #ffe580;outline-offset:2px}
+
+/* Cards da galeria são exclusivamente seletores. Compra/equipamento só na prévia. */
+.bg-tile.bg-tile-preview{width:100%;padding:9px;gap:7px;text-align:center}
+.bg-equipped-mark{font-size:11px;font-weight:900;color:#a7f77e}
