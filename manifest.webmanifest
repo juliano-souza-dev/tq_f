@@ -1,12 +1,12 @@
 {
   "name": "Expedição Tabuada: O Grande Atlas",
   "short_name": "Expedição Tabuada",
-  "description": "Um mundo de histórias para aprender multiplicação",
+  "description": "Aventura infantil em retrato para dominar as tabuadas, colecionar tesouros e recuperar as 12 estrelas do Atlas.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#081a31",
-  "theme_color": "#102948",
+  "theme_color": "#252f60",
   "icons": [
     {
       "src": "./icon.svg",
@@ -14,5 +14,6 @@
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "orientation": "portrait-primary"
 }
