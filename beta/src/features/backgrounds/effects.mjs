@@ -8,9 +8,12 @@ void main(){
  float s=a_seed,t=u_time;
  vec2 p=a_pos;
  float speed=0.035+fract(s*7.17)*0.075;
- if(u_theme>8.5){ // snowfall, drifting down
-   p.y=1.16-mod((1.16-p.y)+t*speed*(2.0+fract(s*13.)),2.32);
-   p.x+=sin(t*0.85+s*31.0+p.y*3.0)*0.075;
+ if(u_theme>8.5){ // falling snow: three depth layers, wind and drift
+   float depth=fract(s*9.73);
+   float fall=0.09+depth*0.18;
+   p.y=1.18-mod((1.18-p.y)+t*fall,2.36);
+   p.x+=sin(t*(0.38+depth*.5)+s*31.0+p.y*3.0)*(.025+depth*.075);
+   p.x+=sin(t*.17+s*17.0)*.035;
  }else if(u_theme<1.5&&u_theme>0.5){ // ocean glints, bob and shimmer
    p.y+=sin(t*0.6+s*29.0)*0.014;
    p.x+=sin(t*0.4+s*14.0)*0.025;
@@ -33,7 +36,7 @@ void main(){
  vec2 p=gl_PointCoord*2.0-1.0;float d=length(p);
  float a=(1.0-smoothstep(0.52,1.0,d))*0.64;
  vec3 c=vec3(1.0,.88,.52);
- if(v_theme>8.5){c=vec3(.91,.96,1.0);a=(1.0-smoothstep(.65,1.,d))*.84;}
+ if(v_theme>8.5){float depth=fract(v_seed*9.73);float flake=1.0-smoothstep(.38,.98,d);float core=1.0-smoothstep(.03,.30,d);c=mix(vec3(.77,.89,1.0),vec3(1.0),core);a=flake*(.50+depth*.47);}
  else if(v_theme<1.5&&v_theme>.5){c=mix(vec3(.65,.96,1.),vec3(1.,.96,.68),fract(v_seed*9.));a*=.67;}
  else if(v_theme>1.5&&v_theme<2.5){c=vec3(1.,.75,.42);a*=.55;}
  else if(v_theme>2.5&&v_theme<3.5){c=vec3(1.,.8,.36);}
@@ -51,13 +54,14 @@ export function mountBackgroundEffect(host,id,{windowRef=window,preview=false}={
  if(!host||!(id in THEMES))return ()=>{};
  const doc=host.ownerDocument,reduce=windowRef.matchMedia?.('(prefers-reduced-motion: reduce)');
  if(reduce?.matches)return ()=>{};
- const canvas=doc.createElement('canvas');canvas.className='background-webgl-layer';canvas.setAttribute('aria-hidden','true');canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+ const canvas=doc.createElement('canvas');canvas.className='background-webgl-layer';if(id==='bg_ice')canvas.classList.add('snow-scene');canvas.setAttribute('aria-hidden','true');canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;';
  host.style.isolation='isolate';host.prepend(canvas);
+ const particleCount=id==='bg_ice'?(preview?110:210):(preview?38:54);
  let gl,program,buffer,raf=0,observer,disposed=false,visible=!doc.hidden,last=0;
  const clean=[];
  const stop=()=>{if(raf)windowRef.cancelAnimationFrame(raf);raf=0};
  const size=()=>{if(!gl)return;const r=host.getBoundingClientRect(),dpr=Math.min(windowRef.devicePixelRatio||1,1.25),scale=Math.min(dpr,Math.sqrt(340000/Math.max(1,r.width*r.height)));const w=Math.max(1,Math.round(r.width*scale)),h=Math.max(1,Math.round(r.height*scale));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}};
- const frame=now=>{raf=0;if(disposed||!visible||!gl)return;if(now-last>33){last=now;size();gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.useProgram(program);gl.uniform1f(gl.getUniformLocation(program,'u_time'),now*.001);gl.uniform1f(gl.getUniformLocation(program,'u_theme'),THEMES[id]);gl.uniform1f(gl.getUniformLocation(program,'u_height'),canvas.height);gl.drawArrays(gl.POINTS,0,preview?38:54)}raf=windowRef.requestAnimationFrame(frame)};
+ const frame=now=>{raf=0;if(disposed||!visible||!gl)return;if(now-last>33){last=now;size();gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.useProgram(program);gl.uniform1f(gl.getUniformLocation(program,'u_time'),now*.001);gl.uniform1f(gl.getUniformLocation(program,'u_theme'),THEMES[id]);gl.uniform1f(gl.getUniformLocation(program,'u_height'),canvas.height);gl.drawArrays(gl.POINTS,0,particleCount)}raf=windowRef.requestAnimationFrame(frame)};
  const resume=()=>{if(!disposed&&visible&&!raf)raf=windowRef.requestAnimationFrame(frame)};
  const destroy=()=>{if(disposed)return;disposed=true;stop();clean.forEach(f=>f());observer?.disconnect();if(gl){if(buffer)gl.deleteBuffer(buffer);if(program)gl.deleteProgram(program)}canvas.remove()};
  try{
@@ -66,8 +70,8 @@ export function mountBackgroundEffect(host,id,{windowRef=window,preview=false}={
  const vs=compile(gl,gl.VERTEX_SHADER,VERT),fs=compile(gl,gl.FRAGMENT_SHADER,FRAG);
  program=gl.createProgram();gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);gl.deleteShader(vs);gl.deleteShader(fs);
  if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));
- const n=preview?38:54,points=new Float32Array(n*4);
- for(let i=0;i<n;i++){const seed=(i*.6180339887)%1;points[i*4]=seed*2-1;points[i*4+1]=((i*.754877666)%1)*2-1;points[i*4+2]=seed;points[i*4+3]=2.5+seed*(id==='bg_ice'?5:7)}
+ const n=particleCount,points=new Float32Array(n*4);
+ for(let i=0;i<n;i++){const seed=(i*.6180339887)%1;points[i*4]=seed*2-1;points[i*4+1]=((i*.754877666)%1)*2-1;points[i*4+2]=seed;points[i*4+3]=id==='bg_ice'?4+seed*9:2.5+seed*7}
  buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,points,gl.STATIC_DRAW);
  for(const [name,count,offset] of [['a_pos',2,0],['a_seed',1,8],['a_size',1,12]]){const loc=gl.getAttribLocation(program,name);if(loc<0)continue;gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,count,gl.FLOAT,false,16,offset)}
  gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
