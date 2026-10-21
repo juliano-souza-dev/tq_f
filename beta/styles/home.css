@@ -618,3 +618,7 @@ body:has(.home-view) #app{position:relative;z-index:1}
 .home-view>.background-webgl-layer.snow-scene{position:absolute;inset:0;z-index:12;opacity:1;pointer-events:none;mix-blend-mode:screen}
 .home-view>.background-webgl-layer.snow-scene~*{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.home-view>.background-webgl-layer.snow-scene{display:none}}
+
+/* Cosmic sky behind avatar and HUD: meteors never cross in front of characters. */
+.home-view>.background-webgl-layer.cosmic-scene{z-index:0;pointer-events:none;opacity:.96}
+.home-view>.background-webgl-layer.cosmic-scene~*{position:relative;z-index:1}
