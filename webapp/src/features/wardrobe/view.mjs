@@ -13,7 +13,7 @@ function sourceLabel(skin){
  const mastery=src.find(x=>x.includes('chest'));
  return mastery?'🏆 Conquista de tabuada':'🔒 Recompensa especial';
 }
-export function wardrobeScreen(profile){
+export function wardrobeScreen(profile,notice=''){
  const skins=fashionFor(profile),frames=availableFrames(profile);
  const worn=skins.find(x=>x.id===(profile.avatar?.skinId||'original'))||skins[0];
  const unlocked=skins.filter(x=>fashionStatus(profile,x).owned).length;
@@ -25,6 +25,7 @@ export function wardrobeScreen(profile){
      <div class="fashion-wallet">🪙 ${coins(profile.coins||0)} <small>moedas</small></div></div>
      ${art(equippedAvatarUrl(profile),{className:'fashion-stage-avatar',alt:'Visual equipado de '+profile.name})}
    </section>
+   ${notice?`<p class="fashion-notice" role="status">${escapeHTML(notice)}</p>`:''}
    <section class="fashion-collection">
     <div class="fashion-section-title"><h2>Guarda-roupa</h2><span>${unlocked} / ${skins.length} desbloqueadas</span></div>
     <div class="fashion-cards">
