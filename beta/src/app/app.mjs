@@ -5,6 +5,8 @@ import {profilesScreen} from '../features/profiles/view.mjs';
 import {wardrobeScreen,availableFrames} from '../features/wardrobe/view.mjs';
 import {acquireFashion} from '../features/wardrobe/fashion.mjs';
 import {homeScreen} from '../features/home/view.mjs';
+import {backgroundsScreen} from '../features/backgrounds/view.mjs';
+import {acquireBackground} from '../features/backgrounds/catalog.mjs';
 import {mountHomeEffects} from '../features/home/effects.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
@@ -21,6 +23,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let fashionNotice='';
  let wardrobeSelection=null;
  let wardrobeTab='fashion';
+ let selectedBackground=null;
+ let backgroundNotice='';
  let stopHomeEffects=null;
 
  function pickAvailableWorld(profile){
@@ -41,6 +45,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'wardrobe':
       root.innerHTML=player?wardrobeScreen(player,fashionNotice,wardrobeSelection,wardrobeTab):profilesScreen(profiles.profiles(),selectedPlayer);break;
+    case 'backgrounds':
+      root.innerHTML=player?backgroundsScreen(player,selectedBackground,backgroundNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -102,9 +108,19 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
-     if(feature==='Moda'){fashionNotice='';wardrobeSelection=null;wardrobeTab='fashion';navigate('wardrobe');}
+     if(feature==='Fundos'||feature==='Baú de itens'){selectedBackground=null;backgroundNotice='';navigate('backgrounds');}
+     else if(feature==='Moda'){fashionNotice='';wardrobeSelection=null;wardrobeTab='fashion';navigate('wardrobe');}
      else navigate('feature');
      break;
+   case 'previewBackground':selectedBackground=String(dataset.background||'');backgroundNotice='';render();break;
+   case 'backgroundAction':{
+     const id=String(dataset.background||'');
+     let result;
+     profiles.updateActive(p=>{result=acquireBackground(p,id)});
+     selectedBackground=id;
+     backgroundNotice=result?.reason==='insufficient-coins'?'Faltam '+result.missing+' moedas.':result?.reason==='purchased'?'Novo fundo desbloqueado e equipado!':result?.reason==='equipped'?'Fundo equipado!':'';
+     render();break;
+   }
    case 'previewFashion':
      wardrobeSelection=String(dataset.skin||'original');fashionNotice='';render();break;
    case 'fashionHelp':
