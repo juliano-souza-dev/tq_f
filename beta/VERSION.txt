@@ -1,3 +1,1 @@
-Beta experimental - versão modular com perfis, home, mundos e prática.
-Código: feature/webapp-modular
-Acesso: /tq_f/beta/
+Beta experimental. Fonte: feature/webapp-modular
