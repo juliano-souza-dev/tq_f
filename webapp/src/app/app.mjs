@@ -2,7 +2,8 @@ import {createProfileStore} from '../core/profiles.mjs';
 import {WORLDS,worldState} from '../core/progression.mjs';
 import {createPractice,answerPractice,nextPractice,finishPractice} from '../core/practice.mjs';
 import {profilesScreen} from '../features/profiles/view.mjs';
-import {wardrobeScreen,availableFashion,availableFrames} from '../features/wardrobe/view.mjs';
+import {wardrobeScreen,availableFrames} from '../features/wardrobe/view.mjs';
+import {acquireFashion} from '../features/wardrobe/fashion.mjs';
 import {homeScreen} from '../features/home/view.mjs';
 import {mountHomeEffects} from '../features/home/effects.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
@@ -101,11 +102,15 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      if(feature==='Moda')navigate('wardrobe');
      else navigate('feature');
      break;
-   case 'equipFashion': {
+   case 'equipFashion':
+   case 'fashionAction': {
      const player=profiles.active();
+     if(!player)break;
      const id=String(dataset.skin||'original');
-     if(!player||!availableFashion(player).some(x=>x.id===id))break;
-     profiles.updateActive(p=>{p.avatar.skinId=id;});render();break;
+     let result;
+     profiles.updateActive(p=>{result=acquireFashion(p,id)});
+     if(result?.reason==='insufficient-coins')feature='Faltam '+result.missing+' moedas para desbloquear esta roupa.';
+     render();break;
    }
    case 'equipFrame': {
      const player=profiles.active();
