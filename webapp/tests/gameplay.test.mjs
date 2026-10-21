@@ -140,7 +140,12 @@ test('moldura e moda seguem o contrato do APK, sem conceder itens não conquista
  assert.equal(app.getScreen(),'wardrobe');
  assert.match(root.innerHTML,/Moda de Alana/);
  app.act('equipFashion',{skin:'pirate'});
- assert.equal(app.getPlayer().avatar.skinId,'original','Não pode equipar moda não conquistada');
+ assert.equal(app.getPlayer().avatar.skinId,'pirate','A compra com moedas equipa a moda');
+ assert.equal(app.getPlayer().coins,9820,'A compra precisa descontar 180 moedas');
+ app.act('equipFashion',{skin:'pirate'});
+ assert.equal(app.getPlayer().coins,9820,'Não cobrar duas vezes por item já comprado');
+ app.act('fashionAction',{skin:'navigator2'});
+ assert.equal(app.getPlayer().avatar.skinId,'pirate','Item exclusivo de baú não pode ser comprado');
  app.act('equipFrame',{frame:'frame_floral'});
  assert.equal(app.getPlayer().equipped.frame,null,'Não pode equipar moldura não conquistada');
  app.destroy();
