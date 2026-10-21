@@ -1,8 +1,9 @@
 // WebGL leve em uma única camada, independente do DOM e dos controles.
-export const FX_BALANCED=Object.freeze({fps:30,particles:32,maxDpr:1.5});
+export const FX_BALANCED=Object.freeze({fps:30,particles:32,maxDpr:1.25,maxPixels:430000});
 const VERT=`attribute vec2 a_position;attribute float a_size;attribute float a_phase;
 uniform float u_time;uniform vec2 u_pointer;
 varying float v_phase;
+varying float v_depth;
 void main(){
  float p=a_phase;
  vec2 point=a_position;
@@ -12,9 +13,11 @@ void main(){
  gl_Position=vec4(point,0.,1.);
  gl_PointSize=a_size*(0.88+0.14*sin(u_time*1.3+p*17.));
  v_phase=p;
+ v_depth=0.55+0.45*fract(p*13.0);
 }`;
 const FRAG=`precision mediump float;
 varying float v_phase;
+varying float v_depth;
 void main(){
  vec2 p=gl_PointCoord*2.0-1.0;
  float d=length(p);
@@ -24,7 +27,7 @@ void main(){
  vec3 cyan=vec3(0.51,0.91,1.0);
  vec3 color=mix(gold,cyan,step(0.77,fract(v_phase*9.1)));
  float blink=0.60+0.35*sin(v_phase*31.0);
- gl_FragColor=vec4(color*(0.80+core*0.2), (halo*0.62+core*0.64)*blink);
+ gl_FragColor=vec4(color*(0.80+core*0.2), (halo*0.62+core*0.64)*blink*v_depth);
 }`;
 function shader(gl,type,src){
  const s=gl.createShader(type);if(!s)throw Error('shader unavailable');
@@ -56,7 +59,8 @@ export function mountHomeEffects({root=document,windowRef=window,quality=FX_BALA
  const updateSize=()=>{
    if(!gl)return;
    const box=host.getBoundingClientRect(),dpr=Math.min(quality.maxDpr,windowRef.devicePixelRatio||1);
-   const w=Math.max(1,Math.round(box.width*dpr)),h=Math.max(1,Math.round(box.height*dpr));
+   const scale=Math.min(dpr,Math.sqrt((quality.maxPixels||430000)/Math.max(1,box.width*box.height)));
+   const w=Math.max(1,Math.round(box.width*scale)),h=Math.max(1,Math.round(box.height*scale));
    if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}
  };
  const frame=timestamp=>{
@@ -114,7 +118,7 @@ export function mountHomeEffects({root=document,windowRef=window,quality=FX_BALA
               Math.max(-1,Math.min(1,1-((event.clientY-rect.top)/rect.height)*2))];
    };
    const onVisibility=()=>doc.hidden?pause():resume();
-   const onMedia=()=>media?.matches?pause():resume();
+   const onMedia=()=>{if(media?.matches){pause();canvas.style.display='none'}else{canvas.style.display='';resume()}};
    const onLost=e=>{e.preventDefault();pause();fallback()};
    host.addEventListener('pointermove',move,{passive:true});
    cleanupFns.push(()=>host.removeEventListener('pointermove',move));
