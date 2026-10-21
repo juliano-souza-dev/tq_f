@@ -1,1 +1,3 @@
 Beta experimental. Fonte: feature/webapp-modular
+
+Revisão final: atalhos harmonizados, ícone Pets enquadrado, margem segura acima do rodapé.
