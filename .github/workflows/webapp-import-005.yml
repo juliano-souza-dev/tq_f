@@ -1,0 +1,30 @@
+name: Webapp · Molduras equipáveis 005
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths: ['.github/workflows/webapp-import-005.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/webapp-modular
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - run: python webapp/tools/convert-batch.py webapp/data/batches/005-portrait-frames.json
+      - run: node webapp/tools/apply-batch-to-inventory.mjs webapp/data/batches/005-portrait-frames-results.json
+      - name: Commit do lote
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add webapp/assets/optimized/frame-*.webp webapp/data/asset-inventory.csv webapp/data/batches/005-portrait-frames-results.json
+          git commit -m "assets: importa quatro molduras equipáveis"
+          git pull --rebase origin feature/webapp-modular
+          git push origin HEAD:feature/webapp-modular
