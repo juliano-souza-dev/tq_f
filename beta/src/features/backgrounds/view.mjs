@@ -23,6 +23,7 @@ export function backgroundsScreen(profile,selected=null,notice=''){
    </section>
    <div class="bg-tabs" aria-label="Categorias do baú"><button data-action="openFeature" data-feature="Molduras" type="button">🖼️ Molduras</button><button class="active" type="button" aria-current="page">🏰 Fundos</button><button data-action="openFeature" data-feature="Efeitos" type="button">✨ Efeitos</button></div>
    <div class="bg-collection-heading"><div><strong>Fundos de ${escapeHTML(profile.name)}</strong><small>Toque em um cenário para visualizar</small></div><span>${count}/${BACKGROUNDS.length}</span></div>
+   <button type="button" class="bg-reset" data-action="backgroundAction" data-background="__default__" ${!profile.equipped?.background?"disabled":""}>Usar visual padrão</button>
    ${notice?`<p class="bg-notice" role="status">${escapeHTML(notice)}</p>`:''}
    <section class="bg-grid" aria-label="Galeria de fundos">
     ${BACKGROUNDS.map(item=>{const st=backgroundStatus(profile,item);return `<button type="button" class="bg-tile ${item.id===current.id?'selected':''}" data-action="previewBackground" data-background="${item.id}" aria-pressed="${item.id===current.id}">
