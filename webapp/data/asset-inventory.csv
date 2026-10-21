@@ -256,7 +256,7 @@ path,bytes,extension,category,usage,evidence,treatment,migration
 "home-collectibles.png","281758","png","other","nao_identificado","revisao_manual_necessaria","converter_webp_em_lote","nao_importado"
 "home-daily-icon.webp","31248","webp","other","nao_identificado","revisao_manual_necessaria","webp_ja_pequeno_validar_visual","nao_importado"
 "home-logo.webp","149374","webp","other","nao_identificado","revisao_manual_necessaria","webp_ja_pequeno_validar_visual","nao_importado"
-"home-magical-bg.webp","407552","webp","other","referencia_explicita","index.html ou lottie-data.js","reavaliar_tamanho_webp","nao_importado"
+"home-magical-bg.webp","407552","webp","other","referencia_explicita","index.html ou lottie-data.js","reavaliar_tamanho_webp","importado_003-home-scene"
 "home-play.webp","51610","webp","other","nao_identificado","revisao_manual_necessaria","webp_ja_pequeno_validar_visual","nao_importado"
 "home-portal.png","22191","png","other","referencia_explicita","index.html ou lottie-data.js","converter_webp_em_lote","nao_importado"
 "home-portal.svg","845","svg","vector","nao_identificado","revisao_manual_necessaria","preservar_svg_vetorial","nao_importado"

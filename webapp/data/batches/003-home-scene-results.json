@@ -1,0 +1,23 @@
+{
+  "batch": "003-home-scene",
+  "processed": 1,
+  "sourceBytes": 407552,
+  "optimizedBytes": 390456,
+  "items": [
+    {
+      "source": "home-magical-bg.webp",
+      "target": "home-magical-bg.webp",
+      "sourceBytes": 407552,
+      "optimizedBytes": 390456,
+      "sourceWidth": 941,
+      "sourceHeight": 1672,
+      "outputWidth": 941,
+      "outputHeight": 1672,
+      "encoding": "lossy-q90",
+      "psnrDb": 40.48,
+      "savedPercent": 4.2,
+      "qualityReviewedByHuman": false
+    }
+  ],
+  "note": "PSNR automático não substitui comparação visual em tamanhos de tela reais."
+}
