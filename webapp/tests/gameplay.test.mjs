@@ -138,7 +138,7 @@ test('moldura e moda seguem o contrato do APK, sem conceder itens não conquista
  app.act('selectPlayer',{player:'alana'});app.act('enter');
  app.act('openFeature',{feature:'Moda'});
  assert.equal(app.getScreen(),'wardrobe');
- assert.match(root.innerHTML,/Moda e molduras/);
+ assert.match(root.innerHTML,/Moda de Alana/);
  app.act('equipFashion',{skin:'pirate'});
  assert.equal(app.getPlayer().avatar.skinId,'original','Não pode equipar moda não conquistada');
  app.act('equipFrame',{frame:'frame_floral'});
