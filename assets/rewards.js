@@ -20,6 +20,7 @@
     p.gems = Number.isFinite(p.gems) ? p.gems : 0;
     p.inventory = Array.isArray(p.inventory) ? p.inventory : [];
     if (!p.inventory.includes('nilo')) p.inventory.push('nilo');
+    for (const r of p.pets) {const id='pet-'+r;if (Number.isInteger(r)&&r>=0&&r<12&&!p.inventory.includes(id))p.inventory.push(id);}
     p.equipped = p.equipped && typeof p.equipped==='object' ? p.equipped : {pet:'nilo',cosmetic:null};
     p.equipped.pet = p.equipped.pet || 'nilo';
     p.chests = Array.isArray(p.chests) ? p.chests : [];
