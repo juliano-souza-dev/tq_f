@@ -26,10 +26,12 @@ export function backgroundsScreen(profile,selected=null,notice=''){
    <button type="button" class="bg-reset" data-action="backgroundAction" data-background="__default__" ${!profile.equipped?.background?"disabled":""}>Usar visual padrão</button>
    ${notice?`<p class="bg-notice" role="status">${escapeHTML(notice)}</p>`:''}
    <section class="bg-grid" aria-label="Galeria de fundos">
-    ${BACKGROUNDS.map(item=>{const st=backgroundStatus(profile,item);return `<button type="button" class="bg-tile ${item.id===current.id?'selected':''}" data-action="previewBackground" data-background="${item.id}" aria-pressed="${item.id===current.id}">
-     <div class="bg-tile-art">${art(backgroundUrl(item),{alt:item.name})}</div><strong>${escapeHTML(item.name)}</strong><span class="bg-tile-meta">${escapeHTML(item.rarity)}</span>
-     <span class="bg-tile-status ${st.equipped?'equipped':''}">${st.equipped?'✓ Equipado':st.owned?'Equipar':`🪙 ${item.price}`}</span>
-    </button>`}).join('')}
+    ${BACKGROUNDS.map(item=>{const st=backgroundStatus(profile,item);return `<article class="bg-tile ${item.id===current.id?'selected':''}">
+     <button type="button" class="bg-tile-preview" data-action="previewBackground" data-background="${item.id}" aria-pressed="${item.id===current.id}" aria-label="Visualizar ${escapeHTML(item.name)}">
+      <span class="bg-tile-art">${art(backgroundUrl(item),{alt:item.name})}</span><strong>${escapeHTML(item.name)}</strong><span class="bg-tile-meta">${escapeHTML(item.rarity)}</span>
+     </button>
+     <button type="button" class="bg-tile-status ${st.equipped?'equipped':''}" data-action="backgroundAction" data-background="${item.id}" ${st.equipped?'disabled':''} aria-label="${st.equipped?'Equipado':st.owned?'Equipar':'Comprar'} ${escapeHTML(item.name)}">${st.equipped?'✓ Equipado':st.owned?'Equipar':`🪙 ${item.price} · Comprar`}</button>
+    </article>`}).join('')}
    </section>
   </div>
  </main>`;
