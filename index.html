@@ -82,6 +82,7 @@ const START_PROFILES=[{id:'alana',name:'Alana',avatar:'👩🏽‍🚀'},{id:'ta
 function fresh(){return {profiles:START_PROFILES.map(p=>({...p,done:[],gold:0,gems:0,pets:[],mistakes:{}})),activeId:null,calm:false,sound:false};}
 function load(){try{const x=JSON.parse(localStorage.getItem(STORE));if(x && Array.isArray(x.profiles)){return {...fresh(),...x};}}catch(e){}return fresh();}
 let mission=null,db=load(),screen=db.activeId?'world':'profiles',selectedRegion=0,quiz=null,celebration=null,feedback=null,showHint=false,lastFactKey=null,toastTimer=null;
+let collectionTab='chests';
 const root=document.getElementById('root');
 const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const active=()=>db.profiles.find(p=>p.id===db.activeId)||null;
@@ -133,59 +134,40 @@ function finishIsland(){const p=active(),{r,island,errors}=quiz,key=`${r}-${isla
 function renderSuccess(){const c=celebration;if(!c){screen='world';render();return;}const r=REGIONS[c.r],ch=CHAPTERS[c.r],missionInfo=ch.quests[c.island],headline=c.worldComplete?'Você salvou o Grande Atlas!':c.regionComplete?'Uma nova estrela recuperada!':'Missão concluída!';const rewardText=[`<span>🪙 +${c.gold} moedas</span>`,c.gems?`<span>💎 +${c.gems} gemas</span>`:'',c.pet?`<span>🐾 Novo amigo encontrado</span>`:'',c.regionComplete?'<span>⭐ +1 estrela no Atlas</span>':'',c.chestUnlocked?'<span>🎁 Novo baú de tesouro!</span>':'',c.relicUnlocked?'<span>✨ Relíquia do capítulo</span>':''].join('');shell(`<div class="panel success"><div class="eyebrow">Capítulo ${c.r+1} · Fase ${c.island+1}</div><div class="tq-success-art">${sceneArt(c.chestUnlocked?'treasure-chest':'mascot-nilo')}</div><h1>${headline}</h1><p><strong>${missionInfo[3]}</strong></p><div class="victory-story"><div class="character-face">${ch.face}</div><div><b>${ch.character}</b><p>“${c.regionComplete?ch.outro:ch.line}”</p></div></div><div class="rewardstrip">${rewardText}</div>${c.chestUnlocked?'<div class="tq-success-extra"><p>🎁 Você conquistou um baú! Abra-o na coleção para revelar moedas, cristais e uma figurinha.</p><button class="btn btn-secondary" data-action="openCollection">🎒 Abrir meu baú</button></div>':''}<div class="actions"><button class="btn btn-ghost" data-action="home">🗺️ Mapa do mundo</button><button class="btn btn-primary" data-action="continueAfterWin">${c.worldComplete?'Ver final da história':c.regionComplete?'Próximo capítulo →':'Próxima fase →'}</button></div></div>`);}
 function renderVictory(){const p=active();if(!worldDone(p)){screen='world';render();return;}shell(`<div class="panel success final-chapter"><div class="eyebrow">Capítulo final · O Grande Atlas</div><div class="success-emoji" aria-hidden="true">👑</div><h1>Mestra da Tabuada!</h1><p><strong>${escapeHTML(p.name)}</strong>, você reuniu todas as doze estrelas. A Bruma do Esquecimento se dissipou, os caminhos voltaram a aparecer e todos os amigos agora têm uma nova história para contar.</p><div class="victory-story"><div class="character-face">🦉</div><div><b>Nilo, o cartógrafo</b><p>“O maior tesouro não era o Atlas. Era tudo o que você aprendeu pelo caminho. As descobertas nunca terminam!”</p></div></div><div class="rewardstrip"><span>⭐ 12 estrelas</span><span>🏝️ 60 fases</span><span>🐾 ${p.pets.length} amigos</span></div><div class="actions"><button class="btn btn-ghost" data-action="openBook">📚 Rever história</button><button class="btn btn-primary" data-action="home">🗺️ Meu mundo completo</button></div></div>`);}
 function renderCollection(){
-  const p=active();
-  Rewards.ensure(p);
-  const mascot=sceneArt('mascot-nilo');
-  const chestCards=p.chests.length
-    ? p.chests.map(id=>{
-      const region=Number(id.slice('chest-'.length));
-      return `<article class="tq-prize-card"><span class="tq-prize-icon">${sceneArt('treasure-chest')}</span><span class="tq-prize-meta">Baú encantado</span><h3>Baú de ${escapeHTML(REGIONS[region].name)}</h3><p>Guarda moedas, cristais e uma figurinha exclusiva.</p><button class="btn btn-primary" data-action="openChest" data-id="${escapeHTML(id)}">🎁 Abrir baú</button></article>`;
-    }).join('')
-    : '<div class="tq-prize-card"><span class="tq-prize-icon">🎁</span><h3>Em busca de tesouros!</h3><p>Complete a quarta missão de cada capítulo para conquistar um baú.</p></div>';
-  const petIds=['nilo',...p.pets.filter(n=>Number.isInteger(n)&&n>=0&&n<12).map(n=>'pet-'+n)];
-  const petCards=[...new Set(petIds)].map(id=>{
-    const isNilo=id==='nilo';
-    const index=isNilo?-1:Number(id.slice(4));
-    const name=isNilo?'Nilo, o cartógrafo':CHAPTERS[index].character;
-    const art=isNilo?sceneArt('mascot-nilo'):`<span>${CHAPTERS[index].face}</span>`;
-    const chosen=p.equipped.pet===id;
-    return `<article class="tq-prize-card owned"><span class="tq-prize-icon">${art}</span><span class="tq-prize-meta">Companheiro</span><h3>${escapeHTML(name)}</h3><p>${isNilo?'Seu amigo desde o primeiro capítulo.':'Amigo encontrado durante as missões.'}</p><button class="btn ${chosen?'btn-ghost':'btn-primary'}" data-action="equipReward" data-id="${escapeHTML(id)}" ${chosen?'disabled':''}>${chosen?'✓ Acompanhando':'🐾 Escolher amigo'}</button></article>`;
-  }).join('');
-  const shopCards=Rewards.CATALOG.map(item=>{
-    const owned=p.inventory.includes(item.id),chosen=p.equipped.cosmetic===item.id;
-    const money=item.currency==='gold'?'🪙':'💎';
-    const label=owned?(chosen?'✓ Equipado':'✨ Equipar'):`${money} ${item.price} · Adquirir`;
-    return `<article class="tq-prize-card ${owned?'owned':''}"><span class="tq-prize-icon">${item.symbol}</span><span class="tq-prize-meta">${item.rarity}</span><h3>${escapeHTML(item.name)}</h3><p>${escapeHTML(item.description)}</p><button class="btn ${chosen?'btn-ghost':'btn-primary'}" data-action="${owned?'equipReward':'buyReward'}" data-id="${item.id}" ${chosen?'disabled':''}>${label}</button></article>`;
-  }).join('');
-  const relicCards=REGIONS.map((r,i)=>{
+ const p=active();
+ Rewards.ensure(p);
+ const chestCards=p.chests.length ? p.chests.map(id=>{
+    const region=Number(id.slice('chest-'.length)),name=REGIONS[region]?.name||'Região encantada';
+    return `<article class="tq-prize-card"><span class="tq-prize-icon">${sceneArt('treasure-chest')}</span><span class="tq-prize-meta">Baú conquistado</span><h3>${escapeHTML(name)}</h3><p>Descubra uma figurinha, moedas e cristais.</p><button class="btn btn-primary" data-action="openChest" data-id="${escapeHTML(id)}">🎁 Abrir baú</button></article>`;
+ }).join('') : '<article class="tq-prize-card"><span class="tq-prize-icon">🧭</span><h3>Seu próximo tesouro</h3><p>Complete a quarta fase de um capítulo para conquistar um baú especial.</p><button class="btn btn-ghost" data-action="home">🗺️ Ver mapa</button></article>';
+ const petIds=['nilo',...p.pets.filter(n=>Number.isInteger(n)&&n>=0&&n<12).map(n=>'pet-'+n)];
+ const petCards=[...new Set(petIds)].map(id=>{
+    const first=id==='nilo',i=first?-1:Number(id.slice(4));
+    const name=first?'Nilo, o cartógrafo':CHAPTERS[i].character;
+    const drawing=first?sceneArt('mascot-nilo'):`<span>${CHAPTERS[i].face}</span>`;
+    const selected=p.equipped.pet===id;
+    return `<article class="tq-prize-card owned"><span class="tq-prize-icon">${drawing}</span><span class="tq-prize-meta">Amigo da expedição</span><h3>${escapeHTML(name)}</h3><p>${first?'O primeiro guia da aventura.':'Encontrado na terceira fase de sua região.'}</p><button class="btn ${selected?'btn-ghost':'btn-primary'}" data-action="equipReward" data-id="${escapeHTML(id)}" ${selected?'disabled':''}>${selected?'✓ Me acompanhando':'🐾 Escolher mascote'}</button></article>`;
+ }).join('');
+ const shopCards=Rewards.CATALOG.map(item=>{
+    const owned=p.inventory.includes(item.id),selected=p.equipped.cosmetic===item.id,currency=item.currency==='gold'?'🪙':'💎';
+    return `<article class="tq-prize-card ${owned?'owned':''}"><span class="tq-prize-icon">${item.symbol}</span><span class="tq-prize-meta">${item.rarity}</span><h3>${escapeHTML(item.name)}</h3><p>${escapeHTML(item.description)}</p><button class="btn ${selected?'btn-ghost':'btn-primary'}" data-action="${owned?'equipReward':'buyReward'}" data-id="${item.id}" ${selected?'disabled':''}>${owned?(selected?'✓ Equipado':'✨ Equipar'):`${currency} ${item.price} · Trocar`}</button></article>`;
+ }).join('');
+ const relicCards=REGIONS.map((r,i)=>{
     const earned=p.relics.includes('relic-'+i);
-    return `<div class="tq-relic ${earned?'earned':''}" title="${escapeHTML(r.name)}"><span>${earned?'✨': '🔒'}</span><b>${i+1}</b><small>${escapeHTML(r.name)}</small></div>`;
-  }).join('');
-  const stickers=p.inventory.filter(id=>/^sticker-\d{1,2}$/.test(id)).length;
-  const earnedRelics=p.relics.length;
-  shell(`<div class="quiz-header"><button class="btn btn-ghost btn-small" data-action="home">← Voltar ao mapa</button><span class="crumb">Minha coleção</span></div>
-    <section class="tq-collection-hero"><div><span class="eyebrow">Meu baú de descobertas</span><h1>Os tesouros da expedição ✨</h1><p>Guarde lembranças da sua aventura, escolha um companheiro e deixe sua exploradora com seu estilo. As moedas não compram respostas!</p><div class="tq-collection-toolbar"><span class="tq-prize-count">🪙 ${p.gold}</span><span class="tq-prize-count">💎 ${p.gems}</span><span class="tq-prize-count">🎁 ${p.chests.length} baús</span></div></div>${mascot}</section>
-    <h2 class="tq-section-title">🎁 Baús para abrir</h2><div class="tq-prize-grid">${chestCards}</div>
-    <h2 class="tq-section-title">🐾 Meus companheiros</h2><div class="tq-prize-grid">${petCards}</div>
-    <h2 class="tq-section-title">🧥 Loja de aventuras</h2><p>Itens cosméticos permanentes. Você ganha moedas e cristais estudando e não perde nenhum quando erra.</p><div class="tq-prize-grid">${shopCards}</div>
-    <h2 class="tq-section-title">🌟 Álbum de relíquias <small>(${earnedRelics}/12)</small></h2><p>Conquiste a estrela de cada capítulo resolvendo suas cinco missões.</p><div class="tq-relic-grid">${relicCards}</div>
-    <p class="footnote">📒 Figurinhas de baús abertos: ${stickers}/12. Todo o inventário pertence apenas ao perfil ${escapeHTML(p.name)} e fica salvo neste navegador.</p>`);
-}
-function renderProfileScreen(){
-  const p=active();
-  if (!p){screen='profiles';render();return;}
-  Rewards.ensure(p);
-  const facts=Object.values(p.factStats||{});
-  const correct=facts.reduce((n,x)=>n+(Number(x.correct)||0),0);
-  const errors=facts.reduce((n,x)=>n+(Number(x.errors)||0),0);
-  const friends=p.pets.length+1;
-  const mastery=Math.floor(p.done.length/5);
-  const r=unlockedRegion(p);
-  shell(`<section class="tq-profile-cover"><span class="tq-profile-picture" aria-hidden="true">${escapeHTML(p.avatar)}</span><div><span class="eyebrow">Minha aventureira</span><h1>${escapeHTML(p.name)}</h1><p>${worldDone(p)?'Guardiã do Grande Atlas!':'Exploradora da região '+(r+1)+' de 12'}</p></div></section>
-  <div class="tq-profile-stats" aria-label="Resumo de aprendizagem"><div class="tq-profile-stat"><strong>${p.done.length}/60</strong><span>Fases dominadas</span></div><div class="tq-profile-stat"><strong>${mastery}/12</strong><span>Estrelas conquistadas</span></div><div class="tq-profile-stat"><strong>${correct}</strong><span>Respostas corretas registradas</span></div><div class="tq-profile-stat"><strong>${errors}</strong><span>Tentativas para revisar</span></div></div>
-  <section class="panel" style="padding:18px"><span class="eyebrow">Minha coleção</span><h2 style="margin:7px 0 12px">Tesouros que já conquistei</h2><div class="rewardstrip"><span>🐾 ${friends} amigos</span><span>🎁 ${p.chests.length} baús</span><span>✨ ${p.relics.length} relíquias</span><span>🪙 ${p.gold} moedas</span></div><p>Você avança aprendendo cada multiplicação, no seu ritmo. Nenhuma recompensa substitui o desafio.</p><div class="meter" aria-label="${progress(p)} por cento do mundo concluído"><span style="width:${progress(p)}%"></span></div></section>
-  <div class="tq-profile-actions"><button class="btn btn-primary" data-action="home">🗺️ Continuar aventura</button><button class="btn btn-secondary" data-action="openCollection">🎒 Ver coleção</button><button class="btn btn-ghost" data-action="switchProfile">👥 Trocar jogador</button><button class="btn btn-ghost" data-action="toggleCalm" aria-pressed="${db.calm}">${db.calm?'🌿 Modo calmo ligado':'🌿 Reduzir animações'}</button><button class="btn btn-ghost" data-action="toggleSound" aria-pressed="${db.sound}">${db.sound?'🔊 Som ligado':'🔇 Som desligado'}</button></div>
-  <p class="footnote">🔐 O progresso de ${escapeHTML(p.name)} fica salvo somente neste navegador. Ele não sincroniza automaticamente entre aparelhos.</p>`);
+    return `<div class="tq-relic ${earned?'earned':''}" title="${escapeHTML(r.name)}"><span>${earned?'✨':'🔒'}</span><b>${i+1}</b><small>${escapeHTML(r.name)}</small></div>`;
+ }).join('');
+ const stickers=p.inventory.filter(id=>/^sticker-\d{1,2}$/.test(id)).length;
+ const tabs=[['chests','🎁','Baús'],['pets','🐾','Mascotes'],['relics','✨','Relíquias'],['shop','🧥','Loja']];
+ const picker=`<div class="tq-tabs" role="tablist" aria-label="Categorias da coleção">${tabs.map(([id,icon,label])=>`<button class="tq-tab" type="button" role="tab" id="tab-${id}" data-action="collectionTab" data-tab="${id}" aria-selected="${id===collectionTab}" aria-controls="panel-${id}" tabindex="${id===collectionTab?0:-1}"><span class="tab-emoji" aria-hidden="true">${icon}</span>${label}</button>`).join('')}</div>`;
+ const section=(id,title,description,contents,cls='tq-prize-grid')=>`<section class="tq-collection-panel" role="tabpanel" id="panel-${id}" aria-labelledby="tab-${id}" data-active="${collectionTab===id}" ${collectionTab===id?'':'hidden'}><h2 class="tq-section-title">${title}</h2><p>${description}</p><div class="${cls}">${contents}</div></section>`;
+ shell(`<div class="quiz-header"><button class="btn btn-ghost btn-small" data-action="home">← Mapa</button><span class="crumb">Meu tesouro</span></div>
+ <section class="tq-collection-hero"><div><span class="eyebrow">Álbum de descobertas</span><h1>Minha coleção ✨</h1><p>Itens que você ganhou aprendendo a tabuada. Escolha seu mascote e personalize sua aventura!</p><div class="tq-collection-toolbar"><span class="tq-prize-count">🪙 ${p.gold}</span><span class="tq-prize-count">💎 ${p.gems}</span><span class="tq-prize-count">🎁 ${p.chests.length}</span></div></div>${sceneArt('mascot-nilo')}</section>
+ ${picker}
+ ${section('chests','🎁 Baús encantados','Cada baú representa uma conquista. Abra para encontrar recompensas!',chestCards)}
+ ${section('pets','🐾 Meus amigos','Eles viajam com você. Escolha quem será seu companheiro.',petCards)}
+ ${section('relics',`✨ Relíquias (${p.relics.length}/12)`,'Conquiste cinco fases por capítulo para recuperar sua relíquia.',relicCards,'tq-relic-grid')}
+ ${section('shop','🧥 Boutique da aventura','Adquira roupas e acessórios usando apenas moedas e cristais ganhos no jogo. Não é possível comprar respostas.',shopCards)}
+ <p class="footnote">Você já encontrou ${stickers} de 12 figurinhas. Os tesouros pertencem ao perfil de ${escapeHTML(p.name)}.</p>`);
 }
 function render(){window.scrollTo(0,0);document.body.classList.toggle('is-quiz',screen==='quiz');document.body.classList.toggle('is-prologue',screen==='prologue');if(screen==='profiles'){renderProfiles();return;}if(!active()){screen='profiles';renderProfiles();return;}if(screen==='prologue')renderPrologue();else if(screen==='world')renderWorld();else if(screen==='region')renderRegion();else if(screen==='book')renderBook();else if(screen==='collection')renderCollection();else if(screen==='profile')renderProfileScreen();else if(screen==='mission')renderMissionStory();else if(screen==='quiz')renderQuiz();else if(screen==='success')renderSuccess();else if(screen==='victory')renderVictory();else{screen='world';renderWorld();}}
 function navigate(action,data={}){const p=active();switch(action){
@@ -194,7 +176,8 @@ case 'switchProfile':quiz=null;mission=null;db.activeId=null;save();screen='prof
 case 'chooseProfile':if(db.profiles.some(x=>x.id===data.id)){db.activeId=data.id;const chosen=active();screen=chosen.done.length===0&&!chosen.prologueSeen?'prologue':'world';save();}break;
 case 'beginJourney':if(p){p.prologueSeen=true;save();selectedRegion=0;screen='region';}break;
 case 'openBook':quiz=null;mission=null;screen='book';break;
-case 'openCollection':if(!p)return;quiz=null;mission=null;screen='collection';break;
+case 'openCollection':if(!p)return;quiz=null;mission=null;collectionTab='chests';screen='collection';break;
+case 'collectionTab':{if(!p||screen!=='collection')return;const next=String(data.tab);if(!['chests','pets','relics','shop'].includes(next))return;collectionTab=next;renderCollection();const selected=document.getElementById('tab-'+next);selected?.focus({preventScroll:true});return;}
 case 'openProfile':if(!p)return;quiz=null;mission=null;screen='profile';break;
 case 'openChest':{if(!p||screen!=='collection')return;const prize=Rewards.openChest(p,String(data.id));if(prize.ok){save();notify('🎁 +'+prize.gold+' moedas, +'+prize.gems+' cristais e uma figurinha!');playSound(940);}else notify(prize.reason);break;}
 case 'buyReward':{if(!p||screen!=='collection')return;const result=Rewards.purchase(p,String(data.id));if(result.ok){save();notify('✨ '+result.item.name+' desbloqueado e equipado!');playSound(810);}else notify(result.reason);break;}
