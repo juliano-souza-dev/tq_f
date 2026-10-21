@@ -14,6 +14,7 @@ export function homeScreen(profile){
       <span class="hero-identity-info"><strong>${escapeHTML(profile.name)}</strong><small class="home-level">NÍVEL ${level(profile.xp)}</small><span class="home-xp-label">${xp} / 100</span></span>
     </button>
     <progress class="home-profile-xp" value="${xp}" max="100" aria-label="Experiência: ${xp} de 100"></progress>
+    <span class="home-profile-xp-number" aria-hidden="true">${xp} / 100</span>
     <div class="hero-wallet" aria-label="Saldo de moedas e gemas">
       <span class="wallet-item" aria-label="${amount(coin)} moedas de ouro"><span class="wallet-coin" aria-hidden="true">★</span><strong>${amount(coin)}</strong></span>
       <span class="wallet-item" aria-label="${amount(gems)} gemas"><span class="wallet-gem" aria-hidden="true"></span><strong>${amount(gems)}</strong></span>
