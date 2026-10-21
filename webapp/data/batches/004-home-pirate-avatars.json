@@ -1,0 +1,25 @@
+{
+  "id": "004-home-pirate-avatars",
+  "sourceBranch": "apoio",
+  "sourcePrefix": "apk-extraido/assets",
+  "outputPrefix": "webapp/assets/optimized",
+  "qualityMinimumPsnr": 38,
+  "note": "Avatares piratas originais do APK, usados apenas na home; mantém avatar neutro para perfis.",
+  "items": [
+    {
+      "source": "avatar-luna-pirate.png",
+      "target": "avatar-luna-pirate.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-sofia-pirate.png",
+      "target": "avatar-sofia-pirate.webp",
+      "maxWidth": 560
+    },
+    {
+      "source": "avatar-maya-pirate.png",
+      "target": "avatar-maya-pirate.webp",
+      "maxWidth": 560
+    }
+  ]
+}
