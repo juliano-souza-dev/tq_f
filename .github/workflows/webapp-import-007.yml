@@ -1,0 +1,30 @@
+name: Webapp · Moda referência assets 007
+on:
+  push:
+    branches: [feature/webapp-modular]
+    paths: ['.github/workflows/webapp-import-007.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/webapp-modular
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - run: python webapp/tools/convert-batch.py webapp/data/batches/007-fashion-screen.json
+      - run: node webapp/tools/apply-batch-to-inventory.mjs webapp/data/batches/007-fashion-screen-results.json
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add webapp/assets/optimized/fashion-*.webp webapp/data/asset-inventory.csv webapp/data/batches/007-fashion-screen-results.json
+          git commit -m "assets(moda): importa cenário e componentes originais"
+          git pull --rebase origin feature/webapp-modular
+          git push origin HEAD:feature/webapp-modular
