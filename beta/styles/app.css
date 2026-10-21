@@ -207,3 +207,5 @@ p,h1,h2{margin-top:0}
 .fashion-card.fashion-equipped>button:disabled{background:#a6e9b6;color:#31593b}
 @media(min-width:550px){.fashion-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:360px){.fashion-hero{min-height:230px}.fashion-card-media{height:135px}.fashion-cards{gap:8px}.fashion-card{padding:7px 6px}}
+
+.fashion-notice{padding:12px 14px;border:2px solid #fff0b5;border-radius:14px;background:#fbe9b8;color:#59337d;font-weight:1000;line-height:1.35;text-align:center}
