@@ -14,7 +14,7 @@ function illustratedPracticeScene(player,session,fact){
  const isSecond=session.table===2;
  const scene='practice-world-'+session.table+'.webp';
  const coins=new Intl.NumberFormat('pt-BR').format(player.coins||0);
- return `<main class="practice-scene-view ${isSecond?'practice-scene-world-2':'practice-scene-world-1'}" style="--practice-scene-url:url('./assets/optimized/${scene}')">
+ return `<main class="practice-scene-view practice-scene-world-${session.table}" style="--practice-scene-url:url('./assets/optimized/${scene}')">
   <div class="practice-scene-art">
    <img class="practice-scene-image" src="./assets/optimized/${scene}?dev=${globalThis.__TQ_DEV_VERSION__||Date.now()}" alt="Cenário ilustrado do ${escapeHTML(world.name)}" onerror="this.onerror=null;this.src='./assets/optimized/world-practice-01.webp'">
    ${successFXPicker(player)}
@@ -41,7 +41,7 @@ function illustratedPracticeScene(player,session,fact){
 export function practiceScreen(player,session){
  const world=WORLDS[session.table-1],fact=session.answered?session.activeFact:session.queue[0];
  const image=session.table===1?assetUrl('world-practice-01.webp'):worldUrl(session.table);
- if(session.table===1||session.table===2)return illustratedPracticeScene(player,session,fact);
+ if(session.table>=1&&session.table<=3)return illustratedPracticeScene(player,session,fact);
  const percent=session.mastered*10;
  const coins=new Intl.NumberFormat('pt-BR').format(player.coins||0);
  // Restore the original apoio practice artwork, while using Beta's answer engine.
