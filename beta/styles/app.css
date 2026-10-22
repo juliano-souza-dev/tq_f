@@ -300,3 +300,22 @@ p,h1,h2{margin-top:0}
 .worlds-go{border:2px solid #fff1ad;border-radius:14px;background:linear-gradient(#ffed8e,#ffb742);box-shadow:0 3px 0 #ad6037;color:#592867;font-size:.86rem;font-weight:1000;white-space:nowrap;padding:11px 14px;min-height:45px}
 .worlds-go:disabled{opacity:.65;filter:grayscale(.5)}
 @media(min-width:620px){.worlds-immersive{box-shadow:0 0 0 2px #fbd78a,0 0 50px #25105f}}
+
+/* Portal touch areas are invisible. Locked portals are shaded, no selection frame. */
+.worlds-map-stage>.world-pin,
+.worlds-map-stage>.world-pin.selected,
+.worlds-map-stage>.world-pin:focus:not(:focus-visible){
+ background:transparent!important;outline:none!important;box-shadow:none!important;filter:none!important;
+}
+.worlds-map-stage>.world-pin.locked,
+.worlds-map-stage>.world-pin.scheduled{opacity:1;cursor:not-allowed}
+.worlds-map-stage>.world-pin.locked::before,
+.worlds-map-stage>.world-pin.scheduled::before{
+ content:"";position:absolute;inset:-22% -9%;border-radius:50%;
+ background:radial-gradient(ellipse at center,rgba(11,9,29,.84) 0%,rgba(12,8,34,.78) 48%,rgba(15,9,39,.18) 80%,transparent 100%);
+ pointer-events:none;mix-blend-mode:multiply;
+}
+.worlds-map-stage>.world-pin.locked i,
+.worlds-map-stage>.world-pin.scheduled i{z-index:1;font-size:clamp(1.25rem,5.4vw,2rem)}
+.worlds-map-stage>.world-pin:focus-visible{outline:3px solid #ffefa8!important;outline-offset:3px!important}
+.worlds-destination{display:none!important}
