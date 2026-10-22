@@ -9,7 +9,7 @@ const converted=[...BATCH_001.map(n=>n+'.webp'),
  'avatar-luna-neutral-base.webp','avatar-sofia-neutral-base.webp',
  'avatar-maya-neutral-base.webp','world-practice-01.webp',
  ...Array.from({length:10},(_,i)=>'world_map_'+String(i+1).padStart(2,'0')+'.webp'),
- 'world_map_bg.webp',
+ 'world_map_bg.webp','world_map_new.webp',
  'avatar-luna-pirate.webp','avatar-sofia-pirate.webp','avatar-maya-pirate.webp',
  'frame-star.webp','frame-floral.webp','frame-champion.webp','frame-rainbow.webp',
  'avatar-luna-pirata1.webp','avatar-luna-navigator2.webp','avatar-luna-inventor3.webp','avatar-luna-coelhinha.webp','avatar-luna-havaiana.webp','avatar-luna-lbug.webp','avatar-luna-penelope.webp','avatar-sofia-pirata1.webp','avatar-sofia-navigator2.webp','avatar-sofia-inventor3.webp','avatar-sofia-coelhinha.webp','avatar-sofia-havaiana.webp','avatar-sofia-lbug.webp','avatar-sofia-penelope.webp','avatar-sofia-panda-infinity-01.webp','avatar-sofia-panda-infinity-02.webp','avatar-sofia-panda-infinity-03.webp','avatar-sofia-panda-infinity-04.webp','avatar-sofia-panda-infinity-05.webp','avatar-maya-pirata1.webp','avatar-maya-navigator2.webp','avatar-maya-inventor3.webp','avatar-maya-coelhinha.webp','avatar-maya-havaiana.webp','avatar-maya-lbug.webp','avatar-maya-penelope.webp'];
