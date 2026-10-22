@@ -41,7 +41,7 @@ function illustratedPracticeScene(player,session,fact){
 export function practiceScreen(player,session){
  const world=WORLDS[session.table-1],fact=session.answered?session.activeFact:session.queue[0];
  const image=session.table===1?assetUrl('world-practice-01.webp'):worldUrl(session.table);
- if(session.table>=1&&session.table<=7)return illustratedPracticeScene(player,session,fact);
+ if(session.table>=1&&session.table<=8)return illustratedPracticeScene(player,session,fact);
  const percent=session.mastered*10;
  const coins=new Intl.NumberFormat('pt-BR').format(player.coins||0);
  // Restore the original apoio practice artwork, while using Beta's answer engine.
