@@ -38,6 +38,12 @@ export function mountPracticeWorldGL(host,{world=1}={}){
    // Cherry blossom world: dappled pink illumination in blossom-rich areas.
    float sakura=step(3.5,world)*smoothstep(.16,.4,src.r-src.g)*smoothstep(.09,.32,src.b-src.g);
    color+=vec3(.036,.013,.025)*sakura*(.5+.5*sin(p.x*31.+p.y*13.+time*.6))*strength;
+   // World 5 underwater light caustics and slow current, masked by blue-green pigments.
+   float undersea=step(4.5,world);
+   float seaHue=smoothstep(.04,.22,src.b-src.r);
+   float caustics=pow(max(0.,sin(p.x*79.+sin(p.y*35.+time*.58)*2.+time*.65)*sin(p.y*51.-time*.42)),5.);
+   color+=undersea*seaHue*caustics*vec3(.024,.075,.095)*strength;
+   color+=undersea*seaHue*(.5+.5*sin(p.x*9.+p.y*15.+time*.37))*vec3(.006,.015,.027)*strength;
    float shimmer=sin(p.x*65.+p.y*46.-phase*2.6)*sin(p.x*27.-phase);
    color+=vec3(.026,.057,.063)*max(0.,shimmer)*waterZone*strength;
    // Soft dappled light: subtle so the image remains faithful to the artwork.
@@ -63,7 +69,7 @@ export function mountPracticeWorldGL(host,{world=1}={}){
      float shake=(1.-good)*fade*.0028*sin(p.y*92.+age*61.);
      vec3 distorted=texture2D(art,vec2(clamp(p.x+shake,0.,1.),1.-p.y)).rgb;
      color=mix(color,distorted,(1.-good)*fade*.64);
-     vec3 positive=world>3.5?vec3(1.,.52,.81):(world>2.5?vec3(1.,.68,.19):(world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29)));
+     vec3 positive=world>4.5?vec3(.32,1.,.93):(world>3.5?vec3(1.,.52,.81):(world>2.5?vec3(1.,.68,.19):(world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29))));
      vec3 ringColor=mix(vec3(1.,.14,.21),positive,good);
      color=mix(color,ringColor,min(.88,ring*fade*.86));
      // Individually moving GPU sparks, deterministic by spatial cell.
