@@ -16,6 +16,9 @@ export function mountPracticeWorldGL(host,{world=1}={}){
  uniform float strength;
  uniform float world;
  uniform vec2 resolution;
+ uniform float impactAge;
+ uniform float impactSign;
+ uniform vec2 impactPoint;
  float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
  void main(){
    vec2 p=vec2(uv.x,1.-uv.y);
@@ -38,6 +41,33 @@ export function mountPracticeWorldGL(host,{world=1}={}){
    float rnd=hash(grid+floor(time*.7));
    float points=step(.982,rnd)*pow(max(0.,1.-length(fract(p*vec2(27.,39.))-.5)*3.),4.);
    color+=vec3(.20,.22,.16)*points*waterZone*strength;
+   // GPU impact response shared with the existing background pass.
+   // Positive: golden/turquoise expanding ring and sparks. Negative: brief
+   // crimson distortion and fragments, behind all the DOM controls.
+   if(impactAge>=0. && impactAge<1.65){
+     float age=impactAge;
+     float good=step(0.,impactSign);
+     vec2 scaled=(p-impactPoint)*vec2(resolution.x/max(1.,resolution.y),1.);
+     float radius=length(scaled);
+     float ringRadius=age*(good?.43:.32);
+     float ring=exp(-pow((radius-ringRadius)*65.,2.));
+     float fade=(1.-smoothstep(.15,good?1.45:1.15,age));
+     float shake=(1.-good)*fade*.0028*sin(p.y*92.+age*61.);
+     vec3 distorted=texture2D(art,vec2(clamp(p.x+shake,0.,1.),1.-p.y)).rgb;
+     color=mix(color,distorted,(1.-good)*fade*.64);
+     vec3 ringColor=mix(vec3(1.,.14,.21),world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29),good);
+     color+=ringColor*ring*fade*.68;
+     // Individually moving GPU sparks, deterministic by spatial cell.
+     vec2 cell=floor(p*vec2(36.,62.));
+     vec2 center=(cell+.5)/vec2(36.,62.);
+     float random=hash(cell);
+     vec2 delta=center-impactPoint;
+     float spread=length(delta);
+     float sparkle=step(.72,random)*exp(-pow((spread-(.08+age*.32)) * 30.,2.));
+     sparkle*=pow(max(0.,1.-length(fract(p*vec2(36.,62.))-.5)*2.),6.);
+     color+=ringColor*sparkle*fade*(good?.75:.5);
+     color+=ringColor*max(0.,1.-radius*4.)*fade*(good?.12:.08);
+   }
    gl_FragColor=vec4(color,1.);
  }`;
  const shader=(type,source)=>{const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s};
@@ -53,6 +83,8 @@ export function mountPracticeWorldGL(host,{world=1}={}){
  const dpr=Math.min(devicePixelRatio||1,low?1:1.4);
  const start=performance.now();
  let last=0;
+ let impactStarted=-1,impactSign=1,impactPoint=[.5,.72];
+ const uImpactAge=gl.getUniformLocation(program,'impactAge'),uImpactSign=gl.getUniformLocation(program,'impactSign'),uImpactPoint=gl.getUniformLocation(program,'impactPoint'),uResolution=gl.getUniformLocation(program,'resolution');
  function draw(now){
   if(!active)return;
   frame=requestAnimationFrame(draw);
@@ -62,6 +94,10 @@ export function mountPracticeWorldGL(host,{world=1}={}){
   const w=Math.round(box.width*dpr),h=Math.round(box.height*dpr);
   if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}
   gl.useProgram(program);gl.uniform1f(uTime,(now-start)/1000);gl.uniform1f(uStrength,low?.55:1);gl.uniform1f(uWorld,world);
+  gl.uniform1f(uImpactAge,impactStarted<0?-1:(now-impactStarted)/1000);
+  gl.uniform1f(uImpactSign,impactSign);
+  gl.uniform2f(uImpactPoint,...impactPoint);
+  gl.uniform2f(uResolution,w,h);
   gl.drawArrays(gl.TRIANGLES,0,6);
  }
  function activate(){
@@ -82,5 +118,7 @@ export function mountPracticeWorldGL(host,{world=1}={}){
  if(image.complete)activate();
  const lost=e=>{e.preventDefault();host.classList.remove('practice-scene-gl-active');canvas.remove();ready=false;cancelAnimationFrame(frame)};
  canvas.addEventListener('webglcontextlost',lost);
- return ()=>{active=false;cancelAnimationFrame(frame);image.removeEventListener('load',activate);canvas.removeEventListener('webglcontextlost',lost);host.classList.remove('practice-scene-gl-active');canvas.remove();if(texture)gl.deleteTexture(texture);if(buffer)gl.deleteBuffer(buffer);if(program)gl.deleteProgram(program);gl.getExtension('WEBGL_lose_context')?.loseContext()};
+ const stop=()=>{active=false;cancelAnimationFrame(frame);image.removeEventListener('load',activate);canvas.removeEventListener('webglcontextlost',lost);host.classList.remove('practice-scene-gl-active');canvas.remove();if(texture)gl.deleteTexture(texture);if(buffer)gl.deleteBuffer(buffer);if(program)gl.deleteProgram(program);gl.getExtension('WEBGL_lose_context')?.loseContext()};
+ stop.burst=(good,point)=>{impactSign=good?1:-1;impactPoint=point||[.5,.72];impactStarted=performance.now();};
+ return stop;
 }
