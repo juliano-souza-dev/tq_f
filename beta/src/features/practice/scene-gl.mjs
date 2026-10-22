@@ -25,11 +25,16 @@ export function mountPracticeWorldGL(host,{world=1}={}){
    vec4 src=texture2D(art,vec2(p.x,1.-p.y));
    float turquoise=smoothstep(.02,.21,src.b-src.r)*smoothstep(.0,.16,src.g-src.r);
    float waterZone=smoothstep(.32,.60,p.y)*turquoise;
+   // Mundo 3: identify bright molten lava by its warm color, not water blue.
+   float lavaColor=smoothstep(.14,.35,src.r-src.b)*smoothstep(.08,.26,src.r-src.g);
+   float lavaZone=step(2.5,world)*lavaColor*smoothstep(.23,.65,p.y);
    // The refraction is gated by actual turquoise pixels, so stones, UI plaques
    // and ornate gold details do not warp with the water.
    float phase=time*(world<1.5?1.2:1.65);
    vec2 shift=vec2(sin(p.y*142.+phase*2.1)+sin(p.y*75.-phase*1.4),cos(p.x*85.+phase))*vec2(.0015,.00095)*waterZone*strength;
-   vec3 color=texture2D(art,vec2(p.x+shift.x,1.-p.y+shift.y)).rgb;
+   vec2 lavaShift=vec2(sin(p.y*109.-phase*1.8),cos(p.x*67.+phase))*vec2(.0022,.0015)*lavaZone*strength;
+   vec3 color=texture2D(art,vec2(p.x+shift.x+lavaShift.x,1.-p.y+shift.y+lavaShift.y)).rgb;
+   color+=vec3(.1,.042,.004)*lavaZone*max(0.,sin(p.y*64.+phase*3.))*strength;
    float shimmer=sin(p.x*65.+p.y*46.-phase*2.6)*sin(p.x*27.-phase);
    color+=vec3(.026,.057,.063)*max(0.,shimmer)*waterZone*strength;
    // Soft dappled light: subtle so the image remains faithful to the artwork.
@@ -55,7 +60,8 @@ export function mountPracticeWorldGL(host,{world=1}={}){
      float shake=(1.-good)*fade*.0028*sin(p.y*92.+age*61.);
      vec3 distorted=texture2D(art,vec2(clamp(p.x+shake,0.,1.),1.-p.y)).rgb;
      color=mix(color,distorted,(1.-good)*fade*.64);
-     vec3 ringColor=mix(vec3(1.,.14,.21),world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29),good);
+     vec3 positive=world>2.5?vec3(1.,.68,.19):(world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29));
+     vec3 ringColor=mix(vec3(1.,.14,.21),positive,good);
      color=mix(color,ringColor,min(.88,ring*fade*.86));
      // Individually moving GPU sparks, deterministic by spatial cell.
      vec2 cell=floor(p*vec2(36.,62.));
