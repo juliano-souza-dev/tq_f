@@ -136,14 +136,14 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   navigate('practice');
  }
  function submitAnswer(value){
-  if(screen!=='practice'||!session||session.answered)return;
+  if(screen!=='practice'||!session||session.answered||session.preview)return;
   profiles.updateActive(player=>answerPractice(session,player,value));
   render();
   scheduleAnswerAdvance();
  }
  function afterAnswer(){
   cancelAnswerTimer();
-  if(screen!=='practice'||!session||!session.answered)return;
+  if(screen!=='practice'||!session||!session.answered||session.preview)return;
   if(session.queue.length===0){
    profiles.updateActive(player=>{result=finishPractice(session,player,now());});
    session=null;
@@ -168,6 +168,18 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      selectedWorld=id;render();break;
    }
    case 'startWorld':startWorld(Number(dataset.world));break;
+   case 'previewWorld':{
+     const n=Number(dataset.world);
+     if(n!==2)return;
+     const player=profiles.active();
+     if(!player)return navigate('profiles');
+     if(worldState(player,n,now()).enabled){startWorld(n);break;}
+     selectedWorld=n;
+     session=createPractice(n,'learn',random,now());
+     session.preview=true;
+     navigate('practice');
+     break;
+   }
    case 'answer':submitAnswer(Number(dataset.answer));break;
    case 'nextQuestion':afterAnswer();break;
    case 'leavePractice':session=null;navigate('worlds');break;
