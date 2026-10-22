@@ -9,14 +9,14 @@ export function worldsScreen(player,selected,now=Date.now()){
   <div class="world-heading"><span>✦ SEU PRÓXIMO DESTINO ✦</span><h1>Os dez mundos</h1>
     <p>Domine as tabuadas, desperte os portais e revele novos lugares.</p></div>
   <section class="world-map-shell" aria-label="Mapa interativo dos dez mundos">
-   <div class="world-map">
+   <div class="world-map world-map-new">
     ${art(assetUrl('world_map_new.webp'),{className:'world-map-art',alt:'Mapa ilustrado dos dez mundos conectados por pontes'})}
     ${WORLDS.map(item=>{
       const st=worldState(player,item.number,now);
       return `<button type="button" data-action="selectWorld" data-world="${item.number}"
          class="world-pin ${escapeHTML(st.id)} ${selected===item.number?'selected':''}"
          aria-pressed="${selected===item.number}" aria-label="Mundo ${item.number}: ${escapeHTML(item.name)}. ${st.label}">
-        <span>${item.number}</span>${st.id==='locked'?'<i aria-hidden="true">🔒</i>':''}
+        <span class="sr-only">${item.number}</span>${st.id==='locked'?'<i aria-hidden="true">🔒</i>':''}
        </button>`;
     }).join('')}
    </div>
