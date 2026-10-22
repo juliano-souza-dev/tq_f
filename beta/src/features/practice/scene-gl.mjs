@@ -83,6 +83,9 @@ export function mountPracticeWorldGL(host,{world=1}={}){
      color+=ringColor*sparkle*fade*(good>0.5?1.1:.85);
      color+=ringColor*max(0.,1.-radius*4.)*fade*(good>0.5?.12:.08);
    }
+   float cosmos=step(7.5,world);
+   float starField=pow(max(0.,sin(p.x*170.+time*.16)*sin(p.y*228.-time*.12)),16.);
+   color+=cosmos*starField*vec3(.055,.038,.11)*strength;
    gl_FragColor=vec4(color,1.);
  }`;
  const shader=(type,source)=>{const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s};
