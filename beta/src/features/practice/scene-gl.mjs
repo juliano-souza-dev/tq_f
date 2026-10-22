@@ -49,14 +49,14 @@ export function mountPracticeWorldGL(host,{world=1}={}){
      float good=step(0.,impactSign);
      vec2 scaled=(p-impactPoint)*vec2(resolution.x/max(1.,resolution.y),1.);
      float radius=length(scaled);
-     float ringRadius=age*(good?.43:.32);
-     float ring=exp(-pow((radius-ringRadius)*65.,2.));
-     float fade=(1.-smoothstep(.15,good?1.45:1.15,age));
+     float ringRadius=age*(good>0.5?.43:.32);
+     float ring=exp(-pow((radius-ringRadius)*34.,2.));
+     float fade=(1.-smoothstep(.15,good>0.5?1.45:1.15,age));
      float shake=(1.-good)*fade*.0028*sin(p.y*92.+age*61.);
      vec3 distorted=texture2D(art,vec2(clamp(p.x+shake,0.,1.),1.-p.y)).rgb;
      color=mix(color,distorted,(1.-good)*fade*.64);
      vec3 ringColor=mix(vec3(1.,.14,.21),world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29),good);
-     color+=ringColor*ring*fade*.68;
+     color=mix(color,ringColor,min(.88,ring*fade*.86));
      // Individually moving GPU sparks, deterministic by spatial cell.
      vec2 cell=floor(p*vec2(36.,62.));
      vec2 center=(cell+.5)/vec2(36.,62.);
@@ -65,8 +65,8 @@ export function mountPracticeWorldGL(host,{world=1}={}){
      float spread=length(delta);
      float sparkle=step(.72,random)*exp(-pow((spread-(.08+age*.32)) * 30.,2.));
      sparkle*=pow(max(0.,1.-length(fract(p*vec2(36.,62.))-.5)*2.),6.);
-     color+=ringColor*sparkle*fade*(good?.75:.5);
-     color+=ringColor*max(0.,1.-radius*4.)*fade*(good?.12:.08);
+     color+=ringColor*sparkle*fade*(good>0.5?1.1:.85);
+     color+=ringColor*max(0.,1.-radius*4.)*fade*(good>0.5?.12:.08);
    }
    gl_FragColor=vec4(color,1.);
  }`;
