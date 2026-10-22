@@ -490,3 +490,11 @@ body:has(.practice-scene-view) #app{
 .practice-scene-question{top:40.1%;height:17.2%}
 .practice-scene-question h1{margin-top:4px}
 .practice-scene-feedback{top:82.2%;font-size:clamp(.72rem,2.9cqw,1rem)}
+
+/* Gold counter: fit all coin amounts inside its illustrated plaque. */
+.practice-scene-coins{
+ top:5.1%;right:8%;width:13%;height:3%;
+ font-size:clamp(.55rem,2.6cqw,.98rem);
+ line-height:1;white-space:nowrap;
+ font-variant-numeric:tabular-nums;
+}
