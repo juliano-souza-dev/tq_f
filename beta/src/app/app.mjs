@@ -17,6 +17,7 @@ import {mountOceanEffect} from '../features/backgrounds/ocean.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
 import {equipSuccessFX,playPracticeFX} from '../features/practice/fx.mjs';
+import {mountPracticeWorldGL} from '../features/practice/scene-gl.mjs';
 
 export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  if(!root)throw Error('Raiz DOM obrigatória');
@@ -33,6 +34,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let selectedBackground=null;
  let backgroundNotice='';
  let stopHomeEffects=null;
+ let stopPracticeGL=null;
  let answerTimer=null;
  let cleanupPracticeFX=null;
  const clearPracticeFX=()=>{cleanupPracticeFX?.();cleanupPracticeFX=null};
@@ -94,6 +96,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  function render(){
   const currentScroll=firstRender?initialScroll:(browser?.scrollY||0);
   stopHomeEffects?.();stopHomeEffects=null;
+  stopPracticeGL?.();stopPracticeGL=null;
   const player=profiles.active();
   try{
    switch(screen){
@@ -122,6 +125,9 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    if(screen==='backgrounds'&&player&&typeof window!=='undefined'){
      const id=selectedBackground||player.equipped?.background||'bg_forest';
      stopHomeEffects=id==='bg_ocean'?mountOceanEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_ice'?mountSnowEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_space'?mountCosmicEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_forest'?mountForestEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_clouds'?mountCloudSkyEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
+   }
+   if(screen==='practice'&&session?.table<=2&&player){
+    stopPracticeGL=mountPracticeWorldGL(root.querySelector('.practice-scene-art'),{world:session.table});
    }
    saveNav();
    if(screen==='practice'&&session?.answered&&answerTimer===null)scheduleAnswerAdvance();
