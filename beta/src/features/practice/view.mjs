@@ -21,8 +21,9 @@ function illustratedPracticeScene(player,session,fact){
     <h1>${fact.a} × ${fact.b} = ?</h1>
    </section>
    <div class="practice-scene-answers" role="group" aria-label="Escolha uma resposta">
-    ${session.choices.map((v,i)=>`<button type="button" data-action="answer" data-answer="${v}" aria-label="Alternativa ${i+1}: ${v}" class="practice-scene-answer ${session.answered?(v===fact.answer?'good':session.feedback?.badValue===v?'bad':''):''}" ${session.answered?'disabled':''}>${v}</button>`).join('')}
+    ${session.choices.map((v,i)=>`<button type="button" data-action="answer" data-answer="${v}" aria-label="Alternativa ${i+1}: ${v}" class="practice-scene-answer ${session.answered?(v===fact.answer?'good':session.feedback?.badValue===v?'bad':''):''}" ${session.answered||session.preview?'disabled':''}>${v}</button>`).join('')}
    </div>
+   ${session.preview?'<div class="practice-scene-preview-label">PRÉVIA DO MUNDO 2 · Conclua o Mundo 1 para jogar</div>':''}
    <div class="practice-scene-feedback ${session.feedback?(session.feedback.good?'good':'bad'):''}" role="status">
     ${session.feedback?(session.feedback.good?(session.feedback.mastered?'⭐ Dominada!':'✨ Muito bem!'):`💛 ${fact.a} × ${fact.b} = ${fact.answer}`):''}
    </div>
