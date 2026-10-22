@@ -386,3 +386,31 @@ p,h1,h2{margin-top:0}
 .practice-legacy-queue-items span{border-radius:7px;background:#7546b9;color:#f9dfff;font-size:.68rem;text-align:center;padding:6px 0;font-weight:900}
 .practice-legacy-queue-items span.done{background:#e8bb57;color:#53217b}
 @media(max-height:680px){.practice-legacy-question-wrap{height:150px}.practice-legacy-choice{min-height:64px}.practice-legacy-card{margin:auto auto 0}}
+
+/* World map: clear artwork and a single padlock on each unavailable island. */
+.worlds-map-stage>.world-pin.locked::before,
+.worlds-map-stage>.world-pin.scheduled::before,
+.worlds-map-stage>.world-pin.locked::after,
+.worlds-map-stage>.world-pin.scheduled::after{content:none!important;display:none!important;background:none!important;box-shadow:none!important}
+.worlds-map-stage>.world-pin,
+.worlds-map-stage>.world-pin.locked,
+.worlds-map-stage>.world-pin.scheduled{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+ filter:none!important;opacity:1!important;overflow:visible!important
+}
+.worlds-map-stage>.world-pin .world-lock{
+ position:absolute;left:50%;top:-95%;transform:translate(-50%,-50%);
+ width:clamp(35px,9vw,58px);height:clamp(35px,9vw,58px);
+ display:grid;place-items:center;font-style:normal;font-size:clamp(23px,6vw,36px);
+ line-height:1;pointer-events:none;z-index:4;
+ filter:drop-shadow(0 3px 3px rgba(21,9,47,.85)) drop-shadow(0 0 5px rgba(255,220,114,.6))
+}
+.worlds-map-stage>.world-pin[data-world="2"] .world-lock,
+.worlds-map-stage>.world-pin[data-world="3"] .world-lock{top:-105%}
+.worlds-map-stage>.world-pin[data-world="4"] .world-lock,
+.worlds-map-stage>.world-pin[data-world="5"] .world-lock{top:-110%}
+.worlds-map-stage>.world-pin[data-world="6"] .world-lock,
+.worlds-map-stage>.world-pin[data-world="7"] .world-lock{top:-120%}
+.worlds-map-stage>.world-pin[data-world="8"] .world-lock,
+.worlds-map-stage>.world-pin[data-world="10"] .world-lock{top:-112%}
+.worlds-map-stage>.world-pin[data-world="9"] .world-lock{top:-85%}
