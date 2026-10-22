@@ -126,7 +126,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      const id=selectedBackground||player.equipped?.background||'bg_forest';
      stopHomeEffects=id==='bg_ocean'?mountOceanEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_ice'?mountSnowEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_space'?mountCosmicEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_forest'?mountForestEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_clouds'?mountCloudSkyEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
    }
-   if(screen==='practice'&&session?.table<=2&&player){
+   if(screen==='practice'&&session?.table<=3&&player){
     try{stopPracticeGL=mountPracticeWorldGL(root.querySelector('.practice-scene-art'),{world:session.table});}catch(error){console.warn('WebGL indisponível; mantendo arte estática.',error);stopPracticeGL=null;}
    }
    saveNav();
@@ -164,7 +164,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   clearPracticeFX();
   if(screen!=='practice'||!session||!session.answered)return;
   if(session.preview&&session.queue.length===0){
-   session=createPractice(2,'learn',random,now());
+   session=createPractice(session.table,'learn',random,now());
    session.preview=true;
    render();
    return;
@@ -195,7 +195,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'startWorld':startWorld(Number(dataset.world));break;
    case 'previewWorld':{
      const n=Number(dataset.world);
-     if(n!==2)return;
+     if(n!==2&&n!==3)return;
      const player=profiles.active();
      if(!player)return navigate('profiles');
      if(worldState(player,n,now()).enabled){startWorld(n);break;}
