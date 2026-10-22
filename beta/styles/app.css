@@ -320,31 +320,27 @@ p,h1,h2{margin-top:0}
 .worlds-map-stage>.world-pin:focus-visible{outline:3px solid #ffefa8!important;outline-offset:3px!important}
 .worlds-destination{display:none!important}
 
-/* DEV: island-sized dimming independent of the portal's clickable footprint.
-   Percentages below refer to the illustrated vertical map and are tuned per island.
-   Soft edges avoid spilling into the connecting bridges. */
-.worlds-map-stage>.world-pin.locked,
-.worlds-map-stage>.world-pin.scheduled{overflow:visible!important;isolation:auto}
+/* Locked world artwork: compact island-by-island overlays, never across the
+   central castle or the bridges. The portal itself stays the touch target. */
 .worlds-map-stage>.world-pin.locked::before,
 .worlds-map-stage>.world-pin.scheduled::before{
- content:"";position:absolute;left:50%;top:50%;inset:auto;
- transform:translate(-50%,-50%);
- width:var(--island-shade-width,245%);height:var(--island-shade-height,260%);
- border-radius:46%;background:radial-gradient(ellipse at center,
- rgba(8,7,27,.77) 0%,rgba(11,8,30,.74) 53%,
- rgba(13,10,34,.46) 75%,rgba(12,10,31,.12) 90%,transparent 100%);
- mix-blend-mode:multiply;pointer-events:none;z-index:0;
+ content:"";position:absolute;inset:auto;
+ left:50%;top:12%;transform:translate(-50%,-50%);
+ width:var(--shade-w,165%);height:var(--shade-h,195%);
+ border-radius:48% 48% 43% 43%;
+ background:radial-gradient(ellipse at 50% 44%,
+ rgba(7,6,26,.78) 0%,rgba(10,8,29,.75) 48%,
+ rgba(12,9,33,.47) 74%,rgba(12,9,33,.08) 94%,transparent 100%);
+ pointer-events:none;mix-blend-mode:multiply;z-index:0;
 }
-/* Dimension by the pictured landmass rather than the little number plate. */
-.worlds-map-stage>.world-pin[data-world="1"]{--island-shade-width:255%;--island-shade-height:275%}
-.worlds-map-stage>.world-pin[data-world="2"]{--island-shade-width:260%;--island-shade-height:280%}
-.worlds-map-stage>.world-pin[data-world="3"]{--island-shade-width:258%;--island-shade-height:285%}
-.worlds-map-stage>.world-pin[data-world="4"]{--island-shade-width:268%;--island-shade-height:275%}
-.worlds-map-stage>.world-pin[data-world="5"]{--island-shade-width:263%;--island-shade-height:265%}
-.worlds-map-stage>.world-pin[data-world="6"]{--island-shade-width:270%;--island-shade-height:288%}
-.worlds-map-stage>.world-pin[data-world="7"]{--island-shade-width:266%;--island-shade-height:275%}
-.worlds-map-stage>.world-pin[data-world="8"]{--island-shade-width:280%;--island-shade-height:270%}
-.worlds-map-stage>.world-pin[data-world="9"]{--island-shade-width:230%;--island-shade-height:240%}
-.worlds-map-stage>.world-pin[data-world="10"]{--island-shade-width:276%;--island-shade-height:266%}
+.worlds-map-stage>.world-pin[data-world="2"]{--shade-w:170%;--shade-h:190%}
+.worlds-map-stage>.world-pin[data-world="3"]{--shade-w:170%;--shade-h:190%}
+.worlds-map-stage>.world-pin[data-world="4"]{--shade-w:175%;--shade-h:200%}
+.worlds-map-stage>.world-pin[data-world="5"]{--shade-w:170%;--shade-h:188%}
+.worlds-map-stage>.world-pin[data-world="6"]{--shade-w:175%;--shade-h:205%}
+.worlds-map-stage>.world-pin[data-world="7"]{--shade-w:170%;--shade-h:196%}
+.worlds-map-stage>.world-pin[data-world="8"]{--shade-w:176%;--shade-h:192%}
+.worlds-map-stage>.world-pin[data-world="9"]{--shade-w:142%;--shade-h:180%}
+.worlds-map-stage>.world-pin[data-world="10"]{--shade-w:177%;--shade-h:185%}
 .worlds-map-stage>.world-pin.locked i,
-.worlds-map-stage>.world-pin.scheduled i{z-index:2}
+.worlds-map-stage>.world-pin.scheduled i{z-index:1}
