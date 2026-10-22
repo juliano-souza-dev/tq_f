@@ -514,3 +514,7 @@ body:has(.practice-scene-world-2){
 .practice-scene-world-2 .practice-scene-progress{top:20.4%}
 .practice-scene-world-2 .practice-scene-question{top:40.0%;height:17.5%}
 .practice-scene-world-2 .practice-scene-answers{top:62.0%;height:19.4%}
+
+/* Read-only preview, enabled only for locked World 2 in Beta. */
+.practice-scene-preview-label{position:absolute;left:11%;top:83%;width:78%;text-align:center;background:#301c62e8;color:#fff3bb;border:1px solid #ffe7a8;border-radius:12px;padding:7px 8px;font-weight:900;font-size:clamp(.65rem,2.6cqw,.88rem);text-shadow:0 1px 2px #190d39;z-index:3}
+.practice-scene-view:has(.practice-scene-preview-label) .practice-scene-answer{cursor:default}
