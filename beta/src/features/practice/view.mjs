@@ -35,7 +35,6 @@ export function practiceScreen(player,session){
     <div class="practice-legacy-feedback ${session.feedback?(session.feedback.good?'good':'bad'):''}" role="status">
     ${session.feedback?(session.feedback.good?(session.feedback.mastered?'⭐ Dominada! Dois acertos seguidos.':'✨ Mais um acerto para dominar.'): `💛 ${fact.a} × ${fact.b} = ${fact.answer}. Tente novamente.`):(fact.streak===1?'Mais um acerto para dominar esta conta!':'Escolha uma resposta.')}
     </div>
-    ${session.answered?`<button class="practice-legacy-next" type="button" data-action="nextQuestion">${session.queue.length===0?'🏆 Ver conquista':'Continuar ➜'}</button>`:''}
    </section>
    <section class="practice-legacy-queue" aria-label="Trilha de domínio"><strong>TRILHA DE DOMÍNIO</strong><div class="practice-legacy-queue-items">${Array.from({length:10},(_,i)=>`<span class="${i<session.mastered?'done':''}">${i<session.mastered?'★':i+1}</span>`).join('')}</div></section>
   </section>
