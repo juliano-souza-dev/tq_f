@@ -27,7 +27,7 @@ export function mountPracticeWorldGL(host,{world=1}={}){
    float waterZone=smoothstep(.32,.60,p.y)*turquoise;
    // Mundo 3: identify bright molten lava by its warm color, not water blue.
    float lavaColor=smoothstep(.14,.35,src.r-src.b)*smoothstep(.08,.26,src.r-src.g);
-   float lavaZone=step(2.5,world)*lavaColor*smoothstep(.23,.65,p.y);
+   float lavaZone=step(2.5,world)*(1.-step(3.5,world))*lavaColor*smoothstep(.23,.65,p.y);
    // The refraction is gated by actual turquoise pixels, so stones, UI plaques
    // and ornate gold details do not warp with the water.
    float phase=time*(world<1.5?1.2:1.65);
@@ -35,6 +35,9 @@ export function mountPracticeWorldGL(host,{world=1}={}){
    vec2 lavaShift=vec2(sin(p.y*109.-phase*1.8),cos(p.x*67.+phase))*vec2(.0022,.0015)*lavaZone*strength;
    vec3 color=texture2D(art,vec2(p.x+shift.x+lavaShift.x,1.-p.y+shift.y+lavaShift.y)).rgb;
    color+=vec3(.1,.042,.004)*lavaZone*max(0.,sin(p.y*64.+phase*3.))*strength;
+   // Cherry blossom world: dappled pink illumination in blossom-rich areas.
+   float sakura=step(3.5,world)*smoothstep(.16,.4,src.r-src.g)*smoothstep(.09,.32,src.b-src.g);
+   color+=vec3(.036,.013,.025)*sakura*(.5+.5*sin(p.x*31.+p.y*13.+time*.6))*strength;
    float shimmer=sin(p.x*65.+p.y*46.-phase*2.6)*sin(p.x*27.-phase);
    color+=vec3(.026,.057,.063)*max(0.,shimmer)*waterZone*strength;
    // Soft dappled light: subtle so the image remains faithful to the artwork.
@@ -60,7 +63,7 @@ export function mountPracticeWorldGL(host,{world=1}={}){
      float shake=(1.-good)*fade*.0028*sin(p.y*92.+age*61.);
      vec3 distorted=texture2D(art,vec2(clamp(p.x+shake,0.,1.),1.-p.y)).rgb;
      color=mix(color,distorted,(1.-good)*fade*.64);
-     vec3 positive=world>2.5?vec3(1.,.68,.19):(world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29));
+     vec3 positive=world>3.5?vec3(1.,.52,.81):(world>2.5?vec3(1.,.68,.19):(world>1.5?vec3(.44,1.,.98):vec3(1.,.82,.29)));
      vec3 ringColor=mix(vec3(1.,.14,.21),positive,good);
      color=mix(color,ringColor,min(.88,ring*fade*.86));
      // Individually moving GPU sparks, deterministic by spatial cell.
