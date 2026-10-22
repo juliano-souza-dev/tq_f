@@ -518,3 +518,18 @@ body:has(.practice-scene-world-2){
 /* Read-only preview, enabled only for locked World 2 in Beta. */
 .practice-scene-preview-label{position:absolute;left:11%;top:83%;width:78%;text-align:center;background:#301c62e8;color:#fff3bb;border:1px solid #ffe7a8;border-radius:12px;padding:7px 8px;font-weight:900;font-size:clamp(.65rem,2.6cqw,.88rem);text-shadow:0 1px 2px #190d39;z-index:3}
 .practice-scene-view:has(.practice-scene-preview-label) .practice-scene-answer{cursor:default}
+
+/* Apoio-inspired animation, shown during the automatic answer delay. */
+.practice-scene-art,.practice-legacy-shell{isolation:isolate}
+.practice-fx-picker{position:absolute;z-index:12;right:4%;top:24.3%;display:flex;gap:4px;align-items:center;padding:4px 6px;border-radius:999px;background:#412078bd;border:1px solid #f8dc9d99;color:#ffe9a9;font-size:clamp(.55rem,2.1vw,.75rem);font-weight:900}
+.practice-legacy-shell>.practice-fx-picker{top:108px;right:14px}
+.practice-fx-picker button{min-width:30px;min-height:30px;border-radius:50%;border:2px solid #a785c5;background:#523191;font-size:1rem;padding:0}
+.practice-fx-picker button.selected{border-color:#ffe378;background:#8b57c7;box-shadow:0 0 9px #ffd96a}
+.practice-fx-layer{position:absolute;inset:0;z-index:30;pointer-events:none;display:grid;place-items:center;overflow:hidden;animation:practiceFxAppear .38s ease-out both}
+.practice-fx-layer::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#f9e1ff22,#1e0d4d42);animation:practiceFxFlash 1.5s ease-out forwards}
+.practice-fx-layer.error::before{background:radial-gradient(ellipse at center,#ff9f9f20,#9a184859)}
+.practice-fx-layer img{position:relative;width:min(70%,340px);max-height:45%;object-fit:contain;filter:drop-shadow(0 0 22px #fff8);animation:practiceFxPop 1.45s ease-out both}
+@keyframes practiceFxAppear{from{opacity:0}to{opacity:1}}
+@keyframes practiceFxFlash{0%{opacity:0}15%{opacity:1}100%{opacity:0}}
+@keyframes practiceFxPop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}25%{opacity:1;transform:scale(1.1) rotate(3deg)}60%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.92)}}
+@media(prefers-reduced-motion:reduce){.practice-fx-layer,.practice-fx-layer img,.practice-fx-layer::before{animation:none}}
