@@ -6,7 +6,7 @@ export const BACKGROUNDS=Object.freeze([
  {id:'bg_clouds',name:'Céu das Nuvens Encantadas',asset:'bg-clouds.webp',price:125,rarity:'Épico'}
 ]);
 const origin='https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/';
-export const backgroundUrl=item=>item?(item.id==='bg_clouds'?'/tq_f/beta/assets/bg-clouds.webp':origin+encodeURIComponent(item.asset)):'';
+export const backgroundUrl=item=>item?(item.id==='bg_clouds'?'/tq_f/beta/assets/bg-clouds.webp':origin+encodeURIComponent(item.asset))+'?dev='+(globalThis.__TQ_DEV_VERSION__||Date.now()):'';
 export const backgroundStatus=(profile,item)=>({owned:!!profile?.owned?.includes(item.id),equipped:profile?.equipped?.background===item.id});
 export function acquireBackground(profile,id){
  if(id==='__default__'){profile.equipped.background=null;return {reason:'equipped'};}
