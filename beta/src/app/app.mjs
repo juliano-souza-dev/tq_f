@@ -32,6 +32,17 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let selectedBackground=null;
  let backgroundNotice='';
  let stopHomeEffects=null;
+ let answerTimer=null;
+ const cancelAnswerTimer=()=>{if(answerTimer!==null){clearTimeout(answerTimer);answerTimer=null}};
+ const scheduleAnswerAdvance=()=>{
+  cancelAnswerTimer();
+  if(screen!=='practice'||!session?.answered)return;
+  const current=session;
+  answerTimer=setTimeout(()=>{
+   answerTimer=null;
+   if(screen==='practice'&&session===current&&session.answered)afterAnswer();
+  },session.feedback?.good?1050:1450);
+ };
  const navKey='tq_f.beta.navigation.v1';
  const browser=typeof window!=='undefined'?window:null;
  const navStore=(()=>{try{return browser?.sessionStorage||null}catch{return null}})();
@@ -70,6 +81,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   return choice?.number||1;
  }
  function navigate(next){
+  cancelAnswerTimer();
   screen=next;
   browser?.scrollTo(0,0);
   saveNav();
@@ -108,6 +120,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      stopHomeEffects=id==='bg_ocean'?mountOceanEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_ice'?mountSnowEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_space'?mountCosmicEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_forest'?mountForestEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_clouds'?mountCloudSkyEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
    }
    saveNav();
+   if(screen==='practice'&&session?.answered&&answerTimer===null)scheduleAnswerAdvance();
    restoreScroll(currentScroll);
    firstRender=false;
   }catch(e){
@@ -126,8 +139,10 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   if(screen!=='practice'||!session||session.answered)return;
   profiles.updateActive(player=>answerPractice(session,player,value));
   render();
+  scheduleAnswerAdvance();
  }
  function afterAnswer(){
+  cancelAnswerTimer();
   if(screen!=='practice'||!session||!session.answered)return;
   if(session.queue.length===0){
    profiles.updateActive(player=>{result=finishPractice(session,player,now());});
@@ -227,6 +242,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   getSelectedWorld:()=>selectedWorld,
   act,
   destroy(){
+   cancelAnswerTimer();
    stopHomeEffects?.();stopHomeEffects=null;
    root.removeEventListener('click',onClick);
    if(browser){
