@@ -1,7 +1,14 @@
 import {worldUrl,assetUrl} from '../../resources/asset-map.mjs';
 import {WORLDS} from '../../core/progression.mjs';
+import {SUCCESS_FX} from './fx.mjs';
 import {art,topbar,escapeHTML} from '../../components/ui.mjs';
 const legacyPracticeAsset=name=>'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+name;
+function successFXPicker(player){
+ return `<div class="practice-fx-picker" aria-label="Efeito de acerto">
+  <span>✨ Acerto</span>
+  ${SUCCESS_FX.filter(fx=>player.owned?.includes(fx.id)).map(fx=>`<button type="button" data-action="equipSuccessFX" data-effect="${fx.id}" aria-pressed="${player.equipped?.effect===fx.id}" title="${fx.name}" ${player.equipped?.effect===fx.id?'class="selected"':''}>${fx.id==='fx_papai'?'💛':'🌟'}</button>`).join('')}
+ </div>`;
+}
 function illustratedPracticeScene(player,session,fact){
  const world=WORLDS[session.table-1];
  const isSecond=session.table===2;
@@ -10,6 +17,7 @@ function illustratedPracticeScene(player,session,fact){
  return `<main class="practice-scene-view ${isSecond?'practice-scene-world-2':'practice-scene-world-1'}" style="--practice-scene-url:url('./assets/optimized/${scene}')">
   <div class="practice-scene-art">
    <img class="practice-scene-image" src="./assets/optimized/${scene}?dev=${globalThis.__TQ_DEV_VERSION__||Date.now()}" alt="Cenário ilustrado do ${escapeHTML(world.name)}" onerror="this.onerror=null;this.src='./assets/optimized/world-practice-01.webp'">
+   ${successFXPicker(player)}
    <button class="practice-scene-back" data-action="leavePractice" type="button" aria-label="Voltar aos mundos"></button>
    <header class="practice-scene-heading">
     <strong>Mundo ${session.table}</strong><small>${escapeHTML(world.name)}</small>
@@ -40,6 +48,7 @@ export function practiceScreen(player,session){
  return `<main class="practice-view practice-legacy" style="--legacy-practice-bg:url('${image}');--legacy-answer-art:url('${legacyPracticeAsset('practice-answer-button.png')}')">
   <div class="practice-legacy-backdrop" aria-hidden="true"></div>
   <section class="practice-legacy-shell">
+   ${successFXPicker(player)}
    <header class="practice-legacy-hud">
     <img class="practice-legacy-hud-art" src="${legacyPracticeAsset('practice-hud.png')}" alt="">
     <div class="practice-legacy-hud-content">
