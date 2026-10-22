@@ -1,7 +1,7 @@
 // Original apoio effects adapted for the Beta practice lifecycle.
 const raw='https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/';
 export const SUCCESS_FX=Object.freeze([
- {id:'fx_magic',name:'Explosão de Magia',asset:'fx-success-gems.png'},
+ {id:'fx_magic',name:'Explosão de Magia',asset:'papai-celebrate-02.png'},
  {id:'fx_papai',name:'Papai Comemorando',asset:'papai-celebrate-02.png'}
 ]);
 const villain=[
@@ -23,12 +23,13 @@ export function equipSuccessFX(profile,id){
 }
 export function playPracticeFX(host,good,equipped){
  if(!host)return ()=>{};
- host.querySelector('.practice-fx-layer')?.remove();
+ host.ownerDocument.querySelector('.practice-fx-layer')?.remove();
  const layer=host.ownerDocument.createElement('div');
- layer.className='practice-fx-layer '+(good?'success':'error');
+ layer.className='practice-fx-layer practice-fx-foreground '+(good?'success':'error')+(good&&equipped==='fx_papai'?' papai':'');
  layer.setAttribute('aria-hidden','true');
  const image=host.ownerDocument.createElement('img');image.alt='';
- layer.append(image);host.append(layer);
+ image.onerror=()=>{if(!image.src.endsWith('/papai-celebrate-02.png'))image.src=raw+'papai-celebrate-02.png'};
+ layer.append(image);host.ownerDocument.body.append(layer);
  const scheduled=[];
  const step=(fn,delay)=>scheduled.push(setTimeout(()=>{if(layer.isConnected)fn()},delay));
  if(!good){
@@ -40,7 +41,7 @@ export function playPracticeFX(host,good,equipped){
   step(()=>image.src=raw+seq[1],350);
   step(()=>image.src=raw+seq[2],700);
  }else{
-  image.src=raw+'fx-success-gems.png';
+  image.src=raw+'papai-celebrate-02.png';
  }
  return ()=>{scheduled.forEach(clearTimeout);layer.remove()};
 }
