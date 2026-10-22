@@ -344,3 +344,45 @@ p,h1,h2{margin-top:0}
 .worlds-map-stage>.world-pin[data-world="10"]{--shade-w:177%;--shade-h:185%}
 .worlds-map-stage>.world-pin.locked i,
 .worlds-map-stage>.world-pin.scheduled i{z-index:1}
+
+/* Original apo​io practice screen artwork, preserved Beta gameplay logic. */
+.practice-view.practice-legacy{position:relative;isolation:isolate;min-height:100dvh;max-width:620px;padding:0 0 calc(16px + env(safe-area-inset-bottom));display:flex;flex-direction:column;background:#261159;overflow:hidden}
+.practice-legacy-backdrop{position:fixed;inset:0;z-index:-2;background-image:linear-gradient(180deg,rgba(31,10,67,.50),rgba(31,12,69,.73)),var(--legacy-practice-bg);background-size:cover;background-position:center;filter:saturate(1.12)}
+.practice-legacy-shell{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;min-height:100dvh;padding-top:calc(12px + env(safe-area-inset-top))}
+.practice-legacy-hud{position:relative;flex:0 0 auto;height:94px;margin:0 8px}
+.practice-legacy-hud-art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.practice-legacy-hud-content{position:absolute;inset:0;display:grid;grid-template-columns:52px minmax(0,1fr) 94px;align-items:center;gap:6px;padding:10px 14px;color:#fff}
+.practice-legacy-back{width:43px;height:43px;background:#532293;border:2px solid #ffe588;border-radius:50%;font-size:2rem;line-height:1;color:white;font-weight:1000;box-shadow:0 3px 0 #311061}
+.practice-legacy-world{min-width:0;text-align:center;display:flex;flex-direction:column;gap:2px;text-shadow:0 2px #26104c}
+.practice-legacy-world small{color:#ffe985;font-size:.57rem;font-weight:1000}
+.practice-legacy-world strong{font-size:clamp(.88rem,3.6vw,1.12rem);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.practice-legacy-world span{font-size:.62rem;color:#f0deff;font-weight:900}
+.practice-legacy-wallet{text-align:right;font-size:.73rem;color:#ffef9b;font-weight:1000;display:grid;gap:3px}
+.practice-legacy-wallet span{color:white;font-size:.66rem}
+.practice-legacy-progress{margin:-2px 24px 8px;height:12px;background:#280b56ba;border:2px solid #ceb6f4;border-radius:50px;overflow:hidden}
+.practice-legacy-progress i{display:block;height:100%;border-radius:50px;background:linear-gradient(90deg,#52d7ff,#a071ff,#ffe36e)}
+.practice-legacy-card{width:100%;max-width:590px;margin:auto auto 0;padding:8px 12px 8px;text-align:center}
+.practice-legacy-question-wrap{position:relative;height:clamp(170px,28dvh,255px);display:grid;place-items:center}
+.practice-legacy-question-art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.practice-legacy-question-copy{position:relative;padding:15px 10px 7px;color:#fff;z-index:1;text-shadow:0 3px 2px #381076}
+.practice-legacy-streak{font-size:clamp(.56rem,2.4vw,.74rem);color:#ffe58e;font-weight:1000;display:flex;align-items:center;justify-content:center;gap:7px}
+.practice-legacy-pips{display:inline-flex;gap:5px}
+.practice-legacy-pips i{width:14px;height:14px;border-radius:50%;background:#4c247d;border:2px solid #b28cda}
+.practice-legacy-pips i.on{background:#ffd94a;border-color:#fff7cb;box-shadow:0 0 8px #ffdc62}
+.practice-legacy-question{font-size:clamp(2.3rem,11.8vw,4.3rem);line-height:1.08;margin:12px 0 6px;font-weight:1000;white-space:nowrap;color:white}
+.practice-legacy-prompt{font-size:.83rem;font-weight:1000;color:#fff2b4}
+.practice-legacy-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}
+.practice-legacy-choice{position:relative;min-height:clamp(72px,12dvh,105px);background:var(--legacy-answer-art) center/100% 100% no-repeat;border:0;padding:12px;color:white;font-size:clamp(1.6rem,7.5vw,2.3rem);font-weight:1000;text-shadow:0 3px 0 #3e1468;filter:drop-shadow(0 4px 0 #260c59aa)}
+.practice-legacy-choice:active{transform:translateY(3px)}
+.practice-legacy-choice.good{filter:hue-rotate(75deg) brightness(1.16) drop-shadow(0 0 10px #52ff84)}
+.practice-legacy-choice.bad{filter:hue-rotate(280deg) brightness(1.08) drop-shadow(0 0 10px #ff4166)}
+.practice-legacy-feedback{min-height:38px;display:grid;place-items:center;border-radius:14px;padding:7px 12px;color:#fff9e5;background:#2c126acb;border:1px solid #bda9df88;font-size:.8rem;font-weight:950}
+.practice-legacy-feedback.good{background:#216c40d9}
+.practice-legacy-feedback.bad{background:#9b2446e0}
+.practice-legacy-next{width:100%;border:2px solid #ffeeb1;border-radius:17px;margin-top:8px;padding:10px;background:linear-gradient(#ffe79a,#ffb640);color:#4d2476;font-weight:1000;font-size:1rem}
+.practice-legacy-queue{max-width:590px;width:calc(100% - 24px);align-self:center;margin:12px auto 8px;padding:9px 12px;border:1px solid #f4e6ff66;background:#28105adf;border-radius:16px}
+.practice-legacy-queue>strong{font-size:.64rem;color:#ffdc73;letter-spacing:.05em}
+.practice-legacy-queue-items{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;margin-top:7px}
+.practice-legacy-queue-items span{border-radius:7px;background:#7546b9;color:#f9dfff;font-size:.68rem;text-align:center;padding:6px 0;font-weight:900}
+.practice-legacy-queue-items span.done{background:#e8bb57;color:#53217b}
+@media(max-height:680px){.practice-legacy-question-wrap{height:150px}.practice-legacy-choice{min-height:64px}.practice-legacy-card{margin:auto auto 0}}
