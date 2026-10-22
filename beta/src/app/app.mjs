@@ -44,7 +44,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   answerTimer=setTimeout(()=>{
    answerTimer=null;
    if(screen==='practice'&&session===current&&session.answered)afterAnswer();
-  },session.feedback?.good?1050:1450);
+  },session.feedback?.good?1780:1660);
  };
  const navKey='tq_f.beta.navigation.v1';
  const browser=typeof window!=='undefined'?window:null;
