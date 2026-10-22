@@ -9,9 +9,9 @@ export function worldsScreen(player,selected,now=Date.now()){
     <div class="worlds-progress">✦ ${masteredCount(player)}/10</div>
     ${WORLDS.map(item=>{
       const st=worldState(player,item.number,now);
-      return `<button type="button" data-action="startWorld" data-world="${item.number}"
-        class="world-pin ${escapeHTML(st.id)}" ${st.enabled?'':'disabled'}
-        aria-label="Mundo ${item.number}: ${escapeHTML(item.name)}. ${st.enabled?'Toque para entrar':st.label}">
+      return `<button type="button" data-action="${item.number===2&&!st.enabled?'previewWorld':'startWorld'}" data-world="${item.number}"
+        class="world-pin ${escapeHTML(st.id)}" ${st.enabled||item.number===2?'':'disabled'}
+        aria-label="Mundo ${item.number}: ${escapeHTML(item.name)}. ${st.enabled?'Toque para entrar':item.number===2?'Prévia de desenvolvimento disponível':st.label}">
         <span class="sr-only">Mundo ${item.number}</span>${!st.enabled?'<i class="world-lock" aria-hidden="true">🔒</i>':''}
        </button>`;
     }).join('')}
