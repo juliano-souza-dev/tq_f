@@ -3,6 +3,9 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+ <meta http-equiv="Pragma" content="no-cache">
+ <meta http-equiv="Expires" content="0">
  <meta name="theme-color" content="#592ab2">
  <meta name="description" content="Tabuada Quest: explore mundos encantados enquanto aprende matemática.">
  <title>Tabuada Quest · Aventura dos Números</title>
@@ -11,7 +14,39 @@
  <link rel="stylesheet" href="./styles/home.css?v=home-stage-v1">
  <link rel="stylesheet" href="./styles/fashion-reference.css">
  <link rel="stylesheet" href="./styles/backgrounds.css">
- <script type="module" src="./src/app/app.mjs"></script>
+ <script type="module">
+ // Development only. A unique URL is assigned to every imported module on
+ // every load, including transitive imports. Bypass HTTP cache when discovering.
+ const version=Date.now().toString(36);
+ const visited=new Set();
+ const entry=new URL('./src/app/app.mjs',import.meta.url);
+ async function collect(url){
+  const key=url.pathname;
+  if(visited.has(key))return;
+  visited.add(key);
+  const response=await fetch(url,{cache:'no-store'});
+  if(!response.ok)throw new Error('Módulo indisponível: '+url.pathname+' ('+response.status+')');
+  const source=await response.text();
+  const imports=[...source.matchAll(/(?:import|export)\\s+(?:[^'"]*?\\s+from\\s*)?['"]([^'"]+)['"]/g)]
+   .map(m=>m[1]).filter(x=>x.startsWith('.'));
+  await Promise.all(imports.map(x=>collect(new URL(x,url))));
+ }
+ try{
+  await collect(entry);
+  const imports={};
+  for(const pathname of visited)imports[pathname]=pathname+'?dev='+version;
+  const map=document.createElement('script');
+  map.type='importmap';map.textContent=JSON.stringify({imports});
+  document.head.append(map);
+  for(const link of document.querySelectorAll('link[rel="stylesheet"]')){
+   const u=new URL(link.href);u.searchParams.set('dev',version);link.href=u.href;
+  }
+  await import(entry.pathname+'?dev='+version);
+ }catch(error){
+  console.error('Falha ao iniciar Beta sem cache:',error);
+  document.getElementById('app').textContent='Falha ao carregar a versão atualizada. Verifique a conexão e recarregue.';
+ }
+ </script>
 </head>
 <body>
  <div id="app" aria-live="off">
