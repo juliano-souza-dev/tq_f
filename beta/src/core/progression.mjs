@@ -2,7 +2,7 @@ export const WORLDS=Object.freeze([
  {number:1,name:'Jardim do Primeiro Passo'},
  {number:2,name:'Floresta da Dupla'},
  {number:3,name:'Reino Vulcânico'},
- {number:4,name:'Oficina dos Inventores'},
+ {number:4,name:'Jardim das Cerejeiras'},
  {number:5,name:'Ilha dos Navegadores'},
  {number:6,name:'Reino dos Doces'},
  {number:7,name:'Vila das Joaninhas'},
