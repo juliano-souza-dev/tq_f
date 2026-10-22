@@ -32,6 +32,38 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let selectedBackground=null;
  let backgroundNotice='';
  let stopHomeEffects=null;
+ const navKey='tq_f.beta.navigation.v1';
+ const browser=typeof window!=='undefined'?window:null;
+ const navStore=(()=>{try{return browser?.sessionStorage||null}catch{return null}})();
+ let saved=null;
+ try{saved=JSON.parse(navStore?.getItem(navKey)||'null')}catch{}
+ const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature'];
+ if(saved?.profileId===profiles.active()?.id&&validScreens.includes(saved.screen)){
+  screen=saved.screen;
+  selectedWorld=Number.isInteger(saved.selectedWorld)&&saved.selectedWorld>=1&&saved.selectedWorld<=10?saved.selectedWorld:1;
+  selectedBackground=saved.selectedBackground||null;
+  wardrobeSelection=saved.wardrobeSelection||null;
+  wardrobeTab=saved.wardrobeTab==='frames'?'frames':'fashion';
+  feature=saved.feature||'';
+  if(screen==='practice'&&Array.isArray(saved.practice?.queue))session=saved.practice;
+  if(screen==='win'&&saved.result?.deck)result=saved.result;
+  if((screen==='practice'&&!session)||(screen==='win'&&!result))screen='worlds';
+ }
+ let firstRender=true;
+ const initialScroll=saved?.profileId===profiles.active()?.id?Math.max(0,Number(saved.scrollY)||0):0;
+ const saveNav=()=>{try{navStore?.setItem(navKey,JSON.stringify({
+  profileId:profiles.active()?.id||null,screen,selectedWorld,selectedBackground,
+  wardrobeSelection,wardrobeTab,feature,practice:screen==='practice'?session:null,
+  result:screen==='win'?result:null,scrollY:browser?.scrollY||0
+ }))}catch{}};
+ const restoreScroll=y=>{
+  if(!browser||y<=0)return;
+  const apply=()=>browser.scrollTo(0,y);
+  browser.requestAnimationFrame(()=>{apply();
+   const img=root.querySelector('.world-map-art');
+   if(img&&!img.complete)img.addEventListener('load',apply,{once:true});
+  });
+ };
 
  function pickAvailableWorld(profile){
   const choice=WORLDS.find(w=>worldState(profile,w.number,now()).enabled);
@@ -39,10 +71,12 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  }
  function navigate(next){
   screen=next;
+  browser?.scrollTo(0,0);
+  saveNav();
   render();
-  if(typeof window!=='undefined'&&typeof window.scrollTo==='function')window.scrollTo(0,0);
  }
  function render(){
+  const currentScroll=firstRender?initialScroll:(browser?.scrollY||0);
   stopHomeEffects?.();stopHomeEffects=null;
   const player=profiles.active();
   try{
@@ -73,6 +107,9 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      const id=selectedBackground||player.equipped?.background||'bg_forest';
      stopHomeEffects=id==='bg_ocean'?mountOceanEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_ice'?mountSnowEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_space'?mountCosmicEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_forest'?mountForestEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_clouds'?mountCloudSkyEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
    }
+   saveNav();
+   restoreScroll(currentScroll);
+   firstRender=false;
   }catch(e){
    console.error('Falha ao renderizar:',e);
    root.textContent='Não foi possível carregar esta tela. Recarregue a página para tentar novamente.';
@@ -177,7 +214,11 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   }
  };
  root.addEventListener('click',onClick);
- if(typeof window!=='undefined')window.addEventListener('keydown',onKeydown);
+ if(browser){
+  browser.addEventListener('keydown',onKeydown);
+  browser.addEventListener('pagehide',saveNav);
+  browser.addEventListener('scroll',saveNav,{passive:true});
+ }
  render();
  return {
   getScreen:()=>screen,
@@ -188,7 +229,11 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   destroy(){
    stopHomeEffects?.();stopHomeEffects=null;
    root.removeEventListener('click',onClick);
-   if(typeof window!=='undefined')window.removeEventListener('keydown',onKeydown);
+   if(browser){
+    browser.removeEventListener('keydown',onKeydown);
+    browser.removeEventListener('pagehide',saveNav);
+    browser.removeEventListener('scroll',saveNav);
+   }
   }
  };
 }
