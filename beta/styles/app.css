@@ -319,3 +319,32 @@ p,h1,h2{margin-top:0}
 .worlds-map-stage>.world-pin.scheduled i{z-index:1;font-size:clamp(1.25rem,5.4vw,2rem)}
 .worlds-map-stage>.world-pin:focus-visible{outline:3px solid #ffefa8!important;outline-offset:3px!important}
 .worlds-destination{display:none!important}
+
+/* DEV: island-sized dimming independent of the portal's clickable footprint.
+   Percentages below refer to the illustrated vertical map and are tuned per island.
+   Soft edges avoid spilling into the connecting bridges. */
+.worlds-map-stage>.world-pin.locked,
+.worlds-map-stage>.world-pin.scheduled{overflow:visible!important;isolation:auto}
+.worlds-map-stage>.world-pin.locked::before,
+.worlds-map-stage>.world-pin.scheduled::before{
+ content:"";position:absolute;left:50%;top:50%;inset:auto;
+ transform:translate(-50%,-50%);
+ width:var(--island-shade-width,245%);height:var(--island-shade-height,260%);
+ border-radius:46%;background:radial-gradient(ellipse at center,
+ rgba(8,7,27,.77) 0%,rgba(11,8,30,.74) 53%,
+ rgba(13,10,34,.46) 75%,rgba(12,10,31,.12) 90%,transparent 100%);
+ mix-blend-mode:multiply;pointer-events:none;z-index:0;
+}
+/* Dimension by the pictured landmass rather than the little number plate. */
+.worlds-map-stage>.world-pin[data-world="1"]{--island-shade-width:255%;--island-shade-height:275%}
+.worlds-map-stage>.world-pin[data-world="2"]{--island-shade-width:260%;--island-shade-height:280%}
+.worlds-map-stage>.world-pin[data-world="3"]{--island-shade-width:258%;--island-shade-height:285%}
+.worlds-map-stage>.world-pin[data-world="4"]{--island-shade-width:268%;--island-shade-height:275%}
+.worlds-map-stage>.world-pin[data-world="5"]{--island-shade-width:263%;--island-shade-height:265%}
+.worlds-map-stage>.world-pin[data-world="6"]{--island-shade-width:270%;--island-shade-height:288%}
+.worlds-map-stage>.world-pin[data-world="7"]{--island-shade-width:266%;--island-shade-height:275%}
+.worlds-map-stage>.world-pin[data-world="8"]{--island-shade-width:280%;--island-shade-height:270%}
+.worlds-map-stage>.world-pin[data-world="9"]{--island-shade-width:230%;--island-shade-height:240%}
+.worlds-map-stage>.world-pin[data-world="10"]{--island-shade-width:276%;--island-shade-height:266%}
+.worlds-map-stage>.world-pin.locked i,
+.worlds-map-stage>.world-pin.scheduled i{z-index:2}
