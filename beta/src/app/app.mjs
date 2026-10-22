@@ -16,6 +16,7 @@ import {mountCloudSkyEffect} from '../features/backgrounds/clouds.mjs';
 import {mountOceanEffect} from '../features/backgrounds/ocean.mjs';
 import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
+import {equipSuccessFX,playPracticeFX} from '../features/practice/fx.mjs';
 
 export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  if(!root)throw Error('Raiz DOM obrigatória');
@@ -33,6 +34,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let backgroundNotice='';
  let stopHomeEffects=null;
  let answerTimer=null;
+ let cleanupPracticeFX=null;
+ const clearPracticeFX=()=>{cleanupPracticeFX?.();cleanupPracticeFX=null};
  const cancelAnswerTimer=()=>{if(answerTimer!==null){clearTimeout(answerTimer);answerTimer=null}};
  const scheduleAnswerAdvance=()=>{
   cancelAnswerTimer();
@@ -82,6 +85,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  }
  function navigate(next){
   cancelAnswerTimer();
+  clearPracticeFX();
   screen=next;
   browser?.scrollTo(0,0);
   saveNav();
@@ -139,10 +143,13 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   if(screen!=='practice'||!session||session.answered||session.preview)return;
   profiles.updateActive(player=>answerPractice(session,player,value));
   render();
+  const player=profiles.active();
+  cleanupPracticeFX=playPracticeFX(root.querySelector('.practice-scene-art, .practice-legacy-shell'),!!session.feedback?.good,player?.equipped?.effect);
   scheduleAnswerAdvance();
  }
  function afterAnswer(){
   cancelAnswerTimer();
+  clearPracticeFX();
   if(screen!=='practice'||!session||!session.answered||session.preview)return;
   if(session.queue.length===0){
    profiles.updateActive(player=>{result=finishPractice(session,player,now());});
@@ -181,6 +188,11 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      break;
    }
    case 'answer':submitAnswer(Number(dataset.answer));break;
+   case 'equipSuccessFX':{
+    const id=String(dataset.effect||'');
+    profiles.updateActive(p=>equipSuccessFX(p,id));
+    render();break;
+   }
    case 'nextQuestion':afterAnswer();break;
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
@@ -255,6 +267,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   act,
   destroy(){
    cancelAnswerTimer();
+   clearPracticeFX();
    stopHomeEffects?.();stopHomeEffects=null;
    root.removeEventListener('click',onClick);
    if(browser){
