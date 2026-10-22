@@ -9,7 +9,7 @@ function worldOneScene(player,session,fact){
    <img class="practice-scene-image" src="./assets/optimized/practice-world-1.webp?dev=${globalThis.__TQ_DEV_VERSION__||Date.now()}" alt="Jardim mágico, cachoeiras e molduras para o desafio" onerror="this.onerror=null;this.src='./assets/optimized/world-practice-01.webp'">
    <button class="practice-scene-back" data-action="leavePractice" type="button" aria-label="Voltar aos mundos"></button>
    <header class="practice-scene-heading">
-    <strong>Mundo 1 · Tabuada do 1</strong><small>Jardim do Primeiro Passo</small>
+    <strong>Mundo 1</strong><small>Jardim do Primeiro Passo</small>
    </header>
    <div class="practice-scene-coins"> ${coins}</div>
    <div class="practice-scene-progress" role="progressbar" aria-label="${session.mastered} de 10 operações dominadas" aria-valuemin="0" aria-valuemax="10" aria-valuenow="${session.mastered}"><span>${session.mastered}/10 dominadas</span><i style="width:${session.mastered*10}%"></i></div>
