@@ -18,6 +18,12 @@
  // Development only. A unique URL is assigned to every imported module on
  // every load, including transitive imports. Bypass HTTP cache when discovering.
  const version=Date.now().toString(36);
+ globalThis.__TQ_DEV_VERSION__=version;
+ if('serviceWorker' in navigator){
+  navigator.serviceWorker.getRegistrations().then(registrations=>{
+   registrations.filter(r=>r.scope.includes('/tq_f/beta/')).forEach(r=>r.unregister());
+  }).catch(()=>{});
+ }
  const visited=new Set();
  const entry=new URL('./src/app/app.mjs',import.meta.url);
  async function collect(url){
