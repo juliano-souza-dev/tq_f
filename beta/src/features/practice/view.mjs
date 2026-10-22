@@ -2,14 +2,17 @@ import {worldUrl,assetUrl} from '../../resources/asset-map.mjs';
 import {WORLDS} from '../../core/progression.mjs';
 import {art,topbar,escapeHTML} from '../../components/ui.mjs';
 const legacyPracticeAsset=name=>'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+name;
-function worldOneScene(player,session,fact){
+function illustratedPracticeScene(player,session,fact){
+ const world=WORLDS[session.table-1];
+ const isSecond=session.table===2;
+ const scene='practice-world-'+session.table+'.webp';
  const coins=new Intl.NumberFormat('pt-BR').format(player.coins||0);
- return `<main class="practice-scene-view">
+ return `<main class="practice-scene-view ${isSecond?'practice-scene-world-2':'practice-scene-world-1'}" style="--practice-scene-url:url('./assets/optimized/${scene}')">
   <div class="practice-scene-art">
-   <img class="practice-scene-image" src="./assets/optimized/practice-world-1.webp?dev=${globalThis.__TQ_DEV_VERSION__||Date.now()}" alt="Jardim mágico, cachoeiras e molduras para o desafio" onerror="this.onerror=null;this.src='./assets/optimized/world-practice-01.webp'">
+   <img class="practice-scene-image" src="./assets/optimized/${scene}?dev=${globalThis.__TQ_DEV_VERSION__||Date.now()}" alt="Cenário ilustrado do ${escapeHTML(world.name)}" onerror="this.onerror=null;this.src='./assets/optimized/world-practice-01.webp'">
    <button class="practice-scene-back" data-action="leavePractice" type="button" aria-label="Voltar aos mundos"></button>
    <header class="practice-scene-heading">
-    <strong>Mundo 1</strong><small>Jardim do Primeiro Passo</small>
+    <strong>Mundo ${session.table}</strong><small>${escapeHTML(world.name)}</small>
    </header>
    <div class="practice-scene-coins"> ${coins}</div>
    <div class="practice-scene-progress" role="progressbar" aria-label="${session.mastered} de 10 operações dominadas" aria-valuemin="0" aria-valuemax="10" aria-valuenow="${session.mastered}"><span>${session.mastered}/10 dominadas</span><i style="width:${session.mastered*10}%"></i></div>
@@ -29,7 +32,7 @@ function worldOneScene(player,session,fact){
 export function practiceScreen(player,session){
  const world=WORLDS[session.table-1],fact=session.answered?session.activeFact:session.queue[0];
  const image=session.table===1?assetUrl('world-practice-01.webp'):worldUrl(session.table);
- if(session.table===1)return worldOneScene(player,session,fact);
+ if(session.table===1||session.table===2)return illustratedPracticeScene(player,session,fact);
  const percent=session.mastered*10;
  const coins=new Intl.NumberFormat('pt-BR').format(player.coins||0);
  // Restore the original apoio practice artwork, while using Beta's answer engine.
