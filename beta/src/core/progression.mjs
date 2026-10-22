@@ -3,7 +3,7 @@ export const WORLDS=Object.freeze([
  {number:2,name:'Floresta da Dupla'},
  {number:3,name:'Reino Vulcânico'},
  {number:4,name:'Jardim das Cerejeiras'},
- {number:5,name:'Ilha dos Navegadores'},
+ {number:5,name:'Reino Subaquático'},
  {number:6,name:'Reino dos Doces'},
  {number:7,name:'Vila das Joaninhas'},
  {number:8,name:'Mina de Cristais'},
