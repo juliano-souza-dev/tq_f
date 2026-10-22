@@ -254,3 +254,20 @@ p,h1,h2{margin-top:0}
 @media(max-height:680px){.wardrobe-view{--atelier-head:49px;--atelier-tabs:44px;--atelier-rail:145px;--atelier-action:104px;gap:4px}.atelier-stage-info{min-height:47px}.atelier-preview-avatar{height:calc(100% - 48px)}}
 @media(max-width:360px){.wardrobe-view{padding-left:6px;padding-right:6px;--atelier-rail:145px}.atelier-skin{flex-basis:100px}.atelier-head strong{font-size:.83rem}}
 @media(prefers-reduced-motion:reduce){.atelier-rail{scroll-behavior:auto!important}}
+
+/* New illustrated vertical map: keep the printed numbers visible; invisible
+   touch targets follow the bridge sequence from 1 to 10. */
+.world-map-new .world-pin{width:17%;height:7.7%;min-width:42px;min-height:42px;max-width:none;border:0;border-radius:22px;background:transparent;box-shadow:none;color:transparent;outline:0}
+.world-map-new .world-pin.selected{background:rgba(255,238,131,.13);outline:3px solid #ffe08a;outline-offset:1px;filter:drop-shadow(0 0 9px #ffde7d)}
+.world-map-new .world-pin.locked{background:rgba(32,18,61,.14)}
+.world-map-new .world-pin.locked i{position:absolute;left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);font-size:clamp(1.1rem,5vw,1.8rem);filter:drop-shadow(0 2px 4px #1b1248)}
+.world-map-new .world-pin[data-world="1"]{left:50%;top:91.3%}
+.world-map-new .world-pin[data-world="2"]{left:16.8%;top:77.4%}
+.world-map-new .world-pin[data-world="3"]{left:83.2%;top:77.4%}
+.world-map-new .world-pin[data-world="4"]{left:17.2%;top:61.5%}
+.world-map-new .world-pin[data-world="5"]{left:81.9%;top:61.6%}
+.world-map-new .world-pin[data-world="6"]{left:17.7%;top:39.0%}
+.world-map-new .world-pin[data-world="7"]{left:81.5%;top:39.0%}
+.world-map-new .world-pin[data-world="8"]{left:16.8%;top:18.0%}
+.world-map-new .world-pin[data-world="9"]{left:50%;top:14.0%}
+.world-map-new .world-pin[data-world="10"]{left:83.0%;top:18.0%}
