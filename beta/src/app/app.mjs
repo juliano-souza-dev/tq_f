@@ -151,6 +151,9 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   render();
   const player=profiles.active();
   cleanupPracticeFX=playPracticeFX(root.querySelector('.practice-scene-art, .practice-legacy-shell'),!!session.feedback?.good,player?.equipped?.effect);
+  // Single GPU pass: environmental water/light and response energy share one canvas.
+  // The answer artwork and feedback remain visible as independent DOM overlays.
+  stopPracticeGL?.burst?.(!!session.feedback?.good,[.5,.72]);
   scheduleAnswerAdvance();
  }
  function afterAnswer(){
