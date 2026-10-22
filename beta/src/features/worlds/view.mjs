@@ -12,7 +12,7 @@ export function worldsScreen(player,selected,now=Date.now()){
       return `<button type="button" data-action="startWorld" data-world="${item.number}"
         class="world-pin ${escapeHTML(st.id)}" ${st.enabled?'':'disabled'}
         aria-label="Mundo ${item.number}: ${escapeHTML(item.name)}. ${st.enabled?'Toque para entrar':st.label}">
-        <span class="sr-only">Mundo ${item.number}</span>${!st.enabled?'<i aria-hidden="true">🔒</i>':''}
+        <span class="sr-only">Mundo ${item.number}</span>${!st.enabled?'<i class="world-lock" aria-hidden="true">🔒</i>':''}
        </button>`;
     }).join('')}
    </div>
