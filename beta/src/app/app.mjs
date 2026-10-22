@@ -127,7 +127,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      stopHomeEffects=id==='bg_ocean'?mountOceanEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_ice'?mountSnowEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_space'?mountCosmicEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_forest'?mountForestEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):id==='bg_clouds'?mountCloudSkyEffect(root.querySelector('.bg-feature-art'),{windowRef:window,preview:true}):mountBackgroundEffect(root.querySelector('.bg-feature-art'),id,{windowRef:window,preview:true});
    }
    if(screen==='practice'&&session?.table<=2&&player){
-    stopPracticeGL=mountPracticeWorldGL(root.querySelector('.practice-scene-art'),{world:session.table});
+    try{stopPracticeGL=mountPracticeWorldGL(root.querySelector('.practice-scene-art'),{world:session.table});}catch(error){console.warn('WebGL indisponível; mantendo arte estática.',error);stopPracticeGL=null;}
    }
    saveNav();
    if(screen==='practice'&&session?.answered&&answerTimer===null)scheduleAnswerAdvance();
@@ -146,8 +146,11 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   navigate('practice');
  }
  function submitAnswer(value){
-  if(screen!=='practice'||!session||session.answered||session.preview)return;
-  profiles.updateActive(player=>answerPractice(session,player,value));
+  if(screen!=='practice'||!session||session.answered)return;
+  if(session.preview){
+   const previewPlayer={coins:0,xp:0,stats:{correct:0,wrong:0}};
+   answerPractice(session,previewPlayer,value);
+  }else profiles.updateActive(player=>answerPractice(session,player,value));
   render();
   const player=profiles.active();
   cleanupPracticeFX=playPracticeFX(root.querySelector('.practice-scene-art, .practice-legacy-shell'),!!session.feedback?.good,player?.equipped?.effect);
@@ -159,7 +162,13 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  function afterAnswer(){
   cancelAnswerTimer();
   clearPracticeFX();
-  if(screen!=='practice'||!session||!session.answered||session.preview)return;
+  if(screen!=='practice'||!session||!session.answered)return;
+  if(session.preview&&session.queue.length===0){
+   session=createPractice(2,'learn',random,now());
+   session.preview=true;
+   render();
+   return;
+  }
   if(session.queue.length===0){
    profiles.updateActive(player=>{result=finishPractice(session,player,now());});
    session=null;
