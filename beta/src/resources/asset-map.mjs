@@ -16,7 +16,7 @@ const converted=[...BATCH_001.map(n=>n+'.webp'),
 export const AVAILABLE_ASSETS=new Set(converted);
 export function assetUrl(name){
  if(!AVAILABLE_ASSETS.has(name))throw Error('Asset fora dos lotes migrados: '+name);
- return './assets/optimized/'+name;
+ return './assets/optimized/'+name+'?dev='+(globalThis.__TQ_DEV_VERSION__||Date.now());
 }
 export const HOME_ARTWORK=Object.freeze(Object.fromEntries(
  BATCH_001.map(n=>[n+'.png',assetUrl(n+'.webp')])
