@@ -4,7 +4,7 @@ export const WORLDS=Object.freeze([
  {number:3,name:'Reino Vulcânico'},
  {number:4,name:'Jardim das Cerejeiras'},
  {number:5,name:'Reino Subaquático'},
- {number:6,name:'Reino dos Doces'},
+ {number:6,name:'Portal do Reino Místico'},
  {number:7,name:'Vila das Joaninhas'},
  {number:8,name:'Mina de Cristais'},
  {number:9,name:'Jardim Astral'},
