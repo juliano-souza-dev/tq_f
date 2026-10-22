@@ -539,3 +539,12 @@ body:has(.practice-scene-world-2){
 .practice-scene-gl-active>.practice-scene-image{visibility:hidden}
 .practice-scene-art>.practice-scene-back,.practice-scene-art>.practice-scene-heading,.practice-scene-art>.practice-scene-coins,.practice-scene-art>.practice-scene-progress,.practice-scene-art>.practice-scene-question,.practice-scene-art>.practice-scene-answers,.practice-scene-art>.practice-scene-feedback,.practice-scene-art>.practice-fx-picker,.practice-scene-art>.practice-scene-preview-label{z-index:2}
 .practice-scene-art>.practice-fx-layer{z-index:30}
+
+/* Characters and error cutscenes must sit ABOVE the WebGL scenery rather than
+   inside its isolated stacking context. Never intercept the player's touches. */
+.practice-fx-foreground{position:fixed!important;inset:0!important;z-index:2147483000!important;pointer-events:none!important;display:grid;place-items:center;overflow:hidden;background:transparent}
+.practice-fx-foreground::before{z-index:0}
+.practice-fx-foreground>img{z-index:1;width:min(80vw,440px);max-height:min(72dvh,650px);object-fit:contain;opacity:1;filter:drop-shadow(0 9px 22px #0d194cba)}
+.practice-fx-foreground.papai>img{width:min(84vw,480px);max-height:76dvh;animation:papaiForeground 1.7s cubic-bezier(.18,.68,.25,1) both}
+@keyframes papaiForeground{0%{opacity:0;transform:translateY(16vh) scale(.65)}16%{opacity:1;transform:translateY(0) scale(1.06)}68%{opacity:1;transform:translateY(0) scale(1)}92%{opacity:1}100%{opacity:0;transform:translateY(-4vh) scale(1.02)}}
+@media(prefers-reduced-motion:reduce){.practice-fx-foreground.papai>img{animation:none;opacity:1}}
