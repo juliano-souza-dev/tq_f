@@ -140,7 +140,9 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  }
  function startWorld(n){
   const player=profiles.active();if(!player)return navigate('profiles');
-  const state=worldState(player,n,now());if(!state.enabled)return;
+  if(!Number.isInteger(n)||n<1||n>10)return;
+  const state=worldState(player,n,now());
+  // Beta is a development build: progression gates are bypassed only here.
   selectedWorld=n;
   session=createPractice(n,state.id==='due'?'review':'learn',random,now());
   navigate('practice');
