@@ -31,7 +31,7 @@ export function mountPracticeWorldGL(host,{world=1}={}){
    color+=vec3(.026,.057,.063)*max(0.,shimmer)*waterZone*strength;
    // Soft dappled light: subtle so the image remains faithful to the artwork.
    float light=sin(p.x*11.+p.y*4.+time*.31)*sin(p.x*7.-p.y*3.-time*.21);
-   float rays=pow(max(0.,light),3.)*smoothstep(.88,.18,p.y);
+   float rays=pow(max(0.,light),3.)*(1.-smoothstep(.18,.88,p.y));
    color+=vec3(.045,.034,.012)*rays*strength;
    // Sparse sparkling reflections near the lower water regions.
    vec2 grid=floor(p*vec2(27.,39.));
