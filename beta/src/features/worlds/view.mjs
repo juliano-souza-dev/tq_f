@@ -10,7 +10,7 @@ export function worldsScreen(player,selected,now=Date.now()){
     <p>Domine as tabuadas, desperte os portais e revele novos lugares.</p></div>
   <section class="world-map-shell" aria-label="Mapa interativo dos dez mundos">
    <div class="world-map world-map-new">
-    ${art(assetUrl('world_map_new.webp'),{className:'world-map-art',alt:'Mapa ilustrado dos dez mundos conectados por pontes'})}
+    ${`<img class="world-map-art" src="${assetUrl('world_map_new.webp')}" alt="Mapa ilustrado dos dez mundos conectados por pontes" onerror="this.onerror=null;this.closest('.world-map').classList.remove('world-map-new');this.src='./assets/optimized/world_map_bg.webp'">`}
     ${WORLDS.map(item=>{
       const st=worldState(player,item.number,now);
       return `<button type="button" data-action="selectWorld" data-world="${item.number}"
