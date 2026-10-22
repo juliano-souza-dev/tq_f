@@ -1,32 +1,44 @@
 import {worldUrl,assetUrl} from '../../resources/asset-map.mjs';
 import {WORLDS} from '../../core/progression.mjs';
 import {art,topbar,escapeHTML} from '../../components/ui.mjs';
+const legacyPracticeAsset=name=>'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+name;
 export function practiceScreen(player,session){
  const world=WORLDS[session.table-1],fact=session.answered?session.activeFact:session.queue[0];
  const image=session.table===1?assetUrl('world-practice-01.webp'):worldUrl(session.table);
  const percent=session.mastered*10;
- return `<main class="practice-view">
-  <div class="practice-landscape" aria-hidden="true">${art(image,{className:'practice-landscape-art'})}</div>
-  ${topbar(player,{back:'leavePractice',title:'Mundo '+session.table+' · '+world.name})}
-  <div class="practice-game">
-   <div class="game-progress"><span>⭐ ${session.mastered}/10 dominadas</span><strong>${session.mode==='review'?'Revisão espaçada':'Aprender e dominar'}</strong></div>
-   <div class="practice-meter" aria-label="${percent}% do mundo concluído"><div class="practice-fill progress-${percent}"></div></div>
-   <section class="question-scroll">
-    <div class="question-badge">✦ DESAFIO ${Math.min(10,session.mastered+1)} DE 10 ✦</div>
-    <p>Quanto é?</p><h1>${fact.a} <span>×</span> ${fact.b} <span>=</span> ?</h1>
-    <div class="streak" aria-label="${fact.streak} acertos consecutivos">
-      <span class="${fact.streak>=1?'earned':''}">★</span><span class="${fact.streak>=2?'earned':''}">★</span>
+ const coins=new Intl.NumberFormat('pt-BR').format(player.coins||0);
+ // Restore the original apoio practice artwork, while using Beta's answer engine.
+ return `<main class="practice-view practice-legacy" style="--legacy-practice-bg:url('${image}');--legacy-answer-art:url('${legacyPracticeAsset('practice-answer-button.png')}')">
+  <div class="practice-legacy-backdrop" aria-hidden="true"></div>
+  <section class="practice-legacy-shell">
+   <header class="practice-legacy-hud">
+    <img class="practice-legacy-hud-art" src="${legacyPracticeAsset('practice-hud.png')}" alt="">
+    <div class="practice-legacy-hud-content">
+     <button class="practice-legacy-back" type="button" data-action="leavePractice" aria-label="Voltar aos mundos">‹</button>
+     <div class="practice-legacy-world"><small>MUNDO ${session.table} · TABUADA DO ${session.table}</small><strong>${escapeHTML(world.name)}</strong><span>${session.mode==='review'?'Revisão espaçada':'Aprender e dominar'}</span></div>
+     <div class="practice-legacy-wallet"><b>🪙 ${coins}</b><span>⭐ ${session.mastered}/10</span></div>
     </div>
+   </header>
+   <div class="practice-legacy-progress" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="${session.mastered}"><i style="width:${percent}%"></i></div>
+   <section class="practice-legacy-card">
+    <div class="practice-legacy-question-wrap">
+     <img class="practice-legacy-question-art" src="${legacyPracticeAsset('practice-question-panel.png')}" alt="">
+     <div class="practice-legacy-question-copy">
+      <div class="practice-legacy-streak">ACERTOS NESTA CARTA <span class="practice-legacy-pips"><i class="${fact.streak>=1?'on':''}"></i><i class="${fact.streak>=2?'on':''}"></i></span></div>
+      <h1 class="practice-legacy-question">${fact.a} × ${fact.b} = ?</h1>
+      <div class="practice-legacy-prompt">Qual é o resultado?</div>
+     </div>
+    </div>
+    <div class="practice-legacy-choices" role="group" aria-label="Escolha uma resposta">
+      ${session.choices.map((v,i)=>`<button class="practice-legacy-choice ${session.answered?(v===fact.answer?'good':session.feedback?.badValue===v?'bad':''):''}" type="button" data-action="answer" data-answer="${v}" ${session.answered?'disabled':''} aria-label="Alternativa ${i+1}: ${v}">${v}</button>`).join('')}
+    </div>
+    <div class="practice-legacy-feedback ${session.feedback?(session.feedback.good?'good':'bad'):''}" role="status">
+    ${session.feedback?(session.feedback.good?(session.feedback.mastered?'⭐ Dominada! Dois acertos seguidos.':'✨ Mais um acerto para dominar.'): `💛 ${fact.a} × ${fact.b} = ${fact.answer}. Tente novamente.`):(fact.streak===1?'Mais um acerto para dominar esta conta!':'Escolha uma resposta.')}
+    </div>
+    ${session.answered?`<button class="practice-legacy-next" type="button" data-action="nextQuestion">${session.queue.length===0?'🏆 Ver conquista':'Continuar ➜'}</button>`:''}
    </section>
-   <div class="answers" role="group" aria-label="Escolha uma resposta">
-    ${session.choices.map((v,i)=>`<button type="button" class="answer-choice ${session.answered?(v===fact.answer?'right':session.feedback?.badValue===v?'wrong':''):''}" data-action="answer"
-       data-answer="${v}" ${session.answered?'disabled':''} aria-label="Alternativa ${i+1}: ${v}">${v}</button>`).join('')}
-   </div>
-   <div class="practice-feedback ${session.feedback?(session.feedback.good?'good':'bad'):''}" role="status">
-    ${session.feedback?(session.feedback.good?(session.feedback.mastered?'⭐ Dominada! Dois acertos seguidos.':'✨ Muito bem! Mais um acerto para dominar.'):`💛 Quase! ${fact.a} × ${fact.b} = ${fact.answer}. Vamos tentar novamente.`):'Pense com calma. Você pode tentar quantas vezes precisar.'}
-   </div>
-   ${session.answered?`<button type="button" class="main-cta next-question" data-action="nextQuestion">${session.queue.length===0?'🏆 Ver conquista':'Próxima conta ➜'}</button>`:''}
-  </div>
+   <section class="practice-legacy-queue" aria-label="Trilha de domínio"><strong>TRILHA DE DOMÍNIO</strong><div class="practice-legacy-queue-items">${Array.from({length:10},(_,i)=>`<span class="${i<session.mastered?'done':''}">${i<session.mastered?'★':i+1}</span>`).join('')}</div></section>
+  </section>
  </main>`;
 }
 export function winScreen(profile,result){
