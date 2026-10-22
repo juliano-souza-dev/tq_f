@@ -533,3 +533,9 @@ body:has(.practice-scene-world-2){
 @keyframes practiceFxFlash{0%{opacity:0}15%{opacity:1}100%{opacity:0}}
 @keyframes practiceFxPop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}25%{opacity:1;transform:scale(1.1) rotate(3deg)}60%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.92)}}
 @media(prefers-reduced-motion:reduce){.practice-fx-layer,.practice-fx-layer img,.practice-fx-layer::before{animation:none}}
+
+/* WebGL scenery renders the complete artwork while all game controls remain DOM. */
+.practice-scene-art>.practice-scene-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;pointer-events:none}
+.practice-scene-gl-active>.practice-scene-image{visibility:hidden}
+.practice-scene-art>.practice-scene-back,.practice-scene-art>.practice-scene-heading,.practice-scene-art>.practice-scene-coins,.practice-scene-art>.practice-scene-progress,.practice-scene-art>.practice-scene-question,.practice-scene-art>.practice-scene-answers,.practice-scene-art>.practice-scene-feedback,.practice-scene-art>.practice-fx-picker,.practice-scene-art>.practice-scene-preview-label{z-index:2}
+.practice-scene-art>.practice-fx-layer{z-index:30}
