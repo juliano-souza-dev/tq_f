@@ -462,3 +462,31 @@ body:has(.practice-scene-view)::before{
 @media(max-width:600px) and (max-aspect-ratio:3/5){
  .practice-scene-view{width:min(100vw,calc(100dvh * 941 / 1672))}
 }
+
+/* World 1 calibration against the 941 x 1672 artwork.
+   Keep the scene art intact, with a single UI value in each designed region. */
+body:has(.practice-scene-view){
+ background:linear-gradient(rgba(23,46,76,.40),rgba(25,41,72,.58)),
+ url("/tq_f/beta/assets/optimized/practice-world-1.webp") center/cover fixed no-repeat!important;
+}
+body:has(.practice-scene-view)::before{content:none!important}
+body:has(.practice-scene-view) #app{
+ min-height:100dvh;display:flex;justify-content:center;align-items:center;
+}
+.practice-scene-art{container-type:inline-size}
+.practice-scene-heading{
+ top:10.0%;left:19%;width:62%;height:7.3%;
+ justify-content:center;gap:2px;line-height:1.08;
+}
+.practice-scene-heading strong{font-size:clamp(.66rem,3.5cqw,1.12rem)}
+.practice-scene-heading small{font-size:clamp(.61rem,3.25cqw,1.03rem);white-space:nowrap}
+.practice-scene-progress{top:20.25%;height:2.6%;overflow:hidden}
+.practice-scene-progress span{
+ top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+ color:#fff6ce;text-shadow:0 1px 3px #260e4e;
+ font-size:clamp(.5rem,2.75cqw,.82rem);line-height:1;
+}
+.practice-scene-progress i{z-index:1;top:17%;left:2%;height:57%}
+.practice-scene-question{top:40.1%;height:17.2%}
+.practice-scene-question h1{margin-top:4px}
+.practice-scene-feedback{top:82.2%;font-size:clamp(.72rem,2.9cqw,1rem)}
