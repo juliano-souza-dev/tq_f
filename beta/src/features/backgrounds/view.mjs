@@ -6,7 +6,7 @@ export function backgroundsScreen(profile,selected=null,notice=''){
  const current=BACKGROUNDS.find(x=>x.id===selected)||BACKGROUNDS.find(x=>x.id===profile.equipped?.background)||BACKGROUNDS[0];
  const status=backgroundStatus(profile,current);
  const count=BACKGROUNDS.filter(x=>backgroundStatus(profile,x).owned).length;
- const action=status.equipped?'✓ Em uso':status.owned?'Equipar':current.source==='chest'?'🎁 Exclusivo de baús':`🪙 ${current.price} · Comprar`;
+ const action=status.equipped?'✓ Em uso':status.owned?'Equipar':(current.source==='chest'||current.source==='daily')?'🎁 Recompensa exclusiva':`🪙 ${current.price} · Comprar`;
  return `<main class="backgrounds-view screen-stack">
   <div class="bg-container">
    <header class="bg-head"><button class="bg-back" type="button" data-action="home" aria-label="Voltar">‹</button>
@@ -18,7 +18,7 @@ export function backgroundsScreen(profile,selected=null,notice=''){
     <div class="bg-feature-art">${art(backgroundUrl(current),{alt:current.name,className:'bg-feature-image'})}</div>
     <div class="bg-feature-body"><span class="bg-kicker">PRÉVIA DO CENÁRIO</span><h2>${escapeHTML(current.name)}</h2>
      <p>Esse cenário será usado na tela inicial.</p><span class="bg-rarity">${escapeHTML(current.rarity)}</span>
-     <button class="bg-primary ${status.equipped?'is-equipped':''}" type="button" data-action="backgroundAction" data-background="${current.id}" ${status.equipped||(!status.owned&&current.source==='chest')?'disabled':''}>${action}</button>
+     <button class="bg-primary ${status.equipped?'is-equipped':''}" type="button" data-action="backgroundAction" data-background="${current.id}" ${status.equipped||(!status.owned&&(current.source==='chest'||current.source==='daily'))?'disabled':''}>${action}</button>
     </div>
    </section>
    <div class="bg-tabs" aria-label="Categorias do baú"><button data-action="openFeature" data-feature="Molduras" type="button">🖼️ Molduras</button><button class="active" type="button" aria-current="page">🏰 Fundos</button><button data-action="openFeature" data-feature="Efeitos" type="button">✨ Efeitos</button></div>
@@ -27,7 +27,7 @@ export function backgroundsScreen(profile,selected=null,notice=''){
    ${notice?`<p class="bg-notice" role="status">${escapeHTML(notice)}</p>`:''}
    <section class="bg-grid" aria-label="Galeria de fundos">
     ${BACKGROUNDS.map(item=>{const st=backgroundStatus(profile,item);return `<button type="button" class="bg-tile bg-tile-preview ${item.id===current.id?'selected':''}" data-action="previewBackground" data-background="${item.id}" aria-pressed="${item.id===current.id}" aria-label="Visualizar ${escapeHTML(item.name)}">
-      <span class="bg-tile-art">${art(backgroundUrl(item),{alt:item.name})}</span><strong>${escapeHTML(item.name)}</strong><span class="bg-tile-meta">${escapeHTML(item.rarity)}</span>${item.source==='chest'&&!st.owned?'<span class="bg-equipped-mark">🔒 Baú</span>':''}
+      <span class="bg-tile-art">${art(backgroundUrl(item),{alt:item.name})}</span><strong>${escapeHTML(item.name)}</strong><span class="bg-tile-meta">${escapeHTML(item.rarity)}</span>${(item.source==='chest'||item.source==='daily')&&!st.owned?'<span class="bg-equipped-mark">🔒 Baú</span>':''}
       ${st.equipped?'<span class="bg-equipped-mark" aria-label="Em uso">✓ Em uso</span>':''}
      </button>`}).join('')}
    </section>
