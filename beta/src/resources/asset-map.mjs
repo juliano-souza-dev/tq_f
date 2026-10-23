@@ -46,11 +46,12 @@ const FRAME_FILES=Object.freeze({
  frame_champion:'frame-champion.webp',frame_rainbow:'frame-rainbow.webp'
 });
 const LEGACY_CHEST_FRAME_ASSETS={"chest_frame_secret":"frame-secret-royal.png","chest_frame_astral_lotus":"chest-frame-astral-lotus.png","chest_frame_tide_dragon":"chest-frame-tide-dragon.png","chest_frame_crimson_eclipse":"chest-frame-crimson-eclipse.png","chest_frame_celestial_crystal":"chest-frame-celestial-crystal.png","chest_frame_pirate_golden_nautical":"chest-frame-pirate-golden-nautical.png","chest_frame_pirate_fantastic_treasures":"chest-frame-pirate-fantastic-treasures.png","chest_frame_pirate_treasure":"chest-frame-pirate-treasure.png","chest_frame_pirate_waves_gems":"chest-frame-pirate-waves-gems.png"};
+const DAILY_ORIGINAL_FRAMES={"frame_adventure_02":"frame-adventure-02-three-blades.png","frame_adventure_04":"frame-adventure-04-flame-chef.png","frame_adventure_06":"frame-adventure-06-sky-marksman.png","frame_adventure_08":"frame-adventure-08-music-crown.png","frame_adventure_09":"frame-adventure-09-pirate-treasure.png","frame_adventure_10":"frame-adventure-10-navigator-map.png"};
 export function equippedFrameUrl(profile){
  const id=profile?.equipped?.frame;
  if(!id || !profile?.owned?.includes(id))return null;
  if(FRAME_FILES[id])return assetUrl(FRAME_FILES[id]);
- const file=LEGACY_CHEST_FRAME_ASSETS[id];
+ const file=LEGACY_CHEST_FRAME_ASSETS[id]||DAILY_ORIGINAL_FRAMES[id];
  return file?'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+encodeURIComponent(file):null;
 }
 export function fashionAssetUrl(avatar,skin='original'){
