@@ -19,6 +19,8 @@ import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.
 import {equipSuccessFX,playPracticeFX} from '../features/practice/fx.mjs';
 import {mountPracticeWorldGL} from '../features/practice/scene-gl.mjs';
 import {chestsScreen} from '../features/chests/view.mjs';
+import {PETS,grantPetForTable,petFrames} from '../features/pets/catalog.mjs';
+import {petsScreen,mountPetAnimation} from '../features/pets/view.mjs';
 import {chestInventoryScreen} from '../features/chests/inventory.mjs';
 import {chestDefinitions,chestState,chestFrames,openChest,chestRemaining} from '../features/chests/catalog.mjs';
 
@@ -38,6 +40,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let backgroundNotice='';
  let stopHomeEffects=null;
  let stopPracticeGL=null;
+ let stopPets=null,petSelectedId=1,petRescue=null,petPlayTimer=null;
  let chestOpening=null,chestNotice='',chestTimer=null,vaultTab='all',vaultNotice='';
  const cancelChestTimer=()=>{if(chestTimer!==null){clearInterval(chestTimer);chestTimer=null}};
  let answerTimer=null;
@@ -58,7 +61,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  const navStore=(()=>{try{return browser?.sessionStorage||null}catch{return null}})();
  let saved=null;
  try{saved=JSON.parse(navStore?.getItem(navKey)||'null')}catch{}
- const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests','vault'];
+ const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests','vault','pets'];
  if(saved?.profileId===profiles.active()?.id&&validScreens.includes(saved.screen)){
   screen=saved.screen;
   selectedWorld=Number.isInteger(saved.selectedWorld)&&saved.selectedWorld>=1&&saved.selectedWorld<=10?saved.selectedWorld:1;
@@ -103,6 +106,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   const currentScroll=firstRender?initialScroll:(browser?.scrollY||0);
   stopHomeEffects?.();stopHomeEffects=null;
   stopPracticeGL?.();stopPracticeGL=null;
+  stopPets?.();stopPets=null;
   const player=profiles.active();
   try{
    switch(screen){
@@ -114,6 +118,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?backgroundsScreen(player,selectedBackground,backgroundNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'chests':
       root.innerHTML=player?chestsScreen(player,chestOpening,chestNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+    case 'pets':
+      root.innerHTML=player?petsScreen(player,petSelectedId,petRescue):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'vault':
       root.innerHTML=player?chestInventoryScreen(player,vaultTab,vaultNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
@@ -128,6 +134,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?featureScreen(player,feature):profilesScreen(profiles.profiles(),selectedPlayer);break;
     default:throw Error('Tela desconhecida: '+screen);
    }
+   if(screen==='pets'&&player)stopPets=mountPetAnimation(root,player,petSelectedId,petRescue);
    if(screen==='home'&&player&&typeof window!=='undefined'){
      const bg=BACKGROUNDS.some(item=>item.id===player.equipped?.background)&&player.owned?.includes(player.equipped.background)?player.equipped.background:null;
      stopHomeEffects=bg==='bg_ocean'?mountOceanEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_ice'?mountSnowEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_space'?mountCosmicEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_forest'?mountForestEffect(root.querySelector('.home-view'),{windowRef:window}):bg==='bg_clouds'?mountCloudSkyEffect(root.querySelector('.home-view'),{windowRef:window}):bg?mountBackgroundEffect(root.querySelector('.home-view'),bg,{windowRef:window}):mountHomeEffects({root,windowRef:window});
@@ -182,7 +189,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    return;
   }
   if(session.queue.length===0){
-   profiles.updateActive(player=>{result=finishPractice(session,player,now());});
+   profiles.updateActive(player=>{result=finishPractice(session,player,now());const pet=grantPetForTable(player,session.table,1,now());if(pet)result.petRescue=pet.id;});
    session=null;
    navigate('win');
   }else{
@@ -227,6 +234,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
+     if(feature==='Pets'){petRescue=null;navigate('pets');break;}
      if(feature==='Baús'){chestNotice='';navigate('chests');break;}
      if(['Baú de itens','Colecionáveis','Molduras','Efeitos'].includes(feature)){
       vaultTab={'Baú de itens':'all','Colecionáveis':'collectible','Molduras':'frame','Efeitos':'effect'}[feature];
@@ -236,6 +244,19 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      else if(feature==='Moda'){fashionNotice='';wardrobeSelection=null;wardrobeTab='fashion';navigate('wardrobe');}
      else navigate('feature');
      break;
+   case 'selectPet':petSelectedId=Number(dataset.pet)||1;render();break;
+   case 'petsInfo':browser?.alert?.('Cada portal possui pets nas tabuadas 3, 7 e 10. O lendário final do Portal 10 é resgatado no mapa 9.');break;
+   case 'petPlay':{
+    const pet=PETS.find(x=>x.id===petSelectedId);if(!pet||!profiles.active()?.pets?.[pet.id]?.rescued)break;
+    const img=root.querySelector('[data-pet-showcase]');if(!img)break;
+    if(petPlayTimer!==null)clearInterval(petPlayTimer);
+    let n=0;img.dataset.playing='true';const frames=petFrames(pet,'happy');img.src=frames[0];
+    petPlayTimer=setInterval(()=>{n++;if(n>=8){clearInterval(petPlayTimer);petPlayTimer=null;delete img.dataset.playing;return}img.src=frames[n]},95);break;
+   }
+   case 'petRescueDone':{
+    const id=petRescue?.id;if(id){profiles.updateActive(p=>{p.flags??={};p.flags.petRescueSeen??={};p.flags.petRescueSeen[id]=true;if(p.flags.petRescuePending===id)delete p.flags.petRescuePending});petSelectedId=id}
+    petRescue=null;navigate('pets');break;
+   }
    case 'vaultTab':
     vaultTab=['all','frame','background','effect','collectible'].includes(dataset.cat)?dataset.cat:'all';
     vaultNotice='';render();break;
