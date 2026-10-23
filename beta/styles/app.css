@@ -656,3 +656,18 @@ body:has(.practice-scene-world-10){background-image:linear-gradient(#173c2660,#1
 .chests-modal>button{min-height:46px;padding:10px 30px;border:2px solid #fff1b8;border-radius:14px;background:linear-gradient(#ffe78d,#f4b833);color:#5a3004;font-size:1rem;font-weight:950}
 @media(min-width:640px){.chests-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.chests-card{min-height:250px}.chests-card img{height:145px}}
 @media(prefers-reduced-motion:no-preference){.chests-card.ready img{animation:chestsFloat 2.4s ease-in-out infinite alternate}@keyframes chestsFloat{to{transform:translateY(-7px)}}}
+
+/* Chest rewards can be equipped from the vault and from the wardrobe. */
+.chests-inventory-top{max-width:900px;margin:0 auto 12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;color:#f8e5ff;font-size:.8rem;font-weight:800}
+.chests-inventory-top>button,.chests-equip{border:2px solid #ffe69c;border-radius:12px;padding:9px 12px;background:linear-gradient(#ffe6a4,#f3b64b);color:#56310e;font-weight:900}
+.chests-categories{max-width:900px;margin:0 auto 16px;display:flex;flex-wrap:wrap;gap:7px}
+.chests-categories>button{border:1px solid #aa82db;border-radius:999px;padding:8px 11px;background:#432175;color:#e8d8fa;font-weight:800;font-size:.78rem}
+.chests-categories>button[aria-current="page"]{background:#ffe9a6;border-color:#fff8d8;color:#4d2a71}
+.chests-vault-grid>.chests-card{min-height:236px}
+.chests-vault-grid .chests-equip{margin-top:auto;min-height:41px}
+.chests-vault-grid .chests-equip:disabled{opacity:.8}
+.fashion-chest-tabs{display:flex;gap:8px;justify-content:center;margin:12px auto 16px}
+.fashion-chest-tabs>button{border:2px solid #9062c6;border-radius:14px;background:#5c3296;color:white;padding:10px 18px;font-weight:900}
+.fashion-chest-tabs>button[aria-current="page"]{color:#512b0b;background:#ffe8a7;border-color:#edb95d}
+.frame-empty-preview{display:grid;place-items:center;font-size:6rem;color:#bd9bdd;min-height:140px}
+.practice-fx-picker img{height:26px;width:26px;object-fit:contain;vertical-align:middle}
