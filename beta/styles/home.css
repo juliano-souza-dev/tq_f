@@ -1065,3 +1065,90 @@ body:has(.home-view) #app{position:relative;z-index:1}
  .home-view .home-header::before{right:28%;left:37px}
  .home-view .home-profile-xp,.home-view .home-profile-xp-number{left:34%;width:32%;top:71%;height:12%}
 }
+
+
+/* Perfil flutuante: avatar como medalhão e indicadores soltos sobre o cenário.
+   Apenas sombras locais para leitura; nenhuma placa grande atrás da paisagem. */
+.home-view .home-header{
+ background:none!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;overflow:visible!important;
+}
+.home-view .home-header::before,
+.home-view .home-header::after{content:none!important;display:none!important}
+.home-view .hero-identity{
+ left:0!important;top:0!important;width:70%!important;height:100%!important;
+ background:none!important;border:0!important;box-shadow:none!important;
+ display:flex!important;align-items:center!important;gap:0!important;
+}
+.home-view .hero-portrait{
+ width:clamp(86px,26vw,122px)!important;height:clamp(86px,26vw,122px)!important;
+ margin:0 1px 0 -7px!important;
+ filter:drop-shadow(0 3px 2px #fff0ab8a) drop-shadow(0 5px 7px #250951bb);
+}
+.home-view .hero-identity-info{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ justify-content:flex-start!important;gap:5px!important;
+ align-self:center;height:auto!important;width:auto!important;
+ padding:0 0 28px 0!important;max-width:calc(100% - 106px);
+ color:#fff!important;background:transparent!important;
+}
+.home-view .hero-identity-info strong{
+ font-size:clamp(1.08rem,4.8vw,1.55rem)!important;line-height:1.13!important;
+ color:#fff6c7!important;
+ text-shadow:0 3px 0 #4c168a,2px 2px 0 #4c168a,-2px 2px 0 #4c168a,0 5px 8px #15053dbb!important;
+}
+.home-view .hero-identity-info .home-level{
+ font-size:clamp(.58rem,2.45vw,.78rem)!important;font-weight:1000!important;
+ padding:3px 10px!important;margin:0!important;
+ border:2px solid #ffe28b!important;border-radius:999px!important;
+ background:linear-gradient(165deg,#23d8e5,#176ec3)!important;
+ box-shadow:0 2px 0 #154f84,0 3px 7px #1c124d88!important;
+}
+.home-view .home-profile-xp{
+ left:clamp(103px,29vw,130px)!important;top:70%!important;
+ width:clamp(112px,32vw,153px)!important;height:14%!important;
+ border:2px solid #ffe39a!important;border-radius:999px!important;
+ background:rgba(43,16,96,.87)!important;
+ box-shadow:0 2px 5px #20104988,inset 0 2px 4px #130836!important;
+}
+.home-view .home-profile-xp-number{
+ left:clamp(103px,29vw,130px)!important;top:70%!important;
+ width:clamp(112px,32vw,153px)!important;height:14%!important;
+ color:#fff!important;font-size:clamp(.55rem,2.4vw,.77rem)!important;
+ text-shadow:0 1px 2px #21104e!important;
+}
+.home-view .hero-wallet{
+ top:49%!important;right:0!important;transform:translateY(-50%)!important;
+ width:27%!important;max-width:none!important;min-width:0!important;
+ display:grid!important;gap:clamp(6px,1.1dvh,10px)!important;
+ background:none!important;
+}
+.home-view .wallet-item{
+ position:relative;display:flex!important;align-items:center!important;
+ justify-content:space-between!important;min-height:30px!important;width:100%!important;
+ gap:4px!important;padding:4px 7px!important;border:2px solid #ffdf82!important;
+ border-radius:999px!important;
+ background:linear-gradient(125deg,rgba(83,27,151,.95),rgba(48,20,112,.94))!important;
+ color:#fff7c4!important;
+ box-shadow:inset 0 1px 0 #fff6b355,0 3px 0 #aa682c,0 5px 9px #22104a77!important;
+ text-shadow:0 2px 2px #2a0f58!important;
+ font-size:clamp(.63rem,2.8vw,.9rem)!important;
+}
+.home-view .wallet-item::before{display:none!important}
+.home-view .wallet-coin{
+ width:clamp(20px,5.3vw,27px)!important;height:clamp(20px,5.3vw,27px)!important;
+ border:2px solid #fff0a4!important;box-shadow:0 1px 2px #260a4a!important;
+}
+.home-view .wallet-gem{
+ width:clamp(17px,4.5vw,24px)!important;height:clamp(17px,4.5vw,24px)!important;
+ filter:drop-shadow(0 2px 2px #190d3b)!important;
+}
+@media(max-width:390px){
+ .home-view .hero-portrait{width:clamp(79px,25vw,103px)!important;height:clamp(79px,25vw,103px)!important}
+ .home-view .hero-identity-info{max-width:calc(100% - 83px);padding-bottom:21px!important;gap:3px!important}
+ .home-view .home-profile-xp,.home-view .home-profile-xp-number{
+  left:clamp(85px,28vw,108px)!important;width:clamp(100px,31vw,126px)!important;
+ }
+ .home-view .hero-wallet{width:28%!important}
+ .home-view .wallet-item{min-height:26px!important;padding:3px 5px!important}
+}
