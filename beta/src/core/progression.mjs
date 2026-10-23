@@ -8,7 +8,7 @@ export const WORLDS=Object.freeze([
  {number:7,name:'Vila das Joaninhas'},
  {number:8,name:'Galáxia Cósmica'},
  {number:9,name:'Reino do Gelo'},
- {number:10,name:'Fortaleza do Corsário'}
+ {number:10,name:'Floresta Encantada'}
 ]);
 export const REVIEW_INTERVAL_DAYS=Object.freeze([2/24,3,7,14,30]);
 export const MAX_WORLD=10;
