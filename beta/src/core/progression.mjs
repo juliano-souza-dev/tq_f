@@ -7,7 +7,7 @@ export const WORLDS=Object.freeze([
  {number:6,name:'Portal do Reino Místico'},
  {number:7,name:'Vila das Joaninhas'},
  {number:8,name:'Galáxia Cósmica'},
- {number:9,name:'Reino Glacial'},
+ {number:9,name:'Reino do Gelo'},
  {number:10,name:'Fortaleza do Corsário'}
 ]);
 export const REVIEW_INTERVAL_DAYS=Object.freeze([2/24,3,7,14,30]);
