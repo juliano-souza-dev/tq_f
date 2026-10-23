@@ -763,3 +763,66 @@ body:has(.home-view) #app{position:relative;z-index:1}
  transform:translateY(-12%);
  font-size:clamp(.58rem,2.2vw,.76rem);
 }
+
+/* Home: painéis inferiores na proporção da referência (duas peças panorâmicas).
+   O menu superior continua com cinco ícones verticais, sem afetar os cliques. */
+.home-view .home-menu{
+ grid-template-rows:minmax(0,55fr) minmax(0,45fr);
+ row-gap:clamp(7px,1.5dvh,15px);
+ padding:3px 0 max(5px,env(safe-area-inset-bottom));
+}
+.home-view .home-menu-bottom{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ grid-template-rows:minmax(0,1fr)!important;
+ gap:clamp(7px,2vw,15px);
+ width:100%;
+ margin:0;
+ align-items:center;
+ justify-items:stretch;
+}
+.home-view .home-menu-bottom>.home-pet-tile-wrap{
+ grid-column:1!important;
+ grid-row:1!important;
+ max-width:none;
+ width:100%!important;
+ height:100%!important;
+}
+.home-view .home-menu-bottom>.home-tile[data-slot="items"]{
+ grid-column:2!important;
+ grid-row:1!important;
+ max-width:none;
+ width:100%!important;
+ height:100%!important;
+}
+.home-view .home-menu-bottom .home-tile{
+ width:100%!important;
+ height:100%!important;
+ align-self:center;
+ justify-self:stretch;
+}
+.home-view .home-menu-bottom .home-tile .tile-art,
+.home-view .home-menu .home-pet-tile-wrap .home-tile .tile-art{
+ width:100%!important;
+ height:100%!important;
+ object-fit:contain!important;
+ object-position:center!important;
+ transform:none!important;
+}
+.home-view .home-menu .home-pet-count{
+ top:auto;right:auto;bottom:21%;left:23%;
+ transform:none;
+ min-width:0;
+ border:0;
+ padding:0;
+ background:transparent;
+ box-shadow:none;
+ color:#fff;
+ text-shadow:0 2px 3px #34135f;
+ font-size:clamp(.67rem,2.7vw,.95rem);
+ pointer-events:none;
+}
+@media(max-width:390px){
+ .home-view .home-menu{row-gap:6px}
+ .home-view .home-menu-bottom{gap:7px}
+}
