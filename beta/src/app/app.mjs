@@ -291,7 +291,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'equipFrame': {
      const player=profiles.active();
      const id=String(dataset.frame||'')||null;
-     if(!player||!availableFrames(player).some(x=>x.id===id))break;
+     if(!player||(id!==null&&!availableFrames(player).some(x=>x.id===id)))break;
      profiles.updateActive(p=>{p.equipped.frame=id;});render();break;
    }
   }
