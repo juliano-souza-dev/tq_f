@@ -1,5 +1,5 @@
 /* Tabuada Quest PWA: update online, preserve installed/offline access. */
-const VERSION='tq-beta-v1';
+const VERSION='tq-beta-rewards-20261023';
 const CORE=[
  './','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png',
  './styles/app.css','./styles/home.css','./styles/fashion-reference.css','./styles/backgrounds.css',
@@ -33,7 +33,8 @@ self.addEventListener('fetch',event=>{
  event.respondWith((async()=>{
   const cache=await caches.open(VERSION);
   try{
-   const response=await fetch(request);
+   const fresh=/\.(?:mjs|js|css|html)$/.test(url.pathname)||url.pathname.endsWith('/beta/');
+   const response=await fetch(fresh?new Request(request,{cache:'no-store'}):request);
    if(response.ok)await cache.put(request,response.clone());
    return response;
   }catch(error){
