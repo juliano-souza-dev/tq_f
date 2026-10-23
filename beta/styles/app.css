@@ -816,12 +816,48 @@ body:has(.practice-scene-world-10){background-image:linear-gradient(#173c2660,#1
  .chests-overlay .chests-modal.chest-gallery-open-sheet{max-height:calc(100dvh - 12px);padding:8px}
 }
 
-/* Colecionáveis: somente a arte de fundo da implementação de apoio. */
-.chests-view.collectibles-view{
- min-height:100dvh;
- background:
-   linear-gradient(180deg,rgba(18,9,47,.22),rgba(18,9,47,.7)),
-   url("https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/collection-gallery-bg.webp") center center/cover fixed;
-}
-.collectibles-view .chests-header,.collectibles-view .chests-inventory-top,
-.collectibles-view .chests-gallery{position:relative;z-index:1}
+/* Galeria de colecionáveis: layout, pedestal, cartas e proporções do apoio. */
+.collection-screen{position:relative;margin:-18px -14px -20px;padding:calc(22px + env(safe-area-inset-top)) 14px 110px;min-height:100vh;background:
+linear-gradient(180deg,rgba(31,8,62,.12),rgba(34,10,67,.30)),
+url('https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/collection-gallery-bg.webp') center top/cover fixed;color:#fff;overflow:hidden}
+.collection-screen:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,8,64,.18),rgba(28,7,58,.56));pointer-events:none}
+.collection-shell{position:relative;z-index:2;max-width:680px;margin:auto}
+.collection-head{text-align:center;margin-bottom:12px}
+.collection-kicker{font-size:9px;font-weight:1000;letter-spacing:1.2px;color:#ffe981;text-shadow:0 2px 5px #2b0b55}
+.collection-head h1{margin:2px 0 3px;font-size:30px;line-height:1;color:#fff1a2;text-shadow:0 3px 0 #6c2b00,0 7px 18px rgba(0,0,0,.34)}
+.collection-head p{margin:0 auto;max-width:500px;font-size:10px;line-height:1.4;font-weight:850;color:#fff;text-shadow:0 2px 5px rgba(22,5,48,.75)}
+.collection-summary{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 12px;margin-bottom:11px;background:linear-gradient(145deg,rgba(50,14,99,.93),rgba(83,27,140,.91));border:2px solid rgba(255,227,112,.86);border-radius:20px;box-shadow:0 7px 0 rgba(35,7,73,.34),0 12px 24px rgba(18,4,42,.28)}
+.collection-summary-copy b{display:block;font-size:14px;color:#fff6c1}.collection-summary-copy span{display:block;margin-top:2px;font-size:9px;font-weight:850;color:#e8d9ff}
+.collection-progress-ring{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#ffd84a var(--pct,0%),rgba(255,255,255,.16) 0);box-shadow:0 0 0 3px rgba(255,255,255,.18),0 0 22px rgba(255,215,70,.28)}
+.collection-progress-ring:before{content:"";width:48px;height:48px;border-radius:50%;background:#3b126f;position:absolute}.collection-progress-ring strong{position:relative;z-index:2;font-size:13px;color:#fff}
+.collection-showcase{position:relative;min-height:300px;margin-bottom:11px;padding:14px 12px 12px;border-radius:25px;background:linear-gradient(180deg,rgba(31,9,67,.70),rgba(51,16,92,.88));border:2px solid rgba(255,224,116,.72);box-shadow:0 12px 26px rgba(17,4,37,.28);overflow:hidden}
+.collection-showcase:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,rgba(255,225,88,.18),transparent 35%),radial-gradient(circle at 50% 42%,rgba(177,90,255,.25),transparent 56%);pointer-events:none}
+.collection-stage{position:relative;height:212px;display:grid;place-items:center}
+.collection-pedestal{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);height:226px;width:auto;max-width:92%;object-fit:contain;filter:drop-shadow(0 12px 14px rgba(0,0,0,.30))}
+.collection-stage-item{position:relative;z-index:3;width:112px;height:112px;object-fit:contain;margin-top:-38px;filter:drop-shadow(0 8px 10px rgba(15,4,40,.35))}
+.collection-stage-item.locked{width:128px;height:128px}
+.collection-detail{position:relative;z-index:4;text-align:center;margin-top:4px}.collection-detail b{display:block;font-size:18px;color:#fff2a3;text-shadow:0 2px 0 #5b245f}.collection-detail span{display:block;margin-top:4px;font-size:9px;font-weight:850;color:#efe5ff}
+.collection-source{display:inline-flex!important;margin-top:7px!important;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff!important}
+.collection-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 1px 8px;scrollbar-width:none}.collection-tabs::-webkit-scrollbar{display:none}
+.collection-tab{white-space:nowrap;min-height:39px;padding:7px 11px;border:2px solid rgba(255,255,255,.52);border-radius:14px;background:rgba(50,15,98,.84);color:#f4eaff;font-size:9px;font-weight:1000;box-shadow:0 4px 0 rgba(29,6,63,.32)}
+.collection-tab.active{background:linear-gradient(145deg,#ffd94c,#f3a616);color:#4a266e;border-color:#fff1a8;box-shadow:0 4px 0 #9b5b04}
+.collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.collection-card{position:relative;min-height:190px;padding:8px 8px 10px;border-radius:21px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,238,255,.95));border:3px solid rgba(255,255,255,.98);box-shadow:0 7px 0 rgba(40,10,73,.24),0 12px 21px rgba(24,7,49,.18);color:#35204c;text-align:center;overflow:hidden}
+.collection-card.selected{outline:3px solid #ffd33f;outline-offset:1px}
+.collection-card.locked{background:linear-gradient(180deg,rgba(66,22,112,.94),rgba(43,12,80,.96));color:#fff}
+.collection-card-art{position:relative;height:126px;display:grid;place-items:center}
+.collection-card-art .frame{position:absolute;inset:-7px;width:calc(100% + 14px);height:calc(100% + 14px);object-fit:contain;pointer-events:none}
+.collection-card-art .treasure{position:relative;z-index:2;max-width:70%;max-height:86px;object-fit:contain;filter:drop-shadow(0 7px 7px rgba(42,18,66,.22))}
+.collection-card-art .mystery{max-height:115px;max-width:95%;object-fit:contain}
+.collection-card-name{display:block;margin-top:3px;font-size:11px;font-weight:1000;line-height:1.15}
+.collection-card-meta{display:flex;justify-content:center;gap:5px;align-items:center;margin-top:5px;font-size:8px;font-weight:950}.collection-card-meta .owned{color:#278c22}.collection-card.locked .collection-card-meta{color:#e8d7ff}
+.collection-rarity{padding:3px 6px;border-radius:8px;background:#eee4ff;color:#6d42a0}.collection-rarity.raro{background:#e4f4ff;color:#2074aa}.collection-rarity.epico{background:#f2e4ff;color:#7d3ac1}.collection-rarity.lendario{background:#fff0b4;color:#946000}
+.collection-actions{margin-top:10px;text-align:center}.collection-shop-link{min-height:40px;border-radius:14px;padding:9px 14px;background:linear-gradient(145deg,#ffd94b,#ffa912);color:#4b2c68;font-size:10px;font-weight:1000;box-shadow:0 4px 0 #a86605}
+@media(max-width:380px){.collection-screen{padding-left:10px;padding-right:10px}.collection-showcase{min-height:280px}.collection-stage{height:196px}.collection-pedestal{height:208px}.collection-card{min-height:178px}.collection-card-art{height:116px}}
+.collection-screen{margin:0;min-height:100dvh;background-attachment:scroll,scroll;padding-top:calc(14px + env(safe-area-inset-top));padding-bottom:calc(35px + env(safe-area-inset-bottom))}
+.collection-progress-ring{position:relative;flex:none}
+.collection-nav{display:flex;margin-bottom:9px}
+.collection-nav button{border:1px solid #ffe69d9c;border-radius:13px;background:#3c1b72bb;color:#fff7c7;padding:6px 11px;min-height:38px;font-weight:1000;box-shadow:0 3px 0 #2d115a88}
+.collection-nav span{font-size:11px}
+.collection-card:focus-visible,.collection-tab:focus-visible{outline:3px solid #ffe37b;outline-offset:3px}
+@media(min-width:620px){.collection-screen{background-attachment:scroll,fixed}}
