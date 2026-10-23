@@ -2,6 +2,7 @@ import {assetUrl,equippedAvatarUrl,equippedFrameUrl} from '../../resources/asset
 import {art,escapeHTML} from '../../components/ui.mjs';
 import {BACKGROUNDS,backgroundUrl} from '../backgrounds/catalog.mjs';
 import {masteredCount,level,experienceProgress,chestProgress} from '../../core/progression.mjs';
+import {petsSaved} from '../pets/catalog.mjs';
 export function homeScreen(profile){
  const coin=Number(profile.coins||0),gems=Number(profile.gems||0);
  const chest=chestProgress(profile),mastered=masteredCount(profile),xp=experienceProgress(profile.xp);
@@ -56,7 +57,7 @@ export function homeScreen(profile){
       ${feature('chests','openFeature','Baús')}
     </div>
     <div class="home-menu-bottom">
-      ${feature('pets','openFeature','Pets')}
+      <span class="home-pet-tile-wrap">${feature('pets','openFeature','Pets')}<span class="home-pets-count" aria-label="${petsSaved(profile)} dos 30 pets resgatados">${petsSaved(profile)}/30</span></span>
       ${feature('items','openFeature','Baú de itens')}
     </div>
    </section>
