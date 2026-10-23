@@ -1,5 +1,6 @@
 import {ALL_CHEST_ITEMS} from '../chests/catalog.mjs';
 import {DAILY_BONUS_BACKGROUNDS} from '../daily/catalog.mjs';
+import {storeSaleItems} from '../store/catalog.mjs';
 export const LEGACY_CHEST_BACKGROUNDS=ALL_CHEST_ITEMS.filter(item=>item.cat==='background').map(item=>({...item,price:0,source:'chest'}));
 export const BACKGROUNDS=Object.freeze([
  {id:'bg_forest',name:'Floresta Mágica',asset:'bg-forest.webp',price:90,rarity:'Raro'},
@@ -9,7 +10,8 @@ export const BACKGROUNDS=Object.freeze([
  {id:'bg_clouds',name:'Céu das Nuvens Encantadas',asset:'bg-clouds.webp',price:125,rarity:'Épico'}
 ,
  ...LEGACY_CHEST_BACKGROUNDS,
- ...DAILY_BONUS_BACKGROUNDS
+ ...DAILY_BONUS_BACKGROUNDS,
+ ...storeSaleItems().filter(x=>x.cat==='background'&&!['bg_forest','bg_ocean','bg_space','bg_ice','bg_clouds'].includes(x.id))
 ]);
 const origin='https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/';
 export const backgroundUrl=item=>item?(item.id==='bg_clouds'?'/tq_f/beta/assets/bg-clouds.webp':origin+encodeURIComponent(item.asset))+'?dev='+(globalThis.__TQ_DEV_VERSION__||Date.now()):'';
