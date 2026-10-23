@@ -4,12 +4,10 @@ import {BACKGROUNDS,backgroundUrl} from '../backgrounds/catalog.mjs';
 import {masteredCount,level,experienceProgress,chestProgress} from '../../core/progression.mjs';
 import {petsSaved} from '../pets/catalog.mjs';
 import {dailyState} from '../daily/catalog.mjs';
-import {chestDefinitions,chestState} from '../chests/catalog.mjs';
 export function homeScreen(profile){
  const coin=Number(profile.coins||0),gems=Number(profile.gems||0);
  const dailyReady=dailyState(profile).canClaim;
- const chestsReady=chestDefinitions(profile).some(def=>chestState(profile,def)==='ready');
- const rewardDot=name=>name==='daily'?dailyReady:name==='chests'?chestsReady:false;
+ const rewardDot=name=>name==='daily'&&dailyReady;
  const chest=chestProgress(profile),mastered=masteredCount(profile),xp=experienceProgress(profile.xp);
  const amount=value=>new Intl.NumberFormat('pt-BR').format(value);
  const equippedAvatar=equippedAvatarUrl(profile);
@@ -48,7 +46,6 @@ export function homeScreen(profile){
    </button>
    <button type="button" data-action="openFeature" data-feature="Baús" class="next-chest" aria-label="${chest.available?chest.available+' baú disponível':chest.into+' de '+chest.nextReq+' atividades para o próximo baú'}">
       ${image('next_chest','next-chest-art')}
-      ${chestsReady?'<span class="home-reward-dot next-chest-reward-dot" aria-label="Baú pronto para abrir"></span>':''}
       <span class="next-chest-progress" role="progressbar" aria-label="Atividades para o próximo baú" aria-valuemin="0" aria-valuemax="${chest.nextReq}" aria-valuenow="${chest.into}">
         <progress class="next-chest-progress-fill" value="${chest.into}" max="${chest.nextReq}" aria-hidden="true"></progress>
         <span class="next-chest-counter">${chest.available?chest.available+' pronto'+(chest.available>1?'s':''):chest.into+' / '+chest.nextReq}</span>
