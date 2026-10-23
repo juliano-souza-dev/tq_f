@@ -204,7 +204,12 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'enter':
      if(!selectedPlayer||!profiles.select(selectedPlayer))return;
      selectedWorld=pickAvailableWorld(profiles.active());navigate('home');break;
-   case 'home':session=null;navigate('home');break;
+   case 'home':{
+    session=null;const p=profiles.active();const pending=Number(p?.flags?.petRescuePending||0);
+    if(pending&&PETS.some(x=>x.id===pending)){petSelectedId=pending;petRescue=PETS.find(x=>x.id===pending);navigate('pets');}
+    else{petRescue=null;navigate('home');}
+    break;
+   }
    case 'worlds':session=null;selectedWorld=pickAvailableWorld(profiles.active());navigate('worlds');break;
    case 'selectWorld':{
      const id=Number(dataset.world);
