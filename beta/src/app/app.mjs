@@ -73,6 +73,10 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   if(screen==='win'&&saved.result?.deck)result=saved.result;
   if((screen==='practice'&&!session)||(screen==='win'&&!result))screen='worlds';
  }
+ if(screen==='home'){
+  const pending=Number(profiles.active()?.flags?.petRescuePending||0);
+  if(pending){const pet=PETS.find(x=>x.id===pending);if(pet){petSelectedId=pet.id;petRescue=pet;screen='pets';}}
+ }
  let firstRender=true;
  const initialScroll=saved?.profileId===profiles.active()?.id?Math.max(0,Number(saved.scrollY)||0):0;
  const saveNav=()=>{try{navStore?.setItem(navKey,JSON.stringify({
