@@ -1168,3 +1168,7 @@ body:has(.home-view) #app{position:relative;z-index:1}
   width:clamp(108px,34vw,133px)!important;
  }
 }
+
+/* Alinhamento óptico validado pela captura Android: início do XP no eixo do nome. */
+.home-view .home-profile-xp,.home-view .home-profile-xp-number{left:clamp(79px,23vw,104px)!important}
+@media(max-width:390px){.home-view .home-profile-xp,.home-view .home-profile-xp-number{left:clamp(76px,23vw,91px)!important}}
