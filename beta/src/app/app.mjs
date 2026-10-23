@@ -205,7 +205,16 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    return;
   }
   if(session.queue.length===0){
-   profiles.updateActive(player=>{result=finishPractice(session,player,now());const pet=grantPetForTable(player,session.table,session.portal||1,now());if(pet)result.petRescue=pet.id;});
+   profiles.updateActive(player=>{
+    const table=session.table;
+    const firstMastery=!Number(player.learning?.tables?.[String(table)]?.masteredAt||0);
+    const readyBefore=new Set(chestDefinitions(player).filter(def=>chestState(player,def)==='ready').map(def=>def.id));
+    result=finishPractice(session,player,now());
+    result.firstMastery=firstMastery;
+    const pet=grantPetForTable(player,table,session.portal||1,now());
+    if(pet){result.petRescue=pet.id;result.petName=pet.name;}
+    result.unlockedChests=chestDefinitions(player).filter(def=>chestState(player,def)==='ready'&&!readyBefore.has(def.id)).map(def=>def.id);
+   });
    session=null;
    navigate('win');
   }else{
@@ -215,6 +224,14 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  }
  function act(action,dataset={}){
   switch(action){
+   case 'claimLessonRewards':{
+    const pending=Number(profiles.active()?.flags?.petRescuePending||0);
+    const pet=PETS.find(x=>x.id===pending);
+    if(pet){petSelectedId=pet.id;petRescue=pet;navigate('pets');}
+    else{result=null;navigate('worlds');}
+    break;
+   }
+   case 'claimLessonChest':result=null;chestNotice='';navigate('chests');break;
    case 'profiles':selectedPlayer=null;session=null;navigate('profiles');break;
    case 'selectPlayer':selectedPlayer=dataset.player||null;render();break;
    case 'enter':
