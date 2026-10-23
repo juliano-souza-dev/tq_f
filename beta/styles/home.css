@@ -844,3 +844,29 @@ body:has(.home-view) #app{position:relative;z-index:1}
 .home-view .home-menu .home-pet-count{
  bottom:17%;left:20%;
 }
+
+/* Ajuste fino Android: alinhar os centros dos painéis inferiores e mostrar
+   apenas o contador de pets real sobre o contador impresso na arte. */
+.home-view .home-menu-bottom>.home-pet-tile-wrap{
+ transform:translateY(-9px);
+}
+.home-view .home-menu .home-pet-count{
+ top:65%;
+ bottom:auto;
+ left:27%;
+ right:auto;
+ transform:translateY(-50%);
+ min-width:51px;
+ height:23px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:1px 4px;
+ border:0;
+ border-radius:8px;
+ background:linear-gradient(180deg,#653193,#3a186d);
+ box-shadow:none;
+ font-size:clamp(.72rem,2.8vw,.92rem);
+ color:#fff;
+ text-shadow:0 2px 1px #281044;
+}
