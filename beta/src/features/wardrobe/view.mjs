@@ -1,9 +1,10 @@
 import {assetUrl,fashionAssetUrl,equippedAvatarUrl} from '../../resources/asset-map.mjs';
 import {fashionFor,fashionStatus} from './fashion.mjs';
 import {CHEST_ITEMS,chestAsset} from '../chests/catalog.mjs';
+import {DAILY_FRAMES} from '../daily/catalog.mjs';
 import {art,topbar,escapeHTML} from '../../components/ui.mjs';
 const FRAMES=[{id:null,label:'Original',src:null},{id:'frame_star',label:'Estelar',src:'frame-star.webp'},{id:'frame_floral',label:'Floral',src:'frame-floral.webp'},{id:'frame_champion',label:'Campeã',src:'frame-champion.webp'},{id:'frame_rainbow',label:'Arco-íris',src:'frame-rainbow.webp'}];
-const FRAME_CATALOG=[...FRAMES,...CHEST_ITEMS.filter(item=>item.cat==='frame').map(item=>({id:item.id,label:item.name,src:item.asset,source:'chest'}))];
+const FRAME_CATALOG=[...FRAMES,...[...CHEST_ITEMS,...DAILY_FRAMES].filter(item=>item.cat==='frame').map(item=>({id:item.id,label:item.name,src:item.asset,source:'chest'}))];
 export const availableFashion=profile=>fashionFor(profile).filter(item=>fashionStatus(profile,item).owned);
 export const availableFrames=profile=>FRAME_CATALOG.filter(x=>!x.id||profile.owned?.includes(x.id));
 const coins=n=>new Intl.NumberFormat('pt-BR').format(n);
