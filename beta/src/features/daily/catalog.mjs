@@ -7,10 +7,10 @@ export const DAILY_REWARDS=Object.freeze([
 ]);
 export const DAILY_CHEST_SPRITES=['magic','pirate','starlight','royal','pirate','starlight'];
 export const DAILY_BONUS_BACKGROUNDS=Object.freeze([
-{id:'bg_bonus_11',name:'Fundo Bônus 11',asset:'bg-bonus-11.png',cat:'background',price:0,rarity:'Raro',source:'daily'},
-{id:'bg_bonus_12',name:'Fundo Bônus 12',asset:'bg-bonus-12.png',cat:'background',price:0,rarity:'Raro',source:'daily'},
-{id:'bg_bonus_13',name:'Fundo Bônus 13',asset:'bg-bonus-13.png',cat:'background',price:0,rarity:'Épico',source:'daily'},
-{id:'bg_bonus_14',name:'Fundo Bônus 14',asset:'bg-bonus-14.png',cat:'background',price:0,rarity:'Épico',source:'daily'}
+{id:'bg_bonus_11',name:'Reino da Coelhinha',asset:'bonus-bg-11.png',cat:'background',price:0,rarity:'Oculto',source:'daily'},
+{id:'bg_bonus_12',name:'Cidade da Joaninha',asset:'bonus-bg-12.png',cat:'background',price:0,rarity:'Oculto',source:'daily'},
+{id:'bg_bonus_13',name:'Paraíso Tropical Diário',asset:'bonus-bg-13.png',cat:'background',price:0,rarity:'Oculto',source:'daily'},
+{id:'bg_bonus_14',name:'Boutique Matemática Diária',asset:'bonus-bg-14.png',cat:'background',price:0,rarity:'Oculto',source:'daily'}
 ]);
 const pad=n=>Math.min(30,Math.max(0,Number(n)||0));
 export const dayKey=(date=new Date())=>{const d=new Date(date);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
@@ -38,6 +38,7 @@ export function claimDaily(profile,date=new Date()){
  return {reward,label,day:st.progress+1};
 }
 export const dailyChestArt=(index)=>chestAsset('chest-'+DAILY_CHEST_SPRITES[index%6]+'-frame-0.webp');
+export const DAILY_FRAMES=Object.freeze([{"id":"frame_adventure_02","cat":"frame","asset":"frame-adventure-02-three-blades.png","name":"Moldura Três Lâminas","rarity":"Oculto","source":"daily"},{"id":"frame_adventure_04","cat":"frame","asset":"frame-adventure-04-flame-chef.png","name":"Moldura Chef das Chamas","rarity":"Oculto","source":"daily"},{"id":"frame_adventure_06","cat":"frame","asset":"frame-adventure-06-sky-marksman.png","name":"Moldura Atirador dos Céus","rarity":"Oculto","source":"daily"},{"id":"frame_adventure_08","cat":"frame","asset":"frame-adventure-08-music-crown.png","name":"Moldura Rei da Música","rarity":"Oculto","source":"daily"},{"id":"frame_adventure_09","cat":"frame","asset":"frame-adventure-09-pirate-treasure.png","name":"Moldura Bandeira do Tesouro","rarity":"Oculto","source":"daily"},{"id":"frame_adventure_10","cat":"frame","asset":"frame-adventure-10-navigator-map.png","name":"Moldura Mapa do Navegador","rarity":"Oculto","source":"daily"}]);
 export const DAILY_FRAME_REWARD_IDS=['frame_adventure_02','frame_adventure_04','frame_adventure_06','frame_adventure_08','frame_adventure_09','frame_adventure_10'];
 export function claimDailyChest(profile,random=Math.random){
  profile.stats??={};profile.owned??=[];profile.fashionOwned??=['original'];
@@ -58,7 +59,7 @@ export function claimDailyChest(profile,random=Math.random){
  const preferred=DAILY_FRAME_REWARD_IDS[index];
  if(preferred&&!profile.owned.includes(preferred)){
   profile.owned.push(preferred);
-  result.push({id:preferred,cat:'frame',asset:'frame-adventure-'+String(index===0?2:index===1?4:index===2?6:index===3?8:index===4?9:10).padStart(2,'0')+'.png',name:'Moldura especial do dia '+(index+1)*5});
+  result.push(DAILY_FRAMES[index]);
  }
  if(!result.length){profile.coins=Number(profile.coins||0)+300;result.push({id:'coins',cat:'coins',asset:'coin.webp',name:'300 moedas'})}
  profile.stats.dailyChestTokens=tokens-1;profile.stats.dailyChestsClaimed=index+1;
