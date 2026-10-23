@@ -98,8 +98,13 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  };
 
  function pickAvailableWorld(profile){
-  const choice=WORLDS.find(w=>worldState(profile,w.number,now()).enabled);
-  return choice?.number||1;
+  const saved=Number(profile?.flags?.resumeWorld);
+  if(Number.isInteger(saved)&&saved>=1&&saved<=10)return saved;
+  // Migração de perfis antigos: continuar na primeira tabuada ainda não dominada.
+  const next=WORLDS.find(w=>!Number(profile?.learning?.tables?.[String(w.number)]?.masteredAt||0));
+  if(next)return next.number;
+  const due=WORLDS.find(w=>worldState(profile,w.number,now()).id==='due');
+  return due?.number||10;
  }
  function navigate(next){
   cancelChestTimer();chestOpening=null;
@@ -175,6 +180,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   const player=profiles.active();if(!player)return navigate('profiles');
   if(!Number.isInteger(n)||n<1||n>10)return;
   const state=worldState(player,n,now());
+  // Persistir o último ponto de jogo deste perfil, mesmo se a sessão for interrompida.
+  profiles.updateActive(p=>{p.flags??={};p.flags.resumeWorld=n;});
   // Beta is a development build: progression gates are bypassed only here.
   selectedWorld=n;
   session=createPractice(n,state.id==='due'?'review':'learn',random,now());
@@ -211,6 +218,9 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     const readyBefore=new Set(chestDefinitions(player).filter(def=>chestState(player,def)==='ready').map(def=>def.id));
     result=finishPractice(session,player,now());
     result.firstMastery=firstMastery;
+    player.flags??={};
+    if(firstMastery&&table<10)player.flags.resumeWorld=table+1;
+    else player.flags.resumeWorld=table;
     const pet=grantPetForTable(player,table,session.portal||1,now());
     if(pet){result.petRescue=pet.id;result.petName=pet.name;}
     result.unlockedChests=chestDefinitions(player).filter(def=>chestState(player,def)==='ready'&&!readyBefore.has(def.id)).map(def=>def.id);
@@ -242,6 +252,10 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     if(pending&&PETS.some(x=>x.id===pending)){petSelectedId=pending;petRescue=PETS.find(x=>x.id===pending);navigate('pets');}
     else{petRescue=null;navigate('home');}
     break;
+   }
+   case 'continueAdventure':{
+    const player=profiles.active();if(!player)return navigate('profiles');
+    startWorld(pickAvailableWorld(player));break;
    }
    case 'worlds':session=null;selectedWorld=pickAvailableWorld(profiles.active());navigate('worlds');break;
    case 'selectWorld':{
