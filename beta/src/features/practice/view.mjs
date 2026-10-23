@@ -6,7 +6,7 @@ const legacyPracticeAsset=name=>'https://raw.githubusercontent.com/juliano-souza
 function successFXPicker(player){
  return `<div class="practice-fx-picker" aria-label="Efeito de acerto">
   <span>✨ Acerto</span>
-  ${SUCCESS_FX.filter(fx=>player.owned?.includes(fx.id)).map(fx=>`<button type="button" data-action="equipSuccessFX" data-effect="${fx.id}" aria-pressed="${player.equipped?.effect===fx.id}" title="${fx.name}" ${player.equipped?.effect===fx.id?'class="selected"':''}>${fx.id==='fx_papai'?'💛':'🌟'}</button>`).join('')}
+  ${SUCCESS_FX.filter(fx=>player.owned?.includes(fx.id)).map(fx=>`<button type="button" data-action="equipSuccessFX" data-effect="${fx.id}" aria-pressed="${player.equipped?.effect===fx.id}" title="${fx.name}" ${player.equipped?.effect===fx.id?'class="selected"':''}>${fx.id==='fx_papai'?'💛':fx.source==='chest'?'<img src="'+legacyPracticeAsset(fx.asset)+'" alt="">':'🌟'}</button>`).join('')}
  </div>`;
 }
 function illustratedPracticeScene(player,session,fact){
