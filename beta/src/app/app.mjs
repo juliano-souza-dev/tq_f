@@ -19,6 +19,7 @@ import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.
 import {equipSuccessFX,playPracticeFX} from '../features/practice/fx.mjs';
 import {mountPracticeWorldGL} from '../features/practice/scene-gl.mjs';
 import {chestsScreen} from '../features/chests/view.mjs';
+import {chestInventoryScreen} from '../features/chests/inventory.mjs';
 import {chestDefinitions,chestState,chestFrames,openChest} from '../features/chests/catalog.mjs';
 
 export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
@@ -37,7 +38,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let backgroundNotice='';
  let stopHomeEffects=null;
  let stopPracticeGL=null;
- let chestOpening=null,chestNotice='',chestTimer=null;
+ let chestOpening=null,chestNotice='',chestTimer=null,vaultTab='all',vaultNotice='';
  const cancelChestTimer=()=>{if(chestTimer!==null){clearInterval(chestTimer);chestTimer=null}};
  let answerTimer=null;
  let cleanupPracticeFX=null;
@@ -57,7 +58,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  const navStore=(()=>{try{return browser?.sessionStorage||null}catch{return null}})();
  let saved=null;
  try{saved=JSON.parse(navStore?.getItem(navKey)||'null')}catch{}
- const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests'];
+ const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests','vault'];
  if(saved?.profileId===profiles.active()?.id&&validScreens.includes(saved.screen)){
   screen=saved.screen;
   selectedWorld=Number.isInteger(saved.selectedWorld)&&saved.selectedWorld>=1&&saved.selectedWorld<=10?saved.selectedWorld:1;
@@ -113,6 +114,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?backgroundsScreen(player,selectedBackground,backgroundNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'chests':
       root.innerHTML=player?chestsScreen(player,chestOpening,chestNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+    case 'vault':
+      root.innerHTML=player?chestInventoryScreen(player,vaultTab,vaultNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -225,10 +228,17 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
      if(feature==='Baús'){chestNotice='';navigate('chests');break;}
-     if(feature==='Fundos'||feature==='Baú de itens'){selectedBackground=null;backgroundNotice='';navigate('backgrounds');}
+     if(['Baú de itens','Colecionáveis','Molduras','Efeitos'].includes(feature)){
+      vaultTab={'Baú de itens':'all','Colecionáveis':'collectible','Molduras':'frame','Efeitos':'effect'}[feature];
+      vaultNotice='';navigate('vault');break;
+     }
+     if(feature==='Fundos'){selectedBackground=null;backgroundNotice='';navigate('backgrounds');}
      else if(feature==='Moda'){fashionNotice='';wardrobeSelection=null;wardrobeTab='fashion';navigate('wardrobe');}
      else navigate('feature');
      break;
+   case 'vaultTab':
+    vaultTab=['all','frame','background','effect','collectible'].includes(dataset.cat)?dataset.cat:'all';
+    vaultNotice='';render();break;
    case 'openChest':{
     if(chestOpening)return;
     const id=String(dataset.chest||'');const player=profiles.active();
@@ -257,6 +267,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      let result;
      profiles.updateActive(p=>{result=acquireBackground(p,id)});
      selectedBackground=id;
+     vaultNotice=result?.reason==='equipped'?'Fundo equipado!':result?.reason==='reward-only'?'Este fundo só pode ser obtido em baús.':'';
      backgroundNotice=result?.reason==='insufficient-coins'?'Faltam '+result.missing+' moedas.':result?.reason==='purchased'?'Novo fundo desbloqueado e equipado!':result?.reason==='equipped'?'Fundo equipado!':'';
      render();break;
    }
