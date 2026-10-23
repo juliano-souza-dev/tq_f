@@ -246,6 +246,15 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    }
    case 'nextQuestion':afterAnswer();break;
    case 'leavePractice':session=null;navigate('worlds');break;
+   case 'claimNextChest':{
+     const player=profiles.active();
+     if(!player)break;
+     const ready=chestDefinitions(player).filter(def=>chestState(player,def)==='ready');
+     chestNotice='';
+     navigate('chests');
+     if(ready.length===1)act('openChest',{chest:ready[0].id});
+     break;
+   }
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
      if(feature==='Recompensa diária'){dailyNotice='';dailyWeek=dailyState(profiles.active(),new Date(now())).week;navigate('daily');break;}
