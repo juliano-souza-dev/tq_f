@@ -761,3 +761,57 @@ body:has(.practice-scene-world-10){background-image:linear-gradient(#173c2660,#1
 .daily-v2-profile .daily-avatar{width:48px;height:48px;object-fit:contain}
 .daily-v2-grid .daily-v2-card-art img{max-width:100%;object-fit:contain}
 .daily-notice{color:#fff6bb;text-align:center;font-weight:800}
+
+/* Chest opening: retain the exact apoio gallery structure and colors.
+   Only constrain the sheet to the viewport; let the reward list, not the sheet, scroll. */
+.chests-overlay.chest-gallery-open-overlay{
+ position:fixed;inset:0;z-index:5000;display:grid;place-items:center;
+ padding:clamp(8px,2vh,16px);overflow:hidden;
+ background:rgba(12,4,35,.84);
+}
+.chests-overlay .chests-modal.chest-gallery-open-sheet{
+ box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;
+ width:min(100%,520px);height:auto;max-height:calc(100dvh - 24px);
+ min-height:0;overflow:hidden;padding:14px 12px 12px;
+ border:3px solid #eec458;border-radius:24px;
+ background:linear-gradient(180deg,#fff,#f7f0ff);color:#432365;
+ box-shadow:0 10px 45px #0008;
+}
+.chests-overlay .chest-gallery-open-head{flex:none}
+.chests-overlay .chest-gallery-open-head span{font-size:8px;letter-spacing:1px;font-weight:1000;color:#895bb8}
+.chests-overlay .chest-gallery-open-head h2{font-size:clamp(18px,3.3vw,22px);line-height:1.2;margin:2px 0 5px}
+.chests-overlay .chest-gallery-animation{
+ flex:0 1 auto;min-height:0;width:100%;
+ height:min(52dvh,390px);margin:2px 0 6px;
+ border-radius:20px;overflow:hidden;
+ background:radial-gradient(circle,#fff7c9 0,#f3e8ff 47%,#e3d1ff 100%);
+}
+.chests-overlay .chest-gallery-animation img{
+ display:block;width:100%;height:100%;object-fit:contain;
+ filter:drop-shadow(0 12px 10px rgba(46,18,80,.24));
+}
+.chests-overlay .reward-opened .chest-gallery-animation{height:clamp(110px,23dvh,205px);flex:none}
+.chests-overlay .reward-opened .chest-gallery-reward{display:flex;flex-direction:column;min-height:0;flex:1}
+.chests-overlay .chest-gallery-reward-title{flex:none;margin:4px 0 8px;font-size:11px}
+.chests-overlay .chest-gallery-reward-grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;
+ flex:1;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain;
+ padding:0 1px 3px;align-content:start;
+}
+.chests-overlay .chest-gallery-reward-card{
+ min-width:0;display:flex;flex-direction:column;align-items:center;
+ background:#f3eaff;border:1px solid #e3cef7;border-radius:14px;padding:7px;
+}
+.chests-overlay .chest-gallery-reward-card img{width:100%;height:76px;object-fit:contain}
+.chests-overlay .chest-gallery-reward-card b{font-size:10px;line-height:1.35;overflow-wrap:anywhere;color:#4e2c70}
+.chests-overlay .chest-gallery-reward-card span{font-size:9px;font-weight:900;color:#806497}
+.chests-overlay .chest-gallery-done.show{
+ display:block;flex:none;width:100%;min-height:46px;margin-top:10px;padding:10px;
+ border:0;border-radius:14px;background:linear-gradient(180deg,#8b4bd1,#632ab1);
+ box-shadow:0 3px 0 #3f187e;color:#fff;font-weight:1000;
+}
+@media(max-height:640px){
+ .chests-overlay .reward-opened .chest-gallery-animation{height:100px}
+ .chests-overlay .chest-gallery-reward-card img{height:57px}
+ .chests-overlay .chests-modal.chest-gallery-open-sheet{max-height:calc(100dvh - 12px);padding:8px}
+}
