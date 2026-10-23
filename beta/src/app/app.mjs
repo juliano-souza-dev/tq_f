@@ -23,7 +23,7 @@ import {dailyScreen} from '../features/daily/view.mjs';
 import {dailyState,claimDaily} from '../features/daily/catalog.mjs';
 import {PETS,grantPetForTable,petFrames} from '../features/pets/catalog.mjs';
 import {petsScreen,mountPetAnimation} from '../features/pets/view.mjs';
-import {chestInventoryScreen} from '../features/chests/inventory.mjs';
+import {chestInventoryScreen,collectionScreen} from '../features/chests/inventory.mjs';
 import {chestDefinitions,chestState,chestFrames,openChest,chestRemaining} from '../features/chests/catalog.mjs';
 
 export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
@@ -45,6 +45,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let stopPracticeGL=null;
  let stopPets=null,petSelectedId=1,petRescue=null,petPlayTimer=null;
  let chestOpening=null,chestNotice='',chestTimer=null,vaultTab='all',vaultNotice='';
+ let collectionFilter='all',collectionSelectedId=null;
  const cancelChestTimer=()=>{if(chestTimer!==null){clearInterval(chestTimer);chestTimer=null}};
  let answerTimer=null;
  let cleanupPracticeFX=null;
@@ -132,7 +133,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     case 'vault':
       root.innerHTML=player?chestInventoryScreen(player,vaultTab,vaultNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'collectibles':
-      root.innerHTML=player?chestInventoryScreen(player,'collectible','',true):profilesScreen(profiles.profiles(),selectedPlayer);break;
+      root.innerHTML=player?collectionScreen(player,collectionSelectedId,collectionFilter):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -303,6 +304,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      dailyNotice=granted?'✨ '+granted.label:'Recompensa de hoje já coletada.';
      dailyWeek=dailyState(profiles.active(),new Date(now())).week;render();break;
    }
+   case 'collectionSelect':collectionSelectedId=String(dataset.item||'');render();break;
+   case 'collectionFilter':collectionFilter=String(dataset.filter||'all');render();break;
    case 'vaultTab':
     vaultTab=['all','frame','background','effect','collectible'].includes(dataset.cat)?dataset.cat:'all';
     vaultNotice='';render();break;
