@@ -1,11 +1,11 @@
 /* Tabuada Quest PWA: update online, preserve installed/offline access. */
-const VERSION='tq-beta-home-panels-20261023';
+const VERSION='tq-beta-magic-store-20261023';
 const CORE=[
  './','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png',
- './styles/app.css','./styles/home.css','./styles/fashion-reference.css','./styles/backgrounds.css',
+ './styles/app.css','./styles/home.css','./styles/fashion-reference.css','./styles/backgrounds.css','./styles/store.css',
  './src/resources/asset-map.mjs','./src/core/progression.mjs','./src/core/profiles.mjs','./src/core/practice.mjs',
  './src/app/bootstrap.mjs','./src/app/app.mjs','./src/components/ui.mjs',
- './src/features/home/view.mjs','./src/features/home/effects.mjs',
+ './src/features/store/view.mjs','./src/features/store/catalog.mjs','./src/features/home/view.mjs','./src/features/home/effects.mjs',
  './src/features/backgrounds/view.mjs','./src/features/backgrounds/snow.mjs','./src/features/backgrounds/clouds.mjs',
  './src/features/backgrounds/forest.mjs','./src/features/backgrounds/ocean.mjs',
  './src/features/backgrounds/catalog.mjs','./src/features/backgrounds/cosmic.mjs','./src/features/backgrounds/effects.mjs',
