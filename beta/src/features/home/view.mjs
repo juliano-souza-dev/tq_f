@@ -41,7 +41,7 @@ export function homeScreen(profile){
     </div>
     <button type="button" data-action="openFeature" data-feature="Moda" class="fashion-shortcut right" aria-label="Mudar roupa">${image('moda')}</button>
    </div>
-   <button type="button" class="play-button" data-action="worlds" aria-label="Jogar: abrir os mundos">
+   <button type="button" class="play-button" data-action="continueAdventure" aria-label="Jogar: continuar de onde parou">
      ${image('jogar','play-art')}
    </button>
    <button type="button" data-action="claimNextChest" class="next-chest" aria-label="${chest.available?chest.available+' baú disponível':chest.into+' de '+chest.nextReq+' atividades para o próximo baú'}">
