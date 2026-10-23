@@ -18,6 +18,8 @@ import {worldsScreen} from '../features/worlds/view.mjs';
 import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.mjs';
 import {equipSuccessFX,playPracticeFX} from '../features/practice/fx.mjs';
 import {mountPracticeWorldGL} from '../features/practice/scene-gl.mjs';
+import {chestsScreen} from '../features/chests/view.mjs';
+import {chestDefinitions,chestState,chestFrames,openChest} from '../features/chests/catalog.mjs';
 
 export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  if(!root)throw Error('Raiz DOM obrigatória');
@@ -35,6 +37,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let backgroundNotice='';
  let stopHomeEffects=null;
  let stopPracticeGL=null;
+ let chestOpening=null,chestNotice='',chestTimer=null;
+ const cancelChestTimer=()=>{if(chestTimer!==null){clearInterval(chestTimer);chestTimer=null}};
  let answerTimer=null;
  let cleanupPracticeFX=null;
  const clearPracticeFX=()=>{cleanupPracticeFX?.();cleanupPracticeFX=null};
@@ -53,7 +57,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  const navStore=(()=>{try{return browser?.sessionStorage||null}catch{return null}})();
  let saved=null;
  try{saved=JSON.parse(navStore?.getItem(navKey)||'null')}catch{}
- const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature'];
+ const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests'];
  if(saved?.profileId===profiles.active()?.id&&validScreens.includes(saved.screen)){
   screen=saved.screen;
   selectedWorld=Number.isInteger(saved.selectedWorld)&&saved.selectedWorld>=1&&saved.selectedWorld<=10?saved.selectedWorld:1;
@@ -86,6 +90,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   return choice?.number||1;
  }
  function navigate(next){
+  cancelChestTimer();chestOpening=null;
   cancelAnswerTimer();
   clearPracticeFX();
   screen=next;
@@ -106,6 +111,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?wardrobeScreen(player,fashionNotice,wardrobeSelection,wardrobeTab):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'backgrounds':
       root.innerHTML=player?backgroundsScreen(player,selectedBackground,backgroundNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+    case 'chests':
+      root.innerHTML=player?chestsScreen(player,chestOpening,chestNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -217,10 +224,33 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
+     if(feature==='Baús'){chestNotice='';navigate('chests');break;}
      if(feature==='Fundos'||feature==='Baú de itens'){selectedBackground=null;backgroundNotice='';navigate('backgrounds');}
      else if(feature==='Moda'){fashionNotice='';wardrobeSelection=null;wardrobeTab='fashion';navigate('wardrobe');}
      else navigate('feature');
      break;
+   case 'openChest':{
+    if(chestOpening)return;
+    const id=String(dataset.chest||'');const player=profiles.active();
+    const def=player&&chestDefinitions(player).find(x=>x.id===id);
+    if(!def||chestState(player,def)!=='ready'){chestNotice='Baú ainda bloqueado.';render();break;}
+    chestOpening={phase:'opening',def};chestNotice='';render();
+    const frames=chestFrames(def);let i=0;
+    chestTimer=setInterval(()=>{
+      if(screen!=='chests'){cancelChestTimer();return}
+      i++;
+      const img=root.querySelector('[data-chest-anim]');
+      if(i<frames.length){if(img)img.src=frames[i];return}
+      cancelChestTimer();
+      let obtained=null;
+      profiles.updateActive(p=>{obtained=openChest(p,id,random)});
+      chestOpening=obtained?{phase:'reward',def,result:obtained}:null;
+      chestNotice=obtained?'Tesouro conquistado!':'Não foi possível abrir este baú.';
+      render();
+    },175);
+    break;
+   }
+   case 'closeChest':chestOpening=null;render();break;
    case 'previewBackground':selectedBackground=String(dataset.background||'');backgroundNotice='';render();break;
    case 'backgroundAction':{
      const id=String(dataset.background||'');
@@ -287,6 +317,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   act,
   destroy(){
    cancelAnswerTimer();
+   cancelChestTimer();
    clearPracticeFX();
    stopHomeEffects?.();stopHomeEffects=null;
    root.removeEventListener('click',onClick);
