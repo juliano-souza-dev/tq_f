@@ -76,14 +76,22 @@ export function openChest(profile,id,random=Math.random){
   profile.stats.chestsClaimed=Number(profile.stats.chestsClaimed||0)+1;
  }else if(def.table===2){
   const ids=['chest_frame_pirate_golden_nautical','chest_frame_pirate_fantastic_treasures','chest_frame_pirate_treasure','chest_frame_pirate_waves_gems'];
-  for(const id of ids.slice(0,3)){const item=CHEST_ITEMS.find(x=>x.id===id);if(item&&!profile.owned.includes(id)){profile.owned.push(id);results.push(item)}}
+  const candidates=[...ids.filter(x=>!profile.owned.includes(x)),...ids.filter(x=>profile.owned.includes(x))];
+  for(let i=0;i<Math.min(3,candidates.length);i++){
+   const j=i+Math.floor(random()*(candidates.length-i));
+   [candidates[i],candidates[j]]=[candidates[j],candidates[i]];
+  }
+  for(const id of candidates.slice(0,3)){const item=CHEST_ITEMS.find(x=>x.id===id);if(item){if(!profile.owned.includes(id))profile.owned.push(id);results.push(item)}}
   for(const id of ['table2_bg_pirate_bay','table2_bg_pirate_port','table2_fx_nautical_treasure']){const item=SPECIAL_ITEMS.find(x=>x.id===id);if(item&&!profile.owned.includes(id)){profile.owned.push(id);results.push(item)}}
   if(!profile.fashionOwned.includes('navigator2')){profile.fashionOwned.push('navigator2');results.push({id:'fashion_navigator2',name:'Capitã dos Navegadores',cat:'fashion',skin:'navigator2'})}
   profile.flags.table2PirateChestClaimed=true;
+  profile.flags.table2PirateChestPending=false;
+  profile.flags.table2PirateChestRewardIds=results.map(x=>x.id);
  }else if(def.table===3){
   for(const id of ['table3_bg_inventor_workshop','table3_bg_mechanical_square','table3_fx_gears_bananas']){const item=SPECIAL_ITEMS.find(x=>x.id===id);if(item&&!profile.owned.includes(id)){profile.owned.push(id);results.push(item)}}
   if(!profile.fashionOwned.includes('inventor3')){profile.fashionOwned.push('inventor3');results.push({id:'fashion_inventor3',name:'Inventora da Oficina',cat:'fashion',skin:'inventor3'})}
   profile.flags.table3InventorChestClaimed=true;
+  profile.flags.table3InventorChestPending=false;
  }
  if(!results.length){const coins=250+Math.floor(random()*151);profile.coins=Number(profile.coins||0)+coins;results.push({id:'coins',name:coins+' moedas',cat:'coins',asset:'coin.webp'})}
  profile.chestHistory=Array.isArray(profile.chestHistory)?profile.chestHistory:[];
