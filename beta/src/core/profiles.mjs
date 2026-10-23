@@ -18,12 +18,23 @@ export function makeProfile(family,id){
   avatar:{id:family.avatar,skinId:'original'},
   flags:{familyEntry:true},stats:{correct:0,wrong:0,sessions:0,chestsClaimed:0,masteredDecks:{}},
   learning:{tables:Object.fromEntries(Array.from({length:10},(_,i)=>[String(i+1),{}]))},
-  history:[]
+  pets:{},history:[]
  };
 }
 function normalizeProfile(p,family,createId){
  const base=makeProfile(family,createId());
  const tables={...base.learning.tables,...p.learning?.tables};
+ const pets=p.pets&&typeof p.pets==='object'?{...p.pets}:{};
+ const flags={...base.flags,...p.flags};
+ if(!flags.pets30Migrated){
+  for(const [id,table] of [[1,3],[2,7],[3,10]]){
+   if(!pets[String(id)]&&Number(tables[String(table)]?.masteredAt)>0)
+    pets[String(id)]={rescued:true,rescuedAt:null,legacy:true,portal:1,table};
+  }
+  flags.pets30Migrated=true;
+ }
+ flags.petRescueSeen=flags.petRescueSeen||{};
+
  // Versões anteriores do APK guardavam conquistas em stats.masteredDecks.
  // Se ainda não houver a marca mais nova, preservamos o fato já dominado.
  for(const [id,entry] of Object.entries(p.stats?.masteredDecks||{})){
@@ -35,7 +46,7 @@ function normalizeProfile(p,family,createId){
  return {...base,...p,name:family.name,
   avatar:{...base.avatar,...p.avatar,id:family.avatar},
   equipped:{...base.equipped,...p.equipped},
-  flags:{...base.flags,...p.flags},
+  flags,pets,
   stats:{...base.stats,...p.stats,masteredDecks:{...base.stats.masteredDecks,...p.stats?.masteredDecks}},
   learning:{...base.learning,...p.learning,tables},
   history:Array.isArray(p.history)?p.history:[],
