@@ -1,6 +1,6 @@
 // Original apoio effects adapted for the Beta practice lifecycle.
 import {ALL_CHEST_ITEMS} from '../chests/catalog.mjs';
-import {storeSaleItems} from '../store/catalog.mjs';
+import {storeSaleItems,STORE_MISSING_ASSET_FALLBACK} from '../store/catalog.mjs';
 const raw='https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/';
 export const SUCCESS_FX=Object.freeze([
  {id:'fx_magic',name:'Explosão de Magia',asset:'papai-celebrate-02.png'},
@@ -45,7 +45,8 @@ export function playPracticeFX(host,good,equipped){
   step(()=>image.src=raw+seq[2],700);
  }else{
   const item=SUCCESS_FX.find(x=>x.id===equipped);
-  image.src=raw+(item?.asset||'papai-celebrate-02.png');
+  const file=item?.asset||'papai-celebrate-02.png';
+  image.src=raw+(STORE_MISSING_ASSET_FALLBACK[file]||file);
  }
  return ()=>{scheduled.forEach(clearTimeout);layer.remove()};
 }
