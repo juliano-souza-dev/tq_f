@@ -1,4 +1,5 @@
-import {chestAsset,CHEST_ITEMS} from '../chests/catalog.mjs';
+import {CHEST_ITEMS} from '../chests/catalog.mjs';
+const chestAsset=name=>'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+encodeURIComponent(name);
 export const DAILY_REWARDS=Object.freeze([
 ...[[30,30,40,40],[35,35,45,45],[40,40,50,50],[45,45,55,55],[50,50,60,60]].flatMap(group=>[...group.map(amount=>({kind:'coins',amount})),{kind:'daily_chest'}]),
 ...['bg_bonus_11','bg_bonus_12','bg_bonus_13','bg_bonus_14'].map(id=>({kind:'background',id})),
