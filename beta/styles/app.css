@@ -620,3 +620,39 @@ body:has(.practice-scene-world-10){background-image:linear-gradient(#173c2660,#1
 .practice-scene-world-10 .practice-scene-answer{color:#28633b;text-shadow:0 2px 0 #fff5cb;border-radius:23%}
 .practice-scene-world-10 .practice-scene-feedback{top:83%;color:#e2ffe4}
 .practice-scene-world-10 .practice-fx-picker{top:29%;right:4%}
+
+/* Original APK's chest gallery, adapted to Beta portrait-first viewport. */
+.chests-view{min-height:100dvh;padding:18px max(12px,env(safe-area-inset-right)) 35px;background:radial-gradient(circle at 50% 0%,#6633ad 0%,#321266 36%,#190a37 100%);color:#fff8e2}
+.chests-header{display:flex;align-items:center;gap:14px;margin:0 auto 14px;max-width:900px}
+.chests-header>button{width:48px;height:48px;border-radius:50%;border:3px solid #ffdf85;background:#7442ba;color:white;font-size:2rem;line-height:1}
+.chests-header h1{font-size:clamp(1.4rem,5vw,2.2rem);margin:0;color:#ffe57b;text-shadow:0 3px 6px #2b1246}
+.chests-header p{margin:4px 0 0;font-size:.85rem;color:#e4cef8}
+.chests-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:900px;margin:0 auto 18px}
+.chests-summary>div{display:flex;flex-direction:column;align-items:center;gap:4px;border:2px solid #9464c9;border-radius:16px;padding:11px 4px;background:#482179;font-size:.74rem;text-transform:uppercase;font-weight:800}
+.chests-summary b{font-size:1.7rem;color:#ffdc5d}
+.chests-notice{max-width:900px;margin:8px auto 12px;padding:12px;border:1px solid #9d77d5;border-radius:12px;background:#472379}
+.chests-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:900px;margin:0 auto}
+.chests-card{position:relative;display:flex;flex-direction:column;align-items:center;min-width:0;min-height:225px;padding:18px 9px 12px;border:2px solid #b996e0;border-radius:18px;background:linear-gradient(180deg,#6636a0,#3b1a6d);box-shadow:0 6px 0 #210d3c,0 13px 24px #13062666;text-align:center;color:#fff6e8}
+.chests-card img{width:min(100%,152px);height:120px;object-fit:contain;filter:drop-shadow(0 7px 9px #1d0c39a0)}
+.chests-card b{font-size:.88rem;color:#ffed8d;margin:3px 0}
+.chests-card small{font-size:.68rem;color:#dbbdf5}
+.chests-card p{font-size:.7rem;color:#e5d5f6;line-height:1.4;margin:8px 0 0}
+.chests-card.ready{border-color:#ffd658;background:linear-gradient(180deg,#8147b5,#562188);box-shadow:0 0 14px #ffcb5588,0 6px 0 #361249}
+.chests-card.opened{border-color:#87c48f}
+.chests-card.locked{filter:saturate(.66);opacity:.77}
+.chests-card:disabled{cursor:default}
+.chests-status{position:absolute;right:8px;top:8px;padding:3px 6px;background:#260a50;border-radius:8px;font-size:.58rem;font-weight:950;letter-spacing:.04em;color:#ffecb9}
+.chests-card.ready .chests-status{background:#e8b942;color:#462a09}
+.chests-overlay{position:fixed;inset:0;background:#10051bcc;z-index:2000;display:grid;place-items:center;padding:16px;overflow:auto}
+.chests-modal{width:min(100%,530px);max-height:93dvh;overflow:auto;text-align:center;border:3px solid #e5ba60;border-radius:24px;background:radial-gradient(circle at top,#7840b3,#321665 76%);padding:20px 15px 24px;box-shadow:0 22px 65px #000b}
+.chests-modal>h2{margin:8px 0;color:#fff0a1;font-size:1.3rem}
+.chests-modal>img{display:block;margin:4px auto;width:min(55vw,210px);height:min(55vw,210px);object-fit:contain;filter:drop-shadow(0 8px 18px #180825)}
+.chests-spark{color:#fff0a5;font-size:2rem;letter-spacing:.3em}
+.chests-rewards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:14px 0 18px}
+.chests-rewards>div{display:grid;justify-items:center;gap:4px;border:1px solid #b992db;background:#f8efff;border-radius:13px;padding:8px;color:#48296e}
+.chests-rewards img{height:85px;max-width:100%;object-fit:contain}
+.chests-rewards b{font-size:.75rem}
+.chests-rewards small{font-size:.65rem}
+.chests-modal>button{min-height:46px;padding:10px 30px;border:2px solid #fff1b8;border-radius:14px;background:linear-gradient(#ffe78d,#f4b833);color:#5a3004;font-size:1rem;font-weight:950}
+@media(min-width:640px){.chests-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.chests-card{min-height:250px}.chests-card img{height:145px}}
+@media(prefers-reduced-motion:no-preference){.chests-card.ready img{animation:chestsFloat 2.4s ease-in-out infinite alternate}@keyframes chestsFloat{to{transform:translateY(-7px)}}}
