@@ -1,5 +1,6 @@
 import {chestDefinitions,chestState,chestRemaining,chestFrames,chestAsset,rewardAsset} from './catalog.mjs';
 import {escapeHTML} from '../../components/ui.mjs';
+const rewardTypeLabel=item=>({frame:'Moldura',background:'Fundo',effect:'Efeito',fashion:'Moda',collectible:'Colecionável',coins:'Moedas'})[item.cat]||'Tesouro';
 export function chestsScreen(profile,opening=null,notice=''){
  const defs=chestDefinitions(profile),states=defs.map(def=>chestState(profile,def));
  const ready=states.filter(x=>x==='ready').length,opened=states.filter(x=>x==='opened').length,locked=states.filter(x=>x==='locked').length;
@@ -29,15 +30,15 @@ export function chestsScreen(profile,opening=null,notice=''){
      }).join('')}
     </div>
   </div>
-  ${opening?`<div class="chests-overlay" role="dialog" aria-modal="true" aria-label="Abrindo baú">
-   <div class="chests-modal chest-gallery-open-sheet">
-    <div class="chest-gallery-open-head"><span>${opening.phase==='opening'?'ABRINDO BAÚ':'TESOURO CONQUISTADO'}</span><h2>${escapeHTML(opening.def.name)}</h2></div>
+  ${opening?`<div class="chests-overlay chest-gallery-open-overlay" role="dialog" aria-modal="true" aria-label="Abrindo baú">
+   <div class="chests-modal chest-gallery-open-sheet ${reward?'reward-opened':'opening'}">
+    <div class="chest-gallery-open-head"><span>${opening.phase==='opening'?'ABRINDO BAÚ':opening.def.kind==='mastery'?'RECOMPENSA DA TABUADA ×'+opening.def.table:'TESOURO DE AVENTURA'}</span><h2>${escapeHTML(opening.def.name)}</h2></div>
     <div class="chest-gallery-animation ${opening.phase==='opening'?'running':''}"><img ${opening.phase==='opening'?'data-chest-anim':''}
       src="${chestFrames(opening.def)[opening.phase==='opening'?0:5]}" alt="${escapeHTML(opening.def.name)}"></div>
-    ${reward?`<div class="chest-gallery-reward show"><div class="chest-gallery-reward-title">Tesouros enviados ao perfil</div>
+    ${reward?`<div class="chest-gallery-reward show"><div class="chest-gallery-reward-title">${opening.def.kind==='mastery'?'Coleção de ×'+opening.def.table+' conquistada!':'Tesouros enviados ao perfil'}</div>
       <div class="chest-gallery-reward-grid">${reward.items.map(item=>`<div class="chest-gallery-reward-card">
-        <img src="${rewardAsset(item,profile)}" alt="">
-        <b>${escapeHTML(item.name)}</b><span>${escapeHTML(item.cat)}</span>
+        <img src="${rewardAsset(item,profile)||chestAsset('coin.webp')}" alt="${escapeHTML(item.name)}" loading="lazy" onerror="this.onerror=null;this.src=\'${chestAsset('chest-inventor-frame-5.webp')}\'">
+        <b>${escapeHTML(item.name)}</b><span>${rewardTypeLabel(item)}</span>
        </div>`).join('')}</div></div>
       <button class="chest-gallery-done show" type="button" data-action="closeChest">Guardar tesouros</button>`:''}
    </div></div>`:''}
