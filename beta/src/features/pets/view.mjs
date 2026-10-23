@@ -1,5 +1,6 @@
 import {PETS,petsSaved,rescued,petFrames,petImage} from './catalog.mjs';
 import {escapeHTML as esc} from '../../components/ui.mjs';
+import {equippedAvatarUrl} from '../../resources/asset-map.mjs';
 export function petsScreen(profile,selectedId=1,rescue=null){
  const picked=PETS.find(x=>x.id===selectedId)||PETS[0],saved=petsSaved(profile),ok=rescued(profile,picked);
  return `<main class="pets-screen">
@@ -21,11 +22,21 @@ export function petsScreen(profile,selectedId=1,rescue=null){
   <span class="pet-card-status">${owned?'RESGATADO':'Tabuada '+pet.table}</span><small>${owned?'✦ ANIMADO':pet.title==='Lendário'?'LENDÁRIO':'PET OCULTO'}</small>
  </button>`}).join('')}</div>
  <div class="pets-footer-note">🗺️ Complete os mapas <b>3, 7 e 10 de cada portal</b> para resgatar os PETS. No Portal 10, o último lendário é salvo no mapa 9.</div></div></div>
- ${rescue?`<div class="pets-rescue-overlay" role="dialog" aria-modal="true" aria-label="Resgate de pet"><div class="pets-rescue-stage">
- <h2>PORTAL ${rescue.portal} · RESGATE</h2><p>O Capitão Corsário Arcano aprisionou ${esc(rescue.name)}!</p>
- <div class="pets-rescue-energy"><span>FORÇA DO CORSÁRIO</span><b data-villain-power>${rescue.table===3?'3':rescue.table===7?'2':'1'}/3</b><i data-villain-bar style="width:${rescue.table===3?'100':rescue.table===7?'67':'33'}%"></i></div>
- <div class="pets-rescue-actors"><img data-rescue-villain src="${petImage('villain-frame-0.webp')}" alt="Capitão Corsário Arcano"><span class="pets-rescue-blast" data-rescue-blast>✦</span><img src="${petFrames(rescue,'happy')[0]}" data-rescue-pet alt="${esc(rescue.name)}"></div>
- <h3 data-rescue-message>O Capitão Corsário Arcano ainda mantém ${esc(rescue.name)} preso!</h3><button data-action="petRescueDone" data-rescue-done disabled>Aguarde...</button></div></div>`:''}
+ ${rescue?`<div class="pet-rescue-overlay open" role="dialog" aria-modal="true" aria-label="Missão de resgate de pet" aria-hidden="false">
+  <div class="pet-rescue-scene">
+   <div class="pet-rescue-kicker">PORTAL ${rescue.portal} · RESGATE ${rescue.title==='Lendário'?'LENDÁRIO':''}</div>
+   <div class="pet-rescue-title">Tabuada do ${rescue.table} dominada!</div>
+   <div class="villain-power"><span>Poder do Corsário</span><div><i data-villain-bar style="width:${rescue.table===3?100:rescue.table===7?67:33}%"></i></div><b data-villain-power>${rescue.table===3?3:rescue.table===7?2:1}/3</b></div>
+   <div class="pet-rescue-battle">
+    <div class="rescue-hero"><img src="${equippedAvatarUrl(profile)}" alt="Aventureira"></div>
+    <div class="rescue-blast" data-rescue-blast></div>
+    <div class="rescue-villain" data-rescue-villain-host><img data-rescue-villain src="${petImage('villain-frame-0.webp')}" alt="Capitão Corsário Arcano"></div>
+    <div class="rescue-pet-prison" data-rescue-prison><span class="prison-chain left"></span><span class="prison-chain right"></span><div class="prison-ring"><img src="${petFrames(rescue,'happy')[0]}" data-rescue-pet alt="${esc(rescue.name)}"></div><span class="prison-lock">🔒</span></div>
+   </div>
+   <div class="pet-rescue-message" data-rescue-message>O <strong>Capitão Corsário Arcano</strong> ainda mantém ${esc(rescue.name)} preso!</div>
+   <button class="pet-rescue-continue" type="button" data-action="petRescueDone" data-rescue-done disabled>Aguarde...</button>
+  </div>
+ </div>`:''}
  </main>`;
 }
 export function mountPetAnimation(root,profile,selectedId,rescue=null){
@@ -33,12 +44,21 @@ export function mountPetAnimation(root,profile,selectedId,rescue=null){
  const timers=[];
  if(rescue){
   const later=(fn,delay)=>timers.push(setTimeout(()=>{if(root.isConnected)fn()},delay));
-  const villain=root.querySelector('[data-rescue-villain]'),power=root.querySelector('[data-villain-power]'),bar=root.querySelector('[data-villain-bar]'),message=root.querySelector('[data-rescue-message]'),done=root.querySelector('[data-rescue-done]'),blast=root.querySelector('[data-rescue-blast]');
+  const villain=root.querySelector('[data-rescue-villain]'),villainHost=root.querySelector('[data-rescue-villain-host]'),prison=root.querySelector('[data-rescue-prison]'),hero=root.querySelector('.rescue-hero'),power=root.querySelector('[data-villain-power]'),bar=root.querySelector('[data-villain-bar]'),message=root.querySelector('[data-rescue-message]'),done=root.querySelector('[data-rescue-done]'),blast=root.querySelector('[data-rescue-blast]'),stage=root.querySelector('.pet-rescue-scene');
   const initial=rescue.table===3?3:rescue.table===7?2:1;
-  later(()=>{if(message)message.textContent='Aventureira, use o poder da tabuada!';blast?.classList.add('fire')},650);
-  for(let i=0;i<6;i++)later(()=>{if(villain)villain.src=petImage('villain-frame-'+i+'.webp')},910+i*135);
-  later(()=>{if(power)power.textContent=Math.max(0,initial-1)+'/3';if(bar)bar.style.width=(Math.max(0,initial-1)/3*100)+'%';if(message)message.textContent='✨ '+rescue.name+' foi resgatado!';villain?.classList.add('defeated')},1850);
-  later(()=>{if(message)message.textContent='🐾 '+rescue.name+' agora está seguro. '+petsSaved(profile)+'/30 pets resgatados.';if(done){done.disabled=false;done.textContent='Ver pet resgatado'}},2850);
+  later(()=>{if(message)message.textContent='Aventureira, use o poder da tabuada!';hero?.classList.add('attack');blast?.classList.add('fire')},650);
+  for(let i=0;i<6;i++)later(()=>{if(villain)villain.src=petImage('villain-frame-'+i+'.webp');if(i===0)villainHost?.classList.add('hit')},910+i*135);
+  later(()=>{
+   if(power)power.textContent=Math.max(0,initial-1)+'/3';
+   if(bar)bar.style.width=(Math.max(0,initial-1)/3*100)+'%';
+   villainHost?.classList.add(rescue.portal===10&&rescue.id===30?'final-defeat':'defeated');
+   prison?.classList.add('broken');stage?.classList.add('rescued');
+   if(message)message.innerHTML='✨ <strong>'+esc(rescue.name)+' '+esc(rescue.title)+'</strong> foi resgatado!';
+  },1850);
+  later(()=>{
+   if(message)message.innerHTML=rescue.portal===10&&rescue.id===30?'🏆 <strong>Todos os 30 filhotes foram salvos!</strong> O Corsário foi derrotado de vez.':'🐾 '+esc(rescue.name)+' agora está seguro. <strong>'+petsSaved(profile)+'/30</strong> pets resgatados.';
+   if(done){done.disabled=false;done.textContent=rescue.portal===10&&rescue.id===30?'Ver todos os PETS':'Ver pet resgatado'}
+  },2850);
  }
  let frame=0,interval=setInterval(()=>{
   if(!root.isConnected)return;
