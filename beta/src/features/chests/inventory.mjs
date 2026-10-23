@@ -1,7 +1,9 @@
 import {ALL_CHEST_ITEMS,chestAsset} from './catalog.mjs';
+import {DAILY_FRAMES,DAILY_BONUS_BACKGROUNDS} from '../daily/catalog.mjs';
 import {escapeHTML} from '../../components/ui.mjs';
 export function chestInventoryScreen(profile,category='all',notice=''){
- const group=category==='all'?ALL_CHEST_ITEMS:ALL_CHEST_ITEMS.filter(x=>x.cat===category);
+ const items=[...ALL_CHEST_ITEMS,...DAILY_FRAMES,...DAILY_BONUS_BACKGROUNDS];
+ const group=category==='all'?items:items.filter(x=>x.cat===category);
  const owned=group.filter(x=>profile.owned?.includes(x.id)).length;
  const categories=[['all','Todos'],['frame','Molduras'],['background','Fundos'],['effect','Efeitos'],['collectible','Colecionáveis']];
  const chosen=profile.equipped||{};
