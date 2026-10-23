@@ -20,7 +20,7 @@ import {equipSuccessFX,playPracticeFX} from '../features/practice/fx.mjs';
 import {mountPracticeWorldGL} from '../features/practice/scene-gl.mjs';
 import {chestsScreen} from '../features/chests/view.mjs';
 import {chestInventoryScreen} from '../features/chests/inventory.mjs';
-import {chestDefinitions,chestState,chestFrames,openChest} from '../features/chests/catalog.mjs';
+import {chestDefinitions,chestState,chestFrames,openChest,chestRemaining} from '../features/chests/catalog.mjs';
 
 export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  if(!root)throw Error('Raiz DOM obrigatória');
@@ -243,7 +243,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     if(chestOpening)return;
     const id=String(dataset.chest||'');const player=profiles.active();
     const def=player&&chestDefinitions(player).find(x=>x.id===id);
-    if(!def||chestState(player,def)!=='ready'){chestNotice='Baú ainda bloqueado.';render();break;}
+    if(!def||chestState(player,def)!=='ready'){chestNotice=def?(chestState(player,def)==='opened'?'Este baú já foi aberto e os tesouros estão no perfil.':chestRemaining(player,def)):'Baú desconhecido.';render();break;}
     chestOpening={phase:'opening',def};chestNotice='';render();
     const frames=chestFrames(def);let i=0;
     chestTimer=setInterval(()=>{
