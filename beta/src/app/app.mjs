@@ -23,7 +23,7 @@ import {dailyScreen} from '../features/daily/view.mjs';
 import {dailyState,claimDaily} from '../features/daily/catalog.mjs';
 import {PETS,grantPetForTable,petFrames} from '../features/pets/catalog.mjs';
 import {petsScreen,mountPetAnimation} from '../features/pets/view.mjs';
-import {chestInventoryScreen,collectionScreen} from '../features/chests/inventory.mjs';
+import {chestInventoryScreen,collectionScreen,vaultOwnsItem} from '../features/chests/inventory.mjs';
 import {chestDefinitions,chestState,chestFrames,openChest,chestRemaining} from '../features/chests/catalog.mjs';
 
 export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
@@ -44,7 +44,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let stopHomeEffects=null;
  let stopPracticeGL=null;
  let stopPets=null,petSelectedId=1,petRescue=null,petPlayTimer=null;
- let chestOpening=null,chestNotice='',chestTimer=null,vaultTab='all',vaultNotice='';
+ let chestOpening=null,chestNotice='',chestTimer=null,vaultTab='frame',vaultNotice='',vaultSelectedId=null;
  let collectionFilter='all',collectionSelectedId=null;
  const cancelChestTimer=()=>{if(chestTimer!==null){clearInterval(chestTimer);chestTimer=null}};
  let answerTimer=null;
@@ -131,7 +131,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     case 'pets':
       root.innerHTML=player?petsScreen(player,petSelectedId,petRescue):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'vault':
-      root.innerHTML=player?chestInventoryScreen(player,vaultTab,vaultNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+      root.innerHTML=player?chestInventoryScreen(player,vaultTab,vaultNotice,false,vaultSelectedId):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'collectibles':
       root.innerHTML=player?collectionScreen(player,collectionSelectedId,collectionFilter):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
@@ -145,6 +145,10 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     case 'feature':
       root.innerHTML=player?featureScreen(player,feature):profilesScreen(profiles.profiles(),selectedPlayer);break;
     default:throw Error('Tela desconhecida: '+screen);
+   }
+   if(screen==='vault'&&player){
+    const shell=root.querySelector('.vault-v2-shell'),fixed=root.querySelector('.vault-fixed-zone');
+    if(shell&&fixed){const sync=()=>shell.style.setProperty('--vault-fixed-height',Math.ceil(fixed.getBoundingClientRect().height)+'px');sync();browser?.requestAnimationFrame(sync);}
    }
    if(screen==='pets'&&player)stopPets=mountPetAnimation(root,player,petSelectedId,petRescue);
    if(screen==='home'&&player&&typeof window!=='undefined'){
@@ -265,8 +269,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      if(feature==='Baús'){chestNotice='';navigate('chests');break;}
      if(feature==='Colecionáveis'){navigate('collectibles');break;}
      if(['Baú de itens','Molduras','Efeitos'].includes(feature)){
-      vaultTab={'Baú de itens':'all','Colecionáveis':'collectible','Molduras':'frame','Efeitos':'effect'}[feature];
-      vaultNotice='';navigate('vault');break;
+      vaultTab={'Baú de itens':'frame','Molduras':'frame','Efeitos':'effect'}[feature];
+      vaultNotice='';vaultSelectedId=null;navigate('vault');break;
      }
      if(feature==='Fundos'){selectedBackground=null;backgroundNotice='';navigate('backgrounds');}
      else if(feature==='Moda'){fashionNotice='';wardrobeSelection=null;wardrobeTab='fashion';navigate('wardrobe');}
@@ -306,9 +310,42 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    }
    case 'collectionSelect':collectionSelectedId=String(dataset.item||'');render();break;
    case 'collectionFilter':collectionFilter=String(dataset.filter||'all');render();break;
+   case 'vaultSelect':{
+    vaultSelectedId=String(dataset.item||'');
+    const y=root.querySelector('.vault-v2-shell')?.scrollTop||0;
+    render();const shell=root.querySelector('.vault-v2-shell');if(shell)shell.scrollTop=y;
+    break;
+   }
+   case 'vaultEquip':{
+    const category=String(dataset.category||''),id=String(dataset.item||'');
+    const player=profiles.active();
+    if(!player||!['frame','background','effect'].includes(category)||!vaultOwnsItem(player,id,category))break;
+    profiles.updateActive(p=>{
+     if(category==='effect')equipSuccessFX(p,id);
+     else {p.equipped??={};p.equipped[category]=id;}
+    });
+    vaultTab=category;vaultSelectedId=id;vaultNotice='';
+    const y=root.querySelector('.vault-v2-shell')?.scrollTop||0;
+    render();const shell=root.querySelector('.vault-v2-shell');if(shell)shell.scrollTop=y;
+    break;
+   }
+   case 'vaultReset':{
+    const category=String(dataset.category||'');
+    if(!['frame','background'].includes(category))break;
+    profiles.updateActive(p=>{p.equipped??={};p.equipped[category]=null;});
+    vaultSelectedId=null;vaultNotice='';render();break;
+   }
+   case 'vaultPlayPreview':{
+    const id=String(dataset.item||''),player=profiles.active();
+    if(!player||!vaultOwnsItem(player,id,'effect'))break;
+    clearPracticeFX();
+    cleanupPracticeFX=playPracticeFX(root,true,id);
+    setTimeout(()=>{cleanupPracticeFX?.();cleanupPracticeFX=null},1800);
+    break;
+   }
    case 'vaultTab':
-    vaultTab=['all','frame','background','effect','collectible'].includes(dataset.cat)?dataset.cat:'all';
-    vaultNotice='';render();break;
+    vaultTab=['frame','background','effect'].includes(dataset.cat)?dataset.cat:'frame';
+    vaultSelectedId=null;vaultNotice='';render();break;
    case 'openChest':{
     if(chestOpening)return;
     const id=String(dataset.chest||'');const player=profiles.active();
