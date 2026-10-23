@@ -60,7 +60,7 @@ export function homeScreen(profile){
       ${feature('chests','openFeature','Baús')}
     </div>
     <div class="home-menu-bottom">
-      <span class="home-pet-tile-wrap">${feature('pets','openFeature','Pets')}<span class="home-pets-count" aria-label="${petsSaved(profile)} dos 30 pets resgatados">${petsSaved(profile)}/30</span></span>
+      <span class="home-pet-tile-wrap">${feature('pets','openFeature','Pets')}</span>
       ${feature('items','openFeature','Baú de itens')}
     </div>
    </section>
