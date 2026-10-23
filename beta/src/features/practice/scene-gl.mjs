@@ -83,9 +83,27 @@ export function mountPracticeWorldGL(host,{world=1}={}){
      color+=ringColor*sparkle*fade*(good>0.5?1.1:.85);
      color+=ringColor*max(0.,1.-radius*4.)*fade*(good>0.5?.12:.08);
    }
-   float cosmos=step(7.5,world);
+   // Mundo 8: preserve the exclusive cosmic illumination.
+   float cosmos=step(7.5,world)*(1.-step(8.5,world));
    float starField=pow(max(0.,sin(p.x*170.+time*.16)*sin(p.y*228.-time*.12)),16.);
    color+=cosmos*starField*vec3(.055,.038,.11)*strength;
+   // Mundo 9 - Reino do Gelo: falling snow in three depth layers.
+   // Stable seeded flakes, gentle horizontal wind and staggered fall speeds.
+   if(world>8.5 && world<9.5){
+     for(int layer=0;layer<3;layer++){
+       float depth=float(layer);
+       vec2 density=vec2(12.+depth*7.,22.+depth*11.);
+       vec2 drift=p*density;
+       drift.y+=time*(.35+depth*.20);
+       drift.x+=sin(time*(.23+depth*.07)+p.y*5.+depth*2.1)*(.24+depth*.09);
+       vec2 cell=floor(drift);
+       vec2 point=fract(drift);
+       vec2 seed=vec2(hash(cell+depth*31.7),hash(cell+depth*71.3));
+       float radius=.055+depth*.026;
+       float flake=1.-smoothstep(radius*.35,radius, length(point-seed));
+       color=mix(color,vec3(.86,.95,1.),flake*(.34+depth*.20)*strength);
+     }
+   }
    gl_FragColor=vec4(color,1.);
  }`;
  const shader=(type,source)=>{const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s};
