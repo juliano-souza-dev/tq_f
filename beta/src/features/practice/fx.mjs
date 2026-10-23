@@ -1,10 +1,11 @@
 // Original apoio effects adapted for the Beta practice lifecycle.
 import {ALL_CHEST_ITEMS} from '../chests/catalog.mjs';
+import {storeSaleItems} from '../store/catalog.mjs';
 const raw='https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/';
 export const SUCCESS_FX=Object.freeze([
  {id:'fx_magic',name:'Explosão de Magia',asset:'papai-celebrate-02.png'},
  {id:'fx_papai',name:'Papai Comemorando',asset:'papai-celebrate-02.png'},
- ...ALL_CHEST_ITEMS.filter(item=>item.cat==='effect').map(item=>({id:item.id,name:item.name,asset:item.asset,rarity:item.rarity,source:'chest'}))
+ ...new Map([...ALL_CHEST_ITEMS.filter(item=>item.cat==='effect'),...storeSaleItems().filter(item=>item.cat==='effect')].map(item=>[item.id,{id:item.id,name:item.name,asset:item.asset,rarity:item.rarity,source:item.source||'chest'}])).values()
 ]);
 const villain=[
  ['vilao_erro_lottie/images/villain_error_01.png',0],
