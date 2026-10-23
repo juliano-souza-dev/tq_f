@@ -64,7 +64,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  const navStore=(()=>{try{return browser?.sessionStorage||null}catch{return null}})();
  let saved=null;
  try{saved=JSON.parse(navStore?.getItem(navKey)||'null')}catch{}
- const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests','vault','pets','daily'];
+ const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests','vault','collectibles','pets','daily'];
  if(saved?.profileId===profiles.active()?.id&&validScreens.includes(saved.screen)){
   screen=saved.screen;
   selectedWorld=Number.isInteger(saved.selectedWorld)&&saved.selectedWorld>=1&&saved.selectedWorld<=10?saved.selectedWorld:1;
@@ -131,6 +131,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?petsScreen(player,petSelectedId,petRescue):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'vault':
       root.innerHTML=player?chestInventoryScreen(player,vaultTab,vaultNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+    case 'collectibles':
+      root.innerHTML=player?chestInventoryScreen(player,'collectible','',true):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -260,7 +262,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      if(feature==='Recompensa diária'){dailyNotice='';dailyWeek=dailyState(profiles.active(),new Date(now())).week;navigate('daily');break;}
      if(feature==='Pets'){petRescue=null;navigate('pets');break;}
      if(feature==='Baús'){chestNotice='';navigate('chests');break;}
-     if(['Baú de itens','Colecionáveis','Molduras','Efeitos'].includes(feature)){
+     if(feature==='Colecionáveis'){navigate('collectibles');break;}
+     if(['Baú de itens','Molduras','Efeitos'].includes(feature)){
       vaultTab={'Baú de itens':'all','Colecionáveis':'collectible','Molduras':'frame','Efeitos':'effect'}[feature];
       vaultNotice='';navigate('vault');break;
      }
