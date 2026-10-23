@@ -19,6 +19,8 @@ import {practiceScreen,winScreen,featureScreen} from '../features/practice/view.
 import {equipSuccessFX,playPracticeFX} from '../features/practice/fx.mjs';
 import {mountPracticeWorldGL} from '../features/practice/scene-gl.mjs';
 import {chestsScreen} from '../features/chests/view.mjs';
+import {dailyScreen} from '../features/daily/view.mjs';
+import {dailyState,claimDaily} from '../features/daily/catalog.mjs';
 import {PETS,grantPetForTable,petFrames} from '../features/pets/catalog.mjs';
 import {petsScreen,mountPetAnimation} from '../features/pets/view.mjs';
 import {chestInventoryScreen} from '../features/chests/inventory.mjs';
@@ -33,6 +35,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let session=null;
  let result=null;
  let feature='';
+ let dailyWeek=0,dailyNotice='';
  let fashionNotice='';
  let wardrobeSelection=null;
  let wardrobeTab='fashion';
@@ -61,7 +64,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  const navStore=(()=>{try{return browser?.sessionStorage||null}catch{return null}})();
  let saved=null;
  try{saved=JSON.parse(navStore?.getItem(navKey)||'null')}catch{}
- const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests','vault','pets'];
+ const validScreens=['profiles','wardrobe','backgrounds','home','worlds','practice','win','feature','chests','vault','pets','daily'];
  if(saved?.profileId===profiles.active()?.id&&validScreens.includes(saved.screen)){
   screen=saved.screen;
   selectedWorld=Number.isInteger(saved.selectedWorld)&&saved.selectedWorld>=1&&saved.selectedWorld<=10?saved.selectedWorld:1;
@@ -120,6 +123,8 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       root.innerHTML=player?wardrobeScreen(player,fashionNotice,wardrobeSelection,wardrobeTab):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'backgrounds':
       root.innerHTML=player?backgroundsScreen(player,selectedBackground,backgroundNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+    case 'daily':
+      root.innerHTML=player?dailyScreen(player,dailyWeek,new Date(now()),dailyNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'chests':
       root.innerHTML=player?chestsScreen(player,chestOpening,chestNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'pets':
@@ -243,6 +248,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'leavePractice':session=null;navigate('worlds');break;
    case 'openFeature':
      feature=String(dataset.feature||'Em desenvolvimento');
+     if(feature==='Recompensa diária'){dailyNotice='';dailyWeek=dailyState(profiles.active(),new Date(now())).week;navigate('daily');break;}
      if(feature==='Pets'){petRescue=null;navigate('pets');break;}
      if(feature==='Baús'){chestNotice='';navigate('chests');break;}
      if(['Baú de itens','Colecionáveis','Molduras','Efeitos'].includes(feature)){
@@ -275,6 +281,15 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    case 'petRescueDone':{
     const id=petRescue?.id;if(id){profiles.updateActive(p=>{p.flags??={};p.flags.petRescueSeen??={};p.flags.petRescueSeen[id]=true;if(p.flags.petRescuePending===id)delete p.flags.petRescuePending});petSelectedId=id}
     petRescue=null;navigate('pets');break;
+   }
+   case 'dailyWeek':dailyWeek=Math.max(0,Math.min(4,dailyWeek+Number(dataset.shift||0)));render();break;
+   case 'dailyClaim':{
+     const p=profiles.active();if(!p)break;
+     const target=dailyState(p,new Date(now())).week;
+     if(dailyWeek!==target){dailyWeek=target;render();break;}
+     let granted=null;profiles.updateActive(player=>{granted=claimDaily(player,new Date(now()))});
+     dailyNotice=granted?'✨ '+granted.label:'Recompensa de hoje já coletada.';
+     dailyWeek=dailyState(profiles.active(),new Date(now())).week;render();break;
    }
    case 'vaultTab':
     vaultTab=['all','frame','background','effect','collectible'].includes(dataset.cat)?dataset.cat:'all';
