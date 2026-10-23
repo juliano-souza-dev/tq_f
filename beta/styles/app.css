@@ -589,3 +589,20 @@ body:has(.practice-scene-world-8){background-image:linear-gradient(#120b3d66,#1b
 .practice-scene-world-8 .practice-scene-progress{top:20.4%}
 .practice-scene-world-8 .practice-scene-question{top:40%;height:17.5%}
 .practice-scene-world-8 .practice-scene-answers{top:62%;height:19.4%}
+
+/* World 9 has a taller scenic area than the earlier art. Overlay controls follow
+   this image's real geometry, not the older 62%-answer layout. */
+body:has(.practice-scene-world-9){background-image:linear-gradient(#081a3570,#09295080),url("/tq_f/beta/assets/optimized/practice-world-9.webp")!important}
+.practice-scene-world-9 .practice-scene-art{aspect-ratio:982/1602}
+.practice-scene-world-9 .practice-scene-heading{display:none}
+.practice-scene-world-9 .practice-scene-coins{top:2.55%;left:83%;width:10%;height:3.3%;right:auto;color:#fff;font-size:clamp(.7rem,3.1cqw,1.04rem)}
+.practice-scene-world-9 .practice-scene-progress{top:56.3%;left:25%;width:50%;height:3.8%;overflow:visible}
+.practice-scene-world-9 .practice-scene-progress span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff5d5;text-shadow:0 2px 3px #122542;font-size:clamp(.62rem,2.5cqw,.95rem);z-index:2}
+.practice-scene-world-9 .practice-scene-progress i{left:1%;top:76%;height:6%;background:linear-gradient(90deg,#47c9fa,#c9f7ff);opacity:.6}
+.practice-scene-world-9 .practice-scene-question{top:62%;left:12%;width:76%;height:10.5%;color:#18447e}
+.practice-scene-world-9 .practice-scene-question h1{font-size:clamp(2rem,9cqw,3.7rem);text-shadow:0 2px 0 #c9edff}
+.practice-scene-world-9 .practice-scene-streak{color:#4675a7}
+.practice-scene-world-9 .practice-scene-answers{top:75.8%;left:7.3%;width:85.5%;height:17%;gap:4% 3%}
+.practice-scene-world-9 .practice-scene-answer{color:#fff;font-size:clamp(1.75rem,8cqw,3rem);text-shadow:0 2px 5px #031a40;border-radius:13%}
+.practice-scene-world-9 .practice-scene-feedback{top:92.8%;color:#c8f7ff}
+.practice-scene-world-9 .practice-fx-picker{top:22%;right:4%}
