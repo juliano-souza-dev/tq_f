@@ -12,7 +12,7 @@ export function petsScreen(profile,selectedId=1,rescue=null){
   <div class="pet-showcase-info"><div class="pet-selected-name">${esc(picked.name)} <span>${esc(picked.title)}</span></div>
    <div class="pet-status ${ok?'rescued':'locked'}">${ok?'RESGATADO':'SEQUESTRADO'}</div>
    <div class="pet-selected-desc">${ok?'<b>✨ Animado</b> '+esc(picked.desc):'<b>🔒 Portal '+picked.portal+'</b> Domine o <b>mapa '+picked.table+'</b> para libertar este pet.'}</div>
-   <button type="button" class="pet-watch-btn" data-action="petPlay" ${ok?'':'disabled'}>${ok?'🎮 Brincar':'🔒 Brincar bloqueado'}</button>
+   <button type="button" class="pet-watch-btn" data-action="${ok?'petPlay':'petMission'}" data-pet="${picked.id}">${ok?'🎮 Brincar':'🗺️ Jogar missão do Portal '+picked.portal}</button>
   </div>
  </div>
  <div class="pets-list-scroll"><div class="pets-grid">
