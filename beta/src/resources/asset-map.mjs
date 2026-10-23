@@ -1,3 +1,4 @@
+import {storeItem,storeAsset} from '../features/store/catalog.mjs';
 /* Manifesto de arte. Somente arquivos convertidos e registrados em lotes. */
 export const BATCH_001=Object.freeze([
  'home_new_logo','home_new_header','home_new_jogar','home_new_worlds',
@@ -52,7 +53,8 @@ export function equippedFrameUrl(profile){
  if(!id || !profile?.owned?.includes(id))return null;
  if(FRAME_FILES[id])return assetUrl(FRAME_FILES[id]);
  const file=LEGACY_CHEST_FRAME_ASSETS[id]||DAILY_ORIGINAL_FRAMES[id];
- return file?'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+encodeURIComponent(file):null;
+ if(file)return 'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+encodeURIComponent(file);
+ const purchased=storeItem(id);return purchased?.cat==='frame'?storeAsset(purchased):null;
 }
 export function fashionAssetUrl(avatar,skin='original'){
  const original=avatarUrl(avatar);
