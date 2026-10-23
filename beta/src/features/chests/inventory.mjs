@@ -5,6 +5,7 @@ import {assetUrl,equippedAvatarUrl} from '../../resources/asset-map.mjs';
 import {BACKGROUNDS,backgroundUrl} from '../backgrounds/catalog.mjs';
 import {SUCCESS_FX} from '../practice/fx.mjs';
 import {availableFrames} from '../wardrobe/view.mjs';
+import {storeSaleItems,storeAsset} from '../store/catalog.mjs';
 
 const VAULT_TABS=[['frame','Molduras','🖼️'],['background','Fundos','🏰'],['effect','Efeitos','✨']];
 const VAULT_ORIGINAL='https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/';
@@ -12,6 +13,7 @@ const vaultAssets=new Map([...ALL_CHEST_ITEMS,...DAILY_FRAMES,...DAILY_BONUS_BAC
 function vaultArtUrl(item){
  if(!item)return chestAsset('pack-magic.webp');
  if(item.cat==='background')return backgroundUrl(item);
+ if(item.source==='store')return storeAsset(item);
  if(vaultAssets.has(item.id))return chestAsset(item.asset);
  if(item.id==='frame_star')return assetUrl('frame-star.webp');
  if(item.id==='frame_floral')return assetUrl('frame-floral.webp');
@@ -21,9 +23,9 @@ function vaultArtUrl(item){
 }
 function vaultInventoryItems(profile,cat){
  const pool=cat==='frame'
-  ?[...availableFrames(profile).filter(x=>x.id).map(x=>vaultAssets.get(x.id)||({id:x.id,cat:'frame',asset:x.src,name:x.label,rarity:'Comum'})),...DAILY_FRAMES]
+  ?[...availableFrames(profile).filter(x=>x.id).map(x=>vaultAssets.get(x.id)||({id:x.id,cat:'frame',asset:x.src,name:x.label,rarity:'Comum'})),...DAILY_FRAMES,...storeSaleItems().filter(x=>x.cat==='frame')]
   :cat==='background'?[...BACKGROUNDS,...DAILY_BONUS_BACKGROUNDS]
-  :[...SUCCESS_FX,...ALL_CHEST_ITEMS.filter(x=>x.cat==='effect')];
+  :[...SUCCESS_FX,...ALL_CHEST_ITEMS.filter(x=>x.cat==='effect'),...storeSaleItems().filter(x=>x.cat==='effect')];
  const seen=new Set();
  return pool.filter(x=>x?.id&&!seen.has(x.id)&&seen.add(x.id)&&profile.owned?.includes(x.id)).map(x=>({...x,cat,name:x.name||x.label||'Item mágico'}));
 }
@@ -84,7 +86,7 @@ const collectionSourceLabel=item=>{
 export function collectionScreen(profile,selectedId=null,filter='all'){
  // Somente peças de coleção. "collection" indica apenas a série de um item,
  // portanto não inclui molduras, moda, fundos ou efeitos nesta galeria.
- const all=ALL_CHEST_ITEMS.filter(item=>item.cat==='collectible');
+ const all=[...new Map([...ALL_CHEST_ITEMS.filter(item=>item.cat==='collectible'),...storeSaleItems().filter(x=>x.cat==='collectible')].map(x=>[x.id,x])).values()];
  const owned=all.filter(item=>profile.owned?.includes(item.id));
  const pct=all.length?Math.round(owned.length/all.length*100):0;
  const rarities=[...new Set(all.map(item=>item.rarity).filter(Boolean))];
