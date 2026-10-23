@@ -606,3 +606,17 @@ body:has(.practice-scene-world-9){background-image:linear-gradient(#081a3570,#09
 .practice-scene-world-9 .practice-scene-answer{color:#27558e;text-shadow:0 2px 0 #fff8d5;border-radius:23%}
 .practice-scene-world-9 .practice-scene-feedback{top:83%;color:#ddfaff}
 .practice-scene-world-9 .practice-fx-picker{top:29%;right:4%}
+
+/* World 10: approved Enchanted Forest illustration and its exact interactive zones. */
+body:has(.practice-scene-world-10){background-image:linear-gradient(#173c2660,#114e5580),url("/tq_f/beta/assets/optimized/practice-world-10.webp")!important}
+.practice-scene-world-10 .practice-scene-art{aspect-ratio:941/1672}
+.practice-scene-world-10 .practice-scene-heading{display:none}
+.practice-scene-world-10 .practice-scene-coins{top:5.1%;right:8%;left:auto;width:13%;height:3%;color:#fff4b7}
+.practice-scene-world-10 .practice-scene-progress{top:24.7%;left:16%;width:68%;height:2.6%}
+.practice-scene-world-10 .practice-scene-progress span{top:-110%;left:50%;transform:translateX(-50%);color:#fff7cc;text-shadow:0 2px 4px #175b3c}
+.practice-scene-world-10 .practice-scene-question{top:42.4%;left:10%;width:80%;height:15.8%;color:#28633b}
+.practice-scene-world-10 .practice-scene-question h1{color:#28633b;text-shadow:0 2px 0 #fff5cb}
+.practice-scene-world-10 .practice-scene-answers{top:62.1%;left:6.3%;width:87.4%;height:18.6%;gap:9% 5%}
+.practice-scene-world-10 .practice-scene-answer{color:#28633b;text-shadow:0 2px 0 #fff5cb;border-radius:23%}
+.practice-scene-world-10 .practice-scene-feedback{top:83%;color:#e2ffe4}
+.practice-scene-world-10 .practice-fx-picker{top:29%;right:4%}
