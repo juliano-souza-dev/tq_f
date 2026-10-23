@@ -44,7 +44,7 @@ export function homeScreen(profile){
    <button type="button" class="play-button" data-action="worlds" aria-label="Jogar: abrir os mundos">
      ${image('jogar','play-art')}
    </button>
-   <button type="button" data-action="openFeature" data-feature="Baús" class="next-chest" aria-label="${chest.available?chest.available+' baú disponível':chest.into+' de '+chest.nextReq+' atividades para o próximo baú'}">
+   <button type="button" data-action="claimNextChest" class="next-chest" aria-label="${chest.available?chest.available+' baú disponível':chest.into+' de '+chest.nextReq+' atividades para o próximo baú'}">
       ${image('next_chest','next-chest-art')}
       <span class="next-chest-progress" role="progressbar" aria-label="Atividades para o próximo baú" aria-valuemin="0" aria-valuemax="${chest.nextReq}" aria-valuenow="${chest.into}">
         <progress class="next-chest-progress-fill" value="${chest.into}" max="${chest.nextReq}" aria-hidden="true"></progress>
