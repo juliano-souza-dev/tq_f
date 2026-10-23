@@ -622,3 +622,25 @@ body:has(.home-view) #app{position:relative;z-index:1}
 /* Cosmic sky behind avatar and HUD: meteors never cross in front of characters. */
 .home-view>.background-webgl-layer.cosmic-scene{z-index:0;pointer-events:none;opacity:.96}
 .home-view>.background-webgl-layer.cosmic-scene~*{position:relative;z-index:1}
+
+/* Recompensas coletáveis: a bolinha vermelha é vinculada ao estado real da recompensa. */
+.home-view .home-menu .home-tile{position:relative;overflow:visible}
+.home-view .home-reward-dot{
+ position:absolute;z-index:25;top:2%;right:4%;
+ width:clamp(13px,3.3vw,21px);height:clamp(13px,3.3vw,21px);
+ display:block;border-radius:50%;pointer-events:none;
+ background:#ef233d;border:2px solid #fff8ee;
+ box-shadow:0 2px 4px #310c1980,0 0 0 2px #af122b55;
+}
+.home-view .next-chest{position:relative}
+.home-view .next-chest .next-chest-reward-dot{top:8%;right:8%;z-index:25}
+.home-view .next-chest-progress{
+ /* The number stays centered inside the purple progress track, not beside it. */
+ left:35.4%;right:auto;top:49%;width:39%;height:39%;
+ display:flex;align-items:center;justify-content:center;
+}
+.home-view .next-chest-progress .next-chest-counter{
+ position:static!important;display:block;transform:none!important;
+ width:100%;text-align:center;line-height:1;white-space:nowrap;
+ font-variant-numeric:tabular-nums;pointer-events:none;
+}
