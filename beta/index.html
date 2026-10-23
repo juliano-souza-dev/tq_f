@@ -16,7 +16,7 @@
  <link rel="icon" href="./icons/icon-192.png" type="image/png">
  <link rel="apple-touch-icon" href="./icons/icon-192.png">
  <link rel="preload" as="image" href="./assets/optimized/home_new_logo.webp">
- <link rel="stylesheet" href="./styles/app.css">
+ <link rel="stylesheet" href="./styles/app.css?v=20261023-rewards">
  <link rel="stylesheet" href="./styles/home.css?v=home-stage-v1">
  <link rel="stylesheet" href="./styles/fashion-reference.css">
  <link rel="stylesheet" href="./styles/backgrounds.css">
@@ -25,7 +25,7 @@
   addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA indisponível:',error)));
  }
  try{
-  await import('./src/app/app.mjs');
+  await import('./src/app/app.mjs?v=20261023-rewards');
  }catch(error){
   console.error('Falha ao iniciar Tabuada Quest:',error);
   document.getElementById('app').textContent='Não foi possível iniciar o jogo. Verifique a conexão e recarregue.';
