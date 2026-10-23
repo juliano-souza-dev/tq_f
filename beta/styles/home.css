@@ -644,3 +644,49 @@ body:has(.home-view) #app{position:relative;z-index:1}
  width:100%;text-align:center;line-height:1;white-space:nowrap;
  font-variant-numeric:tabular-nums;pointer-events:none;
 }
+
+/* Home mobile and desktop: keep artwork inside each actual grid cell.
+   Protect menu from old 6-column .home-tiles selectors. */
+.home-view .home-menu{position:relative;z-index:20;overflow:visible;grid-row:6;grid-column:1;min-width:0;min-height:0}
+.home-view .home-menu-top{
+ display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+ grid-template-rows:minmax(0,1fr)!important;
+ align-content:stretch;justify-items:stretch;
+ position:relative;z-index:2;min-width:0;min-height:0;
+ overflow:visible;
+}
+.home-view .home-menu-bottom{
+ display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ grid-template-rows:minmax(0,1fr)!important;
+ position:relative;z-index:2;min-height:0;overflow:visible;
+}
+.home-view .home-menu .home-tile,
+.home-view .home-menu .home-pet-tile-wrap{
+ position:relative!important;z-index:1;
+ display:flex!important;grid-column:auto!important;grid-row:auto!important;
+ width:100%!important;height:100%!important;min-width:0;min-height:0;
+ align-items:center;justify-content:center;overflow:visible;
+ padding:0!important;margin:0!important;
+}
+.home-view .home-menu .home-tile .tile-art{
+ display:block!important;position:relative!important;
+ width:100%!important;height:100%!important;
+ min-width:0;min-height:0;max-width:100%!important;max-height:100%!important;
+ object-fit:contain!important;object-position:center center!important;
+ transform:none!important;opacity:1!important;visibility:visible!important;
+}
+.home-view .home-menu .home-reward-dot{
+ top:0;right:1%;z-index:30;translate:none;transform:none;
+}
+.home-view .home-menu .home-pet-tile-wrap .home-tile{height:100%!important}
+.home-view .play-button{
+ position:relative;z-index:8;grid-row:4;display:grid!important;
+ align-items:center;justify-items:center;overflow:visible;opacity:1!important;
+}
+.home-view .play-button .play-art{
+ display:block!important;width:100%!important;height:100%!important;
+ object-fit:contain!important;opacity:1!important;
+}
+.home-view .next-chest{grid-row:5;z-index:9}
+.home-view .next-chest-progress{z-index:4}
+.home-view .next-chest-progress .next-chest-counter{position:relative!important;left:auto!important;top:auto!important}
