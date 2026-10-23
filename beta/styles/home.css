@@ -826,3 +826,21 @@ body:has(.home-view) #app{position:relative;z-index:1}
  .home-view .home-menu{row-gap:6px}
  .home-view .home-menu-bottom{gap:7px}
 }
+
+/* Segunda calibração: os painéis inferiores precisam ter presença visual
+   de pelo menos 80% dos destinos superiores, preservando sua arte panorâmica. */
+.home-view .home-menu{
+ grid-template-rows:minmax(0,48fr) minmax(0,52fr);
+ row-gap:clamp(4px,.8dvh,9px);
+}
+.home-view .home-menu-bottom{
+ gap:clamp(4px,1.2vw,9px);
+}
+.home-view .home-menu-bottom .home-tile .tile-art,
+.home-view .home-menu .home-pet-tile-wrap .home-tile .tile-art{
+ transform:scale(1.16)!important;
+ transform-origin:center center;
+}
+.home-view .home-menu .home-pet-count{
+ bottom:17%;left:20%;
+}
