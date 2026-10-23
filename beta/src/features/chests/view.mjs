@@ -37,7 +37,7 @@ export function chestsScreen(profile,opening=null,notice=''){
       src="${chestFrames(opening.def)[opening.phase==='opening'?0:5]}" alt="${escapeHTML(opening.def.name)}"></div>
     ${reward?`<div class="chest-gallery-reward show"><div class="chest-gallery-reward-title">${opening.def.kind==='mastery'?'Coleção de ×'+opening.def.table+' conquistada!':'Tesouros enviados ao perfil'}</div>
       <div class="chest-gallery-reward-grid">${reward.items.map(item=>`<div class="chest-gallery-reward-card">
-        <img src="${rewardAsset(item,profile)||chestAsset('coin.webp')}" alt="${escapeHTML(item.name)}" loading="lazy" onerror="this.onerror=null;this.src=\'${chestAsset('chest-inventor-frame-5.webp')}\'">
+        <img src="${rewardAsset(item,profile)||chestAsset('coin.webp')}" alt="${escapeHTML(item.name)}" loading="lazy" onerror="this.onerror=null;this.src=&quot;${chestAsset('chest-inventor-frame-5.webp')}&quot;">
         <b>${escapeHTML(item.name)}</b><span>${rewardTypeLabel(item)}</span>
        </div>`).join('')}</div></div>
       <button class="chest-gallery-done show" type="button" data-action="closeChest">Guardar tesouros</button>`:''}
