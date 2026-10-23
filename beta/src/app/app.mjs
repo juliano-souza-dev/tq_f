@@ -1,5 +1,5 @@
 import {createProfileStore} from '../core/profiles.mjs';
-import {WORLDS,worldState} from '../core/progression.mjs';
+import {WORLDS,worldState,chestProgress} from '../core/progression.mjs';
 import {createPractice,answerPractice,nextPractice,finishPractice} from '../core/practice.mjs';
 import {profilesScreen} from '../features/profiles/view.mjs';
 import {wardrobeScreen,availableFrames} from '../features/wardrobe/view.mjs';
@@ -252,7 +252,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      const ready=chestDefinitions(player).filter(def=>chestState(player,def)==='ready');
      chestNotice='';
      navigate('chests');
-     if(ready.length===1)act('openChest',{chest:ready[0].id});
+     if(ready.length===1&&chestProgress(player).available<=1)act('openChest',{chest:ready[0].id});
      break;
    }
    case 'openFeature':
