@@ -731,3 +731,35 @@ body:has(.home-view) #app{position:relative;z-index:1}
  max-width:145px;
  justify-self:center;
 }
+
+/* Bottom row follows the same five horizontal axes as the top row. */
+.home-view .home-menu-bottom{
+ width:100%;
+ margin:0;
+ display:grid!important;
+ grid-template-columns:repeat(5,minmax(0,1fr))!important;
+ gap:clamp(3px,1vw,7px);
+ justify-items:stretch;
+}
+.home-view .home-menu-bottom>.home-pet-tile-wrap{
+ grid-column:2!important;
+ width:100%!important;
+ max-width:none;
+}
+.home-view .home-menu-bottom>.home-tile[data-slot="items"]{
+ grid-column:4!important;
+ width:100%!important;
+ max-width:none;
+}
+.home-view .home-menu .home-pet-tile-wrap .home-tile,
+.home-view .home-menu-bottom>.home-tile[data-slot="items"]{
+ align-self:center;
+}
+.home-view .home-menu .home-pet-tile-wrap .home-tile .tile-art{
+ transform:translateY(-3px)!important;
+}
+.home-view .home-menu .home-pet-count{
+ top:0;right:-4%;
+ transform:translateY(-12%);
+ font-size:clamp(.58rem,2.2vw,.76rem);
+}
