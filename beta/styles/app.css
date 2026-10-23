@@ -815,3 +815,13 @@ body:has(.practice-scene-world-10){background-image:linear-gradient(#173c2660,#1
  .chests-overlay .chest-gallery-reward-card img{height:57px}
  .chests-overlay .chests-modal.chest-gallery-open-sheet{max-height:calc(100dvh - 12px);padding:8px}
 }
+
+/* Colecionáveis: somente a arte de fundo da implementação de apoio. */
+.chests-view.collectibles-view{
+ min-height:100dvh;
+ background:
+   linear-gradient(180deg,rgba(18,9,47,.22),rgba(18,9,47,.7)),
+   url("https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/collection-gallery-bg.webp") center center/cover fixed;
+}
+.collectibles-view .chests-header,.collectibles-view .chests-inventory-top,
+.collectibles-view .chests-gallery{position:relative;z-index:1}
