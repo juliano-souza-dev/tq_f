@@ -193,7 +193,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    return;
   }
   if(session.queue.length===0){
-   profiles.updateActive(player=>{result=finishPractice(session,player,now());const pet=grantPetForTable(player,session.table,1,now());if(pet)result.petRescue=pet.id;});
+   profiles.updateActive(player=>{result=finishPractice(session,player,now());const pet=grantPetForTable(player,session.table,session.portal||1,now());if(pet)result.petRescue=pet.id;});
    session=null;
    navigate('win');
   }else{
@@ -255,6 +255,16 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      break;
    case 'selectPet':petSelectedId=Number(dataset.pet)||1;render();break;
    case 'petsInfo':browser?.alert?.('Cada portal possui pets nas tabuadas 3, 7 e 10. O lendário final do Portal 10 é resgatado no mapa 9.');break;
+   case 'petMission':{
+    const pet=PETS.find(x=>x.id===Number(dataset.pet)||x.id===petSelectedId);
+    if(!pet||profiles.active()?.pets?.[String(pet.id)]?.rescued)break;
+    const state=worldState(profiles.active(),pet.table,now());
+    selectedWorld=pet.table;
+    session=createPractice(pet.table,state.id==='due'?'review':'learn',random,now());
+    session.portal=pet.portal;
+    navigate('practice');
+    break;
+   }
    case 'petPlay':{
     const pet=PETS.find(x=>x.id===petSelectedId);if(!pet||!profiles.active()?.pets?.[pet.id]?.rescued)break;
     const img=root.querySelector('[data-pet-showcase]');if(!img)break;
