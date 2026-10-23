@@ -80,16 +80,36 @@ export function practiceScreen(player,session){
 }
 export function winScreen(profile,result){
  const world=WORLDS[result.deck-1];
- return `<main class="win-view screen-stack">
-  <div class="win-panel"><div class="win-stars" aria-hidden="true">⭐ ✨ ⭐</div>
-   <span class="win-kicker">MUNDO ${result.deck} DOMINADO</span>
+ const newChest=result.unlockedChests||[];
+ const first=!!result.firstMastery;
+ const petName=result.petName||'';
+ const confetti=Array.from({length:34},(_,i)=>{
+  const angle=i*Math.PI*2/34,dist=35+(i%6)*10;
+  const x=Math.cos(angle)*dist,y=Math.sin(angle)*dist;
+  return `<i style="--x:${x.toFixed(1)}vw;--y:${y.toFixed(1)}vh;--delay:${(i%8)*0.07}s">${['⭐','✨','💎','🪙','🎉'][i%5]}</i>`;
+ }).join('');
+ return `<main class="lesson-reward-screen">
+  <div class="lesson-reward-rays" aria-hidden="true"></div>
+  <div class="lesson-reward-confetti" aria-hidden="true">${confetti}</div>
+  <section class="lesson-reward-card" role="status">
+   <div class="lesson-reward-crown" aria-hidden="true">🏆</div>
+   <span class="lesson-reward-kicker">${first?'TABUADA DOMINADA':'REVISÃO CONCLUÍDA'}</span>
    <h1>Incrível, ${escapeHTML(profile.name)}!</h1>
    <h2>${escapeHTML(world.name)}</h2>
-   <p>Você dominou dez multiplicações, acertando cada uma duas vezes seguidas!</p>
-   <div class="win-stats"><div><b>${result.correct}</b><span>Acertos</span></div><div><b>${result.wrong}</b><span>Tentativas extras</span></div><div><b>+${result.coins}</b><span>Moedas</span></div></div>
-   <button type="button" class="main-cta" data-action="worlds">🗺️ Voltar aos mundos</button>
-   <button type="button" class="secondary-cta" data-action="home">🏡 Ir para o início</button>
-  </div></main>`;
+   <p>${first?`A tabuada do ${result.deck} foi dominada! Você concluiu as dez multiplicações, acertando cada uma duas vezes seguidas.`:'Mais uma missão concluída! Seu aprendizado ficou ainda mais forte.'}</p>
+   <div class="lesson-reward-banner"><span>⭐</span><b>+50 XP</b><small>Recompensa da lição</small></div>
+   <div class="lesson-reward-stats">
+    <div><b>${result.correct}</b><span>ACERTOS</span></div>
+    <div><b>${result.wrong}</b><span>ERROS</span></div>
+    <div><b>+${result.coins}</b><span>MOEDAS</span></div>
+   </div>
+   ${first&&result.deck<10?`<div class="lesson-reward-unlock">🗺️ Nova tabuada desbloqueada: <b>${result.deck+1}</b></div>`:''}
+   ${newChest.length?`<div class="lesson-reward-unlock chest">🎁 ${newChest.length===1?'Novo baú disponível!':newChest.length+' novos baús disponíveis!'}</div>`:''}
+   ${petName?`<div class="lesson-reward-unlock pet">🐾 ${escapeHTML(petName)} está esperando pelo resgate!</div>`:''}
+   <button type="button" class="lesson-reward-continue" data-action="claimLessonRewards">${petName?'🐾 Resgatar meu pet':'✨ Continuar aventura'}</button>
+   ${newChest.length?`<button type="button" class="lesson-reward-chests" data-action="claimLessonChest">🎁 Ver baús conquistados</button>`:''}
+  </section>
+ </main>`;
 }
 export function featureScreen(player,feature){
  return `<main class="coming-view screen-stack">${topbar(player,{title:feature})}
