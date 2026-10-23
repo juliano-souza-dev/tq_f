@@ -1152,3 +1152,19 @@ body:has(.home-view) #app{position:relative;z-index:1}
  .home-view .hero-wallet{width:28%!important}
  .home-view .wallet-item{min-height:26px!important;padding:3px 5px!important}
 }
+
+
+/* Calibração: XP começa exatamente no eixo do nome/nível (não no centro da placa antiga). */
+.home-view .home-profile-xp,
+.home-view .home-profile-xp-number{
+ left:clamp(88px,25.4vw,116px)!important;
+ width:clamp(120px,34vw,150px)!important;
+ top:69%!important;height:14%!important;
+}
+@media(max-width:390px){
+ .home-view .home-profile-xp,
+ .home-view .home-profile-xp-number{
+  left:clamp(79px,25.4vw,99px)!important;
+  width:clamp(108px,34vw,133px)!important;
+ }
+}
