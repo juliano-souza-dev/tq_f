@@ -694,3 +694,40 @@ body:has(.home-view) #app{position:relative;z-index:1}
 .home-view .next-chest{grid-row:5;z-index:9}
 .home-view .next-chest-progress{z-index:4}
 .home-view .next-chest-progress .next-chest-counter{position:relative!important;left:auto!important;top:auto!important}
+
+/* Ritmo visual da home: respiro entre blocos, ícones inferiores agrupados
+   e contador de pets preso ao próprio ícone (não à coluna inteira). */
+.home-view .home-logo{
+ transform:scale(1.12);
+}
+.home-view .play-button{
+ width:min(88%,365px);
+}
+.home-view .next-chest{
+ width:96%;
+ justify-self:center;
+}
+.home-view .home-menu{
+ grid-template-rows:minmax(0,60fr) minmax(0,40fr);
+ row-gap:4px;
+}
+.home-view .home-menu-bottom{
+ width:min(74%,310px);
+ margin-inline:auto;
+ gap:clamp(12px,4vw,22px);
+}
+.home-view .home-menu .home-pet-tile-wrap{
+ max-width:145px;
+ justify-self:center;
+}
+.home-view .home-menu .home-pet-tile-wrap .home-tile{
+ width:100%!important;
+}
+.home-view .home-menu .home-pets-count{
+ top:4%;right:7%;
+ transform:translate(12%,-16%);
+}
+.home-view .home-menu-bottom>.home-tile{
+ max-width:145px;
+ justify-self:center;
+}
