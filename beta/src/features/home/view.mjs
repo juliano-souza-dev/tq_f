@@ -3,15 +3,20 @@ import {art,escapeHTML} from '../../components/ui.mjs';
 import {BACKGROUNDS,backgroundUrl} from '../backgrounds/catalog.mjs';
 import {masteredCount,level,experienceProgress,chestProgress} from '../../core/progression.mjs';
 import {petsSaved} from '../pets/catalog.mjs';
+import {dailyState} from '../daily/catalog.mjs';
+import {chestDefinitions,chestState} from '../chests/catalog.mjs';
 export function homeScreen(profile){
  const coin=Number(profile.coins||0),gems=Number(profile.gems||0);
+ const dailyReady=dailyState(profile).canClaim;
+ const chestsReady=chestDefinitions(profile).some(def=>chestState(profile,def)==='ready');
+ const rewardDot=name=>name==='daily'?dailyReady:name==='chests'?chestsReady:false;
  const chest=chestProgress(profile),mastered=masteredCount(profile),xp=experienceProgress(profile.xp);
  const amount=value=>new Intl.NumberFormat('pt-BR').format(value);
  const equippedAvatar=equippedAvatarUrl(profile);
  const equippedFrame=equippedFrameUrl(profile);
  const bg=BACKGROUNDS.find(x=>x.id===profile.equipped?.background && profile.owned?.includes(x.id));
  const image=(n,cls='',alt='')=>art(assetUrl('home_new_'+n+'.webp'),{className:cls,alt});
- const feature=(name,action,label)=>`<button class="home-tile" data-slot="${name}" type="button" data-action="${action}" ${action==='openFeature'?'data-feature="'+escapeHTML(label)+'"':''} aria-label="${escapeHTML(label)}">${image(name,'tile-art','')}${name==='pets'?'<span class="home-pet-count">'+petsSaved(profile)+'/30</span>':''}<span class="sr-only">${escapeHTML(label)}</span></button>`;
+ const feature=(name,action,label)=>`<button class="home-tile" data-slot="${name}" type="button" data-action="${action}" ${action==='openFeature'?'data-feature="'+escapeHTML(label)+'"':''} aria-label="${escapeHTML(label)}">${image(name,'tile-art','')}${rewardDot(name)?'<span class="home-reward-dot" aria-label="Recompensa disponível para coletar"></span>':''}${name==='pets'?'<span class="home-pet-count">'+petsSaved(profile)+'/30</span>':''}<span class="sr-only">${escapeHTML(label)}</span></button>`;
  return `<main class="home-view screen-stack" ${bg?"style=\"--player-bg:url("+backgroundUrl(bg)+")\"":""}>
    <div class="home-header" aria-label="Perfil e recursos da aventureira">
     <button class="hero-identity" type="button" data-action="profiles" aria-label="Trocar de aventureira">
@@ -43,6 +48,7 @@ export function homeScreen(profile){
    </button>
    <button type="button" data-action="openFeature" data-feature="Baús" class="next-chest" aria-label="${chest.available?chest.available+' baú disponível':chest.into+' de '+chest.nextReq+' atividades para o próximo baú'}">
       ${image('next_chest','next-chest-art')}
+      ${chestsReady?'<span class="home-reward-dot next-chest-reward-dot" aria-label="Baú pronto para abrir"></span>':''}
       <span class="next-chest-progress" role="progressbar" aria-label="Atividades para o próximo baú" aria-valuemin="0" aria-valuemax="${chest.nextReq}" aria-valuenow="${chest.into}">
         <progress class="next-chest-progress-fill" value="${chest.into}" max="${chest.nextReq}" aria-hidden="true"></progress>
         <span class="next-chest-counter">${chest.available?chest.available+' pronto'+(chest.available>1?'s':''):chest.into+' / '+chest.nextReq}</span>
