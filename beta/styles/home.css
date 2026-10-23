@@ -975,3 +975,93 @@ body:has(.home-view) #app{position:relative;z-index:1}
  .home-view .hero-wallet{right:6px}
  .home-view .wallet-item{min-height:25px;padding:2px 6px}
 }
+
+
+/* HUD como peças da aventura: placa de nome flutuante e duas moedas independentes.
+   Sem cartão retangular dominando a paisagem; a moldura personalizada fica intacta. */
+.home-view .home-header{
+ border:0!important;border-radius:0;background:transparent!important;
+ box-shadow:none!important;isolation:isolate;overflow:visible;
+}
+.home-view .home-header::before{
+ content:"";position:absolute;z-index:0;
+ left:clamp(41px,10.5vw,60px);top:13%;bottom:13%;right:30%;
+ border:3px solid #ffd66f;border-radius:19px 24px 22px 14px;
+ background:linear-gradient(165deg,rgba(94,38,157,.96),rgba(52,19,104,.96));
+ box-shadow:inset 0 2px 0 #fff3b680,inset 0 0 0 2px #ba7af866,
+ 0 4px 0 #a45c25,0 8px 12px #20114966;
+ transform:skewX(-5deg);
+ pointer-events:none;
+}
+.home-view .home-header::after{
+ content:"✦";position:absolute;z-index:1;top:7%;left:66%;
+ border:0;inset:auto;border-radius:0;
+ font-size:clamp(12px,3.6vw,19px);color:#ffe58c;text-shadow:0 0 8px #ffc846;
+ pointer-events:none;
+}
+.home-view .hero-identity{
+ position:absolute;z-index:3;left:0;top:0;width:73%;height:100%;
+ align-items:center;overflow:visible;gap:0;
+}
+.home-view .hero-portrait{
+ z-index:5;align-self:center;flex:none;
+ width:clamp(90px,27vw,128px);height:clamp(90px,27vw,128px);
+ margin:0 -2px 0 -9px;
+ filter:drop-shadow(0 4px 4px #21104488);
+}
+.home-view .hero-portrait-window{inset:15%}
+.home-view .hero-identity-info{
+ position:relative;z-index:3;display:flex;flex-flow:column nowrap;
+ align-items:flex-start;justify-content:center;
+ min-width:0;width:calc(100% - 102px);height:100%;
+ padding:0 0 10px 0;gap:6px;
+ color:#fff8d6;
+}
+.home-view .hero-identity-info strong{
+ color:#fff6c7;font-size:clamp(.96rem,4.2vw,1.45rem);
+ max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+ text-shadow:0 2px 0 #50218b,0 3px 5px #26084f;
+}
+.home-view .hero-identity-info .home-level{
+ margin:0;padding:3px 8px;border:2px solid #ffe7a0;
+ border-radius:999px;background:linear-gradient(#29cde9,#087cab);
+ box-shadow:0 2px 0 #11527d;font-size:clamp(.55rem,2vw,.68rem);
+}
+.home-view .home-profile-xp{
+ z-index:4;left:33%;top:70%;width:32%;height:12%;
+ border:2px solid #e8c06e;border-radius:999px;
+ background:#291153;box-shadow:0 2px 0 #391460;
+}
+.home-view .home-profile-xp-number{
+ z-index:5;left:33%;top:70%;width:32%;height:12%;
+ font-size:clamp(.55rem,2.15vw,.73rem);
+}
+.home-view .hero-wallet{
+ z-index:4;position:absolute;right:0;top:50%;
+ transform:translateY(-50%);width:28%;min-width:0;max-width:none;
+ gap:clamp(7px,1.5dvh,14px);justify-items:stretch;
+}
+.home-view .wallet-item{
+ position:relative;min-width:0;width:100%;min-height:31px;
+ border:2px solid #ffe7a1;border-radius:13px 22px 22px 13px;
+ padding:5px 9px 5px 4px;gap:5px;
+ justify-content:space-evenly;
+ background:linear-gradient(145deg,#ffec99,#f4b846 62%,#db902d);
+ box-shadow:inset 0 2px 0 #fff9d2,0 4px 0 #a55f1c,0 6px 8px #28104d66;
+ color:#633071;font-weight:1000;
+ font-size:clamp(.66rem,2.85vw,.96rem);
+}
+.home-view .wallet-item::before{
+ content:"";position:absolute;inset:3px;border:1px solid #d3923c66;
+ border-radius:10px 18px 18px 10px;pointer-events:none;
+}
+.home-view .wallet-coin{width:clamp(18px,5vw,26px);height:clamp(18px,5vw,26px)}
+.home-view .wallet-gem{width:clamp(15px,4.5vw,22px);height:clamp(15px,4.5vw,22px)}
+@media(max-width:390px){
+ .home-view .hero-portrait{width:clamp(79px,25vw,103px);height:clamp(79px,25vw,103px)}
+ .home-view .hero-identity-info{width:calc(100% - 80px);gap:3px;padding-bottom:7px}
+ .home-view .hero-wallet{right:0;width:28%;gap:7px}
+ .home-view .wallet-item{min-height:27px;padding:3px 4px;font-size:clamp(.62rem,2.65vw,.82rem)}
+ .home-view .home-header::before{right:28%;left:37px}
+ .home-view .home-profile-xp,.home-view .home-profile-xp-number{left:34%;width:32%;top:71%;height:12%}
+}
