@@ -870,3 +870,108 @@ body:has(.home-view) #app{position:relative;z-index:1}
  color:#fff;
  text-shadow:0 2px 1px #281044;
 }
+
+/* Perfil do Aventureiro: HUD integrado à fantasia do jogo.
+   A moldura do avatar segue equipada por ID; nunca é recortada pelo painel. */
+.home-view .home-header{
+ overflow:visible;
+ isolation:isolate;
+ border:3px solid #ffe399;
+ border-radius:24px 27px 27px 24px;
+ background:
+  radial-gradient(ellipse at 32% -20%,rgba(217,143,255,.48),transparent 65%),
+  linear-gradient(120deg,rgba(91,34,164,.96),rgba(62,21,124,.97) 57%,rgba(43,15,99,.98));
+ box-shadow:inset 0 0 0 2px #b978e16b,inset 0 3px 0 #fff4bd88,
+ 0 6px 0 #a56526,0 10px 18px #16074099;
+}
+.home-view .home-header::before{
+ content:"✦";position:absolute;z-index:-1;top:3px;right:8px;
+ font-size:20px;color:#ffe898;opacity:.82;text-shadow:0 0 8px #ffd35c;
+ pointer-events:none;
+}
+.home-view .home-header::after{
+ content:"";position:absolute;z-index:-1;inset:7px;
+ border:1px solid rgba(255,220,132,.53);
+ border-radius:17px 20px 20px 17px;
+ pointer-events:none;
+}
+.home-view .hero-identity{
+ left:0;top:0;width:76%;height:100%;
+ overflow:visible;align-items:flex-start;
+}
+.home-view .hero-portrait{
+ z-index:6;overflow:visible;
+ width:clamp(82px,25vw,122px);
+ height:clamp(82px,25vw,122px);
+ margin:-3px 3px -3px -12px;
+ filter:drop-shadow(0 6px 6px #1708379e);
+}
+.home-view .hero-portrait-window{
+ inset:15%;border-color:#f5d17e;
+}
+.home-view .hero-portrait-frame,
+.home-view .hero-portrait-frame-default{
+ overflow:visible;
+}
+.home-view .hero-identity-info{
+ position:relative;z-index:2;
+ padding-top:clamp(10px,2.4vh,21px);
+ padding-left:0;
+ gap:4px;min-width:0;
+ color:#fff3d4;text-shadow:0 2px 2px #2c0d68;
+}
+.home-view .hero-identity-info strong{
+ color:#fff2c1;
+ font-size:clamp(1.06rem,4.8vw,1.58rem);
+ text-shadow:0 2px 0 #542089,0 3px 5px #16042e;
+}
+.home-view .hero-identity-info .home-level{
+ padding:3px 8px;
+ border:2px solid #ffe29c;
+ background:linear-gradient(180deg,#33c9eb,#137bbd);
+ box-shadow:0 3px 0 #174885,0 0 9px #74f1ff45;
+ font-size:clamp(.55rem,2.3vw,.75rem);
+}
+.home-view .home-profile-xp{
+ top:63%;left:36%;width:35%;height:17%;
+ border:3px solid #e6ad4c;
+ background:#28144e;
+ box-shadow:0 2px 0 #4e1b77,inset 0 2px 4px #100b42;
+}
+.home-view .home-profile-xp::-webkit-progress-bar{background:#28144e}
+.home-view .home-profile-xp::-webkit-progress-value{
+ background:linear-gradient(90deg,#11b9df,#58e3c0 75%,#adffcf);
+}
+.home-view .home-profile-xp::-moz-progress-bar{
+ background:linear-gradient(90deg,#11b9df,#58e3c0 75%,#adffcf);
+}
+.home-view .home-profile-xp-number{
+ top:63%;left:36%;width:35%;height:17%;
+ font-size:clamp(.6rem,2.5vw,.82rem);
+}
+.home-view .hero-wallet{
+ right:9px;top:53%;transform:translateY(-50%);
+ min-width:24%;max-width:28%;
+ border:0;border-radius:0;
+ background:transparent;box-shadow:none;
+ gap:clamp(5px,1vh,10px);padding:0;
+}
+.home-view .wallet-item{
+ min-width:100%;min-height:29px;
+ justify-content:flex-end;
+ gap:5px;padding:4px 9px 4px 5px;
+ border:2px solid #d39a47;border-radius:999px;
+ background:linear-gradient(180deg,#fff2c3,#edc46e);
+ box-shadow:inset 0 1px 0 #fff9d9,0 3px 0 #855023;
+ color:#503071;
+ font-size:clamp(.67rem,3vw,.94rem);
+ text-shadow:none;
+}
+.home-view .wallet-coin{width:21px;height:21px}
+.home-view .wallet-gem{width:17px;height:17px}
+@media(max-width:390px){
+ .home-view .hero-portrait{width:clamp(75px,25vw,103px);height:clamp(75px,25vw,103px)}
+ .home-view .hero-identity-info{padding-top:10px}
+ .home-view .hero-wallet{right:6px}
+ .home-view .wallet-item{min-height:25px;padding:2px 6px}
+}
