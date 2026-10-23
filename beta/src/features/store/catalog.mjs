@@ -131,7 +131,8 @@ export const STORE_TAB_META=Object.freeze({all:'Escolhas mágicas para começar.
 export const STORE_TYPE_LABEL=Object.freeze({frame:'Moldura',background:'Fundo',collectible:'Colecionável',effect:'Efeito',package:'Pacote'});
 export const storeItem=id=>STORE_CATALOG.find(x=>x.id===id)||null;
 export const storeSaleItems=()=>STORE_CATALOG.filter(x=>x.shop!==false);
-export const storeAsset=item=>item?.asset?'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+encodeURIComponent(item.asset):'';
+export const STORE_MISSING_ASSET_FALLBACK=Object.freeze({'fx-confetti.webp':'collect-wand.webp','fx-numbers.png':'frame-numbers.webp','fx-constellation.png':'bg-constellation.webp','fx-goldburst.png':'collect-medal.webp','chest-fx-treasure-burst.png':'pack-magic.webp','chest-fx-pirate-stars.png':'collect-medal.webp','chest-fx-sea-vortex.png':'bg-beach.webp'});
+export const storeAsset=item=>item?.asset?'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+encodeURIComponent(STORE_MISSING_ASSET_FALLBACK[item.asset]||item.asset):'';
 export function buyStoreItem(profile,id){
  const product=storeItem(id);if(!product||product.shop===false)return {reason:'not-for-sale'};
  profile.owned??=[];profile.coins=Number(profile.coins||0);
