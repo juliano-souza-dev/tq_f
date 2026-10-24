@@ -17,7 +17,27 @@ function productCard(profile,item){
   <div class="item-footer">${price}<button class="buy ${owned?'owned':''}" type="button" data-action="storeBuy" data-item="${escapeHTML(item.id)}">${label}</button></div>
  </article>`;
 }
-export function storeScreen(profile,tab='all',notice=''){
+
+function bundleDetails(profile,id){
+ const bundle=storeItem(id);
+ if(!bundle?.bundle)return '';
+ const products=bundle.bundle.map(storeItem).filter(Boolean);
+ return `<div class="store-bundle-overlay" role="dialog" aria-modal="true" aria-labelledby="store-bundle-title">
+   <div class="store-bundle-panel">
+    <button class="store-bundle-close" type="button" data-action="storePackClose" aria-label="Fechar detalhes">✕</button>
+    <span class="store-bundle-kicker">✨ TESOUROS CONQUISTADOS</span>
+    <h2 id="store-bundle-title">${escapeHTML(bundle.name)}</h2>
+    <p>Os itens deste pacote pertencem ao seu perfil. Toque em um deles para vê-lo no lugar certo.</p>
+    <div class="store-bundle-items">${products.map(x=>`<button type="button" class="store-bundle-item" data-action="storePackItem" data-item="${escapeHTML(x.id)}" data-cat="${escapeHTML(x.cat)}">
+       <img src="${itemImage(x)}" alt="">
+       <span><strong>${escapeHTML(x.name)}</strong><small>${escapeHTML(STORE_TYPE_LABEL[x.cat]||x.cat)} · ${own(profile,x.id)?'✓ Adquirido':'Ainda bloqueado'}</small></span>
+       <b aria-hidden="true">›</b>
+     </button>`).join('')}</div>
+    <button class="store-bundle-done" type="button" data-action="storePackClose">Voltar à loja</button>
+   </div>
+ </div>`;
+}
+export function storeScreen(profile,tab='all',notice='',selectedPack=null){
  const selected=STORE_TABS.some(x=>x[0]===tab)?tab:'all';
  const sale=storeSaleItems(),hero=storeItem('pack_magic');
  const list=selected==='all'?sale.filter(x=>['frame','background','collectible','effect'].includes(x.cat)).slice(0,12):sale.filter(x=>x.cat===selected);
@@ -42,5 +62,5 @@ export function storeScreen(profile,tab='all',notice=''){
  <div class="store-tabs-wrap"><div class="tabs" role="tablist">${STORE_TABS.map(([id,title])=>`<button type="button" class="tab ${id===selected?'active':''}" data-action="storeTab" data-tab="${id}" role="tab" aria-selected="${id===selected}">${escapeHTML(title)}</button>`).join('')}</div></div>
  <div class="store-shelf-head"><div><h2>${selected==='all'?'Destaques':STORE_TABS.find(x=>x[0]===selected)?.[1]}</h2><p>${escapeHTML(STORE_TAB_META[selected])}</p></div><span class="shelf-count">${list.length} ITENS</span></div>
  <div class="shop-grid">${list.map(x=>productCard(profile,x)).join('')}</div>
- </section></main>`;
+ </section>${selectedPack?bundleDetails(profile,selectedPack):''}</main>`;
 }
