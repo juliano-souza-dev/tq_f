@@ -391,6 +391,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       if(product.cat==='collectible'){collectionSelectedId=id;navigate('collectibles');break;}
       storeNotice='Esse pacote já foi adquirido.';
     }else if(purchase?.reason==='insufficient-coins')storeNotice='Faltam '+purchase.missing+' moedas para este tesouro.';
+    else if(purchase?.reason==='insufficient-gems')storeNotice='Faltam '+purchase.missing+' rubis para este tesouro.';
     else if(purchase?.reason==='purchased'){
       storeNotice=product.bundle?'✨ Pacote aberto! Seus tesouros estão na coleção e no Baú de Itens.':product.cat==='collectible'?'✨ Novo colecionável adicionado à sua coleção!':'✨ Compra concluída! Item enviado ao Baú de Itens.';
       if(product.bundle)storePackage=id;
