@@ -34,6 +34,15 @@ function normalizeProfile(p,family,createId){
   flags.pets30Migrated=true;
  }
  flags.petRescueSeen=flags.petRescueSeen||{};
+ // Corrige somente os perfis ainda intocados que herdaram o saldo
+ // de demonstração antigo (10.000 moedas / 45 rubis).
+ const wasDemoSeed=number(p.coins)===10000&&number(p.gems)===45
+  &&number(p.xp)===0&&number(p.stats?.sessions)===0
+  &&!Object.values(tables).some(t=>Number(t?.masteredAt)>0)
+  &&(!Array.isArray(p.history)||p.history.length===0)
+  &&(p.owned||[]).every(id=>['fx_magic','fx_papai'].includes(id));
+ if(wasDemoSeed){p={...p,coins:0,gems:0};}
+
 
  // Versões anteriores do APK guardavam conquistas em stats.masteredDecks.
  // Se ainda não houver a marca mais nova, preservamos o fato já dominado.
