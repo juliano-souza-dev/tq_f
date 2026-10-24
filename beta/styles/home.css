@@ -1172,3 +1172,17 @@ body:has(.home-view) #app{position:relative;z-index:1}
 /* Alinhamento óptico validado pela captura Android: início do XP no eixo do nome. */
 .home-view .home-profile-xp,.home-view .home-profile-xp-number{left:clamp(79px,23vw,104px)!important}
 @media(max-width:390px){.home-view .home-profile-xp,.home-view .home-profile-xp-number{left:clamp(76px,23vw,91px)!important}}
+
+
+/* Retrato do perfil: rosto inteiro dentro da abertura útil das molduras decoradas.
+   A imagem fica atrás do asset de moldura, mas sem ocultar olhos sob o adorno superior. */
+.home-view .hero-portrait-window{
+ inset:15%!important;
+ overflow:hidden!important;
+ border-radius:50%!important;
+}
+.home-view .hero-portrait-face{
+ transform:scale(2.52) translateY(33%)!important;
+ transform-origin:center center!important;
+ object-position:50% 50%!important;
+}
