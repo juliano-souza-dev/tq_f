@@ -3,7 +3,7 @@ export const STORE_CATALOG=[
 {id:'pack_magic',cat:'package',asset:'pack-magic.webp',name:'Pacote Mágico',price:300,rarity:'Lendário',bundle:['frame_rainbow','frame_star','bg_space','fx_confetti','collect_wand']},
 {id:'frame_rainbow',cat:'frame',asset:'frame-rainbow.webp',name:'Moldura Arco-íris',price:80,rarity:'Raro'},
 {id:'frame_star',cat:'frame',asset:'frame-star.webp',name:'Moldura Estelar',price:95,rarity:'Épico'},
-{id:'frame_champion',cat:'frame',asset:'frame-champion.webp',name:'Moldura Campeã',price:130,rarity:'Lendário'},
+{id:'frame_champion',cat:'frame',asset:'frame-champion.webp',name:'Moldura Campeã',price:130,gemPrice:3,rarity:'Lendário'},
 {id:'frame_floral',cat:'frame',asset:'frame-floral.webp',name:'Moldura Flores',price:90,rarity:'Raro'},
 {id:'frame_pet_fox_autumn',cat:'frame',asset:'frame-pet-fox-autumn.png',name:'Raposa de Outono',price:150,fixedPrice:150,rarity:'Épico',source:'store'},
 {id:'frame_pet_bear_honey',cat:'frame',asset:'frame-pet-bear-honey.png',name:'Ursinha do Mel',price:150,fixedPrice:150,rarity:'Épico',source:'store'},
@@ -16,7 +16,7 @@ export const STORE_CATALOG=[
 {id:'frame_pet_panda_bamboo',cat:'frame',asset:'frame-pet-panda-bamboo.png',name:'Panda de Bambu',price:150,fixedPrice:150,rarity:'Épico',source:'store'},
 {id:'frame_pet_puppy_friendship',cat:'frame',asset:'frame-pet-puppy-friendship.png',name:'Cãozinho da Amizade',price:150,fixedPrice:150,rarity:'Épico',source:'store'},
 {id:'frame_panda_bamboo_guardian',cat:'frame',asset:'frame-panda-bamboo-guardian.png',name:'Guardião Panda de Bambu',price:150,fixedPrice:150,rarity:'Épico',source:'store'},
-{id:'frame_panda_ninja',cat:'frame',asset:'frame-panda-ninja.png',name:'Panda Ninja das Marés',price:150,fixedPrice:150,rarity:'Épico',source:'store'},
+{id:'frame_panda_ninja',cat:'frame',asset:'frame-panda-ninja.png',name:'Panda Ninja das Marés',price:150,gemPrice:4,fixedPrice:150,rarity:'Épico',source:'store'},
 {id:'frame_panda_cosmic',cat:'frame',asset:'frame-panda-cosmic.png',name:'Panda do Infinito Cósmico',price:0,rarity:'Oculto',shop:false,source:'mastery12'},
 {id:'frame_infinity_sensei',cat:'frame',asset:'frame-infinity-sensei.png',name:'Sensei do Infinito',price:0,rarity:'Oculto',shop:false,source:'mastery12'},
 {id:'frame_infinity_crystal',cat:'frame',asset:'frame-infinity-crystal.png',name:'Cristal do Infinito',price:0,rarity:'Oculto',shop:false,source:'mastery12'},
@@ -46,16 +46,16 @@ export const STORE_CATALOG=[
 {id:'fx_rainbow',cat:'effect',asset:'frame-rainbow.webp',name:'Onda Arco-Íris',price:120,rarity:'Épico',fx:'rainbow'},
 {id:'fx_portal',cat:'effect',asset:'collect-potion.webp',name:'Portal Encantado Supremo',price:150,rarity:'Lendário',fx:'portal'},
 {id:'fx_crown',cat:'effect',asset:'collect-medal.webp',name:'Coroa da Vitória',price:180,rarity:'Lendário',fx:'crown'},
-{id:'collect_ball',cat:'collectible',asset:'collect-ball.webp',name:'Bola Mágica',price:55,rarity:'Raro'},
-{id:'collect_wand',cat:'collectible',asset:'collect-wand.webp',name:'Varinha Estelar',price:100,rarity:'Épico'},
+{id:'collect_ball',cat:'collectible',asset:'collect-ball.webp',name:'Bola Mágica',price:55,gemPrice:1,rarity:'Raro'},
+{id:'collect_wand',cat:'collectible',asset:'collect-wand.webp',name:'Varinha Estelar',price:100,gemPrice:2,rarity:'Épico'},
 {id:'collect_potion',cat:'collectible',asset:'collect-potion.webp',name:'Poção Estelar',price:80,rarity:'Épico'},
 {id:'collect_gift',cat:'collectible',asset:'collect-gift.webp',name:'Presente Mágico',price:95,rarity:'Épico'},
-{id:'collect_medal',cat:'collectible',asset:'collect-medal.webp',name:'Medalha Estelar',price:110,rarity:'Lendário'},
+{id:'collect_medal',cat:'collectible',asset:'collect-medal.webp',name:'Medalha Estelar',price:110,gemPrice:3,rarity:'Lendário'},
 {id:'collect_apple',cat:'collectible',asset:'collect-apple.webp',name:'Maçã Mágica',price:45,rarity:'Comum'},
 {id:'collect_cookie',cat:'collectible',asset:'collect-cookie.webp',name:'Biscoito Estelar',price:45,rarity:'Comum'},
 {id:'collect_carrot',cat:'collectible',asset:'collect-carrot.webp',name:'Cenoura Mágica',price:45,rarity:'Comum'},
 {id:'collect_cloud_bed',cat:'collectible',asset:'collect-cloud-bed.webp',name:'Cama Nuvem',price:85,rarity:'Raro'},
-{id:'collect_moon_bed',cat:'collectible',asset:'collect-moon-bed.webp',name:'Cama Lua',price:95,rarity:'Épico'},
+{id:'collect_moon_bed',cat:'collectible',asset:'collect-moon-bed.webp',name:'Cama Lua',price:95,gemPrice:2,rarity:'Épico'},
 {id:'frame_numbers',cat:'frame',asset:'frame-numbers.png',name:'Moldura Números Dourados',price:145,rarity:'Épico'},
 {id:'frame_crystal',cat:'frame',asset:'frame-crystal.png',name:'Moldura Cristal Violeta',price:165,rarity:'Épico'},
 {id:'frame_moon',cat:'frame',asset:'frame-moon.png',name:'Moldura Lua Matemática',price:180,rarity:'Lendário'},
@@ -112,7 +112,7 @@ export const STORE_CATALOG=[
 {id:'chest_bg_number_desert',cat:'background',asset:'chest-bg-number-desert.png',name:'Deserto dos Números',price:0,rarity:'Baú',shop:false,source:'chest'},
 {id:'chest_bg_pirate_island',cat:'background',asset:'chest-bg-pirate-island.png',name:'Ilha dos Navegadores',price:210,rarity:'Épico',shop:true,source:'store',collection:'aventura_pirata'},
 {id:'chest_bg_pirate_harbor',cat:'background',asset:'chest-bg-pirate-harbor.png',name:'Porto dos Aventureiros',price:225,rarity:'Épico',shop:true,source:'store',collection:'aventura_pirata'},
-{id:'chest_bg_treasure_cave',cat:'background',asset:'chest-bg-treasure-cave.png',name:'Gruta do Tesouro',price:250,rarity:'Lendário',shop:true,source:'store',collection:'aventura_pirata'},
+{id:'chest_bg_treasure_cave',cat:'background',asset:'chest-bg-treasure-cave.png',name:'Gruta do Tesouro',price:250,gemPrice:4,rarity:'Lendário',shop:true,source:'store',collection:'aventura_pirata'},
 {id:'chest_fx_golden_spark',cat:'effect',asset:'chest-fx-golden-spark.png',name:'Faísca Dourada',price:0,rarity:'Baú',shop:false,source:'chest',fx:'asset'},
 {id:'chest_fx_star_rain',cat:'effect',asset:'chest-fx-star-rain.png',name:'Chuva de Estrelas',price:0,rarity:'Baú',shop:false,source:'chest',fx:'asset'},
 {id:'chest_fx_number_confetti',cat:'effect',asset:'chest-fx-number-confetti.png',name:'Confete Numérico',price:0,rarity:'Baú',shop:false,source:'chest',fx:'asset'},
@@ -125,7 +125,7 @@ export const STORE_CATALOG=[
 {id:'chest_fx_math_hearts',cat:'effect',asset:'chest-fx-math-hearts.png',name:'Corações Matemáticos',price:0,rarity:'Baú',shop:false,source:'chest',fx:'asset'},
 {id:'chest_fx_treasure_burst',cat:'effect',asset:'chest-fx-treasure-burst.png',name:'Explosão do Tesouro',price:170,rarity:'Épico',shop:true,source:'store',collection:'aventura_pirata',fx:'asset'},
 {id:'chest_fx_pirate_stars',cat:'effect',asset:'chest-fx-pirate-stars.png',name:'Estrelas dos Navegadores',price:185,rarity:'Épico',shop:true,source:'store',collection:'aventura_pirata',fx:'asset'},
-{id:'chest_fx_sea_vortex',cat:'effect',asset:'chest-fx-sea-vortex.png',name:'Redemoinho do Tesouro',price:210,rarity:'Lendário',shop:true,source:'store',collection:'aventura_pirata',fx:'asset'}];
+{id:'chest_fx_sea_vortex',cat:'effect',asset:'chest-fx-sea-vortex.png',name:'Redemoinho do Tesouro',price:210,gemPrice:3,rarity:'Lendário',shop:true,source:'store',collection:'aventura_pirata',fx:'asset'}];
 export const STORE_TABS=Object.freeze([['all','Destaques','✨'],['frame','Molduras','🖼️'],['background','Fundos','🏰'],['collectible','Colecionáveis','💎'],['effect','Efeitos','🎆'],['package','Pacotes','🎁']]);
 export const STORE_TAB_META=Object.freeze({all:'Escolhas mágicas para começar.',frame:'Molduras para destacar seu perfil.',background:'Cenários para transformar sua Home.',collectible:'Tesouros para completar sua coleção.',effect:'Celebrações especiais para seus acertos.',package:'Pacotes com várias recompensas.'});
 export const STORE_TYPE_LABEL=Object.freeze({frame:'Moldura',background:'Fundo',collectible:'Colecionável',effect:'Efeito',package:'Pacote'});
@@ -135,10 +135,17 @@ export const STORE_MISSING_ASSET_FALLBACK=Object.freeze({'fx-confetti.webp':'col
 export const storeAsset=item=>item?.asset?'https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/'+encodeURIComponent(STORE_MISSING_ASSET_FALLBACK[item.asset]||item.asset):'';
 export function buyStoreItem(profile,id){
  const product=storeItem(id);if(!product||product.shop===false)return {reason:'not-for-sale'};
- profile.owned??=[];profile.coins=Number(profile.coins||0);
+ profile.owned??=[];profile.coins=Number(profile.coins||0);profile.gems=Number(profile.gems||0);
  if(profile.owned.includes(id))return {reason:'owned',item:product};
- if(profile.coins<product.price)return {reason:'insufficient-coins',missing:product.price-profile.coins};
- profile.coins-=product.price;profile.owned.push(id);
+ const rubyPrice=Number(product.gemPrice||0);
+ if(rubyPrice>0){
+  if(profile.gems<rubyPrice)return {reason:'insufficient-gems',missing:rubyPrice-profile.gems};
+  profile.gems-=rubyPrice;
+ }else{
+  if(profile.coins<product.price)return {reason:'insufficient-coins',missing:product.price-profile.coins};
+  profile.coins-=product.price;
+ }
+ profile.owned.push(id);
  for(const bundleId of product.bundle||[])if(!profile.owned.includes(bundleId))profile.owned.push(bundleId);
  return {reason:'purchased',item:product};
 }
