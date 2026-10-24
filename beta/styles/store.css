@@ -16,3 +16,15 @@
 .store-bundle-item small{display:block;color:#795592;font-size:10px;margin-top:4px}
 .store-bundle-item b{font-size:25px}
 .store-bundle-done{padding:12px;border:2px solid #fff1b3;border-radius:16px;background:linear-gradient(#ffe861,#ffaa18);color:#4b2576;font-weight:1000}
+
+/* Pacotes: cinco recompensas miniatura exatamente como shopCard do apoio. */
+.store-shell .store-v2 .bundle-preview{
+ display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+ gap:4px;margin:5px 0;max-width:100%;min-height:33px;
+}
+.store-shell .store-v2 .bundle-preview>img.bundle-thumb{
+ display:block!important;flex:0 0 27px!important;
+ width:27px!important;height:27px!important;max-width:27px!important;max-height:27px!important;
+ object-fit:contain!important;padding:3px!important;
+ border:1px solid #ffffff50;border-radius:8px;background:#ffffff22;
+}
