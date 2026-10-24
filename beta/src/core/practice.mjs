@@ -7,14 +7,22 @@ export function shuffled(values,random=Math.random){
  return list;
 }
 export function choicesFor(fact,random=Math.random){
- const n=fact.a*fact.b;
- const candidates=[n,fact.a*(fact.b+1),fact.a*(fact.b-1),n+fact.a,n-fact.a,
- n+fact.b,n-fact.b,n+10,n-10,fact.a+fact.b,n+1,n-1,n+2,n-2]
- .filter(v=>Number.isInteger(v)&&v>=0&&v<=100);
- const unique=[n];
- for(const v of shuffled(candidates,random))if(!unique.includes(v)&&unique.length<4)unique.push(v);
- for(let v=0;unique.length<4;v++)if(!unique.includes(v))unique.push(v);
- return shuffled(unique,random);
+ // Replica o algoritmo pedagogico do apoio: erros plausiveis em torno
+ // do resultado, sem zero nem respostas repetidas.
+ const correct=Number(fact.answer),step=Math.max(1,Number(fact.a)||1);
+ const pool=[correct-step,correct+step,correct-step*2,correct+step*2,
+  correct-1,correct+1,correct-2,correct+2,correct-5,correct+5,correct-10,correct+10];
+ const values=[correct];
+ for(const candidate of shuffled(pool,random)){
+  if(values.length>=4)break;
+  if(Number.isInteger(candidate)&&candidate>0&&candidate<=100&&!values.includes(candidate))values.push(candidate);
+ }
+ let guard=0;
+ while(values.length<4&&guard++<100){
+  const candidate=Math.max(1,Math.min(100,correct+(Math.floor(random()*21)-10)));
+  if(!values.includes(candidate))values.push(candidate);
+ }
+ return shuffled(values,random);
 }
 export function createPractice(table,mode='learn',random=Math.random,now=Date.now()){
  if(!Number.isInteger(table)||table<1||table>10)throw Error('Tabuada inválida');
