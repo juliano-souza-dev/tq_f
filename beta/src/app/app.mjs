@@ -185,9 +185,10 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   const player=profiles.active();if(!player)return navigate('profiles');
   if(!Number.isInteger(n)||n<1||n>10)return;
   const state=worldState(player,n,now());
+  // Mesmo bloqueio e calendario da implementacao original (apoio).
+  if(!state.enabled){selectedWorld=n;navigate('worlds');return;}
   // Persistir o último ponto de jogo deste perfil, mesmo se a sessão for interrompida.
   profiles.updateActive(p=>{p.flags??={};p.flags.resumeWorld=n;});
-  // Beta is a development build: progression gates are bypassed only here.
   selectedWorld=n;
   session=createPractice(n,state.id==='due'?'review':'learn',random,now());
   navigate('practice');
