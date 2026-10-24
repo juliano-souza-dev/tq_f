@@ -521,10 +521,6 @@ body:has(.practice-scene-world-2){
 
 /* Apoio-inspired animation, shown during the automatic answer delay. */
 .practice-scene-art,.practice-legacy-shell{isolation:isolate}
-.practice-fx-picker{position:absolute;z-index:12;right:4%;top:24.3%;display:flex;gap:4px;align-items:center;padding:4px 6px;border-radius:999px;background:#412078bd;border:1px solid #f8dc9d99;color:#ffe9a9;font-size:clamp(.55rem,2.1vw,.75rem);font-weight:900}
-.practice-legacy-shell>.practice-fx-picker{top:108px;right:14px}
-.practice-fx-picker button{min-width:30px;min-height:30px;border-radius:50%;border:2px solid #a785c5;background:#523191;font-size:1rem;padding:0}
-.practice-fx-picker button.selected{border-color:#ffe378;background:#8b57c7;box-shadow:0 0 9px #ffd96a}
 .practice-fx-layer{position:absolute;inset:0;z-index:30;pointer-events:none;display:grid;place-items:center;overflow:hidden;animation:practiceFxAppear .38s ease-out both}
 .practice-fx-layer::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#f9e1ff22,#1e0d4d42);animation:practiceFxFlash 1.5s ease-out forwards}
 .practice-fx-layer.error::before{background:radial-gradient(ellipse at center,#ff9f9f20,#9a184859)}
@@ -935,3 +931,6 @@ url('https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido
 
 /* Keep the selected treasure's full showcase visible while browsing the collection. */
 @media(max-height:640px){.collection-showcase{min-height:0;padding:6px 10px 9px}.collection-stage{height:150px}.collection-pedestal{height:162px}.collection-stage-item{width:85px;height:85px;margin-top:-25px}.collection-detail b{font-size:15px}.collection-source{margin-top:3px!important;padding:3px 7px}.collection-tabs{top:calc(env(safe-area-inset-top, 0px) + 240px)}}
+
+/* The game artwork must not repeat in the remaining viewport around the fixed-ratio playfield. */
+body:has(.practice-scene-view){background:#294879!important;background-image:linear-gradient(180deg,#294879,#1e386b)!important;background-attachment:initial!important}
