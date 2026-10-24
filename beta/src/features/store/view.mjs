@@ -9,7 +9,7 @@ function productCard(profile,item){
  const owned=own(profile,item.id),type=STORE_TYPE_LABEL[item.cat]||item.cat,rarity='rarity-'+String(item.rarity||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const label=owned?(item.cat==='collectible'?'Colecionado':item.bundle?'Pacote adquirido':'No Baú'):'Comprar';
  const bundle=item.bundle?`<div class="bundle-preview">${item.bundle.map(storeItem).filter(Boolean).map(x=>`<img class="bundle-thumb" src="${itemImage(x)}" alt="${escapeHTML(x.name)}" loading="lazy">`).join('')}</div>`:'';
- const price=owned&&!item.bundle?`<div class="price owned-price">✓ Comprado</div>`:`<div class="price"><img class="coin-inline" src="${coin()}" alt=""> ${format(item.price)}</div>`;
+ const price=owned&&!item.bundle?`<div class="price owned-price">✓ Comprado</div>`:item.gemPrice?`<div class="price ruby-price"><span class="ruby-inline" aria-label="Rubis">◆</span> ${format(item.gemPrice)}</div>`:`<div class="price"><img class="coin-inline" src="${coin()}" alt=""> ${format(item.price)}</div>`;
  return `<article class="item ${item.cat==='package'?'package':''} ${owned?'owned-card':''}">
   <span class="rarity ${rarity}">${escapeHTML(item.rarity||'Mágico')}</span>${owned?'<span class="owned-mark">✓</span>':''}
   <div class="item-art"><img src="${itemImage(item)}" alt="${escapeHTML(item.name)}" loading="lazy"></div>
@@ -48,7 +48,7 @@ export function storeScreen(profile,tab='all',notice='',selectedPack=null){
  <button class="store-back" type="button" data-action="home" aria-label="Voltar para início">‹ <span>Voltar</span></button>
  <div class="store-topbar">
   <div class="store-title-wrap"><span class="store-kicker">✦ MERCADO ENCANTADO</span><h1>Loja Mágica</h1><div class="store-sub">Tesouros que transformam sua aventura sem mexer no avatar.</div></div>
-  <div class="store-purse"><img src="${coin()}" alt=""><strong>${format(profile.coins)}</strong></div>
+  <div class="store-purse"><span class="store-purse-unit"><img src="${coin()}" alt="Ouro"><strong>${format(profile.coins)}</strong></span><span class="store-purse-unit"><span class="ruby-inline" aria-label="Rubis">◆</span><strong>${format(profile.gems)}</strong></span></div>
  </div>
  <div class="shop-feature" id="magicPackHero">
   <div class="shop-feature-art"><img src="${itemImage(hero)}" alt="Pacote Mágico"></div>
