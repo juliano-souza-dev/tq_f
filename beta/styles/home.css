@@ -1228,3 +1228,14 @@ body:has(.home-view) #app{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){
  .home-view .play-button::before,.home-view .play-button::after{animation:none!important}
 }
+
+
+/* Apoio estático: manter o centro geométrico do sprite sobre o centro de Jogar. */
+.home-view .hero-character{
+ left:50%!important;
+ transform:translate(-50%,clamp(12px,2dvh,22px))!important;
+ translate:none!important;
+ animation:none!important;
+}
+.home-view .play-button::before,
+.home-view .play-button::after{animation:none!important}
