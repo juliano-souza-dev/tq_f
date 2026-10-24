@@ -1,5 +1,5 @@
 /* Tabuada Quest PWA: update online, preserve installed/offline access. */
-const VERSION='tq-beta-portrait-up-20261024';
+const VERSION='tq-beta-portrait-up-more-20261024';
 const CORE=[
  './','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png',
  './styles/app.css','./styles/home.css','./styles/fashion-reference.css','./styles/backgrounds.css','./styles/store.css',
