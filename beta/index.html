@@ -20,13 +20,13 @@
  <link rel="stylesheet" href="./styles/home.css?v=static-centered-20261024">
  <link rel="stylesheet" href="./styles/fashion-reference.css">
  <link rel="stylesheet" href="./styles/backgrounds.css">
- <link rel="stylesheet" href="./styles/store.css?v=bundle-details-20261024">
+ <link rel="stylesheet" href="./styles/store.css?v=package-thumbnails-20261024">
  <script type="module">
  if('serviceWorker' in navigator){
   addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA indisponível:',error)));
  }
  try{
-  await import('./src/app/app.mjs?v=bundle-details-20261024');
+  await import('./src/app/app.mjs?v=package-thumbnails-20261024');
  }catch(error){
   console.error('Falha ao iniciar Tabuada Quest:',error);
   document.getElementById('app').textContent='Não foi possível iniciar o jogo. Verifique a conexão e recarregue.';
