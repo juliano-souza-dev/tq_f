@@ -1186,3 +1186,45 @@ body:has(.home-view) #app{position:relative;z-index:1}
  transform-origin:center center!important;
  object-position:50% 50%!important;
 }
+
+
+/* Personagem apoiada no botão Jogar: a arte mantém o mesmo tamanho,
+   somente o eixo vertical desce até a borda superior dourada. */
+.home-view .hero-stage{z-index:10!important}
+.home-view .hero-fashion{z-index:11!important}
+.home-view .hero-character{
+ transform:translateY(clamp(12px,2dvh,22px))!important;
+ filter:drop-shadow(0 4px 3px #2c15588c)!important;
+}
+.home-view .play-button{isolation:isolate;overflow:visible!important}
+.home-view .play-button .play-art{position:relative;z-index:1}
+.home-view .play-button::before{
+ content:"";position:absolute;z-index:2;
+ left:50%;top:clamp(7px,11%,18px);
+ width:27%;height:clamp(7px,1.3dvh,13px);
+ transform:translateX(-50%);
+ border-radius:50%;
+ background:radial-gradient(ellipse,#40144b9c 0%,#8b4a2b77 43%,transparent 73%);
+ filter:blur(3px);
+ pointer-events:none;
+ animation:tqCharacterContact 5.6s ease-in-out infinite;
+}
+.home-view .play-button::after{
+ content:"";position:absolute;z-index:3;pointer-events:none;
+ width:32%;height:18%;left:50%;top:0;
+ transform:translateX(-50%);
+ background:radial-gradient(ellipse at 50% 80%,#fff8c8b3,transparent 65%);
+ opacity:.6;mix-blend-mode:screen;
+ animation:tqStepGlimmer 5.6s ease-in-out infinite;
+}
+@keyframes tqCharacterContact{
+ 0%,100%{opacity:.9;scale:1 1}
+ 50%{opacity:.6;scale:.94 .85}
+}
+@keyframes tqStepGlimmer{
+ 0%,100%{opacity:.67}
+ 50%{opacity:.35}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-view .play-button::before,.home-view .play-button::after{animation:none!important}
+}
