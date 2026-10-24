@@ -105,12 +105,6 @@ export function collectionScreen(profile,selectedId=null,filter='all'){
     <div class="collection-detail"><b>${has?escapeHTML(chosen.name):'Tesouro misterioso'}</b><span>${chosen?`${escapeHTML(chosen.rarity)} · ${has?'Tesouro conquistado':'ainda não encontrado'}`:'Escolha uma peça da galeria.'}</span><span class="collection-source">${chosen?escapeHTML(collectionSourceLabel(chosen)):'Sua coleção'}</span></div>
     <div class="collection-actions"></div>
    </div>
-   <div class="collection-sticky-overview" aria-label="Resumo da coleção sempre visível">
-    <div class="collection-sticky-identity"><span>MINHA COLEÇÃO</span><strong>${owned.length} de ${all.length} tesouros</strong></div>
-    <img class="collection-sticky-art" src="${img(has?chosen.asset:'collection-locked-card.png')}" alt="">
-    <div class="collection-sticky-selected"><b>${has?escapeHTML(chosen.name):'Tesouro misterioso'}</b><span>${pct}% da coleção</span></div>
-    <div class="collection-sticky-meter" style="--pct:${pct}%"></div>
-   </div>
    <nav class="collection-tabs" aria-label="Filtrar por raridade">${tabs.map(([id,label])=>`<button type="button" class="collection-tab ${filter===id?'active':''}" data-action="collectionFilter" data-filter="${escapeHTML(id)}" ${filter===id?'aria-current="page"':''}>${escapeHTML(label)}</button>`).join('')}</nav>
    <div class="collection-grid">${visible.map(item=>{
      const itemOwned=profile.owned?.includes(item.id),isSelected=item.id===chosen?.id;
