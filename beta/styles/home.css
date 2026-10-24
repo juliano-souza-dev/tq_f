@@ -1182,7 +1182,7 @@ body:has(.home-view) #app{position:relative;z-index:1}
  border-radius:50%!important;
 }
 .home-view .hero-portrait-face{
- transform:scale(2.52) translateY(32%)!important;
+ transform:scale(2.52) translateY(28%)!important;
  transform-origin:center center!important;
  object-position:50% 50%!important;
 }
