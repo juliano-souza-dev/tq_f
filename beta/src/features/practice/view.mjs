@@ -89,6 +89,7 @@ export function winScreen(profile,result){
    <h2>${escapeHTML(world.name)}</h2>
    <p>${first?`A tabuada do ${result.deck} foi dominada! Você concluiu as dez multiplicações, acertando cada uma duas vezes seguidas.`:'Mais uma missão concluída! Seu aprendizado ficou ainda mais forte.'}</p>
    <div class="lesson-reward-banner"><span>⭐</span><b>+50 XP</b><small>Recompensa da lição</small></div>
+   ${result.gems?`<div class="lesson-reward-unlock">💎 +${result.gems} rubi conquistado por dominar esta tabuada!</div>`:''}
    <div class="lesson-reward-stats">
     <div><b>${result.correct}</b><span>ACERTOS</span></div>
     <div><b>${result.wrong}</b><span>ERROS</span></div>
