@@ -65,12 +65,16 @@ export function finishPractice(session,profile,now=Date.now()){
  profile.stats.masteredDecks??={};
  profile.stats.masteredDecks[String(session.table)]={at:now,correct:session.correct,wrong:session.wrong};
  profile.xp=Number(profile.xp||0)+50;
+ // Rubi concedido somente na primeira conclusao desta tabuada.
+ const firstCompletion=!Number(profile.learning?.tables?.[String(session.table)]?.masteredAt||0);
+ const rubyAwarded=firstCompletion?1:0;
+ if(rubyAwarded)profile.gems=Number(profile.gems||0)+rubyAwarded;
  profile.learning??={tables:{}};
  profile.learning.tables??={};
  profile.learning.tables[String(session.table)]=reviewSchedule(profile,session.table,session.mode,session.wrong,now);
  profile.history=Array.isArray(profile.history)?profile.history:[];
  const result={deck:session.table,mode:session.mode,correct:session.correct,
-  wrong:session.wrong,coins:session.coins,
+  wrong:session.wrong,coins:session.coins,gems:rubyAwarded,
   seconds:Math.max(1,Math.round((now-session.started)/1000)),at:now};
  profile.history.unshift(result);
  profile.history=profile.history.slice(0,40);
