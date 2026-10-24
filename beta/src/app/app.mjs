@@ -192,13 +192,35 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   session=createPractice(n,state.id==='due'?'review':'learn',random,now());
   navigate('practice');
  }
+ function refreshPracticeUI(){
+  const player=profiles.active();
+  const current=root.querySelector('.practice-scene-view, .practice-legacy');
+  if(!player||!session||!current){render();return;}
+  const template=document.createElement('template');
+  template.innerHTML=practiceScreen(player,session).trim();
+  const next=template.content.firstElementChild;
+  if(!next||next.className!==current.className){render();return;}
+  const selectors=[
+   '.practice-scene-question','.practice-scene-answers','.practice-scene-progress',
+   '.practice-scene-coins','.practice-scene-feedback','.practice-scene-preview-label',
+   '.practice-legacy-question-copy','.practice-legacy-choices',
+   '.practice-legacy-progress','.practice-legacy-wallet','.practice-legacy-feedback'
+  ];
+  for(const selector of selectors){
+   const before=current.querySelector(selector);
+   const after=next.querySelector(selector);
+   if(before&&after)before.replaceWith(after);
+   else if(!before&&after)current.querySelector('.practice-scene-art, .practice-legacy-shell')?.append(after);
+   else if(before&&!after)before.remove();
+  }
+ }
  function submitAnswer(value){
   if(screen!=='practice'||!session||session.answered)return;
   if(session.preview){
    const previewPlayer={coins:0,xp:0,stats:{correct:0,wrong:0}};
    answerPractice(session,previewPlayer,value);
   }else profiles.updateActive(player=>answerPractice(session,player,value));
-  render();
+  refreshPracticeUI();
   const player=profiles.active();
   cleanupPracticeFX=playPracticeFX(root.querySelector('.practice-scene-art, .practice-legacy-shell'),!!session.feedback?.good,player?.equipped?.effect);
   // Single GPU pass: environmental water/light and response energy share one canvas.
@@ -213,7 +235,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
   if(session.preview&&session.queue.length===0){
    session=createPractice(session.table,'learn',random,now());
    session.preview=true;
-   render();
+   refreshPracticeUI();
    return;
   }
   if(session.queue.length===0){
@@ -234,7 +256,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
    navigate('win');
   }else{
    nextPractice(session,random);
-   render();
+   refreshPracticeUI();
   }
  }
  function act(action,dataset={}){
