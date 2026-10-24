@@ -12,7 +12,7 @@ export {FAMILIES,STORAGE_KEY,LEGACY_KEY};
 
 export function makeProfile(family,id){
  return {
-  id,name:family.name,coins:10000,gems:45,xp:0,
+  id,name:family.name,coins:0,gems:0,xp:0,
   owned:['fx_magic','fx_papai'],fashionOwned:['original'],quantities:{},
   equipped:{frame:null,background:null,effect:'fx_papai'},
   avatar:{id:family.avatar,skinId:'original'},
@@ -50,7 +50,7 @@ function normalizeProfile(p,family,createId){
   stats:{...base.stats,...p.stats,masteredDecks:{...base.stats.masteredDecks,...p.stats?.masteredDecks}},
   learning:{...base.learning,...p.learning,tables},
   history:Array.isArray(p.history)?p.history:[],
-  coins:number(p.coins,10000),gems:number(p.gems,45),xp:number(p.xp)
+  coins:number(p.coins,0),gems:number(p.gems,0),xp:number(p.xp)
  };
 }
 export function createProfileStore({storage,now=()=>Date.now(),random=Math.random}={}){
