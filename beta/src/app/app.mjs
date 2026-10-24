@@ -48,7 +48,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
  let stopPets=null,petSelectedId=1,petRescue=null,petPlayTimer=null;
  let chestOpening=null,chestNotice='',chestTimer=null,vaultTab='frame',vaultNotice='',vaultSelectedId=null;
  let collectionFilter='all',collectionSelectedId=null;
- let storeTab='all',storeNotice='';
+ let storeTab='all',storeNotice='',storePackage=null;
  const cancelChestTimer=()=>{if(chestTimer!==null){clearInterval(chestTimer);chestTimer=null}};
  let answerTimer=null;
  let cleanupPracticeFX=null;
@@ -143,7 +143,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
     case 'collectibles':
       root.innerHTML=player?collectionScreen(player,collectionSelectedId,collectionFilter):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'store':
-      root.innerHTML=player?storeScreen(player,storeTab,storeNotice):profilesScreen(profiles.profiles(),selectedPlayer);break;
+      root.innerHTML=player?storeScreen(player,storeTab,storeNotice,storePackage):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'home':
       root.innerHTML=player?homeScreen(player):profilesScreen(profiles.profiles(),selectedPlayer);break;
     case 'worlds':
@@ -304,7 +304,7 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      if(feature==='Pets'){petRescue=null;navigate('pets');break;}
      if(feature==='Baús'){chestNotice='';navigate('chests');break;}
      if(feature==='Colecionáveis'){navigate('collectibles');break;}
-     if(feature==='Loja'){storeTab='all';storeNotice='';navigate('store');break;}
+     if(feature==='Loja'){storeTab='all';storeNotice='';storePackage=null;navigate('store');break;}
      if(['Baú de itens','Molduras','Efeitos'].includes(feature)){
       vaultTab={'Baú de itens':'frame','Molduras':'frame','Efeitos':'effect'}[feature];
       vaultNotice='';vaultSelectedId=null;navigate('vault');break;
@@ -345,9 +345,21 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
      dailyNotice=granted?'✨ '+granted.label:'Recompensa de hoje já coletada.';
      dailyWeek=dailyState(profiles.active(),new Date(now())).week;render();break;
    }
-   case 'storeTab':storeTab=String(dataset.tab||'all');storeNotice='';render();break;
+   case 'storeTab':storeTab=String(dataset.tab||'all');storeNotice='';storePackage=null;render();break;
+   case 'storePackClose':storePackage=null;render();break;
+   case 'storePackItem':{
+    const id=String(dataset.item||''),cat=String(dataset.cat||''),item=storeItem(id);
+    if(!item||!profiles.active()?.owned?.includes(id))break;
+    storePackage=null;
+    if(cat==='collectible'){collectionSelectedId=id;navigate('collectibles');break;}
+    if(['frame','background','effect'].includes(cat)){
+     vaultTab=cat;vaultSelectedId=id;vaultNotice='';navigate('vault');break;
+    }
+    render();break;
+   }
    case 'storeBuy':{
     const id=String(dataset.item||''),product=storeItem(id),player=profiles.active();if(!product||!player)break;
+    if(product.bundle&&player.owned?.includes(id)){storePackage=id;storeNotice='';render();break;}
     let purchase=null;profiles.updateActive(p=>{purchase=buyStoreItem(p,id)});
     if(purchase?.reason==='owned'){
       if(['frame','background','effect'].includes(product.cat)){
@@ -356,7 +368,10 @@ export function createApp({root,storage,now=()=>Date.now(),random=Math.random}){
       if(product.cat==='collectible'){collectionSelectedId=id;navigate('collectibles');break;}
       storeNotice='Esse pacote já foi adquirido.';
     }else if(purchase?.reason==='insufficient-coins')storeNotice='Faltam '+purchase.missing+' moedas para este tesouro.';
-    else if(purchase?.reason==='purchased')storeNotice=product.bundle?'✨ Pacote aberto! Seus tesouros estão na coleção e no Baú de Itens.':product.cat==='collectible'?'✨ Novo colecionável adicionado à sua coleção!':'✨ Compra concluída! Item enviado ao Baú de Itens.';
+    else if(purchase?.reason==='purchased'){
+      storeNotice=product.bundle?'✨ Pacote aberto! Seus tesouros estão na coleção e no Baú de Itens.':product.cat==='collectible'?'✨ Novo colecionável adicionado à sua coleção!':'✨ Compra concluída! Item enviado ao Baú de Itens.';
+      if(product.bundle)storePackage=id;
+    }
     else storeNotice='Não foi possível concluir a compra.';
     render();break;
    }
