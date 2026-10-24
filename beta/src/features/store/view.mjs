@@ -8,7 +8,7 @@ function rewardTags(item){return (item?.bundle||[]).map(id=>storeItem(id)).filte
 function productCard(profile,item){
  const owned=own(profile,item.id),type=STORE_TYPE_LABEL[item.cat]||item.cat,rarity='rarity-'+String(item.rarity||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const label=owned?(item.cat==='collectible'?'Colecionado':item.bundle?'Pacote adquirido':'No Baú'):'Comprar';
- const bundle=item.bundle?`<div class="bundle-preview">${rewardTags(item)}</div>`:'';
+ const bundle=item.bundle?`<div class="bundle-preview">${item.bundle.map(storeItem).filter(Boolean).map(x=>`<img class="bundle-thumb" src="${itemImage(x)}" alt="${escapeHTML(x.name)}" loading="lazy">`).join('')}</div>`:'';
  const price=owned&&!item.bundle?`<div class="price owned-price">✓ Comprado</div>`:`<div class="price"><img class="coin-inline" src="${coin()}" alt=""> ${format(item.price)}</div>`;
  return `<article class="item ${item.cat==='package'?'package':''} ${owned?'owned-card':''}">
   <span class="rarity ${rarity}">${escapeHTML(item.rarity||'Mágico')}</span>${owned?'<span class="owned-mark">✓</span>':''}
