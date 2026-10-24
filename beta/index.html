@@ -26,7 +26,7 @@
   addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(error=>console.warn('PWA indisponível:',error)));
  }
  try{
-  await import('./src/app/app.mjs?v=practice-stable-20261024');
+  await import('./src/app/app.mjs?v=apoio-pedagogy-20261024');
  }catch(error){
   console.error('Falha ao iniciar Tabuada Quest:',error);
   document.getElementById('app').textContent='Não foi possível iniciar o jogo. Verifique a conexão e recarregue.';
