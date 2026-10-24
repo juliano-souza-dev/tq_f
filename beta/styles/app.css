@@ -819,7 +819,7 @@ body:has(.practice-scene-world-10){background-image:linear-gradient(#173c2660,#1
 /* Galeria de colecionáveis: layout, pedestal, cartas e proporções do apoio. */
 .collection-screen{position:relative;margin:-18px -14px -20px;padding:calc(22px + env(safe-area-inset-top)) 14px 110px;min-height:100vh;background:
 linear-gradient(180deg,rgba(31,8,62,.12),rgba(34,10,67,.30)),
-url('https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/collection-gallery-bg.webp') center top/cover fixed;color:#fff;overflow:hidden}
+url('https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido/assets/collection-gallery-bg.webp') center top/cover fixed;color:#fff;overflow:clip}
 .collection-screen:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,8,64,.18),rgba(28,7,58,.56));pointer-events:none}
 .collection-shell{position:relative;z-index:2;max-width:680px;margin:auto}
 .collection-head{text-align:center;margin-bottom:12px}
@@ -838,7 +838,7 @@ url('https://raw.githubusercontent.com/juliano-souza-dev/tq_f/apoio/apk-extraido
 .collection-stage-item.locked{width:128px;height:128px}
 .collection-detail{position:relative;z-index:4;text-align:center;margin-top:4px}.collection-detail b{display:block;font-size:18px;color:#fff2a3;text-shadow:0 2px 0 #5b245f}.collection-detail span{display:block;margin-top:4px;font-size:9px;font-weight:850;color:#efe5ff}
 .collection-source{display:inline-flex!important;margin-top:7px!important;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff!important}
-.collection-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 1px 8px;scrollbar-width:none}.collection-tabs::-webkit-scrollbar{display:none}
+.collection-tabs{position:sticky;top:env(safe-area-inset-top, 0px);z-index:30;display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;padding:10px 7px 13px;margin:0 -7px 2px;scrollbar-width:none;background:linear-gradient(180deg,rgba(38,10,80,.98),rgba(47,14,91,.93));border:1px solid rgba(255,223,123,.45);border-radius:16px;box-shadow:0 7px 18px rgba(21,4,49,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overscroll-behavior-x:contain}.collection-tabs::-webkit-scrollbar{display:none}
 .collection-tab{white-space:nowrap;min-height:39px;padding:7px 11px;border:2px solid rgba(255,255,255,.52);border-radius:14px;background:rgba(50,15,98,.84);color:#f4eaff;font-size:9px;font-weight:1000;box-shadow:0 4px 0 rgba(29,6,63,.32)}
 .collection-tab.active{background:linear-gradient(145deg,#ffd94c,#f3a616);color:#4a266e;border-color:#fff1a8;box-shadow:0 4px 0 #9b5b04}
 .collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
